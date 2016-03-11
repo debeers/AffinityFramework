@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Contentmart.in smoke test suite" >
+
+    <!-- <listeners>
+     <listener class-name="Utilities.RetryListener"/>
+     </listeners>-->
+
+    <!--Credentials: -->
+
+    <parameter name="clientLoginParam"     value="debeejrs1989@gmail.com"         />
+    <parameter name="clientPasswordParam"  value="roottoor"                     />
+    <parameter name="mainTitleRU"  value="Доска бесплатных объявлений Азербайджана. Частные объявления на Lalafo.az | Lalafo.az и Lalafo.az"/>
+    <!--Credentials: END -->
+
+
+    <!--Properties: -->
+
+    <parameter name = "URL"  value="http://lalafo.az/ru/"/>
+    <parameter name="screenshoter.properties" value="/screenshoter.properties" />
+
+
+    <test name="Fast_And_Furious_Smoke_1.0">
+        <classes>
+
+            <class name="Tests.AddPost.AddNewPost"/>
+            <!-- <class name="Tests.Login.Login_Positive"/>
+              <class name="Tests.Registration.RegistrationOfNewUser"/>-->
+         </classes>
+     </test>
+ </suite>
