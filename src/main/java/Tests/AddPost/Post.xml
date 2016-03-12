@@ -17,10 +17,10 @@
     <entry key="HideNumber">true</entry>
     <entry key="IsNegotiable">false</entry>
 
-    <entry key="File1">C:\Users\DeBeers\Desktop\Autotest-java\LalafoAutotestsSuiteJava\src\main\java\FilesForUpload\1.jpg</entry>
-    <entry key="File2">C:\Users\DeBeers\Desktop\Autotest-java\LalafoAutotestsSuiteJava\src\main\java\FilesForUpload\2.jpg</entry>
-    <entry key="File3">C:\Users\DeBeers\Desktop\Autotest-java\LalafoAutotestsSuiteJava\src\main\java\FilesForUpload\3.jpg</entry>
-    <entry key="File4">C:\Users\DeBeers\Desktop\Autotest-java\LalafoAutotestsSuiteJava\src\main\java\FilesForUpload\4.jpg</entry>
-    <entry key="File5">C:\Users\DeBeers\Desktop\Autotest-java\LalafoAutotestsSuiteJava\src\main\java\FilesForUpload\5.jpg</entry>
+    <entry key="File1">C:\UploadFiles\1.jpg</entry>
+    <entry key="File2">C:\UploadFiles\2.jpg</entry>
+    <entry key="File3">C:\UploadFiles\3.jpg</entry>
+    <entry key="File4">C:\UploadFiles\4.jpg</entry>
+    <entry key="File5">C:\UploadFiles\5.jpg</entry>
 
 </properties>
