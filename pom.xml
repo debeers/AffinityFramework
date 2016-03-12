@@ -190,7 +190,7 @@
                         <java.awt.headless>false</java.awt.headless>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${project.basedir}/TestNG.xml</suiteXmlFile>
+                        <suiteXmlFile>C:\Users\DeBeers\Desktop\Autotest-java\LalafoAutotestsSuiteJava\src\TestNG.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
