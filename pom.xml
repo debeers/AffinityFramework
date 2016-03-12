@@ -189,9 +189,6 @@
                     <systemPropertyVariables>
                         <java.awt.headless>false</java.awt.headless>
                     </systemPropertyVariables>
-                    <argLine>-Dmail.smtp.sendpartial=true</argLine>
-                    <argLine>mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc7 \
-                        -Dversion=12.1.0.1 -Dpackaging=jar -Dfile=ojdbc7.jar -DgeneratePom=true</argLine>
                     <suiteXmlFiles>
                         <suiteXmlFile>TestNG.xml</suiteXmlFile>
                     </suiteXmlFiles>
