@@ -18,7 +18,7 @@ public class TopMenuGeneralPage extends BasePageObject {
     @FindBy(xpath = ".//div[contains(@class,'logo pull-left')]/a")
     public WebElement lalafoTopMenuLink;
 
-    @FindBy(xpath = ".//a[contains(@class,'account-link')]/../../div")
+    @FindBy(xpath = ".//ul[contains(@class,'user-nav')]/li[1]/div/a")
     public WebElement userAccountTopMenuLink;
 
     @FindBy(xpath = ".//ul[contains(@class,'user-nav')]/li[2]/a")
