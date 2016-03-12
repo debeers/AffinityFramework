@@ -15,17 +15,13 @@
 
 
     <!--Properties: -->
-
     <parameter name = "URL"  value="http://lalafo.az/ru/"/>
-    <parameter name="screenshoter.properties" value="/screenshoter.properties" />
 
-
-    <test name="Fast_And_Furious_Smoke_1.0">
+    <test name="Affinity_Smoke_1.0">
         <classes>
-
             <class name="Tests.AddPost.AddNewPost"/>
-            <!-- <class name="Tests.Login.Login_Positive"/>
-              <class name="Tests.Registration.RegistrationOfNewUser"/>-->
+            <class name="Tests.Login.Login_Positive"/>
+            <class name="Tests.Registration.RegistrationOfNewUser"/>
          </classes>
      </test>
  </suite>
