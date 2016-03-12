@@ -190,7 +190,7 @@
                         <java.awt.headless>false</java.awt.headless>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${project.build.directory}/TestNG.xml</suiteXmlFile>
+                        <suiteXmlFile>${project.basedir}/TestNG.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>

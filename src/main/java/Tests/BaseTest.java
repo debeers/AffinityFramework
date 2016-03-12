@@ -15,6 +15,7 @@ import ru.stqa.selenium.factory.WebDriverFactory;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
@@ -27,7 +28,6 @@ public class BaseTest {
     public static LoginObject clientLogin;
     private String mainTitle;
     public static org.slf4j.Logger log;
-
 
     @BeforeSuite(alwaysRun = true)
     public void preCondition() throws IOException, ClassNotFoundException, SQLException {
@@ -66,7 +66,8 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
         driver.manage().window().maximize();
-        WebDriverRunner.setWebDriver(driver); // Selenide WebDriverRunner for my custom driver
+        WebDriverRunner.setWebDriver(driver);
+
 
         try {
             driver.get(URL);

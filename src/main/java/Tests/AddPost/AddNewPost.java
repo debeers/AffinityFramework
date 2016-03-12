@@ -6,7 +6,6 @@ import PageObjects.PostPage;
 import PageObjects.PostPreviewPage;
 import PageObjects.SuccessPostedPage;
 import Tests.BaseTest;
-import org.eclipse.jetty.util.log.Log;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.awt.*;
@@ -29,15 +28,27 @@ public class AddNewPost extends BaseTest{
         Post post = new Post(props);
         int countForPhotoUploads = 3;
 
+        //
+        //Go to main page
+        //
         MainPage mainPage = new MainPage(driver);
         log.info("We are on the main page");
 
+        //
+        //Go to compose new post
+        //
         PostPage postPage = mainPage.clickOnAddNewPostButton();
         log.info("We are on the composing new post page");
 
+        //
+        //Create new post
+        //
         PostPreviewPage postPreviewPage = makeNewPost(postPage, post, countForPhotoUploads).clickOnPreviewButton();
         log.info("We are on the preview post page, checking data for consistance:::");
 
+        //
+        //Verify data on preview page
+        //
         Assert.assertEquals($$(postPreviewPage.previewPhotos).size(), countForPhotoUploads + 1);
         Assert.assertTrue(postPreviewPage.previewStepTab.isDisplayed());
         Assert.assertEquals(postPreviewPage.getTextFromPreviewPrice().subSequence(2, 4), post.getPrice(), "Price is not correct");
@@ -46,6 +57,9 @@ public class AddNewPost extends BaseTest{
         Assert.assertEquals(postPreviewPage.getTextFromPreviewDescription(), post.getDescription(), "Description is not correct");
         log.info("Data on preview page is consistant, post is correct");
 
+        //
+        //Publish post and verify result
+        //
         SuccessPostedPage successPostedPage = postPreviewPage.clickOnAddPostButton();
         log.info("We are on the success post page, checking data for consistance:::");
 

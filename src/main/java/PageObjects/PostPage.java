@@ -2,25 +2,24 @@ package PageObjects;
 
 import Entities.Post;
 import com.codeborne.selenide.Condition;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-import java.io.File;
 import java.util.*;
 import java.util.List;
 
 import static GeneralHelpers.JSTools.jsDeleteClasses;
 import static GeneralHelpers.RobotUpload.uploadFile;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-import static java.util.Collections.*;
 
 /**
  * Created by DeBeers on 08.03.2016.
@@ -52,6 +51,9 @@ public class PostPage extends TopMenuGeneralPage {
 
     @FindBy(xpath = ".//*[@id='first-step']/div[3]/div[3]/input")
     public WebElement titleField;
+
+    @FindBy(id = "loader")
+    public WebElement loader;
 
     @FindBy(xpath = ".//*[@id='decription']")
     public WebElement descriptionField;
@@ -114,15 +116,24 @@ public class PostPage extends TopMenuGeneralPage {
     public WebElement fileUpload5;
 
 
-
+    public void waitTillLoaderDissappear(){
+        try {
+            if (loader.isDisplayed()) {
+                $(loader).should(disappear);
+                log.info("Waiting till loader disappear");
+            }
+        }catch (Exception e){
+            log.info("No loaders were found, go nex step");
+        }
+    }
 
     public void selectFromDropdawnMenuByIndex(WebElement element, List<WebElement> list, String index) throws InterruptedException {
-        $(element).shouldBe(Condition.visible).click();
+        $(element).shouldBe(visible).click();
         try {
             list
                     .stream()
                     .filter(el -> el.getAttribute("data-option-array-index").equals(index))
-                    .forEach(el -> $(el).shouldBe(Condition.visible).click());
+                    .forEach(el -> $(el).shouldBe(visible).click());
         }catch (Exception e){
             System.out.println("We`re catched Stale element exception, but fuck it!)");
         }
@@ -131,24 +142,25 @@ public class PostPage extends TopMenuGeneralPage {
 
     public void setCategory(String categoryIndex) throws InterruptedException {
         selectFromDropdawnMenuByIndex(categoriesChoose, categoriesList, categoryIndex);
+        waitTillLoaderDissappear();
     }
 
     public void setUnderCategory(String underCategoryIndex) throws InterruptedException {
-
         selectFromDropdawnMenuByIndex(underCategoriesChoose, underCategoriesList, underCategoryIndex);
+        waitTillLoaderDissappear();
     }
 
     public void setPostTitle(String title){
-        $(titleField).shouldBe(Condition.visible).sendKeys(title);
+        $(titleField).shouldBe(visible).sendKeys(title);
     }
 
     public void setDescription(String description){
-        $(descriptionField).shouldBe(Condition.visible).sendKeys(description);
+        $(descriptionField).shouldBe(visible).sendKeys(description);
     }
 
     public void setPrice(String price){
-        $(priceField).shouldBe(Condition.visible).clear();
-        $(priceField).shouldBe(Condition.visible).sendKeys(price);
+        $(priceField).shouldBe(visible).clear();
+        $(priceField).shouldBe(visible).sendKeys(price);
     }
 
     public void setCurrency(String currency) throws InterruptedException {
@@ -164,14 +176,15 @@ public class PostPage extends TopMenuGeneralPage {
 
     public void setRegion(String regionIndex) throws InterruptedException {
         selectFromDropdawnMenuByIndex(regionListChoose, regionList, regionIndex);
+        waitTillLoaderDissappear();
     }
 
     public void setPrivateTypeAsPrivate(){
-        $(radioButtonPrivate).shouldBe(Condition.visible).click();
+        $(radioButtonPrivate).shouldBe(visible).click();
     }
 
     public void setPrivateTypeAsBusines(){
-        $(radioButtonBusiness).shouldBe(Condition.visible).click();
+        $(radioButtonBusiness).shouldBe(visible).click();
     }
 
     public void setPostAs(String privateOrBusines){
@@ -182,32 +195,33 @@ public class PostPage extends TopMenuGeneralPage {
     }
 
     public void setName(String name){
-        $(nameField).shouldBe(Condition.visible).sendKeys(name);
+        $(nameField).shouldBe(visible).sendKeys(name);
     }
 
     public void setTelephoneNumber(String telephoneNumber){
-        $(phoneField).shouldBe(Condition.visible).clear();
-        $(phoneField).shouldBe(Condition.visible).sendKeys(telephoneNumber);
+        $(phoneField).shouldBe(visible).clear();
+        $(phoneField).shouldBe(visible).sendKeys(telephoneNumber);
     }
 
     public void setHidePhoneNumber(boolean hidePhoneNumber){
         if(hidePhoneNumber)
-        $(hidePhoneCheckBox).shouldBe(Condition.visible).click();
+        $(hidePhoneCheckBox).shouldBe(visible).click();
     }
 
     public void setEmail(String email){
-        $(emailField).shouldBe(Condition.visible).sendKeys(email);
+        $(emailField).shouldBe(visible).sendKeys(email);
     }
 
 
     public PostPreviewPage clickOnPreviewButton(){
-        $(previewButton).shouldBe(Condition.visible).click();
+        $(previewButton).shouldBe(visible).click();
+        waitTillLoaderDissappear();
         return new PostPreviewPage(driver);
     }
 
     public SuccessPostedPage clickOnSubmitButton(){
-        $(submitButton).shouldBe(Condition.visible).click();
-
+        $(submitButton).shouldBe(visible).click();
+        waitTillLoaderDissappear();
         try {
             if ($$(errors).shouldBe().size() != 0) {
                 errors.stream().forEach((p) ->
@@ -221,9 +235,18 @@ public class PostPage extends TopMenuGeneralPage {
         return new SuccessPostedPage(driver);
     }
 
-    public void UploadImages(Post post, int countOfFilesToUpload) throws InterruptedException, AWTException {
+    public void UploadImages(Post post, int countOfFilesToUpload)
+            throws InterruptedException, AWTException {
 
-        List<WebElement> inputs = Arrays.asList(fileUpload1, fileUpload2, fileUpload3, fileUpload4, fileUpload5);
+        List<WebElement> inputs =
+                Arrays.asList(
+                    fileUpload1,
+                    fileUpload2,
+                    fileUpload3,
+                    fileUpload4,
+                    fileUpload5
+                );
+
         for(int i = 0; i<countOfFilesToUpload; i++){
             inputs.get(i).click();
             uploadFile(post.getListOfFiles().get(i).getAbsolutePath());
@@ -231,8 +254,6 @@ public class PostPage extends TopMenuGeneralPage {
             dummyClick.click();
             System.out.println(post.getListOfFiles().get(i).getAbsolutePath());
         }
-
-
     }
 
     public PostPage(WebDriver driver) {

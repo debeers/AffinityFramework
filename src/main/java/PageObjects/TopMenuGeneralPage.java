@@ -40,20 +40,16 @@ public class TopMenuGeneralPage extends BasePageObject {
     public WebElement exitTopMenuUserMenuLink;
 
 
-
     public MainPage clickOnLalafoTopMenuLink(){
         $(lalafoTopMenuLink).shouldBe(visible).click();
         return new MainPage(driver);
     }
-
 
     public LoginPage clickOnUserAccountUnAutorizedLink(){
 
         userAccountTopMenuLink.click();
         return new LoginPage(driver);
     }
-
-
 
     public Object clickOnUserAccountLink(String userEmail){
 
@@ -67,32 +63,19 @@ public class TopMenuGeneralPage extends BasePageObject {
         return new LoginPage(driver);
     }
 
-
     public void clickOnLocalizationTopMenuLink(){
         $(localizationTopMenuLink).shouldBe(visible).click();
     }
-
 
     public MainPage clickOnAddPostTopMenuButton(){
         $(postAddTopMenuButton).shouldBe(visible).click();
         return new MainPage(driver);
     }
 
-
     public MainPage clickOnExitTopMenuLink(){
         $(exitTopMenuUserMenuLink).shouldBe(visible).click();
         return new MainPage(driver);
     }
-
-
-
-
-
-
-
-
-
-
 
     public TopMenuGeneralPage(WebDriver driver) {
         super(driver);
