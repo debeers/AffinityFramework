@@ -20,10 +20,14 @@
     <test name="Affinity_Smoke_1.0">
         <classes>
 
-            <class name="Tests.Login.Login_Positive"/>
-            <!-- <class name="Tests.AddPost.AddNewPost"/>
+            <class name="Tests.AddPost.AddNewPost"/>
+            <!--
+<class name="Tests.Login.Login_Positive"/>
 
-            <class name="Tests.Registration.RegistrationOfNewUser"/>-->
+ <class name="Tests.Registration.RegistrationOfNewUser"/>
+
+
+            -->
          </classes>
      </test>
  </suite>

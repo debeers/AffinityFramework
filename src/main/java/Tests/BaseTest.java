@@ -71,7 +71,7 @@ public class BaseTest {
 
         try {
             driver.get(URL);
-            Assert.assertTrue(driver.getTitle().equals(mainTitle),"We are not on main page! The title is:::: "
+            Assert.assertTrue(driver.getCurrentUrl().contains(URL), "We are not on main page!"
                     + driver.getTitle() + "  " + "But expected:::: " + mainTitle);
         }catch (Exception e){
             System.out.println("<<<<< We are not on the MAIN PAGE >>>>>");

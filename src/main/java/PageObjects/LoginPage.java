@@ -47,7 +47,7 @@ public class LoginPage extends TopMenuGeneralPage {
         return new LoginPage(driver);
     }
 
-    public UserAccountPage clickOnLoginButton() {
+    public UserAccountPage clickOnLoginButton(WebDriver driver) {
 
         $(loginPageLoginButton).shouldBe(visible).click();
 
@@ -56,7 +56,6 @@ public class LoginPage extends TopMenuGeneralPage {
                 errorMessagesLoginForm.stream().forEach((p) ->
                         System.out.println("ERRORS EXIST IN ENTERING LOGIN DATA:: " + p.getText()));
             }
-            return null;
 
         } catch (Exception e) {
             System.out.println("Everything looks fine, no error messages was found in entering login data");
@@ -70,10 +69,10 @@ public class LoginPage extends TopMenuGeneralPage {
         return new RegistrationPage(driver);
     }
 
-    public UserAccountPage loginAs(String email, String password) {
+    public UserAccountPage loginAs(WebDriver driver, String email, String password) {
         enterEmail(email);
         enterPassword(password);
-        return clickOnLoginButton();
+        return clickOnLoginButton(driver);
     }
 
     public LoginPage(WebDriver driver) {

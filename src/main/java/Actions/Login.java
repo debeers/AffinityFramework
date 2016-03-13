@@ -15,13 +15,13 @@ public class Login {
     public static UserAccountPage loginAs(WebDriver driver, User user){
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = (LoginPage) mainPage.clickOnUserAccountLink(user.getEmail());
-        return loginPage.loginAs(user.getEmail(), user.getPassword());
+        return loginPage.loginAs(driver, user.getEmail(), user.getPassword());
     }
 
     public static UserAccountPage loginAs(WebDriver driver, LoginObject clientLogin){
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = (LoginPage) mainPage.clickOnUserAccountLink(clientLogin.getLogin());
-        return loginPage.loginAs(clientLogin.getLogin(), clientLogin.getPassword());
+        return loginPage.loginAs(driver, clientLogin.getLogin(), clientLogin.getPassword());
     }
 
 }

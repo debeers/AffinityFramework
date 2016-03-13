@@ -65,9 +65,9 @@ public class AddNewPost extends BaseTest{
 
         Assert.assertTrue(successPostedPage.makeVipPost.isDisplayed());
         Assert.assertTrue(successPostedPage.markPost.isDisplayed());
-//        Assert.assertEquals(successPostedPage.successMessage.getText(),
-//                "Ваше объявление было отправлено на проверку",
-//                "Success message is different!");
+        Assert.assertEquals(successPostedPage.successMessage.getText(),
+                "Ваше объявление было отправлено на проверку",
+                "Success message is different!");
         log.info("Test passed, new post posted, with correct data entered during formiong process: YoouuuHHuuu!!!");
     }
 }
