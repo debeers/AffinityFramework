@@ -36,5 +36,6 @@ public class RobotUpload {
         robot.keyRelease(KeyEvent.VK_ENTER);
         robot.delay(400);
         robot.keyRelease(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
     }
 }

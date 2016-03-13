@@ -21,7 +21,7 @@
         <classes>
             <class name="Tests.AddPost.AddNewPost"/>
             <!-- <class name="Tests.Search.Search"/>
-             
+
              <class name="Tests.Registration.RegistrationOfNewUser"/>
              <class name="Tests.Login.Login_Positive"/>-->
           </classes>
