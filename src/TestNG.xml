@@ -9,7 +9,7 @@
     <!--Credentials: -->
 
     <parameter name="clientLoginParam"     value="debeers1989@gmail.com"         />
-    <parameter name="clientPasswordParam"  value="roottoor8"                     />
+    <parameter name="clientPasswordParam"  value="roottoor"                     />
     <parameter name="mainTitleRU"  value="Доска бесплатных объявлений Азербайджана. Частные объявления на Lalafo.az | Lalafo.az и Lalafo.az"/>
     <!--Credentials: END -->
 
