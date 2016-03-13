@@ -10,10 +10,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.awt.*;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.sql.SQLException;
 import java.util.Properties;
 import static Actions.PostAdd.makeNewPost;
 import static Utils.PropertiesLoader.propertyXMLoader;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 
@@ -65,7 +67,8 @@ public class AddNewPost extends BaseTest{
 
         Assert.assertTrue(successPostedPage.makeVipPost.isDisplayed());
         Assert.assertTrue(successPostedPage.markPost.isDisplayed());
-        Assert.assertEquals(successPostedPage.successMessage.getText(),
+        String tmp = new String($(successPostedPage.successMessage).getText().getBytes(Charset.forName("utf-8")));
+        Assert.assertEquals(tmp,
                 "Ваше объявление было отправлено на проверку",
                 "Success message is different!");
         log.info("Test passed, new post posted, with correct data entered during formiong process: YoouuuHHuuu!!!");
