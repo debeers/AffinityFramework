@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
@@ -13,7 +14,7 @@ import static com.codeborne.selenide.Selenide.$$;
 /**
  * Created by DeBeers on 08.03.2016.
  */
-public class RegistrationPage extends TopMenuGeneralPage {
+public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler {
 
 
     @FindBy(xpath = ".//input[contains(@name,'mobile')]")
@@ -61,18 +62,13 @@ public class RegistrationPage extends TopMenuGeneralPage {
 
     public UserAccountPage clickOnRegisterButton() {
         $(registrationButton).shouldBe(visible).click();
-
-        try {
-            if ($$(errorMessages).shouldBe().size() != 0) {
-                errorMessages.stream().forEach((p) ->
-                        System.out.println("ERRORS EXIST IN ENTERING REGISTRATION DATA:: " + p.getText()));
-            }
+        if (getFieldsErrors().isEmpty()){
+            return new UserAccountPage(driver);
+        } else {
+            System.out.println(
+                    "Oops, some errors were detected in entering registration data and you take a null pointer)");
             return null;
-
-        } catch (Exception e) {
-            System.out.println("Everything looks fine, no error messages was found in entering registration data");
         }
-        return new UserAccountPage(driver);
     }
 
     public UserAccountPage enterRegistrationData(String mobilePhoneNumber, String email, String password) {
@@ -87,5 +83,23 @@ public class RegistrationPage extends TopMenuGeneralPage {
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public List<String> getFieldsErrors() {
+        List<String> errorsList = new ArrayList<>();
+        try {
+            if ($$(errorMessages).isEmpty()) {
+                errorMessages.stream().forEach((p) ->{
+                    errorsList.add(p.getText());
+                    System.out.println("ERRORS EXIST IN ENTERING REGISTRATION DATA:: " + p.getText());
+                });
+                return errorsList;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Everything looks fine, no error messages was found in entering post data");
+        }
+        return errorsList;
     }
 }

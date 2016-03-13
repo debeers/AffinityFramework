@@ -9,7 +9,7 @@
     <!--Credentials: -->
 
     <parameter name="clientLoginParam"     value="debeers1989@gmail.com"         />
-    <parameter name="clientPasswordParam"  value="roottoor"                     />
+    <parameter name="clientPasswordParam"  value="roottoor8"                     />
     <parameter name="mainTitleRU"  value="Доска бесплатных объявлений Азербайджана. Частные объявления на Lalafo.az | Lalafo.az и Lalafo.az"/>
     <!--Credentials: END -->
 
@@ -19,14 +19,10 @@
 
     <test name="Affinity_Smoke_1.0">
         <classes>
-            <class name="Tests.AddPost.AddNewPost"/>
-            <class name="Tests.Login.Login_Positive"/>
-            <class name="Tests.Registration.RegistrationOfNewUser"/>
-            <!--
-
-
-
-            -->
-         </classes>
-     </test>
- </suite>
+            <class name="Tests.Search.Search"/>
+            <!-- <class name="Tests.AddPost.AddNewPost"/>
+             <class name="Tests.Registration.RegistrationOfNewUser"/>
+             <class name="Tests.Login.Login_Positive"/>-->
+          </classes>
+      </test>
+  </suite>

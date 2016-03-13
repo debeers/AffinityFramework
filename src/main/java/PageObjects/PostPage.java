@@ -1,21 +1,16 @@
 package PageObjects;
 
 import Entities.Post;
-import com.codeborne.selenide.Condition;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.awt.*;
 import java.util.*;
 import java.util.List;
 
-import static GeneralHelpers.JSTools.jsDeleteClasses;
+import static GeneralHelpers.JSTools.jsDeleteClassesById;
 import static GeneralHelpers.RobotUpload.uploadFile;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -24,7 +19,7 @@ import static com.codeborne.selenide.Selenide.$$;
 /**
  * Created by DeBeers on 08.03.2016.
  */
-public class PostPage extends TopMenuGeneralPage {
+public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     @CacheLookup
     @FindBy(xpath = ".//*[@id='categoryId_chosen']/a")
@@ -127,7 +122,9 @@ public class PostPage extends TopMenuGeneralPage {
         }
     }
 
-    public void selectFromDropdawnMenuByIndex(WebElement element, List<WebElement> list, String index) throws InterruptedException {
+    public void selectFromDropdawnMenuByIndex(WebElement element, List<WebElement> list, String index)
+            throws InterruptedException {
+
         $(element).shouldBe(visible).click();
         try {
             list
@@ -137,7 +134,6 @@ public class PostPage extends TopMenuGeneralPage {
         }catch (Exception e){
             System.out.println("We`re catched Stale element exception, but fuck it!)");
         }
-
     }
 
     public void setCategory(String categoryIndex) throws InterruptedException {
@@ -164,7 +160,7 @@ public class PostPage extends TopMenuGeneralPage {
     }
 
     public void setCurrency(String currency) throws InterruptedException {
-        jsDeleteClasses(driver);
+        jsDeleteClassesById(driver, "currencies");
         Select dropdown = new Select(choseCurrency);
         dropdown.selectByValue(currency);
     }
@@ -212,47 +208,70 @@ public class PostPage extends TopMenuGeneralPage {
         $(emailField).shouldBe(visible).sendKeys(email);
     }
 
-
     public PostPreviewPage clickOnPreviewButton(){
         $(previewButton).shouldBe(visible).click();
-        waitTillLoaderDissappear();
-        return new PostPreviewPage(driver);
+
+        if (getFieldsErrors().size() == 0){
+            return new PostPreviewPage(driver);
+        } else {
+            System.out.println(
+                    "Oops, some errors were detected in entering post data and you take a null pointer)");
+            return null;
+        }
     }
 
     public SuccessPostedPage clickOnSubmitButton(){
         $(submitButton).shouldBe(visible).click();
-        waitTillLoaderDissappear();
-        try {
-            if ($$(errors).shouldBe().size() != 0) {
-                errors.stream().forEach((p) ->
-                        System.out.println("ERRORS EXIST IN ENTERING REGISTRATION DATA:: " + p.getText()));
-            }
+
+        if (getFieldsErrors().isEmpty()){
+            return new SuccessPostedPage(driver);
+        } else {
+            System.out.println(
+                    "Oops, some errors were detected in entering post data and you take a null pointer)");
             return null;
+        }
+    }
+
+    @Override
+    public List<String> getFieldsErrors(){
+        List<String> errorsList = new ArrayList<>();
+        try {
+            if ($$(errors).isEmpty()) {
+                errors.stream().forEach((p) ->{
+                        errorsList.add(p.getText());
+                        System.out.println("ERRORS EXIST IN ENTERING REGISTRATION DATA:: " + p.getText());
+                    });
+                return errorsList;
+            }
 
         } catch (Exception e) {
             System.out.println("Everything looks fine, no error messages was found in entering post data");
         }
-        return new SuccessPostedPage(driver);
+        return errorsList;
     }
 
     public void UploadImages(Post post, int countOfFilesToUpload)
             throws InterruptedException, AWTException {
 
-        List<WebElement> inputs =
-                Arrays.asList(
-                    fileUpload1,
-                    fileUpload2,
-                    fileUpload3,
-                    fileUpload4,
-                    fileUpload5
-                );
+        if (countOfFilesToUpload == 0) {
+            System.out.println("No images will upload");
+        } else {
+            List<WebElement> inputs =
+                    Arrays.asList(
+                            fileUpload1,
+                            fileUpload2,
+                            fileUpload3,
+                            fileUpload4,
+                            fileUpload5
+                    );
 
-        for(int i = 0; i<countOfFilesToUpload; i++){
-            inputs.get(i).click();
-            uploadFile(post.getListOfFiles().get(i).getAbsolutePath());
-            Thread.sleep(3000);
-            dummyClick.click();
-            System.out.println(post.getListOfFiles().get(i).getAbsolutePath());
+            for (int i = 0; i < countOfFilesToUpload; i++) {
+                inputs.get(i).click();
+                uploadFile(post.getListOfFiles().get(i).getAbsolutePath());
+                Thread.sleep(2000);
+                dummyClick.click();
+                System.out.println(post.getListOfFiles().get(i).getAbsolutePath());
+            }
         }
     }
 

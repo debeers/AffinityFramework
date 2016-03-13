@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -13,7 +14,7 @@ import static com.codeborne.selenide.Selenide.$$;
 /**
  * Created by DeBeers on 08.03.2016.
  */
-public class LoginPage extends TopMenuGeneralPage {
+public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
 
 
     @FindBy(xpath = ".//input[contains(@name,'email')]")
@@ -48,23 +49,18 @@ public class LoginPage extends TopMenuGeneralPage {
     }
 
     public UserAccountPage clickOnLoginButton(WebDriver driver) {
-
         $(loginPageLoginButton).shouldBe(visible).click();
 
-        try {
-            if ($$(errorMessagesLoginForm).size() != 0) {
-                errorMessagesLoginForm.stream().forEach((p) ->
-                        System.out.println("ERRORS EXIST IN ENTERING LOGIN DATA:: " + p.getText()));
-            }
-
-        } catch (Exception e) {
-            System.out.println("Everything looks fine, no error messages was found in entering login data");
+        if (getFieldsErrors().isEmpty()){
+            return new UserAccountPage(driver);
+        } else {
+            System.out.println(
+                    "Oops, some errors were detected in entering login data and you take a null pointer)");
+            return null;
         }
-
-        return new UserAccountPage(driver);
     }
 
-    public RegistrationPage clickOnRegistrationLink() {
+    public RegistrationPage clickOnRegistrationLink() throws InterruptedException {
         $(loginPageRegistrationLink).shouldBe(visible).click();
         return new RegistrationPage(driver);
     }
@@ -77,5 +73,23 @@ public class LoginPage extends TopMenuGeneralPage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public List<String> getFieldsErrors() {
+        List<String> errorsList = new ArrayList<>();
+        try {
+            if (!$$(errorMessagesLoginForm).isEmpty()) {
+                errorMessagesLoginForm.stream().forEach((p) ->{
+                    errorsList.add(p.getText());
+                    System.out.println("ERRORS EXIST IN ENTERING LOGIN DATA:: " + p.getText());
+                });
+                return errorsList;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Everything looks fine, no error messages was found in entering login data");
+        }
+        return errorsList;
     }
 }

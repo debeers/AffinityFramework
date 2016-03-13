@@ -8,9 +8,18 @@ import org.openqa.selenium.WebDriver;
  */
 public class JSTools {
 
-    public static void jsDeleteClasses(WebDriver driver) throws InterruptedException {
+    public static void jsDeleteClassesById(WebDriver driver, String elementId) throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        String script = "document.getElementById('currencies').style.display = 'block';";
+        String script = "document.getElementById('"+elementId+"').style.display = 'block';";
         js.executeScript(script);
     }
+
+    public static void jsDeleteClassesByClass(WebDriver driver, String classname) throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String script = "document.getElementsByClassName('"+classname+"').style.display = 'block';";
+        js.executeScript(script);
+    }
+
+
+
 }
