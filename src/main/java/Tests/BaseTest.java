@@ -35,7 +35,7 @@ public class BaseTest {
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
     @BeforeMethod(alwaysRun = true)
-    public void setUp(String URL, String clientLoginParam, String clientPasswordParam, String mainTitleRU)
+    public void setUp(String URL, String clientLoginParam, String clientPasswordParam)
             throws ClassNotFoundException, IOException, SQLException {
 
         String TestClassName = this.getClass().getName();
