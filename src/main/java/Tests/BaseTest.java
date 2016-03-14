@@ -15,7 +15,6 @@ import ru.stqa.selenium.factory.WebDriverFactory;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
@@ -26,7 +25,6 @@ public class BaseTest {
     public static String baseUrl;
     public static StringBuffer verificationErrors = new StringBuffer();
     public static LoginObject clientLogin;
-    private String mainTitle;
     public static org.slf4j.Logger log;
 
     @BeforeSuite(alwaysRun = true)
@@ -35,7 +33,7 @@ public class BaseTest {
         //DB section
     }
 
-    @Parameters({"URL", "clientLoginParam", "clientPasswordParam", "mainTitleRU"})
+    @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
     @BeforeMethod(alwaysRun = true)
     public void setUp(String URL, String clientLoginParam, String clientPasswordParam, String mainTitleRU)
             throws ClassNotFoundException, IOException, SQLException {
@@ -43,7 +41,6 @@ public class BaseTest {
         String TestClassName = this.getClass().getName();
         System.out.println(TestClassName);
 
-        mainTitle        = mainTitleRU;
         clientLogin      = new LoginObject(clientLoginParam, clientPasswordParam);
         baseUrl          = URL;
         log              = LoggerFactory.getLogger(Logger.class);
@@ -72,7 +69,7 @@ public class BaseTest {
         try {
             driver.get(URL);
             Assert.assertTrue(driver.getCurrentUrl().contains(URL), "We are not on main page!"
-                    + driver.getTitle() + "  " + "But expected:::: " + mainTitle);
+                    + driver.getCurrentUrl() + "  " + "But expected:::: " + URL);
         }catch (Exception e){
             System.out.println("<<<<< We are not on the MAIN PAGE >>>>>");
         }
@@ -82,7 +79,7 @@ public class BaseTest {
     @AfterMethod(alwaysRun = true)
     public void tearDown() throws Exception {
 
-        if (driver.getTitle() != mainTitle) {
+        if (driver.getCurrentUrl() != baseUrl) {
             driver.get("http://lalafo.az/ru/user/logout");
         }
 
