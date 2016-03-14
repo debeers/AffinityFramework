@@ -69,7 +69,7 @@ public class AddNewPost extends BaseTest{
         Assert.assertTrue(successPostedPage.markPost.isDisplayed());
         String tmp = new String($(successPostedPage.successMessage).getText().getBytes(Charset.forName("utf-8")));
         Assert.assertEquals(tmp,
-                "Ваше объявление было отправлено на проверку",
+                "Р’Р°С€Рµ РѕР±СЉСЏРІР»РµРЅРёРµ Р±С‹Р»Рѕ РѕС‚РїСЂР°РІР»РµРЅРѕ РЅР° РїСЂРѕРІРµСЂРєСѓ",
                 "Success message is different!");
         log.info("Test passed, new post posted, with correct data entered during formiong process: YoouuuHHuuu!!!");
     }
