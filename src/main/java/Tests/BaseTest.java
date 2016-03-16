@@ -3,6 +3,9 @@ package Tests;
 import Entities.LoginObject;
 import GeneralHelpers.Logger;
 import com.codeborne.selenide.WebDriverRunner;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -10,8 +13,13 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 import ru.stqa.selenium.factory.WebDriverFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -41,9 +49,9 @@ public class BaseTest {
         String TestClassName = this.getClass().getName();
         System.out.println(TestClassName);
 
-        clientLogin      = new LoginObject(clientLoginParam, clientPasswordParam);
-        baseUrl          = URL;
-        log              = LoggerFactory.getLogger(Logger.class);
+        clientLogin = new LoginObject(clientLoginParam, clientPasswordParam);
+        baseUrl = URL;
+        log = LoggerFactory.getLogger(Logger.class);
 
         String path = System.getProperty("user.dir") + "\\src\\main\\java\\Downloaded_Files";
         File downloadDir = new File(path);
@@ -70,15 +78,33 @@ public class BaseTest {
             driver.get(URL);
             Assert.assertTrue(driver.getCurrentUrl().contains(URL), "We are not on main page!"
                     + driver.getCurrentUrl() + "  " + "But expected:::: " + URL);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("<<<<< We are not on the MAIN PAGE >>>>>");
         }
     }
 
 
     @AfterMethod(alwaysRun = true)
-    public void tearDown() throws Exception {
+    public void tearDown(ITestResult result) throws Exception {
 
+        if (ITestResult.FAILURE == result.getStatus()) {
+            try {
+                // Create refernce of TakesScreenshot
+                TakesScreenshot ts = (TakesScreenshot) driver;
+
+                // Call method to capture screenshot
+                File source = ts.getScreenshotAs(OutputType.FILE);
+
+                // Copy files to specific location here it will save all screenshot in our project home directory and
+                // result.getName() will return name of test case so that screenshot name will be same
+                FileUtils.copyFile(source, new File("./Screenshots/" + result.getName() + ".png"));
+
+                System.out.println("Screenshot taken");
+            } catch (Exception e) {
+
+                System.out.println("Exception while taking screenshot " + e.getMessage());
+            }
+        }
         if (driver.getCurrentUrl() != baseUrl) {
             driver.get("http://lalafo.az/ru/user/logout");
         }

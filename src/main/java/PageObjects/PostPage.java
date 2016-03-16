@@ -6,19 +6,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static GeneralHelpers.JSTools.jsDeleteClassesById;
 import static GeneralHelpers.RobotUpload.uploadFile;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.disappear;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 /**
  * Created by DeBeers on 08.03.2016.
  */
+
 public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     @CacheLookup
@@ -111,13 +115,13 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public WebElement fileUpload5;
 
 
-    public void waitTillLoaderDissappear(){
+    public void waitTillLoaderDissappear() {
         try {
             if (loader.isDisplayed()) {
                 $(loader).should(disappear);
                 log.info("Waiting till loader disappear");
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             log.info("No loaders were found, go nex step");
         }
     }
@@ -131,7 +135,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
                     .stream()
                     .filter(el -> el.getAttribute("data-option-array-index").equals(index))
                     .forEach(el -> $(el).shouldBe(visible).click());
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("We`re catched Stale element exception, but fuck it!)");
         }
     }
@@ -146,15 +150,15 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         waitTillLoaderDissappear();
     }
 
-    public void setPostTitle(String title){
+    public void setPostTitle(String title) {
         $(titleField).shouldBe(visible).sendKeys(title);
     }
 
-    public void setDescription(String description){
+    public void setDescription(String description) {
         $(descriptionField).shouldBe(visible).sendKeys(description);
     }
 
-    public void setPrice(String price){
+    public void setPrice(String price) {
         $(priceField).shouldBe(visible).clear();
         $(priceField).shouldBe(visible).sendKeys(price);
     }
@@ -165,8 +169,8 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         dropdown.selectByValue(currency);
     }
 
-    public void checkIsNegotiableCheckBox(boolean isNegotiable){
-        if(isNegotiable)
+    public void checkIsNegotiableCheckBox(boolean isNegotiable) {
+        if (isNegotiable)
             $(isNegotiableCheckBox).click();
     }
 
@@ -175,43 +179,43 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         waitTillLoaderDissappear();
     }
 
-    public void setPrivateTypeAsPrivate(){
+    public void setPrivateTypeAsPrivate() {
         $(radioButtonPrivate).shouldBe(visible).click();
     }
 
-    public void setPrivateTypeAsBusines(){
+    public void setPrivateTypeAsBusines() {
         $(radioButtonBusiness).shouldBe(visible).click();
     }
 
-    public void setPostAs(String privateOrBusines){
+    public void setPostAs(String privateOrBusines) {
 
-        if (privateOrBusines.equals("business")){
+        if (privateOrBusines.equals("business")) {
             setPrivateTypeAsBusines();
-        }else setPrivateTypeAsPrivate();
+        } else setPrivateTypeAsPrivate();
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         $(nameField).shouldBe(visible).sendKeys(name);
     }
 
-    public void setTelephoneNumber(String telephoneNumber){
+    public void setTelephoneNumber(String telephoneNumber) {
         $(phoneField).shouldBe(visible).clear();
         $(phoneField).shouldBe(visible).sendKeys(telephoneNumber);
     }
 
-    public void setHidePhoneNumber(boolean hidePhoneNumber){
-        if(hidePhoneNumber)
-        $(hidePhoneCheckBox).shouldBe(visible).click();
+    public void setHidePhoneNumber(boolean hidePhoneNumber) {
+        if (hidePhoneNumber)
+            $(hidePhoneCheckBox).shouldBe(visible).click();
     }
 
-    public void setEmail(String email){
+    public void setEmail(String email) {
         $(emailField).shouldBe(visible).sendKeys(email);
     }
 
-    public PostPreviewPage clickOnPreviewButton(){
+    public PostPreviewPage clickOnPreviewButton() {
         $(previewButton).shouldBe(visible).click();
 
-        if (getFieldsErrors().size() == 0){
+        if (getFieldsErrors().size() == 0) {
             return new PostPreviewPage(driver);
         } else {
             System.out.println(
@@ -220,10 +224,10 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         }
     }
 
-    public SuccessPostedPage clickOnSubmitButton(){
+    public SuccessPostedPage clickOnSubmitButton() {
         $(submitButton).shouldBe(visible).click();
 
-        if (getFieldsErrors().isEmpty()){
+        if (getFieldsErrors().isEmpty()) {
             return new SuccessPostedPage(driver);
         } else {
             System.out.println(
@@ -233,14 +237,14 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     @Override
-    public List<String> getFieldsErrors(){
+    public List<String> getFieldsErrors() {
         List<String> errorsList = new ArrayList<>();
         try {
             if ($$(errors).isEmpty()) {
-                errors.stream().forEach((p) ->{
-                        errorsList.add(p.getText());
-                        System.out.println("ERRORS EXIST IN ENTERING REGISTRATION DATA:: " + p.getText());
-                    });
+                errors.stream().forEach((p) -> {
+                    errorsList.add(p.getText());
+                    System.out.println("ERRORS EXIST IN ENTERING REGISTRATION DATA:: " + p.getText());
+                });
                 return errorsList;
             }
 

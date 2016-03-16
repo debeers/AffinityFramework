@@ -8,19 +8,19 @@ import PageObjects.SuccessPostedPage;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import java.awt.*;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.sql.SQLException;
 import java.util.Properties;
+
 import static Actions.PostAdd.makeNewPost;
 import static Utils.PropertiesLoader.propertyXMLoader;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-
-public class AddNewPost extends BaseTest{
-
+public class AddNewPost extends BaseTest {
     @Test
     public void Add_Post() throws InterruptedException, IOException, AWTException, SQLException {
 
@@ -74,3 +74,4 @@ public class AddNewPost extends BaseTest{
         log.info("Test passed, new post posted, with correct data entered during formiong process: YoouuuHHuuu!!!");
     }
 }
+

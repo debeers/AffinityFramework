@@ -1,10 +1,8 @@
 package PageObjects;
 
-import com.codeborne.selenide.Condition;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
@@ -17,7 +15,7 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class MainPage extends TopMenuGeneralPage {
 
-    @FindBy(xpath = ".//ul[contains(@class,'user-nav')]/following-sibling::a[contains(@class,'post-free-ad btn green')]")
+    @FindBy(xpath = "*//ul/following-sibling::a[@class='post-free-ad btn green']")
     public WebElement addNewPostButtonTop;
 
     @FindBy(xpath = ".//*[@id='search']//input[contains(@class,'form-input form-field-xs form-search-long')]")

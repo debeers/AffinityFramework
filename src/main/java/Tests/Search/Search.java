@@ -21,11 +21,10 @@ public class Search extends BaseTest {
     public void Search_Test() throws InterruptedException, IOException, AWTException, SQLException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/AddPost/Post.xml");
+                "/src/main/java/Tests/Search/Search.xml");
 
         MainPage mainPage = new MainPage(driver);
-        List<String> searchResults = search(mainPage.clickOnSearchButton(), "9", "2", "2", "iPod");
-        //List<String> searchResults = search(mainPage.clickOnSearchButton(), props);
+        List<String> searchResults = search(mainPage.clickOnSearchButton(), props);
         Assert.assertTrue(searchResults.contains("iPod"), "No mutches found!!!");
         searchResults.stream().forEach(System.out::println);
     }
