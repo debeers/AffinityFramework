@@ -38,7 +38,7 @@ public class BaseTest {
     @BeforeSuite(alwaysRun = true)
     public void preCondition() throws IOException, ClassNotFoundException, SQLException {
 
-        //DB section
+        //DB sectionss
     }
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
