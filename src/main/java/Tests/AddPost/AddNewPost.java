@@ -30,7 +30,7 @@ public class AddNewPost extends BaseTest{
         Post post = new Post(props);
         int countForPhotoUploads = 3;
 
-        //Hurray!!!
+        //Hurray!!!2
         //Go to main page
         //
         MainPage mainPage = new MainPage(driver);
