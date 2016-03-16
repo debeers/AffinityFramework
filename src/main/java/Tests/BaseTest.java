@@ -23,6 +23,7 @@ import ru.stqa.selenium.factory.WebDriverFactory;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 
@@ -90,13 +91,27 @@ public class BaseTest {
             try {
                 // Create refernce of TakesScreenshot
                 TakesScreenshot ts = (TakesScreenshot) driver;
+                Calendar calendar = Calendar.getInstance();
 
                 // Call method to capture screenshot
                 File source = ts.getScreenshotAs(OutputType.FILE);
 
                 // Copy files to specific location here it will save all screenshot in our project home directory and
                 // result.getName() will return name of test case so that screenshot name will be same
-                FileUtils.copyFile(source, new File("./Screenshots/" + result.getName() + ".png"));
+                FileUtils.copyFile(source, new File("./Screenshots/"
+                        + "_"
+                        + result.getName()
+                        + "_"
+                        + calendar.get(Calendar.MONTH)
+                        + "_"
+                        + calendar.get(Calendar.DAY_OF_MONTH)
+                        + "_"
+                        + calendar.get(Calendar.HOUR_OF_DAY)
+                        + "_"
+                        + calendar.get(Calendar.MINUTE)
+                        + "_"
+                        + calendar.get(Calendar.SECOND)
+                        + ".png"));
 
                 System.out.println("Screenshot taken");
             } catch (Exception e) {
