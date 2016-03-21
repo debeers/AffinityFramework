@@ -50,9 +50,9 @@ public class BaseTest {
         String TestClassName = this.getClass().getName();
         System.out.println(TestClassName);
 
-        clientLogin = new LoginObject(clientLoginParam, clientPasswordParam);
-        baseUrl = URL;
-        log = LoggerFactory.getLogger(Logger.class);
+        clientLogin      = new LoginObject(clientLoginParam, clientPasswordParam);
+        baseUrl          = URL;
+        log              = LoggerFactory.getLogger(Logger.class);
 
         String path = System.getProperty("user.dir") + "\\src\\main\\java\\Downloaded_Files";
         File downloadDir = new File(path);
@@ -79,7 +79,7 @@ public class BaseTest {
             driver.get(URL);
             Assert.assertTrue(driver.getCurrentUrl().contains(URL), "We are not on main page!"
                     + driver.getCurrentUrl() + "  " + "But expected:::: " + URL);
-        } catch (Exception e) {
+        }catch (Exception e){
             System.out.println("<<<<< We are not on the MAIN PAGE >>>>>");
         }
     }
