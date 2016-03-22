@@ -29,7 +29,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='categoryId_chosen']/a")
     public WebElement categoriesChoose;
 
-    @FindBy(xpath = "html/body/div[3]/div[2]/div/h3")
+    @FindBy(xpath = "html/body/div[3]/div[1]")
     public WebElement dummyClick;
 
     @CacheLookup
