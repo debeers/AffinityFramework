@@ -27,7 +27,7 @@ public class Login_Positive extends BaseTest{
         //
         UserAccountPage userAccountPage = loginAs(driver, clientLogin);
 
-        //
+        // Does not login
         // Check user page for consistance and that user email is displaing in user account menu link
         //
         Assert.assertTrue(userAccountPage.messagesCounter.isDisplayed(), "Message counter is not displaing on user account page");
