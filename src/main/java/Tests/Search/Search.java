@@ -10,7 +10,7 @@ import java.util.*;
 import java.util.List;
 
 import static Actions.Search.search;
-import static Utils.PropertiesLoader.propertyXMLoader;
+import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 
 /**
  * Created by DeBeers on 13.03.2016.

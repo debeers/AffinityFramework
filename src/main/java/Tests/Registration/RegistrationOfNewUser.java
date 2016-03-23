@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import static Actions.Registration.registerNewUser;
-import static Utils.PropertiesLoader.propertyXMLoader;
+import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 import static com.codeborne.selenide.Selenide.$;
 
 
