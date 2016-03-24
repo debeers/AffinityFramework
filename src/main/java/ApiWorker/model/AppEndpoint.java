@@ -2,9 +2,7 @@ package ApiWorker.model;
 
 import okhttp3.HttpUrl;
 
-/**
- * Created by artem on 12/8/15.
- */
+
 public class AppEndpoint {
 
     private HttpUrl url;

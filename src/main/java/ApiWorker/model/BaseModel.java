@@ -10,9 +10,7 @@ import java.util.List;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
-/**
- * Created by artem on 2/16/15.
- */
+
 public class BaseModel  {
 
     public BaseModel() {

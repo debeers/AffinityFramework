@@ -1,4 +1,4 @@
-package Tests.Search;
+package Tests.GUITests.Search;
 import PageObjects.MainPage;
 import Tests.BaseTest;
 import org.testng.Assert;

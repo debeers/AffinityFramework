@@ -1,4 +1,4 @@
-package Tests.Registration;
+package Tests.GUITests.Registration;
 
 import Entities.User;
 import PageObjects.UserAccountPage;

@@ -1,22 +1,10 @@
 package ApiWorker;
 
+import ApiWorker.APIUtils.ToStringConverterFactory;
 import ApiWorker.model.BaseModel;
-import ApiWorker.model.BaseResponse;
 import ApiWorker.model.PostField;
-import ApiWorker.model.ads.deactivatead.DeactivateAdResponse;
-import ApiWorker.model.ads.freepush.FreePushResponse;
-import ApiWorker.model.ads.getadbyid.GetAdByIdResponse;
-import ApiWorker.model.ads.getads.GetAdsResponse;
-import ApiWorker.model.ads.getadurl.GetAdURLByIdResponse;
 import ApiWorker.model.ads.getpostfields.GetPostFieldsResponse;
 import ApiWorker.model.ads.postad.PostAdBody;
-import ApiWorker.model.ads.postad.PostAdResponse;
-import ApiWorker.model.chats.addchat.AddChatResponse;
-import ApiWorker.model.chats.getchats.GetChatsResponse;
-import ApiWorker.model.chats.getmessages.GetMessagesResponse;
-import ApiWorker.model.chats.getunreadcount.GetUnreadCountResponse;
-import ApiWorker.model.chats.sendmessage.SendMessageResponse;
-import ApiWorker.model.chats.updateviewtime.UpdateViewTimeResponse;
 import ApiWorker.model.filter.AdFilter;
 import ApiWorker.model.filter.getcategories.Category;
 import ApiWorker.model.filter.getcategories.GetCategoryResponse;
@@ -26,11 +14,6 @@ import ApiWorker.model.filter.getparams.GetParamsResponse;
 import ApiWorker.model.push.AddPushTokenResponse;
 import ApiWorker.model.push.DeletePushTokenResponse;
 import ApiWorker.model.users.changepass.ChangePassBody;
-import ApiWorker.model.users.changepass.ChangePassResponse;
-import ApiWorker.model.users.checkuser.CheckUserResponse;
-import ApiWorker.model.users.getmobileauth.GetMobileAuthResponse;
-import ApiWorker.model.users.recoverypass.RecoveryPassResponse;
-import ApiWorker.model.users.signup.SignUpResponse;
 import ApiWorker.model2.categoryparams.CategoryParamsResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,7 +21,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import org.apache.http.util.TextUtils;
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -49,12 +31,7 @@ import java.util.concurrent.TimeUnit;
 
 import static ApiWorker.model.BaseResponse.isStatusOK;
 
-//import com.facebook.stetho.okhttp3.StethoInterceptor;
 
-
-/**
- * Created by artem on 2/16/15.
- */
 public class APIManager {
 
     private static final String TAG = APIManager.class.getSimpleName();
@@ -98,28 +75,14 @@ public class APIManager {
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-
-        /*Interceptor headersInterceptor = chain -> {
-
-           // Request request = chain.request().newBuilder().addHeader(GlobalArgs.USER_ID_HEADER,
-                    //UserManager.getInstance().getUserId() + "").build();
-
-            return chain.proceed(request);
-        };
-
-        builder.addInterceptor(headersInterceptor);*/
         builder.addInterceptor(loggingInterceptor);
-//        builder.addNetworkInterceptor(new StethoInterceptor());
 
         return builder.build();
     }
 
     private GsonConverterFactory createGsonConverterFactory() {
 
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapterFactory(new ItemTypeAdapterFactory())
-                .create();
-
+        Gson gson = new GsonBuilder().create();
         return GsonConverterFactory.create(gson);
     }
 
@@ -128,7 +91,7 @@ public class APIManager {
 
         return new Retrofit.Builder()
                 .baseUrl("http://api.lalafo.kg/api/")
-                .addConverterFactory(createGsonConverterFactory())
+                .addConverterFactory(new ToStringConverterFactory()).addConverterFactory(createGsonConverterFactory())
                 .client(createHttpClient())
                 .build();
     }
@@ -223,133 +186,22 @@ public class APIManager {
                 mPostFieldsResponseCache.get(categoryId) : null;
     }
 
-    public Call getLocation(final RequestListener listener) {
+    public String getLocation() throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        if (mGetLocationResponse != null) {
-
-            if (listener != null)
-                listener.onSuccess(mGetLocationResponse);
-
-            return null;
-        }
-
-        Call<GetLocationResponse> call = mAPIService.getLocation();
-        call.enqueue(new Callback<GetLocationResponse>() {
-            @Override
-            public void onResponse(Call<GetLocationResponse> call, Response<GetLocationResponse> serverResponse) {
-
-                if (BaseResponse.isStatusOK(serverResponse)) {
-
-                    bfs(new Location(0, "all", serverResponse.body().getData().getAllLocationList()));
-
-                    mGetLocationResponse = serverResponse.body();
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    mGetLocationResponse = null;
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.GET_LOCATIONS));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GetLocationResponse> call, Throwable error) {
-
-                mGetLocationResponse = null;
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.GET_LOCATIONS));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.getLocation();
+        return call.execute().body();
     }
 
-    public Call getPreviewCategoryList(final RequestListener listener) {
+    public String getPreviewCategoryList() throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<GetCategoryResponse> call = mAPIService.getCategories(ADS_AMOUNT_IN_PREVIEW_CATEGORY_LIST, false);
-        call.enqueue(new Callback<GetCategoryResponse>() {
-
-            @Override
-            public void onResponse(Call<GetCategoryResponse> call, Response<GetCategoryResponse> serverResponse) {
-
-                if (BaseResponse.isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.GET_CATEGORIES));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GetCategoryResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.GET_CATEGORIES));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.getCategories(ADS_AMOUNT_IN_PREVIEW_CATEGORY_LIST, false);
+        return call.execute().body();
     }
 
-    public Call getCategories(final RequestListener listener) {
+    public String getCategories() throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        if (mGetCategoryResponse != null) {
-
-            if (listener != null)
-                listener.onSuccess(mGetCategoryResponse);
-
-            return null;
-        }
-
-        Call<GetCategoryResponse> call = mAPIService.getCategories(0, true);
-        call.enqueue(new Callback<GetCategoryResponse>() {
-
-            @Override
-            public void onResponse(Call<GetCategoryResponse> call, Response<GetCategoryResponse> serverResponse) {
-
-                if (BaseResponse.isStatusOK(serverResponse)) {
-
-                    mGetCategoryResponse = serverResponse.body();
-
-                    bfs(new Category(0, "all", serverResponse.body().getCategoryList()));
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    mGetCategoryResponse = null;
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.GET_CATEGORIES));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GetCategoryResponse> call, Throwable error) {
-
-                mGetCategoryResponse = null;
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.GET_CATEGORIES));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.getCategories(0, true);
+        return call.execute().body();
     }
 
     public Stack<Location> getLocationParents(long locationId) {
@@ -464,37 +316,10 @@ public class APIManager {
         }
     }
 
-    public Call freePush(final RequestListener listener, long adId) {
+    public String freePush(long adId) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<FreePushResponse> call = mAPIService.freePush(adId);
-        call.enqueue(new Callback<FreePushResponse>() {
-
-            @Override
-            public void onResponse(Call<FreePushResponse> call, Response<FreePushResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.FREE_PUSH));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<FreePushResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.FREE_PUSH));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.freePush(adId);
+        return call.execute().body();
     }
 
     public GetParamsResponse getGetParamsResponse() {
@@ -502,122 +327,25 @@ public class APIManager {
         return mGetParamsResponse;
     }
 
-    public Call getParams(final RequestListener listener) {
+    public String getParams() throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        if (mGetParamsResponse != null) {
-
-            if (listener != null)
-                listener.onSuccess(mGetParamsResponse);
-
-            return null;
-        }
-
-        Call<GetParamsResponse> call = mAPIService.getParams();
-        call.enqueue(new Callback<GetParamsResponse>() {
-            @Override
-            public void onResponse(Call<GetParamsResponse> call, Response<GetParamsResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    mGetParamsResponse = serverResponse.body();
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    mGetParamsResponse = null;
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.GET_PARAMS));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GetParamsResponse> call, Throwable error) {
-
-                mGetParamsResponse = null;
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.GET_PARAMS));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.getParams();
+        return call.execute().body();
     }
 
-    public Call deactivateAd(final RequestListener listener, long adId) {
+    public String deactivateAd(long adId) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<DeactivateAdResponse> call = mAPIService.deactivateAd(adId);
-        call.enqueue(new Callback<DeactivateAdResponse>() {
-
-            @Override
-            public void onResponse(Call<DeactivateAdResponse> call, Response<DeactivateAdResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.DEACTIVATE_AD));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<DeactivateAdResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.DEACTIVATE_AD));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.deactivateAd(adId);
+        return call.execute().body();
     }
 
-    public Call getAdList(final PullToRefreshRequestListener listener, AdFilter adFilter, final int pageNum) {
+    public String getAdList(AdFilter adFilter, final int pageNum) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest(pageNum);
-
-        Call<GetAdsResponse> call = mAPIService.getAds(adFilter.toQueryMap(pageNum));
-        call.enqueue(new Callback<GetAdsResponse>() {
-
-            @Override
-            public void onResponse(Call<GetAdsResponse> call, Response<GetAdsResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body(), pageNum);
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.GET_ADS));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GetAdsResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.GET_ADS));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.getAds(adFilter.toQueryMap(pageNum));
+        return call.execute().body();
     }
 
-    public Call getPostFields(final long categoryId, final RequestListener listener) {
-
-        if (listener != null)
-            listener.onStartRequest();
+    public String getPostFields(final long categoryId, final RequestListener listener) throws IOException {
 
         GetPostFieldsResponse cachedResponse = getPostFieldsResponse(categoryId);
         if (cachedResponse != null) {
@@ -627,568 +355,139 @@ public class APIManager {
             return null;
         }
 
-        Call<GetPostFieldsResponse> call = mAPIService.getPostFields(categoryId);
-        call.enqueue(new Callback<GetPostFieldsResponse>() {
+        Call<String> call = mAPIService.getPostFields(categoryId);
 
-            @Override
-            public void onResponse(Call<GetPostFieldsResponse> call, Response<GetPostFieldsResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    putPostFieldsResponse(categoryId, serverResponse.body());
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-
-                } else {
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.GET_POST_FIELDS));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GetPostFieldsResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.GET_POST_FIELDS));
-            }
-        });
-
-        return call;
+        return call.execute().body();
     }
 
-    public boolean addPushToken(String token) throws IOException {
+//    public boolean addPushToken(String token) throws IOException {
+//
+//        List<PostField> postFieldList = new LinkedList<>();
+//        postFieldList.add(new PostField(PostField.TOKEN, token));
+//        postFieldList.add(new PostField(PostField.PLATFORM, "android"));
+//
+//        Call<String> call = mAPIService.addPushToken(BaseModel.toRequestBody(postFieldList));
+//        Response<AddPushTokenResponse> response = call.execute();
+//
+//        return isStatusOK(response);
+//    }
+//
+//    public boolean deletePushToken(String token, long userId) throws IOException {
+//
+//        List<PostField> postFieldList = new LinkedList<>();
+//        postFieldList.add(new PostField(PostField.TOKEN, token));
+//        postFieldList.add(new PostField(PostField.PLATFORM, "android"));
+//        postFieldList.add(new PostField(PostField.DELETE, "1"));
+//
+//        Call<String> call = mAPIService.deletePushToken(userId, BaseModel.toRequestBody(postFieldList));
+//        Response<DeletePushTokenResponse> response = call.execute();
+//
+//        return isStatusOK(response);
+//    }
 
-        List<PostField> postFieldList = new LinkedList<>();
-        postFieldList.add(new PostField(PostField.TOKEN, token));
-        postFieldList.add(new PostField(PostField.PLATFORM, "android"));
-
-        Call<AddPushTokenResponse> call = mAPIService.addPushToken(BaseModel.toRequestBody(postFieldList));
-        Response<AddPushTokenResponse> response = call.execute();
-
-        return isStatusOK(response);
-    }
-
-    public boolean deletePushToken(String token, long userId) throws IOException {
-
-        List<PostField> postFieldList = new LinkedList<>();
-        postFieldList.add(new PostField(PostField.TOKEN, token));
-        postFieldList.add(new PostField(PostField.PLATFORM, "android"));
-        postFieldList.add(new PostField(PostField.DELETE, "1"));
-
-        Call<DeletePushTokenResponse> call = mAPIService.deletePushToken(userId, BaseModel.toRequestBody(postFieldList));
-        Response<DeletePushTokenResponse> response = call.execute();
-
-        return isStatusOK(response);
-    }
-
-    public Call sendMessage(final RequestListener listener, long chatId, String msg, String userHash) {
-
-        if (listener != null)
-            listener.onStartRequest();
+    public String sendMessage(long chatId, String msg, String userHash) throws IOException {
 
         List<PostField> postFieldList = new LinkedList<>();
         postFieldList.add(new PostField(PostField.CHAT_ID, chatId + ""));
         postFieldList.add(new PostField(PostField.MESSAGE, msg));
         postFieldList.add(new PostField(PostField.USER_HASH, userHash));
-        Call<SendMessageResponse> call = mAPIService.sendMessage(BaseModel.toRequestBody(postFieldList));
-        call.enqueue(new Callback<SendMessageResponse>() {
-            @Override
-            public void onResponse(Call<SendMessageResponse> call, Response<SendMessageResponse> serverResponse) {
+        Call<String> call = mAPIService.sendMessage(BaseModel.toRequestBody(postFieldList));
 
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.SEND_MESSAGE));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<SendMessageResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.SEND_MESSAGE));
-            }
-        });
-
-        return call;
+        return String.valueOf(call.execute().body());
     }
 
-    public Call addChat(final RequestListener listener, long adId) {
+    public String addChat(long adId) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<AddChatResponse> call = mAPIService.addChat(BaseModel.toRequestBody(new PostField(PostField.AD_ID, adId + "")));
-        call.enqueue(new Callback<AddChatResponse>() {
-            @Override
-            public void onResponse(Call<AddChatResponse> call, Response<AddChatResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.ADD_CHAT));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<AddChatResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.ADD_CHAT));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.addChat(BaseModel.toRequestBody(new PostField(PostField.AD_ID, adId + "")));
+        return call.execute().body();
     }
 
-    public Call updateViewTime(final RequestListener listener, long chatId) {
+    public String updateViewTime(long chatId) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<UpdateViewTimeResponse> call = mAPIService.updateViewTime(BaseModel.toRequestBody(new PostField(PostField.CHAT_ID, chatId + "")));
-        call.enqueue(new Callback<UpdateViewTimeResponse>() {
-            @Override
-            public void onResponse(Call<UpdateViewTimeResponse> call, Response<UpdateViewTimeResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.UPDATE_VIEW_TIME));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<UpdateViewTimeResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.UPDATE_VIEW_TIME));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.updateViewTime(BaseModel.toRequestBody(new PostField(PostField.CHAT_ID, chatId + "")));
+        return call.execute().body();
     }
 
-    public Call getUnreadCount(final RequestListener listener) {
+    public String getUnreadCount() throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<GetUnreadCountResponse> call = mAPIService.getUnreadCount();
-        call.enqueue(new Callback<GetUnreadCountResponse>() {
-
-            @Override
-            public void onResponse(Call<GetUnreadCountResponse> call, Response<GetUnreadCountResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.GET_UNREAD_COUNT));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GetUnreadCountResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.GET_UNREAD_COUNT));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.getUnreadCount();
+        return call.execute().body();
     }
 
-    public Call getChats(final RequestListener listener) {
+    public String getChats() throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<GetChatsResponse> call = mAPIService.getChats();
-        call.enqueue(new Callback<GetChatsResponse>() {
-            @Override
-            public void onResponse(Call<GetChatsResponse> call, Response<GetChatsResponse> serverResponse) {
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.GET_CHATS));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GetChatsResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.GET_CHATS));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.getChats();
+        return call.execute().body();
     }
 
-    public Call getMessages(final RequestListener listener, long chatId) {
+    public String getMessages(long chatId) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<GetMessagesResponse> call = mAPIService.getMessages(chatId);
-        call.enqueue(new Callback<GetMessagesResponse>() {
-
-            @Override
-            public void onResponse(Call<GetMessagesResponse> call, Response<GetMessagesResponse> serverResponse) {
-
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.GET_MESSAGES));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GetMessagesResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.GET_MESSAGES));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.getMessages(chatId);
+        return call.execute().body();
     }
 
-    public Call getAdURLById(final RequestListener listener, long id) {
+    public String getAdURLById(long id) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<GetAdURLByIdResponse> call = mAPIService.getAdURLById(id);
-        call.enqueue(new Callback<GetAdURLByIdResponse>() {
-            @Override
-            public void onResponse(Call<GetAdURLByIdResponse> call, Response<GetAdURLByIdResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.GET_AD_URL_BY_ID));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GetAdURLByIdResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.GET_AD_URL_BY_ID));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.getAdURLById(id);
+        return call.execute().body();
     }
 
-    public Call getAdById(final RequestListener listener, long id) {
+    public String getAdById(long id) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<GetAdByIdResponse> call = mAPIService.getAdById(id);
-        call.enqueue(new Callback<GetAdByIdResponse>() {
-
-            @Override
-            public void onResponse(Call<GetAdByIdResponse> call, Response<GetAdByIdResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.GET_AD_BY_ID));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GetAdByIdResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.GET_AD_BY_ID));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.getAdById(id);
+        return call.execute().body();
     }
 
-    public Call changePass(final RequestListener listener, ChangePassBody changePassBody) {
+    public String changePass(ChangePassBody changePassBody) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
+        Call<String> call = mAPIService.changePass(
+                BaseModel.toRequestBody(changePassBody.getChangePassFieldList())
+        );
 
-        Call<ChangePassResponse> call = mAPIService.changePass(BaseModel.toRequestBody(changePassBody.getChangePassFieldList()));
-        call.enqueue(new Callback<ChangePassResponse>() {
-
-            @Override
-            public void onResponse(Call<ChangePassResponse> call, Response<ChangePassResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.CHANGE_PASS));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ChangePassResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.CHANGE_PASS));
-            }
-        });
-
-        return call;
+        return call.execute().body();
     }
 
-    public Call recoveryPass(final RequestListener listener, String phoneNumber) {
+    public String recoveryPass(String phoneNumber) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<RecoveryPassResponse> call = mAPIService.recoveryPass(phoneNumber);
-        call.enqueue(new Callback<RecoveryPassResponse>() {
-
-            @Override
-            public void onResponse(Call<RecoveryPassResponse> call, Response<RecoveryPassResponse> serverResponse) {
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.RECOVERY_PASS));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<RecoveryPassResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.RECOVERY_PASS));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.recoveryPass(phoneNumber);
+        return call.execute().body();
     }
 
-    public Call checkUser(final RequestListener listener, String mobile) {
+    public String checkUser(String mobile) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<CheckUserResponse> call = mAPIService.checkUser(mobile);
-        call.enqueue(new Callback<CheckUserResponse>() {
-            @Override
-            public void onResponse(Call<CheckUserResponse> call, Response<CheckUserResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.CHECK_USER));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<CheckUserResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.CHECK_USER));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.checkUser(mobile);
+        return call.execute().body();
     }
 
-    public Call signUp(final RequestListener listener, boolean confirmation,
-                       boolean autogeneration, String mobile, String email) {
+    public String signUp(boolean confirmation, boolean autogeneration, String mobile, String email) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-
-        Call<SignUpResponse> call = mAPIService.signUp(confirmation, autogeneration, mobile, email);
-        call.enqueue(new Callback<SignUpResponse>() {
-
-            @Override
-            public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.SIGN_UP));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<SignUpResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.SIGN_UP));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.signUp(confirmation, autogeneration, mobile, email);
+        return call.execute().body();
     }
 
-    public Call getMobileAuth(final RequestListener listener, String phoneNumber, String password, boolean isFastAuthFlow) {
+    public String getMobileAuth(String phoneNumber, String password, boolean isFastAuthFlow) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<GetMobileAuthResponse> call = mAPIService.getMobileAuth(phoneNumber, password, isFastAuthFlow);
-        call.enqueue(new Callback<GetMobileAuthResponse>() {
-            @Override
-            public void onResponse(Call<GetMobileAuthResponse> call, Response<GetMobileAuthResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.GET_MOBILE_AUTH));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GetMobileAuthResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.GET_MOBILE_AUTH));
-            }
-        });
-
-        return call;
+        Call<String> call = mAPIService.getMobileAuth(phoneNumber, password, isFastAuthFlow);
+        return call.execute().body();
     }
 
-    public Call getCategoryParams(final RequestListener listener, final long id) {
+    public String getCategoryParams(final long id) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
+        // CategoryParamsResponse cachedResponse = getCategoryParamsResponse(id);
+        Call<String> call = mAPIService.getCategoryParams(id);
 
-
-        CategoryParamsResponse cachedResponse = getCategoryParamsResponse(id);
-        if (cachedResponse != null) {
-
-            if (listener != null)
-                listener.onSuccess(cachedResponse);
-
-            return null;
-        }
-
-        Call<CategoryParamsResponse> call = mAPIService.getCategoryParams(id);
-        call.enqueue(new Callback<CategoryParamsResponse>() {
-
-            @Override
-            public void onResponse(Call<CategoryParamsResponse> call, Response<CategoryParamsResponse> serverResponse) {
-
-                if (ApiWorker.model2.BaseResponse.isStatusOK(serverResponse)) { //ApiWorker.model2
-
-                    putCategoryParamsResponse(id, serverResponse.body());
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.CATEGORY_PARAMS));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<CategoryParamsResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.CATEGORY_PARAMS));
-            }
-        });
-
-        return call;
+        return call.execute().body();
     }
 
-    public Call postAd(final RequestListener listener, PostAdBody postAdBody, final String userId) {
+    public String postAd(PostAdBody postAdBody, final String userId) throws IOException {
 
-        if (listener != null)
-            listener.onStartRequest();
-
-        Call<PostAdResponse> call;
+        Call<String> call;
         if (TextUtils.isEmpty(userId))
             call = mAPIService.postAd(postAdBody.toRequestBody());
         else
             call = mAPIService.postAd(userId, postAdBody.toRequestBody());
-        call.enqueue(new Callback<PostAdResponse>() {
 
-            @Override
-            public void onResponse(Call<PostAdResponse> call, Response<PostAdResponse> serverResponse) {
-
-                if (isStatusOK(serverResponse)) {
-
-                    if (listener != null)
-                        listener.onSuccess(serverResponse.body());
-                } else {
-
-                    if (listener != null)
-                        listener.onError(getServerErrorMsg(serverResponse, APIMethods.POST_AD));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<PostAdResponse> call, Throwable error) {
-
-                if (listener != null)
-                    listener.onError(getErrorMsg(error, APIMethods.POST_AD));
-            }
-        });
-
-        return call;
+        return String.valueOf(call.execute().body());
     }
 
     private String getErrorMsg(Throwable error, String method) {

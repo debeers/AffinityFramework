@@ -1,4 +1,4 @@
-package Tests.Login;
+package Tests.GUITests.Login;
 
 import PageObjects.UserAccountPage;
 import Tests.BaseTest;

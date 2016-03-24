@@ -5,9 +5,6 @@ import com.google.gson.annotations.SerializedName;
 
 import retrofit2.Response;
 
-/**
- * Created by artem on 7/26/15.
- */
 public class BaseResponse {
 
     @SerializedName("status")

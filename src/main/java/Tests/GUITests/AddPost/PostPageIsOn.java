@@ -1,4 +1,4 @@
-package Tests.AddPost;
+package Tests.GUITests.AddPost;
 
 import PageObjects.MainPage;
 import PageObjects.PostPage;
