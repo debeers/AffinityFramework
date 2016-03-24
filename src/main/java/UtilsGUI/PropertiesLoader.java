@@ -1,4 +1,4 @@
-package Utils;
+package UtilsGUI;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import static Actions.PostAdd.makeNewPost;
-import static Utils.PropertiesLoader.propertyXMLoader;
+import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 

@@ -136,7 +136,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
                     .filter(el -> el.getAttribute("data-option-array-index").equals(index))
                     .forEach(el -> $(el).shouldBe(visible).click());
         } catch (Exception e) {
-            System.out.println("We`re catched Stale element exception, but fuck it!)");
+            System.out.println("We`re catched Stale element ApiWorker.exception, but fuck it!)");
         }
     }
 
