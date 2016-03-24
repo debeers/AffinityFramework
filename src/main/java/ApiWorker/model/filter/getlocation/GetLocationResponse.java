@@ -1,8 +1,7 @@
 package ApiWorker.model.filter.getlocation;
 
+import ApiWorker.model.BaseResponse;
 import com.google.gson.annotations.SerializedName;
-
-import classifieds.yalla.model.BaseResponse;
 
 /**
  * Created by artem on 4/2/15.

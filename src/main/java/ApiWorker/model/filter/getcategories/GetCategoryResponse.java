@@ -1,10 +1,9 @@
 package ApiWorker.model.filter.getcategories;
 
+import ApiWorker.model.BaseResponse;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
-import classifieds.yalla.model.BaseResponse;
 
 /**
  * Created by artem on 4/2/15.

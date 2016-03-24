@@ -1,6 +1,7 @@
 package ApiWorker.model.chats.updateviewtime;
 
-import classifieds.yalla.model.BaseResponse;
+
+import ApiWorker.model.BaseResponse;
 
 /**
  * Created by artem on 9/24/15.

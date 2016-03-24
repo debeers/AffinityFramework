@@ -1,12 +1,11 @@
 package ApiWorker.model.chats.getchats;
 
+import ApiWorker.model.BaseResponse;
+import ApiWorker.model.chats.Chat;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
-import classifieds.yalla.model.BaseResponse;
-import classifieds.yalla.model.chats.Chat;
 
 /**
  * Created by artem on 8/16/15.

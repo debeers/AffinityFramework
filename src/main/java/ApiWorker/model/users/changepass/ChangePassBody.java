@@ -1,10 +1,10 @@
 package ApiWorker.model.users.changepass;
 
+import ApiWorker.model.BaseModel;
+import ApiWorker.model.PostField;
+
 import java.util.LinkedList;
 import java.util.List;
-
-import classifieds.yalla.model.BaseModel;
-import classifieds.yalla.model.PostField;
 
 /**
  * Created by artem on 9/1/15.

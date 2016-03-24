@@ -1,6 +1,6 @@
 package ApiWorker.model.users.changepass;
 
-import classifieds.yalla.model.BaseResponse;
+import ApiWorker.model.BaseResponse;
 
 /**
  * Created by artem on 9/1/15.

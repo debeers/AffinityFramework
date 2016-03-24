@@ -1,6 +1,6 @@
 package ApiWorker.model;
 
-import android.text.TextUtils;
+import org.apache.http.util.TextUtils;
 
 import java.util.LinkedList;
 import java.util.List;

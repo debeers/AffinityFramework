@@ -1,20 +1,15 @@
 package ApiWorker.model.ads.getadbyid;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
-
 import ApiWorker.model.BaseResponse;
 import ApiWorker.model.ads.Ad;
+
+import java.util.List;
 
 /**
  * Created by artem on 4/2/15.
  */
 public class GetAdByIdResponse extends BaseResponse {
 
-    @SerializedName("data")
-    @Expose
     private List<Ad> adList;
 
     public GetAdByIdResponse() {

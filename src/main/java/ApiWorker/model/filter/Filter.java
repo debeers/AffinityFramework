@@ -1,16 +1,12 @@
 package ApiWorker.model.filter;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
+import ApiWorker.model.BaseModel;
 import com.google.gson.annotations.SerializedName;
-
-import classifieds.yalla.model.BaseModel;
 
 /**
  * Created by artem on 4/2/15.
  */
-public class Filter extends BaseModel implements Parcelable {
+public class Filter extends BaseModel {
 
     @SerializedName("id")
     protected long id;
@@ -28,13 +24,11 @@ public class Filter extends BaseModel implements Parcelable {
         this.id = id;
     }
 
-    public Filter(Parcel in) {
-        super(in);
-
-        id = in.readLong();
-        name = in.readString();
-        children = in.readLong();
-        parentId = in.readLong();
+    public Filter(long id, String name, long children, long parentId) {
+        this.id = id;
+        this.name = name;
+        this.children = children;
+        this.parentId = parentId;
     }
 
     public long getId() {
@@ -80,56 +74,4 @@ public class Filter extends BaseModel implements Parcelable {
 
         this.name = name;
     }
-
-    @Override
-    public int describeContents() {
-
-        return 0;
-    }
-
-    @Override
-    public int hashCode() {
-
-        int result = 7;
-        result = (31 * result + (int) id);
-
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-
-        if (!(o instanceof Filter))
-            return false;
-
-        if (this == o)
-            return true;
-
-        return this.id == ((Filter) o).getId();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        super.writeToParcel(dest, flags);
-
-        dest.writeLong(id);
-        dest.writeString(name);
-        dest.writeLong(children);
-        dest.writeLong(parentId);
-    }
-
-    public static final Creator<Filter> CREATOR = new Creator<Filter>() {
-
-        @Override
-        public Filter createFromParcel(Parcel in) {
-
-            return new Filter(in);
-        }
-
-        @Override
-        public Filter[] newArray(int size) {
-
-            return new Filter[size];
-        }
-    };
 }

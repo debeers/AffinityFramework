@@ -1,15 +1,12 @@
 package ApiWorker.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by artem on 9/24/15.
  */
-public class PostField extends BaseModel implements Parcelable {
+public class PostField extends BaseModel {
 
     public static final String ID = "id";
     public static final String CITY_ID = "city_id";
@@ -48,38 +45,6 @@ public class PostField extends BaseModel implements Parcelable {
         this.id = id;
         this.value = (value == null ? "" : value);
     }
-
-    protected PostField(Parcel in) {
-
-        id = in.readString();
-        value = in.readString();
-    }
-
-    @Override
-    public int describeContents() {
-
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-
-        parcel.writeString(id);
-        parcel.writeString(value);
-    }
-
-    public static final Parcelable.Creator<PostField> CREATOR = new Parcelable.Creator<PostField>() {
-
-        @Override
-        public PostField createFromParcel(Parcel in) {
-            return new PostField(in);
-        }
-
-        @Override
-        public PostField[] newArray(int size) {
-            return new PostField[size];
-        }
-    };
 
     public String getId() {
 

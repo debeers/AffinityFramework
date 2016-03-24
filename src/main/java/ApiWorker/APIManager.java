@@ -1,20 +1,8 @@
 package ApiWorker;
 
-import ApiWorker.APIUtils.GlobalArgs;
-
-//import com.facebook.stetho.okhttp3.StethoInterceptor;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.Stack;
-import java.util.concurrent.TimeUnit;
-
-import ApiWorker.model.*;
+import ApiWorker.model.BaseModel;
+import ApiWorker.model.BaseResponse;
+import ApiWorker.model.PostField;
 import ApiWorker.model.ads.deactivatead.DeactivateAdResponse;
 import ApiWorker.model.ads.freepush.FreePushResponse;
 import ApiWorker.model.ads.getadbyid.GetAdByIdResponse;
@@ -37,7 +25,6 @@ import ApiWorker.model.filter.getlocation.Location;
 import ApiWorker.model.filter.getparams.GetParamsResponse;
 import ApiWorker.model.push.AddPushTokenResponse;
 import ApiWorker.model.push.DeletePushTokenResponse;
-import ApiWorker.model.users.UserManager;
 import ApiWorker.model.users.changepass.ChangePassBody;
 import ApiWorker.model.users.changepass.ChangePassResponse;
 import ApiWorker.model.users.checkuser.CheckUserResponse;
@@ -45,10 +32,9 @@ import ApiWorker.model.users.getmobileauth.GetMobileAuthResponse;
 import ApiWorker.model.users.recoverypass.RecoveryPassResponse;
 import ApiWorker.model.users.signup.SignUpResponse;
 import ApiWorker.model2.categoryparams.CategoryParamsResponse;
-import okhttp3.Interceptor;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-
 import okhttp3.logging.HttpLoggingInterceptor;
 import org.apache.http.util.TextUtils;
 import retrofit2.Call;
@@ -57,7 +43,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static ApiWorker.model.BaseResponse.*;
+import java.io.IOException;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+
+import static ApiWorker.model.BaseResponse.isStatusOK;
+
+//import com.facebook.stetho.okhttp3.StethoInterceptor;
 
 
 /**
@@ -86,7 +78,7 @@ public class APIManager {
     private HashMap<Long, GetPostFieldsResponse> mPostFieldsResponseCache;
     private HashMap<Long, CategoryParamsResponse> mCategoryParamsResponseCache;
 
-    private AppRetrofitUrl mRetrofitEndpoint;
+    //private AppRetrofitUrl mRetrofitEndpoint;
 
     private void clearCache() {
 
@@ -105,21 +97,17 @@ public class APIManager {
         builder.connectTimeout(CONNECT_TIMEOUT_IN_SECONDS, TimeUnit.SECONDS);
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.NONE);
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-        Interceptor headersInterceptor = new Interceptor() {
+        /*Interceptor headersInterceptor = chain -> {
 
-            @Override
-            public okhttp3.Response intercept(Chain chain) throws IOException {
+           // Request request = chain.request().newBuilder().addHeader(GlobalArgs.USER_ID_HEADER,
+                    //UserManager.getInstance().getUserId() + "").build();
 
-                Request request = chain.request().newBuilder().addHeader(GlobalArgs.USER_ID_HEADER,
-                        UserManager.getInstance().getUserId() + "").build();
-
-                return chain.proceed(request);
-            }
+            return chain.proceed(request);
         };
 
-        builder.addInterceptor(headersInterceptor);
+        builder.addInterceptor(headersInterceptor);*/
         builder.addInterceptor(loggingInterceptor);
 //        builder.addNetworkInterceptor(new StethoInterceptor());
 
@@ -139,7 +127,7 @@ public class APIManager {
 
 
         return new Retrofit.Builder()
-                .baseUrl("dfgdfg/fdg")
+                .baseUrl("http://api.lalafo.kg/api/")
                 .addConverterFactory(createGsonConverterFactory())
                 .client(createHttpClient())
                 .build();
@@ -532,7 +520,7 @@ public class APIManager {
             @Override
             public void onResponse(Call<GetParamsResponse> call, Response<GetParamsResponse> serverResponse) {
 
-                if (ApiWorker.model2.BaseResponse.isStatusOK(serverResponse)) {
+                if (isStatusOK(serverResponse)) {
 
                     mGetParamsResponse = serverResponse.body();
 
@@ -1142,7 +1130,7 @@ public class APIManager {
             @Override
             public void onResponse(Call<CategoryParamsResponse> call, Response<CategoryParamsResponse> serverResponse) {
 
-                if (isStatusOK(serverResponse)) { //ApiWorker.model2
+                if (ApiWorker.model2.BaseResponse.isStatusOK(serverResponse)) { //ApiWorker.model2
 
                     putCategoryParamsResponse(id, serverResponse.body());
 

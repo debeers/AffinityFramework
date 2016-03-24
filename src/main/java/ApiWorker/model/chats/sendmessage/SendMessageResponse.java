@@ -1,10 +1,10 @@
 package ApiWorker.model.chats.sendmessage;
 
+import ApiWorker.model.BaseResponse;
+import ApiWorker.model.chats.Message;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import classifieds.yalla.model.BaseResponse;
-import classifieds.yalla.model.chats.Message;
 
 /**
  * Created by artem on 8/23/15.

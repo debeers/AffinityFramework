@@ -1,14 +1,12 @@
 package ApiWorker.model.filter.getparams;
 
+import ApiWorker.model.BaseModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
-import classifieds.yalla.logger.MyLogger;
-import classifieds.yalla.model.BaseModel;
 
 /**
  * Created by artem on 9/14/15.
@@ -44,7 +42,7 @@ public class GetParamsData extends BaseModel {
                 parsedCurrencies = parseCurrencies();
             } catch (Throwable th) {
 
-                MyLogger.e(TAG, "Failed to parsed currencies", th);
+                //MyLogger.e(TAG, "Failed to parsed currencies", th);
             }
         }
 

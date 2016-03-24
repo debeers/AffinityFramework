@@ -33,10 +33,4 @@ public class Language {
 
         this.name = name;
     }
-
-    @Override
-    public String toString() {
-
-        return name;
-    }
 }

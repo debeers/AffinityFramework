@@ -1,18 +1,13 @@
 package ApiWorker.model.users;
 
-import android.database.Cursor;
-import android.os.Parcel;
-import android.os.Parcelable;
-
+import ApiWorker.model.BaseModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import classifieds.yalla.model.BaseModel;
 
 /**
  * Created by artem on 7/26/15.
  */
-public class User extends BaseModel implements Parcelable {
+public class User extends BaseModel {
 
     private static final String USER_ID = "user_id";
     private static final String USERNAME = "username";
@@ -51,41 +46,13 @@ public class User extends BaseModel implements Parcelable {
         this.city = city;
     }
 
-    protected User(Parcel in) {
-        super(in);
-        id = in.readLong();
-        userName = in.readString();
-        city = in.readString();
-        avatar = in.readString();
-        password = in.readString();
+    public User(long id, String userName, String city, String avatar, String password) {
+        this.id = id;
+        this.userName = userName;
+        this.city = city;
+        this.avatar = avatar;
+        this.password = password;
     }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        super.writeToParcel(dest, flags);
-        dest.writeLong(id);
-        dest.writeString(userName);
-        dest.writeString(city);
-        dest.writeString(avatar);
-        dest.writeString(password);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
-
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
 
     public long getId() {
         return id;
@@ -132,35 +99,5 @@ public class User extends BaseModel implements Parcelable {
     public void setPassword(String password) {
 
         this.password = password;
-    }
-
-    public static User fromCursor(Cursor cursor) {
-
-        if (cursor == null || !cursor.moveToFirst())
-            return null;
-
-        User user = new User();
-
-        int columnIndex = cursor.getColumnIndex(USER_ID);
-        if (columnIndex != -1)
-            user.setId(cursor.getLong(columnIndex));
-
-        columnIndex = cursor.getColumnIndex(USERNAME);
-        if (columnIndex != -1)
-            user.setUsername(cursor.getString(columnIndex));
-
-        columnIndex = cursor.getColumnIndex(CITY);
-        if (columnIndex != -1)
-            user.setCity(cursor.getString(columnIndex));
-
-        columnIndex = cursor.getColumnIndex(AVATAR);
-        if (columnIndex != -1)
-            user.setAvatar(cursor.getString(columnIndex));
-
-        columnIndex = cursor.getColumnIndex(PASSWORD);
-        if (columnIndex != -1)
-            user.setPassword(cursor.getString(columnIndex));
-
-        return user;
     }
 }

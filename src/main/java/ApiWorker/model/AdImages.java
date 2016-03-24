@@ -1,8 +1,5 @@
 package ApiWorker.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -11,7 +8,7 @@ import java.util.List;
 /**
  * Created by artem on 2/12/15.
  */
-public class AdImages extends BaseModel implements Parcelable {
+public class AdImages extends BaseModel {
 
     @SerializedName("original")
     @Expose
@@ -25,41 +22,10 @@ public class AdImages extends BaseModel implements Parcelable {
 
     }
 
-    protected AdImages(Parcel in) {
-        super(in);
-
-        thumbnailImages = in.createTypedArrayList(Image.CREATOR);
-        originalImages = in.createTypedArrayList(Image.CREATOR);
+    public AdImages(List<Image> thumbnailImages, List<Image> originalImages) {
+        this.thumbnailImages = thumbnailImages;
+        this.originalImages = originalImages;
     }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        super.writeToParcel(dest, flags);
-
-        dest.writeTypedList(thumbnailImages);
-        dest.writeTypedList(originalImages);
-    }
-
-    @Override
-    public int describeContents() {
-
-        return 0;
-    }
-
-    public static final Creator<AdImages> CREATOR = new Creator<AdImages>() {
-
-        @Override
-        public AdImages createFromParcel(Parcel in) {
-
-            return new AdImages(in);
-        }
-
-        @Override
-        public AdImages[] newArray(int size) {
-
-            return new AdImages[size];
-        }
-    };
 
     public List<Image> getThumbnailImages() {
 

@@ -16,8 +16,6 @@ public class GetAdsData   {
         this.adList = adList;
     }
 
-    @SerializedName("ads")
-    @Expose
     private List<Ad> adList;
 
     @SerializedName("countPages")

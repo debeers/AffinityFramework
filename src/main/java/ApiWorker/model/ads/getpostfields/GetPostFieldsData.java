@@ -1,19 +1,14 @@
 package ApiWorker.model.ads.getpostfields;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-import classifieds.yalla.model.BaseModel;
-
 /**
  * Created by artem on 4/5/15.
  */
-public class GetPostFieldsData extends BaseModel implements Parcelable {
+public class GetPostFieldsData extends ApiWorker.model2.BaseModel {
 
     @SerializedName("fields")
     @Expose
@@ -31,27 +26,11 @@ public class GetPostFieldsData extends BaseModel implements Parcelable {
 
     }
 
-    protected GetPostFieldsData(Parcel in) {
-
-        fieldList = in.createTypedArrayList(Field.CREATOR);
-        paramList = in.createTypedArrayList(Param.CREATOR);
-        userInfoFieldList = in.createTypedArrayList(UserInfoField.CREATOR);
+    public GetPostFieldsData(List<Field> fieldList, List<Param> paramList, List<UserInfoField> userInfoFieldList) {
+        this.fieldList = fieldList;
+        this.paramList = paramList;
+        this.userInfoFieldList = userInfoFieldList;
     }
-
-    public static final Creator<GetPostFieldsData> CREATOR = new Creator<GetPostFieldsData>() {
-
-        @Override
-        public GetPostFieldsData createFromParcel(Parcel in) {
-
-            return new GetPostFieldsData(in);
-        }
-
-        @Override
-        public GetPostFieldsData[] newArray(int size) {
-
-            return new GetPostFieldsData[size];
-        }
-    };
 
     public List<UserInfoField> getUserInfoFieldList() {
 
@@ -68,17 +47,9 @@ public class GetPostFieldsData extends BaseModel implements Parcelable {
         return paramList;
     }
 
-    @Override
     public int describeContents() {
 
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
-        dest.writeTypedList(fieldList);
-        dest.writeTypedList(paramList);
-        dest.writeTypedList(userInfoFieldList);
-    }
 }

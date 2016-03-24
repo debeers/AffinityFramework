@@ -1,11 +1,10 @@
 package ApiWorker.model.filter.getparams;
 
+import ApiWorker.model.BaseResponse;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
-import classifieds.yalla.model.BaseResponse;
 
 /**
  * Created by artem on 8/27/15.

@@ -1,19 +1,15 @@
 package ApiWorker.model.filter.getcategories;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
+import ApiWorker.model.ads.Ad;
+import ApiWorker.model.filter.Filter;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-import ApiWorker.model.ads.Ad;
-import ApiWorker.model.filter.Filter;
-
 /**
  * Created by artem on 4/2/15.
  */
-public class Category extends Filter implements Parcelable {
+public class Category extends Filter {
 
     private static final String LINEAR_LIST_TYPE = "table";
 
@@ -44,13 +40,30 @@ public class Category extends Filter implements Parcelable {
         this.name = name;
     }
 
-    public Category(Parcel in) {
-        super(in);
+    public Category(long id, List<Category> childrenList,
+                    List<Ad> adList, String listType, String alias) {
+        super(id);
+        this.childrenList = childrenList;
+        this.adList = adList;
+        this.listType = listType;
+        this.alias = alias;
+    }
 
-        childrenList = in.createTypedArrayList(Category.CREATOR);
-        adList = in.createTypedArrayList(Ad.CREATOR);
-        listType = in.readString();
-        alias = in.readString();
+    public Category(List<Category> childrenList, List<Ad> adList,
+                    String listType, String alias) {
+        this.childrenList = childrenList;
+        this.adList = adList;
+        this.listType = listType;
+        this.alias = alias;
+    }
+
+    public Category(String name, List<Category> childrenList,
+                    List<Ad> adList, String listType, String alias) {
+        super(name);
+        this.childrenList = childrenList;
+        this.adList = adList;
+        this.listType = listType;
+        this.alias = alias;
     }
 
     public Category(long id, String name, List<Category> mChildrenList) {
@@ -103,35 +116,4 @@ public class Category extends Filter implements Parcelable {
 
         return childrenList;
     }
-
-    @Override
-    public int describeContents() {
-
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        super.writeToParcel(dest, flags);
-
-        dest.writeTypedList(childrenList);
-        dest.writeTypedList(adList);
-        dest.writeString(listType);
-        dest.writeString(alias);
-    }
-
-    public static final Creator<Category> CREATOR = new Creator<Category>() {
-
-        @Override
-        public Category createFromParcel(Parcel in) {
-
-            return new Category(in);
-        }
-
-        @Override
-        public Category[] newArray(int size) {
-
-            return new Category[size];
-        }
-    };
 }

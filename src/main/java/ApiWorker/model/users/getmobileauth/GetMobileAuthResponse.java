@@ -1,10 +1,9 @@
 package ApiWorker.model.users.getmobileauth;
 
+import ApiWorker.model.BaseResponse;
+import ApiWorker.model.users.User;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import classifieds.yalla.model.BaseResponse;
-import ApiWorker.model.users.User;
 
 /**
  * Created by artem on 7/26/15.

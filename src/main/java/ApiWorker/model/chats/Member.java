@@ -1,17 +1,14 @@
 package ApiWorker.model.chats;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
+import ApiWorker.model.BaseModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import classifieds.yalla.model.BaseModel;
 
 /**
  * Created by artem on 8/18/15.
  */
-public class Member extends BaseModel implements Parcelable {
+public class Member extends BaseModel {
 
     @SerializedName("type")
     @Expose
@@ -34,43 +31,10 @@ public class Member extends BaseModel implements Parcelable {
         return id;
     }
 
-    protected Member(Parcel in) {
-        super(in);
-
-        type = in.readString();
-        id = in.readLong();
-        lastView = in.readLong();
-        userName = in.readString();
+    public Member(String type, long id, long lastView, String userName) {
+        this.type = type;
+        this.id = id;
+        this.lastView = lastView;
+        this.userName = userName;
     }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        super.writeToParcel(dest, flags);
-
-        dest.writeString(type);
-        dest.writeLong(id);
-        dest.writeLong(lastView);
-        dest.writeString(userName);
-    }
-
-    @Override
-    public int describeContents() {
-
-        return 0;
-    }
-
-    public static final Creator<Member> CREATOR = new Creator<Member>() {
-
-        @Override
-        public Member createFromParcel(Parcel in) {
-
-            return new Member(in);
-        }
-
-        @Override
-        public Member[] newArray(int size) {
-
-            return new Member[size];
-        }
-    };
 }
