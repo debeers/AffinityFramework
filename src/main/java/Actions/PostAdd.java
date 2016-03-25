@@ -10,11 +10,19 @@ import java.awt.*;
  */
 public class PostAdd {
 
+    public static void setUnderCategoryIfExsist(PostPage postPage, Post post) throws InterruptedException {
+
+        if (!post.getUnderCategory().equals("null"))
+            postPage.setUnderCategory(post.getUnderCategory());
+        else
+            System.out.println("Undercategory is not setted");
+    }
+
     public static PostPage makeNewPost(PostPage postPage, Post post, int countOfFilesToUpload)
             throws InterruptedException, AWTException {
 
         postPage.setCategory(post.getCategory());
-        postPage.setUnderCategory(post.getUnderCategory());
+        setUnderCategoryIfExsist(postPage, post);
         postPage.UploadImages(post, countOfFilesToUpload);
         postPage.setPostTitle(post.getTitle());
         postPage.setDescription(post.getDescription());
@@ -30,4 +38,5 @@ public class PostAdd {
 
         return postPage;
     }
+
 }
