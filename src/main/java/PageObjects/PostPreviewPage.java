@@ -9,7 +9,6 @@ import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.refresh;
 
 /**
  * Created by DeBeers on 10.03.2016.
@@ -40,6 +39,8 @@ public class PostPreviewPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[@id='update-ad']")
     public WebElement addPostButton;
 
+    @FindBy(xpath = "*//div[@class='details']/a[@class='name']")
+    public WebElement postedAdName;
 
     public String getTextFromPreviewStepTab(){
         return $(previewStepTab).shouldBe(Condition.visible).getText();
@@ -72,6 +73,11 @@ public class PostPreviewPage extends TopMenuGeneralPage {
 
     public SuccessPostedPage clickOnAddPostButton(){
         $(addPostButton).shouldBe(Condition.visible).click();
+        return new SuccessPostedPage(driver);
+    }
+
+    public SuccessPostedPage clickOnPostedAdName(){
+        $(postedAdName).shouldBe(Condition.visible).click();
         return new SuccessPostedPage(driver);
     }
 

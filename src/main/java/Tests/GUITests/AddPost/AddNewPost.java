@@ -25,10 +25,10 @@ public class AddNewPost extends BaseTest {
     public void Add_Post() throws InterruptedException, IOException, AWTException, SQLException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/AddPost/Post.xml");
+                "/src/main/java/Tests/GUITests/AddPost/Post.xml");
 
         Post post = new Post(props);
-        int countForPhotoUploads = 3;
+        int countForPhotoUploads = 0;
 
         //lets go hello motorolla
         //Go to main page
@@ -45,25 +45,26 @@ public class AddNewPost extends BaseTest {
         //
         //Create new post
         //
-        PostPreviewPage postPreviewPage = makeNewPost(postPage, post, countForPhotoUploads).clickOnPreviewButton();
+        PostPreviewPage postPreviewPage = makeNewPost(postPage, post, countForPhotoUploads)
+                .clickOnPreviewButton();
         log.info("We are on the preview post page, checking data for consistance:::");
 
         //
         //Verify data on preview page
         //
-        Assert.assertEquals($$(postPreviewPage.previewPhotos).size(), countForPhotoUploads + 1);
+        Assert.assertEquals($$(postPreviewPage.previewPhotos).size(), countForPhotoUploads);
         Assert.assertTrue(postPreviewPage.previewStepTab.isDisplayed());
         Assert.assertEquals(postPreviewPage.getTextFromPreviewPrice().subSequence(2, 4), post.getPrice(), "Price is not correct");
         Assert.assertEquals(postPreviewPage.getTextFromPreviewPrice().subSequence(0, 1), "$", "Currency is not correct");
         Assert.assertEquals(postPreviewPage.getTextFromPreviewSellerName(), post.getName(), "Name is not correct");
         Assert.assertEquals(postPreviewPage.getTextFromPreviewDescription(), post.getDescription(), "Description is not correct");
-        log.info("Data on preview page is consistant, post is correct");
+        log.info("Data on preview page is consistent, post is correct");
 
         //
         //Publish post and verify result
         //
         SuccessPostedPage successPostedPage = postPreviewPage.clickOnAddPostButton();
-        log.info("We are on the success post page, checking data for consistance:::");
+        log.info("We are on the success post page, checking data for consistence:::");
 
         Assert.assertTrue(successPostedPage.makeVipPost.isDisplayed());
         Assert.assertTrue(successPostedPage.markPost.isDisplayed());
@@ -71,7 +72,11 @@ public class AddNewPost extends BaseTest {
         Assert.assertEquals(tmp,
                 "Ваше объявление было отправлено на проверку",
                 "Success message is different!");
-        log.info("Test passed, new post posted, with correct data entered during formiong process: YoouuuHHuuu!!!");
+        log.info("Test passed, new post posted, with correct data entered during forming process: YoouuuHHuuu!!!");
+
+        SuccessPostedPage postedAd = postPreviewPage.clickOnPostedAdName();
+        log.info("We are on the posted Advert page");
+
     }
 }
 

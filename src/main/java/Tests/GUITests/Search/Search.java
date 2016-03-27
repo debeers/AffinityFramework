@@ -21,7 +21,7 @@ public class Search extends BaseTest {
     public void Search_Test() throws InterruptedException, IOException, AWTException, SQLException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/Search/Search.xml");
+                "/src/main/java/Tests/GUITests/Search/Search.xml");
 
         MainPage mainPage = new MainPage(driver);
         List<String> searchResults = search(mainPage.clickOnSearchButton(), props);

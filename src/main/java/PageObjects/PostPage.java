@@ -1,11 +1,14 @@
 package PageObjects;
 
 import Entities.Post;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -14,7 +17,6 @@ import java.util.List;
 
 import static GeneralHelpers.JSTools.jsDeleteClassesById;
 import static GeneralHelpers.RobotUpload.uploadFile;
-import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -115,7 +117,34 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public WebElement fileUpload5;
 
 
-    public void waitTillLoaderDissappear() {
+    /**
+     * Repeatedly check if the loader is still visible
+     */
+   /* public void waitTillLoaderFinishes() {
+        String loadingDotsPath = "//div[@class='ebLoader-Holder']//span[contains(@class, 'ebLoader-Dots')]";
+
+        try {
+            mEventDriver.findElement(By.xpath(loadingDotsPath));
+            WebDriverWait wait = new WebDriverWait(mEventDriver, LOADER_WAIT_TIMEOUT);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(loadingDotsPath)));
+        } catch (NoSuchElementException e) {
+        } catch (TimeoutException e) {
+            Assert.fail("Timeout exception caught while waiting for loader to finish");
+        }
+    } */
+
+    public void waitTillLoaderHides() {
+
+        try {
+            driver.findElement(By.id("loader"));
+            WebDriverWait wait = new WebDriverWait(driver, 8000);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loader")));
+        } catch (Exception e) {
+            log.info("Timeout while waiting for loader to disappear");
+        }
+    }
+
+   /* public void waitTillLoaderDissappear() {
         try {
             if (loader.isDisplayed()) {
                 $(loader).should(disappear);
@@ -124,7 +153,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         } catch (Exception e) {
             log.info("No loaders were found, go nex step");
         }
-    }
+    } */
 
     public void selectFromDropdawnMenuByIndex(WebElement element, List<WebElement> list, String index)
             throws InterruptedException {
@@ -142,12 +171,12 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     public void setCategory(String categoryIndex) throws InterruptedException {
         selectFromDropdawnMenuByIndex(categoriesChoose, categoriesList, categoryIndex);
-        waitTillLoaderDissappear();
+        waitTillLoaderHides();
     }
 
     public void setUnderCategory(String underCategoryIndex) throws InterruptedException {
         selectFromDropdawnMenuByIndex(underCategoriesChoose, underCategoriesList, underCategoryIndex);
-        waitTillLoaderDissappear();
+        waitTillLoaderHides();
     }
 
     public void setPostTitle(String title) {
@@ -176,7 +205,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     public void setRegion(String regionIndex) throws InterruptedException {
         selectFromDropdawnMenuByIndex(regionListChoose, regionList, regionIndex);
-        waitTillLoaderDissappear();
+        waitTillLoaderHides();
     }
 
     public void setPrivateTypeAsPrivate() {
@@ -269,7 +298,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
                             fileUpload5
                     );
 
-            for (int i = 0; i < countOfFilesToUpload; i++) {
+            for (int i = 4; i < countOfFilesToUpload; i++) {
                 inputs.get(i).click();
                 uploadFile(post.getListOfFiles().get(i).getAbsolutePath());
                 Thread.sleep(2000);

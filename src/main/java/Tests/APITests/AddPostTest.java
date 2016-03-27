@@ -1,9 +1,6 @@
 package Tests.APITests;
 
 import ApiWorker.APIManager;
-import ApiWorker.model.PostField;
-import ApiWorker.model.ads.getpostfields.UserInfoField;
-import ApiWorker.model.ads.postad.PostAdBody;
 import Tests.BaseTest;
 import org.testng.annotations.Test;
 
@@ -28,7 +25,7 @@ public class AddPostTest extends BaseTest {
 //        postAdBody.addField(new PostField("title", "Maverick Cronos"));
 //
 //        postAdBody.addUserInfoField(new PostField("mobile", "+996-778888888"));
-//        postAdBody.addUserInfoField(new PostField("username", "Julius Ceasar"));
+//        postAdBody.addUserInfoField(new PostField("username", "Julius Caesar"));
 //
 //        APIManager.getInstance().postAd(null, postAdBody, userId);
 

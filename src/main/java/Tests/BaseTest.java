@@ -41,7 +41,6 @@ public class BaseTest {
 
         //DB section
     }
-
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
     @BeforeMethod(alwaysRun = true)
     public void setUp(String URL, String clientLoginParam, String clientPasswordParam)

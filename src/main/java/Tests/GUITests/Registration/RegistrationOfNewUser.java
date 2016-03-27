@@ -26,7 +26,7 @@ public class RegistrationOfNewUser extends BaseTest{
     public void Registration_Positive_Test() throws InterruptedException, IOException, AWTException, SQLException {
 
         Properties props  = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/Registration/RegistrationData.xml");
+                "/src/main/java/Tests/GUITests/Registration/RegistrationData.xml");
 
         //
         // Prepearing user data and create new user entity

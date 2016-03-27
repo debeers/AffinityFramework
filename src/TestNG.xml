@@ -20,15 +20,15 @@
         <classes>
 
             <class name="Tests.GUITests.AddPost.AddPostToAnotherCatTest"/>
-            <!--
+            <class name="Tests.GUITests.AddPost.AddNewPostToThirdLevelCat"/>
 
-                 <class name="Tests.GUITests.AddPost.PostPageIsOn"/>
+                <class name="Tests.GUITests.AddPost.PostPageIsOn"/>
                   <class name="Tests.GUITests.AddPost.AddNewPost"/>
                   <class name="Tests.GUITests.Search.Search"/>
                   <class name="Tests.GUITests.Registration.RegistrationOfNewUser"/>
                   <class name="Tests.GUITests.Login.Login_Positive"/>
 
-                  -->
+
                </classes>
            </test>
        </suite>

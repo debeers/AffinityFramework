@@ -11,8 +11,6 @@ import ApiWorker.model.filter.getcategories.GetCategoryResponse;
 import ApiWorker.model.filter.getlocation.GetLocationResponse;
 import ApiWorker.model.filter.getlocation.Location;
 import ApiWorker.model.filter.getparams.GetParamsResponse;
-import ApiWorker.model.push.AddPushTokenResponse;
-import ApiWorker.model.push.DeletePushTokenResponse;
 import ApiWorker.model.users.changepass.ChangePassBody;
 import ApiWorker.model2.categoryparams.CategoryParamsResponse;
 import com.google.gson.Gson;
@@ -21,15 +19,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import org.apache.http.util.TextUtils;
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-
-import static ApiWorker.model.BaseResponse.isStatusOK;
 
 
 public class APIManager {
@@ -90,7 +85,7 @@ public class APIManager {
 
 
         return new Retrofit.Builder()
-                .baseUrl("http://api.lalafo.kg/api/")
+                .baseUrl("http://api.beta.lalafo.az/api/")
                 .addConverterFactory(new ToStringConverterFactory()).addConverterFactory(createGsonConverterFactory())
                 .client(createHttpClient())
                 .build();
@@ -510,8 +505,8 @@ public class APIManager {
         return null;
     }
 
-    private String getServerErrorMsg(Response response, String method) {
-
+//    private String getServerErrorMsg(Response response, String method) {
+//
 //        String errorDesc = "";
 //        try {
 //
@@ -524,7 +519,9 @@ public class APIManager {
 //            if (TextUtils.isEmpty(errorDesc))
 //                errorDesc = mApp.getString(R.string.error_something_happened);
 //        }
+//
+//        return null;
+//    }
 
-        return null;
-    }
+
 }

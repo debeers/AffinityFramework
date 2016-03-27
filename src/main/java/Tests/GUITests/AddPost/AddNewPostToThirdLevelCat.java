@@ -15,14 +15,16 @@ import java.util.Properties;
 import static Actions.PostAdd.makeNewPost;
 import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 
-public class AddPostToAnotherCatTest extends BaseTest{
+/**
+ * Created by Dem on 25.03.2016.
+ */
+public class AddNewPostToThirdLevelCat extends BaseTest {
+
     @Test
-    public void Add_Post_To_Another_Category() throws IOException, AWTException, InterruptedException {
-
-
+    public void Add_Post_To_Third_Category() throws IOException, AWTException, InterruptedException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/AddPost/AddPostToAnotherCat.xml");
+                "/src/main/java/Tests/GUITests/AddPost/AddNewPostToThirdLevelCat.xml");
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;
@@ -38,7 +40,6 @@ public class AddPostToAnotherCatTest extends BaseTest{
         //
         PostPage postPage = mainPage.clickOnAddNewPostButton();
         log.info("We are on the composing new post page");
-
 
         //
         //Create new post
@@ -60,5 +61,4 @@ public class AddPostToAnotherCatTest extends BaseTest{
         log.info("Data on preview page is consistant, post is correct");
 
     }
-
 }

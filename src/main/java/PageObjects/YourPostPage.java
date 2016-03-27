@@ -1,6 +1,7 @@
 package PageObjects;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -54,12 +55,13 @@ public class YourPostPage extends TopMenuGeneralPage {
     public List<String> getHREFvalueFromListOfBreadcrumbs(){
 
         List<String> hrefs = new ArrayList<>();
-        $$(breadcrumbs).stream().forEach((b)-> {
+        for (SelenideElement b : $$(breadcrumbs))
+        //$$(breadcrumbs).stream().forEach((SelenideElement b) ->
+        {
 
             System.out.println("Breadcrumb HREF found:::   " + b.getAttribute("href"));
             hrefs.add(b.getAttribute("href"));
-
-        });
+        }
         return hrefs;
     }
 
