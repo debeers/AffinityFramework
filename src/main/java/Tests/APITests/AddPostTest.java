@@ -3,6 +3,7 @@ package Tests.APITests;
 import ApiWorker.APIManager;
 import Tests.BaseTest;
 import org.testng.annotations.Test;
+import retrofit2.Call;
 
 import java.io.IOException;
 
@@ -30,7 +31,7 @@ public class AddPostTest extends BaseTest {
 //        APIManager.getInstance().postAd(null, postAdBody, userId);
 
 
-        String res = APIManager.getInstance().signUp(false, true, "", "debeers19yyydfghgjgh89@gmail.com");
+        Call res = APIManager.getInstance().signUp(false, true, "", "debeers19yyydfghgjgh89@gmail.com");
         System.out.println(res);
 
     }

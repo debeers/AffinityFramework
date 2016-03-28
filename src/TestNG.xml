@@ -19,16 +19,19 @@
     <test name="Affinity_Smoke_1.0">
         <classes>
 
-            <class name="Tests.GUITests.AddPost.AddPostToAnotherCatTest"/>
-            <class name="Tests.GUITests.AddPost.AddNewPostToThirdLevelCat"/>
+            <class name="Tests.APITests.APITest"/>
 
-                <class name="Tests.GUITests.AddPost.PostPageIsOn"/>
-                  <class name="Tests.GUITests.AddPost.AddNewPost"/>
-                  <class name="Tests.GUITests.Search.Search"/>
-                  <class name="Tests.GUITests.Registration.RegistrationOfNewUser"/>
-                  <class name="Tests.GUITests.Login.Login_Positive"/>
+            <!--
+                        <class name="Tests.GUITests.AddPost.AddPostToAnotherCatTest"/>
+                        <class name="Tests.GUITests.AddPost.AddNewPostToThirdLevelCat"/>
 
+                            <class name="Tests.GUITests.AddPost.PostPageIsOn"/>
+                              <class name="Tests.GUITests.AddPost.AddNewPost"/>
+                              <class name="Tests.GUITests.Search.Search"/>
+                              <class name="Tests.GUITests.Registration.RegistrationOfNewUser"/>
+                              <class name="Tests.GUITests.Login.Login_Positive"/>
+            -->
 
-               </classes>
-           </test>
-       </suite>
+                           </classes>
+                       </test>
+                   </suite>

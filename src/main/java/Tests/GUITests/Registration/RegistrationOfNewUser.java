@@ -3,7 +3,7 @@ package Tests.GUITests.Registration;
 import Entities.User;
 import PageObjects.UserAccountPage;
 import Tests.BaseTest;
-import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

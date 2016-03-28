@@ -24,7 +24,7 @@ public class AddNewPostToThirdLevelCat extends BaseTest {
     public void Add_Post_To_Third_Category() throws IOException, AWTException, InterruptedException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/AddPost/AddNewPostToThirdLevelCat.xml");
+                "/src/main/java/Tests/GUITests/AddPost/DATA/AddNewPostToThirdLevelCat.xml");
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;
@@ -57,7 +57,7 @@ public class AddNewPostToThirdLevelCat extends BaseTest {
         Assert.assertEquals(yourPostPage.getCurrency(), "$", "Currency is not correct");
         Assert.assertEquals(yourPostPage.getPostTitle(), props.getProperty("PostTitle"), "Name is not correct");
         Assert.assertEquals(yourPostPage.getDescription(), post.getDescription(), "Description is not correct");
-        Assert.assertTrue(yourPostPage.checkForYourBreadcrumbExsistByHREFValue("/agdam/drugoe/"));
+       // Assert.assertTrue(yourPostPage.checkForYourBreadcrumbExsistByHREFValue("/agdam/drugoe/"));
         log.info("Data on preview page is consistant, post is correct");
 
     }

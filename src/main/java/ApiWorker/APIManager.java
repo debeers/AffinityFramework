@@ -3,8 +3,20 @@ package ApiWorker;
 import ApiWorker.APIUtils.ToStringConverterFactory;
 import ApiWorker.model.BaseModel;
 import ApiWorker.model.PostField;
+import ApiWorker.model.ads.deactivatead.DeactivateAdResponse;
+import ApiWorker.model.ads.freepush.FreePushResponse;
+import ApiWorker.model.ads.getadbyid.GetAdByIdResponse;
+import ApiWorker.model.ads.getads.GetAdsResponse;
+import ApiWorker.model.ads.getadurl.GetAdURLByIdResponse;
 import ApiWorker.model.ads.getpostfields.GetPostFieldsResponse;
 import ApiWorker.model.ads.postad.PostAdBody;
+import ApiWorker.model.ads.postad.PostAdResponse;
+import ApiWorker.model.chats.addchat.AddChatResponse;
+import ApiWorker.model.chats.getchats.GetChatsResponse;
+import ApiWorker.model.chats.getmessages.GetMessagesResponse;
+import ApiWorker.model.chats.getunreadcount.GetUnreadCountResponse;
+import ApiWorker.model.chats.sendmessage.SendMessageResponse;
+import ApiWorker.model.chats.updateviewtime.UpdateViewTimeResponse;
 import ApiWorker.model.filter.AdFilter;
 import ApiWorker.model.filter.getcategories.Category;
 import ApiWorker.model.filter.getcategories.GetCategoryResponse;
@@ -12,6 +24,11 @@ import ApiWorker.model.filter.getlocation.GetLocationResponse;
 import ApiWorker.model.filter.getlocation.Location;
 import ApiWorker.model.filter.getparams.GetParamsResponse;
 import ApiWorker.model.users.changepass.ChangePassBody;
+import ApiWorker.model.users.changepass.ChangePassResponse;
+import ApiWorker.model.users.checkuser.CheckUserResponse;
+import ApiWorker.model.users.getmobileauth.GetMobileAuthResponse;
+import ApiWorker.model.users.recoverypass.RecoveryPassResponse;
+import ApiWorker.model.users.signup.SignUpResponse;
 import ApiWorker.model2.categoryparams.CategoryParamsResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -181,22 +198,22 @@ public class APIManager {
                 mPostFieldsResponseCache.get(categoryId) : null;
     }
 
-    public String getLocation() throws IOException {
+    public Call getLocation() throws IOException {
 
-        Call<String> call = mAPIService.getLocation();
-        return call.execute().body();
+        Call<GetLocationResponse> call = mAPIService.getLocation();
+        return call;
     }
 
-    public String getPreviewCategoryList() throws IOException {
+    public Call getPreviewCategoryList() throws IOException {
 
-        Call<String> call = mAPIService.getCategories(ADS_AMOUNT_IN_PREVIEW_CATEGORY_LIST, false);
-        return call.execute().body();
+        Call<GetCategoryResponse> call = mAPIService.getCategories(ADS_AMOUNT_IN_PREVIEW_CATEGORY_LIST, false);
+        return call;
     }
 
-    public String getCategories() throws IOException {
+    public Call getCategories() throws IOException {
 
-        Call<String> call = mAPIService.getCategories(0, true);
-        return call.execute().body();
+        Call<GetCategoryResponse> call = mAPIService.getCategories(0, true);
+        return call;
     }
 
     public Stack<Location> getLocationParents(long locationId) {
@@ -311,10 +328,10 @@ public class APIManager {
         }
     }
 
-    public String freePush(long adId) throws IOException {
+    public Call freePush(long adId) throws IOException {
 
-        Call<String> call = mAPIService.freePush(adId);
-        return call.execute().body();
+        Call<FreePushResponse> call = mAPIService.freePush(adId);
+        return call;
     }
 
     public GetParamsResponse getGetParamsResponse() {
@@ -322,25 +339,25 @@ public class APIManager {
         return mGetParamsResponse;
     }
 
-    public String getParams() throws IOException {
+    public Call getParams() throws IOException {
 
-        Call<String> call = mAPIService.getParams();
-        return call.execute().body();
+        Call<GetParamsResponse> call = mAPIService.getParams();
+        return call;
     }
 
-    public String deactivateAd(long adId) throws IOException {
+    public Call deactivateAd(long adId) throws IOException {
 
-        Call<String> call = mAPIService.deactivateAd(adId);
-        return call.execute().body();
+        Call<DeactivateAdResponse> call = mAPIService.deactivateAd(adId);
+        return call;
     }
 
-    public String getAdList(AdFilter adFilter, final int pageNum) throws IOException {
+    public Call getAdList(AdFilter adFilter, final int pageNum) throws IOException {
 
-        Call<String> call = mAPIService.getAds(adFilter.toQueryMap(pageNum));
-        return call.execute().body();
+        Call<GetAdsResponse> call = mAPIService.getAds(adFilter.toQueryMap(pageNum));
+        return call;
     }
 
-    public String getPostFields(final long categoryId, final RequestListener listener) throws IOException {
+    public Call getPostFields(final long categoryId, final RequestListener listener) throws IOException {
 
         GetPostFieldsResponse cachedResponse = getPostFieldsResponse(categoryId);
         if (cachedResponse != null) {
@@ -350,9 +367,9 @@ public class APIManager {
             return null;
         }
 
-        Call<String> call = mAPIService.getPostFields(categoryId);
+        Call<GetPostFieldsResponse> call = mAPIService.getPostFields(categoryId);
 
-        return call.execute().body();
+        return call;
     }
 
 //    public boolean addPushToken(String token) throws IOException {
@@ -380,112 +397,112 @@ public class APIManager {
 //        return isStatusOK(response);
 //    }
 
-    public String sendMessage(long chatId, String msg, String userHash) throws IOException {
+    public Call sendMessage(long chatId, String msg, String userHash) throws IOException {
 
         List<PostField> postFieldList = new LinkedList<>();
         postFieldList.add(new PostField(PostField.CHAT_ID, chatId + ""));
         postFieldList.add(new PostField(PostField.MESSAGE, msg));
         postFieldList.add(new PostField(PostField.USER_HASH, userHash));
-        Call<String> call = mAPIService.sendMessage(BaseModel.toRequestBody(postFieldList));
+        Call<SendMessageResponse> call = mAPIService.sendMessage(BaseModel.toRequestBody(postFieldList));
 
-        return String.valueOf(call.execute().body());
+        return call;
     }
 
-    public String addChat(long adId) throws IOException {
+    public Call addChat(long adId) throws IOException {
 
-        Call<String> call = mAPIService.addChat(BaseModel.toRequestBody(new PostField(PostField.AD_ID, adId + "")));
-        return call.execute().body();
+        Call<AddChatResponse> call = mAPIService.addChat(BaseModel.toRequestBody(new PostField(PostField.AD_ID, adId + "")));
+        return call;
     }
 
-    public String updateViewTime(long chatId) throws IOException {
+    public Call updateViewTime(long chatId) throws IOException {
 
-        Call<String> call = mAPIService.updateViewTime(BaseModel.toRequestBody(new PostField(PostField.CHAT_ID, chatId + "")));
-        return call.execute().body();
+        Call<UpdateViewTimeResponse> call = mAPIService.updateViewTime(BaseModel.toRequestBody(new PostField(PostField.CHAT_ID, chatId + "")));
+        return call;
     }
 
-    public String getUnreadCount() throws IOException {
+    public Call getUnreadCount() throws IOException {
 
-        Call<String> call = mAPIService.getUnreadCount();
-        return call.execute().body();
+        Call<GetUnreadCountResponse> call = mAPIService.getUnreadCount();
+        return call;
     }
 
-    public String getChats() throws IOException {
+    public Call getChats() throws IOException {
 
-        Call<String> call = mAPIService.getChats();
-        return call.execute().body();
+        Call<GetChatsResponse> call = mAPIService.getChats();
+        return call;
     }
 
-    public String getMessages(long chatId) throws IOException {
+    public Call getMessages(long chatId) throws IOException {
 
-        Call<String> call = mAPIService.getMessages(chatId);
-        return call.execute().body();
+        Call<GetMessagesResponse> call = mAPIService.getMessages(chatId);
+        return call;
     }
 
-    public String getAdURLById(long id) throws IOException {
+    public Call getAdURLById(long id) throws IOException {
 
-        Call<String> call = mAPIService.getAdURLById(id);
-        return call.execute().body();
+        Call<GetAdURLByIdResponse> call = mAPIService.getAdURLById(id);
+        return call;
     }
 
-    public String getAdById(long id) throws IOException {
+    public Call getAdById(long id) throws IOException {
 
-        Call<String> call = mAPIService.getAdById(id);
-        return call.execute().body();
+        Call<GetAdByIdResponse> call = mAPIService.getAdById(id);
+        return call;
     }
 
-    public String changePass(ChangePassBody changePassBody) throws IOException {
+    public Call changePass(ChangePassBody changePassBody) throws IOException {
 
-        Call<String> call = mAPIService.changePass(
+        Call<ChangePassResponse> call = mAPIService.changePass(
                 BaseModel.toRequestBody(changePassBody.getChangePassFieldList())
         );
 
-        return call.execute().body();
+        return call;
     }
 
-    public String recoveryPass(String phoneNumber) throws IOException {
+    public Call recoveryPass(String phoneNumber) throws IOException {
 
-        Call<String> call = mAPIService.recoveryPass(phoneNumber);
-        return call.execute().body();
+        Call<RecoveryPassResponse> call = mAPIService.recoveryPass(phoneNumber);
+        return call;
     }
 
-    public String checkUser(String mobile) throws IOException {
+    public Call checkUser(String mobile) throws IOException {
 
-        Call<String> call = mAPIService.checkUser(mobile);
-        return call.execute().body();
+        Call<CheckUserResponse> call = mAPIService.checkUser(mobile);
+        return call;
     }
 
-    public String signUp(boolean confirmation, boolean autogeneration, String mobile, String email) throws IOException {
+    public Call signUp(boolean confirmation, boolean autogeneration, String mobile, String email) throws IOException {
 
-        Call<String> call = mAPIService.signUp(confirmation, autogeneration, mobile, email);
-        return call.execute().body();
+        Call<SignUpResponse> call = mAPIService.signUp(confirmation, autogeneration, mobile, email);
+        return call;
     }
 
-    public String getMobileAuth(String phoneNumber, String password, boolean isFastAuthFlow) throws IOException {
+    public Call getMobileAuth(String phoneNumber, String password, boolean isFastAuthFlow) throws IOException {
 
-        Call<String> call = mAPIService.getMobileAuth(phoneNumber, password, isFastAuthFlow);
-        return call.execute().body();
+        Call<GetMobileAuthResponse> call = mAPIService.getMobileAuth(phoneNumber, password, isFastAuthFlow);
+        return call;
     }
 
-    public String getCategoryParams(final long id) throws IOException {
+    public Call getCategoryParams(final long id) throws IOException {
 
         // CategoryParamsResponse cachedResponse = getCategoryParamsResponse(id);
-        Call<String> call = mAPIService.getCategoryParams(id);
+        Call<CategoryParamsResponse> call = mAPIService.getCategoryParams(id);
 
-        return call.execute().body();
+        return call;
     }
 
-    public String postAd(PostAdBody postAdBody, final String userId) throws IOException {
+    public Call postAd(PostAdBody postAdBody, final String userId) throws IOException {
 
-        Call<String> call;
+        Call<PostAdResponse> call;
         if (TextUtils.isEmpty(userId))
             call = mAPIService.postAd(postAdBody.toRequestBody());
         else
             call = mAPIService.postAd(userId, postAdBody.toRequestBody());
 
-        return String.valueOf(call.execute().body());
+        return call;
     }
 
-    private String getErrorMsg(Throwable error, String method) {
+    private Call getErrorMsg(Throwable error, String method) {
 
 //        String errorDesc = "";
 //        if (error instanceof UserAPIException)

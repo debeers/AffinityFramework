@@ -25,7 +25,7 @@ public class AddNewPost extends BaseTest {
     public void Add_Post() throws InterruptedException, IOException, AWTException, SQLException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/AddPost/Post.xml");
+                "/src/main/java/Tests/GUITests/AddPost/DATA/Post.xml");
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;

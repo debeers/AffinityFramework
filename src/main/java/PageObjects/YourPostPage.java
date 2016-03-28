@@ -29,8 +29,18 @@ public class YourPostPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//div[@class='adv-desc']")
     public WebElement description;
 
-    @FindBy(xpath = ".//ol[@class='category-breadcrumbs']/li")
+    @FindBy(xpath = ".//ol[@class='category-breadcrumbs']/li/a")
     public List<WebElement> breadcrumbs;
+
+    @FindBy(xpath = ".//*[@id='u_0_1']/div/div[1]/div/div/div/button")
+    public WebElement fbButton;
+
+    @FindBy(xpath = ".//*[@id='mainDiv']/div")
+    public WebElement odClButton;
+
+    @FindBy(xpath = ".//*[@id='SendMessageButton']")
+    public WebElement sendMessageButton;
+    
 
     public String getPostTitle(){
         return $(postTitle).shouldBe(Condition.visible).getText();
@@ -95,14 +105,14 @@ public class YourPostPage extends TopMenuGeneralPage {
             return chk[0];
     }
 
-    public boolean checkForYourBreadcrumbExsistByHREFValue(String compareBreadcrumbHREFValue){
+    public boolean checkForYourBreadcrumbExsistByHREFValue(String baseUrl, String compareBreadcrumbHREFValue){
 
         final boolean[] chk = new boolean[1];
         getHREFvalueFromListOfBreadcrumbs()
                 .stream()
                 .forEach((p) -> {
 
-                    if (p.contains(compareBreadcrumbHREFValue)) {
+                    if (p.contains(baseUrl + compareBreadcrumbHREFValue)) {
                         System.out.println("Breadcrumb found! ===>>> " + p);
                         chk[0] = true;
                     } else

@@ -44,87 +44,87 @@ import retrofit2.http.QueryMap;
 public interface APIService {
 
     @GET(APIMethods.GET_PARAMS)
-    Call<String> getParams();
+    Call<GetParamsResponse> getParams();
 
     @GET(APIMethods.GET_LOCATIONS)
-    Call<String> getLocation();
+    Call<GetLocationResponse> getLocation();
 
     @GET(APIMethods.GET_CATEGORIES)
-    Call<String> getCategories(@Query("ads") long adsNum, @Query("children") boolean hasChildren);
+    Call<GetCategoryResponse> getCategories(@Query("ads") long adsNum, @Query("children") boolean hasChildren);
 
     @Multipart
     @POST(APIMethods.ADD_TOKEN)
-    Call<String> addPushToken(@PartMap() Map<String, RequestBody> map);
+    Call<AddPushTokenResponse> addPushToken(@PartMap() Map<String, RequestBody> map);
 
     @Multipart
     @POST(APIMethods.ADD_TOKEN)
-    Call<String> deletePushToken(@Header(GlobalArgs.USER_ID_HEADER) long userId, @PartMap() Map<String, RequestBody> map);
+    Call<DeletePushTokenResponse> deletePushToken(@Header(GlobalArgs.USER_ID_HEADER) long userId, @PartMap() Map<String, RequestBody> map);
 
     @GET(APIMethods.GET_CHATS)
-    Call<String> getChats();
+    Call<GetChatsResponse> getChats();
 
     @GET(APIMethods.GET_MESSAGES)
-    Call<String> getMessages(@Query("chat_id") long chatId);
+    Call<GetMessagesResponse> getMessages(@Query("chat_id") long chatId);
 
     @Multipart
     @POST(APIMethods.ADD_CHAT)
-    Call<String> addChat(@PartMap() Map<String, RequestBody> map);
+    Call<AddChatResponse> addChat(@PartMap() Map<String, RequestBody> map);
 
     @Multipart
     @POST(APIMethods.UPDATE_VIEW_TIME)
-    Call<String> updateViewTime(@PartMap() Map<String, RequestBody> map);
+    Call<UpdateViewTimeResponse> updateViewTime(@PartMap() Map<String, RequestBody> map);
 
     @GET(APIMethods.GET_UNREAD_COUNT)
-    Call<String> getUnreadCount();
+    Call<GetUnreadCountResponse> getUnreadCount();
 
     @Multipart
     @POST(APIMethods.SEND_MESSAGE)
-    Call<String> sendMessage(@PartMap() Map<String, RequestBody> map);
+    Call<SendMessageResponse> sendMessage(@PartMap() Map<String, RequestBody> map);
 
     @GET(APIMethods.GET_AD_BY_ID)
-    Call<String> getAdById(@Query("id") long id);
+    Call<GetAdByIdResponse> getAdById(@Query("id") long id);
 
     @GET(APIMethods.GET_AD_URL_BY_ID)
-    Call<String> getAdURLById(@Query("id") long id);
+    Call<GetAdURLByIdResponse> getAdURLById(@Query("id") long id);
 
     @GET(APIMethods.GET_ADS)
-    Call<String> getAds(@QueryMap Map<String, String> map);
+    Call<GetAdsResponse> getAds(@QueryMap Map<String, String> map);
 
     @GET(APIMethods.GET_POST_FIELDS)
-    Call<String> getPostFields(@Query("category") long category);
+    Call<GetPostFieldsResponse> getPostFields(@Query("category") long category);
 
     @GET(APIMethods.CATEGORY_PARAMS + "/" + "{id}")
-    Call<String> getCategoryParams(@Path("id") long id);
+    Call<CategoryParamsResponse> getCategoryParams(@Path("id") long id);
 
     @Multipart
     @POST(APIMethods.POST_AD)
-    Call<String> postAd(@PartMap() Map<String, RequestBody> map);
+    Call<PostAdResponse> postAd(@PartMap() Map<String, RequestBody> map);
 
     @Multipart
     @POST(APIMethods.POST_AD)
-    Call<String> postAd(@Header(GlobalArgs.USER_ID_HEADER) String userId, @PartMap() Map<String, RequestBody> map);
+    Call<PostAdResponse> postAd(@Header(GlobalArgs.USER_ID_HEADER) String userId, @PartMap() Map<String, RequestBody> map);
 
     @GET(APIMethods.DEACTIVATE_AD)
-    Call<String> deactivateAd(@Query("ad_id") long adId);
+    Call<DeactivateAdResponse> deactivateAd(@Query("ad_id") long adId);
 
     @GET(APIMethods.CHECK_USER)
-    Call<String> checkUser(@Query(value = "mobile", encoded = false) String mobile);
+    Call<CheckUserResponse> checkUser(@Query(value = "mobile", encoded = false) String mobile);
 
     @GET(APIMethods.RECOVERY_PASS)
-    Call<String> recoveryPass(@Query(value = "mobile", encoded = false) String phoneNumber);
+    Call<RecoveryPassResponse> recoveryPass(@Query(value = "mobile", encoded = false) String phoneNumber);
 
     @Multipart
     @POST(APIMethods.CHANGE_PASS)
-    Call<String> changePass(@PartMap() Map<String, RequestBody> map);
+    Call<ChangePassResponse> changePass(@PartMap() Map<String, RequestBody> map);
 
     @GET(APIMethods.FREE_PUSH)
-    Call<String> freePush(@Query("ad_id") long adId);
+    Call<FreePushResponse> freePush(@Query("ad_id") long adId);
 
     @GET(APIMethods.SIGN_UP)
-    Call<String> signUp(@Query("confirmation") boolean confirmation, @Query("autogeneration") boolean autogeneration,
+    Call<SignUpResponse> signUp(@Query("confirmation") boolean confirmation, @Query("autogeneration") boolean autogeneration,
                                 @Query(value = "mobile", encoded = false) String mobile, @Query("email") String email);
 
     @GET(APIMethods.GET_MOBILE_AUTH)
-    Call<String> getMobileAuth(@Query(value = "mobile", encoded = false) String mobile, @Query("password") String password,
+    Call<GetMobileAuthResponse> getMobileAuth(@Query(value = "mobile", encoded = false) String mobile, @Query("password") String password,
                                               @Query("sim_card_number") boolean isFastAuthFlow);
 }

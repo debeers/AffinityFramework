@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
 /**
@@ -25,11 +26,13 @@ public class SuccessPostedPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[@id='third-step']//div[@class='details']/a")
     public WebElement previewYourPostTitle;
 
+    public YourPostPage clickOnPreviewYourPost() throws InterruptedException {
 
-    public YourPostPage clickOnPreviewYourPost(){
-
-        $(previewYourPostTitle).shouldBe(Condition.visible).click();
-        return new YourPostPage(driver);
+        $(previewYourPostTitle).shouldBe(visible).click();
+        YourPostPage yourPostPage = new YourPostPage(driver);
+        $(yourPostPage.sendMessageButton).should(visible);
+        $(yourPostPage.price).shouldBe(visible);
+        return yourPostPage;
     }
 
     public SuccessPostedPage(WebDriver driver) {
