@@ -2,8 +2,8 @@
 <properties>
 
     <entry key="DB_DRIVER">oracle.jdbc.driver.OracleDriver</entry>
-    <entry key="DB_CONNECTION">jdbc:mysql://localhost:3306/cent1?zeroDateTimeBehavior=convertToNull</entry>
-    <entry key="DB_USER">dev_contentmart</entry>
-    <entry key="DB_PASSWORD">iequ</entry>
+    <entry key="DB_CONNECTION">jdbc:mysql://78.47.248.187/lalafo_kg</entry>
+    <entry key="DB_USER">read_only</entry>
+    <entry key="DB_PASSWORD">K3sZwPBEvNv5c7YJ9GMh</entry>
 
 </properties>

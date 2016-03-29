@@ -1,9 +1,9 @@
 package Tests;
 
+import DBUtils.DBConnection;
 import Entities.LoginObject;
 import GeneralHelpers.Logger;
 import Registry.Registry;
-import DBUtils.DBConnection;
 import com.codeborne.selenide.WebDriverRunner;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -40,15 +40,15 @@ public class BaseTest {
     public static StringBuffer verificationErrors = new StringBuffer();
     public static LoginObject clientLogin;
     public static org.slf4j.Logger log;
-    public static java.sql.Connection jdbcConnection;
+    public static java.sql.Connection connection;
 
     @BeforeSuite(alwaysRun = true)
     public void preCondition() throws IOException, ClassNotFoundException, SQLException {
         Properties props =  propertyXMLoader(System.getProperty("user.dir") +
-                "\\src\\main\\java\\DBUtils\\Connections\\DB_CONNECTION.xml");
+                "/src/main/java/DBUtils/Connections/DB_CONNECTION.xml");
 
-        jdbcConnection = new DBConnection().initDBConnection(props);
-        Registry.set("dbConnection", jdbcConnection);
+        connection = new DBConnection().initDBConnection(props);
+        Registry.set("dbConnection", connection);
     }
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})

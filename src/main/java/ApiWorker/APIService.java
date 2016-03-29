@@ -1,7 +1,5 @@
 package ApiWorker;
 
-import java.util.Map;
-
 import ApiWorker.APIUtils.GlobalArgs;
 import ApiWorker.model.ads.deactivatead.DeactivateAdResponse;
 import ApiWorker.model.ads.freepush.FreePushResponse;
@@ -29,14 +27,9 @@ import ApiWorker.model.users.signup.SignUpResponse;
 import ApiWorker.model2.categoryparams.CategoryParamsResponse;
 import okhttp3.RequestBody;
 import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.Multipart;
-import retrofit2.http.POST;
-import retrofit2.http.PartMap;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
-import retrofit2.http.QueryMap;
+import retrofit2.http.*;
+
+import java.util.Map;
 
 /**
  * Created by artem on 2/16/15.
@@ -82,7 +75,7 @@ public interface APIService {
     Call<SendMessageResponse> sendMessage(@PartMap() Map<String, RequestBody> map);
 
     @GET(APIMethods.GET_AD_BY_ID)
-    Call<GetAdByIdResponse> getAdById(@Query("id") long id);
+    Call<GetAdByIdResponse> getAdById(@Query("id") String id);
 
     @GET(APIMethods.GET_AD_URL_BY_ID)
     Call<GetAdURLByIdResponse> getAdURLById(@Query("id") long id);

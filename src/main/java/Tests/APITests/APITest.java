@@ -2,6 +2,7 @@ package Tests.APITests;
 
 import ApiWorker.APIManager;
 import ApiWorker.model.PostField;
+import ApiWorker.model.ads.getadbyid.GetAdByIdResponse;
 import ApiWorker.model.ads.postad.PostAdBody;
 import ApiWorker.model.ads.postad.PostAdResponse;
 import Tests.BaseTest;
@@ -32,10 +33,12 @@ public class APITest extends BaseTest {
         postAdBody.addUserInfoField(new PostField("testAPI", "1"));
         String userId = "9346";
 
+        Call<PostAdResponse> res = APIManager.getInstance().postAd(postAdBody, userId);
+        String executor = res.execute().body().getData().getId();
+        System.out.println("ID IS:::   " + executor);
 
-            Call<PostAdResponse> res = APIManager.getInstance().postAd(postAdBody, userId);
-            System.out.println("ID IS:::   " + res.execute().body().getData().getId());
-
+        Call<GetAdByIdResponse> getAdById = APIManager.getInstance().getAdById(executor);
+        System.out.println(getAdById.execute().body().getAdList().get(0));
     }
 }
 

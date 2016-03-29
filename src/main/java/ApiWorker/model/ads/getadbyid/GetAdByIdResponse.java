@@ -2,6 +2,8 @@ package ApiWorker.model.ads.getadbyid;
 
 import ApiWorker.model.BaseResponse;
 import ApiWorker.model.ads.Ad;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
@@ -10,6 +12,8 @@ import java.util.List;
  */
 public class GetAdByIdResponse extends BaseResponse {
 
+    @SerializedName("data")
+    @Expose
     private List<Ad> adList;
 
     public GetAdByIdResponse() {

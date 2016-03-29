@@ -444,7 +444,7 @@ public class APIManager {
         return call;
     }
 
-    public Call getAdById(long id) throws IOException {
+    public Call getAdById(String id) throws IOException {
 
         Call<GetAdByIdResponse> call = mAPIService.getAdById(id);
         return call;
