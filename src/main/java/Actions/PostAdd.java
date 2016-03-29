@@ -58,7 +58,6 @@ public class PostAdd {
     }
 
     public static boolean isPriceFieldInactive(PostPage postPage){
-//        System.out.println("================"+postPage.priceField.getAttribute("disabled").trim());
         if(!postPage.priceField.isEnabled()){
             System.out.println("Price field is inactive!");
             return true;
