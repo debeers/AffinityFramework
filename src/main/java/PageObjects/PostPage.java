@@ -261,8 +261,13 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         $(emailField).shouldBe(visible).sendKeys(email);
     }
 
-    public PostPreviewPage clickOnPreviewButton() {
+    public void clickOnPreviewButton() {
         $(previewButton).shouldBe(visible).click();
+    }
+
+    public PostPreviewPage clickOnPreviewButtonAndLoadPage(){
+
+        clickOnPreviewButton();
 
         if (getFieldsErrors().size() == 0) {
             return new PostPreviewPage(driver);
