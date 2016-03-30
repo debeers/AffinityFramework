@@ -12,7 +12,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.Properties;
 
-import static Actions.PostAdd.makeNewPost;
+import static Actions.GUI_Actions.PostAdd.makeNewPost;
 import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 
 /**

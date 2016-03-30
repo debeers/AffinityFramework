@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import static Actions.Registration.registerNewUser;
+import static Actions.GUI_Actions.Registration.registerNewUser;
 import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 import static com.codeborne.selenide.Selenide.$;
 

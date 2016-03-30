@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.List;
 
-import static Actions.Search.search;
+import static Actions.GUI_Actions.Search.search;
 import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 
 /**

@@ -5,6 +5,9 @@
 
     <entry key="CategoryIndex">80</entry>
     <entry key="UnderCategoryIndex">null</entry>
+    <entry key="ThirdCategoryIndex">null</entry>
+    <entry key="AdditionalParam">null</entry>
+    <entry key="FourthCategoryIndex">null</entry>
     <entry key="PostTitle">Test Post</entry>
     <entry key="Description">TEST DESCRIPTION </entry>
     <entry key="Price">78</entry>

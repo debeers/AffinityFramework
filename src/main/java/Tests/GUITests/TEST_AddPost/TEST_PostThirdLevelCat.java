@@ -12,7 +12,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.Properties;
 
-import static Actions.PostAdd.makeNewPost;
+import static Actions.GUI_Actions.PostAdd.makeNewPost;
 import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 
 /**
@@ -24,7 +24,7 @@ public class TEST_PostThirdLevelCat extends BaseTest {
     public void Add_Post_To_Third_Category() throws IOException, AWTException, InterruptedException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/AddPost/DATA/TEST_PostThirdLevelCat.xml");
+                "/src/main/java/Tests/GUITests/TEST_AddPost/DATA/TEST_PostThirdLevelCat.xml");
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;

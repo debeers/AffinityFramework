@@ -15,7 +15,7 @@ import java.nio.charset.Charset;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import static Actions.PostAdd.makeNewPost;
+import static Actions.GUI_Actions.PostAdd.makeNewPost;
 import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;

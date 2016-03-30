@@ -19,13 +19,13 @@
     <test name="Affinity_Smoke_1.0">
 
         <classes>
-            <class name="Tests.GUITests.TEST_AddPost.TEST_PostFourthLevelCat"/>
+            <class name="Tests.GUITests.TEST_AddPost.TEST_PostThirdLevelCat"/>
             <!-- <class name="Tests.APITests.TEST_API_getAdById"/>
             <class name="Tests.SQL_Tests.TEST_SQLConnect"/>
+<class name="Tests.GUITests.TEST_AddPost.TEST_PostFourthLevelCat"/>
+<class name="Tests.GUITests.TEST_AddPost.TEST_PostToOtherCat"/>
 
 
-            <class name="Tests.GUITests.TEST_AddPost.TEST_PostToOtherCat"/>
-            <class name="Tests.GUITests.TEST_AddPost.TEST_PostThirdLevelCat"/>
 
             <class name="Tests.GUITests.TEST_AddPost.TEST_PostPageIsAvailable"/>
             <class name="Tests.GUITests.TEST_AddPost.TEST_AddNewPost"/>

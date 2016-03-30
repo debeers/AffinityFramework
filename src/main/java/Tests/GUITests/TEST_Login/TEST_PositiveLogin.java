@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.sql.SQLException;
 
-import static Actions.Login.loginAs;
+import static Actions.GUI_Actions.Login.loginAs;
 import static com.codeborne.selenide.Selenide.$;
 
 /**

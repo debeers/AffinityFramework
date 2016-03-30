@@ -1,4 +1,4 @@
-package Actions;
+package Actions.GUI_Actions;
 
 import Entities.LoginObject;
 import Entities.User;
