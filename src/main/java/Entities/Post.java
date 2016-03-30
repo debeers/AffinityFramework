@@ -16,6 +16,9 @@ public class Post {
 
     private String category        = "";
     private String underCategory   = "";
+    private String thirdCategory   = "";
+    private String additionalParam = "";
+    private String fourthCategory  = "";
     private String title           = "";
     private String description     = "";
     private String price           = "";
@@ -37,13 +40,16 @@ public class Post {
 
     private List<File> listOfFiles = new ArrayList<>();
 
-    public Post(String category, String underCategory, String title, String description, String price,
+    public Post(String category, String underCategory, String thirdCategory, String additionalParam, String fourthCategory, String title, String description, String price,
                 String currencyType, boolean isNegotiable, String region, String privacyType, String name,
                 String phone, boolean hideNumber, String email, String file1, String file2, String file3,
                 String file4, String file5) {
 
         this.category        = category;
         this.underCategory   = underCategory;
+        this.thirdCategory   = thirdCategory;
+        this.additionalParam = additionalParam;
+        this.fourthCategory  = fourthCategory;
         this.title           = title;
         this.description     = description;
         this.price           = price;
@@ -68,6 +74,9 @@ public class Post {
     public Post(Properties props) {
         this.category        = props.getProperty("CategoryIndex");
         this.underCategory   = props.getProperty("UnderCategoryIndex");
+        this.thirdCategory   = props.getProperty("ThirdCategoryIndex");
+        this.additionalParam = props.getProperty("Area");
+        this.fourthCategory  = props.getProperty("FourthCategoryIndex");
         this.title           = props.getProperty("PostTitle");
         this.description     = props.getProperty("Description") + RandomStringUtils.randomAlphabetic(50);
         this.price           = props.getProperty("Price");
@@ -95,6 +104,9 @@ public class Post {
         System.out.println();
         System.out.println("CATEGORY INDEX:.............. " + this.getCategory());
         System.out.println("UNDERCATEGORY INDEX:......... " + this.getUnderCategory());
+        System.out.println("THIRD CATEGORY INDEX:........ " + this.getThirdCategory());
+        System.out.println("ADDITIONAL PARAMETER:........ " + this.getAdditionalParam());
+        System.out.println("FOURTH CATEGORY INDEX:....... " + this.getFourthCategory());
         System.out.println("POST TITLE:.................. " + this.getTitle());
         System.out.println("PRICE:....................... " + this.getPrice());
         System.out.println("CURRENCY TYPE:............... " + this.getCurrencyType());
@@ -125,9 +137,21 @@ public class Post {
         return underCategory;
     }
 
+    public String getThirdCategory() { return thirdCategory; }
+
+    public String getAdditionalParam() { return additionalParam; }
+
+    public String getFourthCategory() { return fourthCategory; }
+
     public void setUnderCategory(String underCategory) {
         this.underCategory = underCategory;
     }
+
+    public void setThirdCategory(String thirdCategory) { this.thirdCategory = thirdCategory; }
+
+    public void setAdditionalParam(String additionalParam) { this.additionalParam = additionalParam; }
+
+    public void setFourthCategory(String fourthCategory) { this.fourthCategory = fourthCategory; }
 
     public void setCategory(String category) {
         this.category = category;

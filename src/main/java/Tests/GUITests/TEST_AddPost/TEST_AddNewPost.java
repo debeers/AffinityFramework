@@ -1,4 +1,4 @@
-package Tests.GUITests.AddPost;
+package Tests.GUITests.TEST_AddPost;
 
 import Entities.Post;
 import PageObjects.MainPage;
@@ -20,12 +20,12 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class AddNewPost extends BaseTest {
+public class TEST_AddNewPost extends BaseTest {
     @Test
     public void Add_Post() throws InterruptedException, IOException, AWTException, SQLException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/AddPost/DATA/Post.xml");
+                "/src/main/java/Tests/GUITests/TEST_AddPost/DATA/TEST_AddNewPost.xml");
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;

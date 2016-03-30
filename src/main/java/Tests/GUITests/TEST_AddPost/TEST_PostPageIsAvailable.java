@@ -1,4 +1,4 @@
-package Tests.GUITests.AddPost;
+package Tests.GUITests.TEST_AddPost;
 
 import PageObjects.MainPage;
 import PageObjects.PostPage;
@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Created by Dem on 21.03.2016.
  */
-public class PostPageIsOn extends BaseTest{
+public class TEST_PostPageIsAvailable extends BaseTest{
     @Test
         public void Check_Post_Page() throws InterruptedException, IOException {
         MainPage mainPage = new MainPage(driver);

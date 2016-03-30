@@ -1,4 +1,4 @@
-package Tests.GUITests.Login;
+package Tests.GUITests.TEST_Login;
 
 import PageObjects.UserAccountPage;
 import Tests.BaseTest;
@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * Created by DeBeers on 08.03.2016.
  */
-public class Login_Positive extends BaseTest{
+public class TEST_PositiveLogin extends BaseTest{
 
     @Test
     public void Login_Positive_Test() throws InterruptedException, IOException, AWTException, SQLException {

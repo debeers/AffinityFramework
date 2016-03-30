@@ -1,4 +1,4 @@
-package Tests.GUITests.Registration;
+package Tests.GUITests.TEST_Registration;
 
 import Entities.User;
 import PageObjects.UserAccountPage;
@@ -20,19 +20,19 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * Created by DeBeers on 08.03.2016.
  */
-public class RegistrationOfNewUser extends BaseTest{
+public class TEST_RegistrationWithAllFields extends BaseTest{
 
     @Test
     public void Registration_Positive_Test() throws InterruptedException, IOException, AWTException, SQLException {
 
         Properties props  = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/Registration/RegistrationData.xml");
+                "/src/main/java/Tests/GUITests/TEST_Registration/TEST_RegistrationData.xml");
 
         //
         // Prepearing user data and create new user entity
         //
         String mobilePhone = props.getProperty("phonePrefix") + RandomStringUtils.randomNumeric(6);
-        String email = "GUI_TEST_" + RandomStringUtils.randomAlphabetic(9) + props.getProperty("emailDomen");
+        String email = "GUI_TEST_" + RandomStringUtils.randomAlphabetic(9) + props.getProperty("emailDomain");
         String emailSubSequence = (String) email.subSequence(0, 11); // user account link (email subsequence) for assertion
         String password = props.getProperty("password");
 

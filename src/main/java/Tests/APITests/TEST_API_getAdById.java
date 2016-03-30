@@ -12,7 +12,6 @@ import org.testng.annotations.Test;
 import retrofit2.Call;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Properties;
 
 import static UtilsGUI.PropertiesLoader.propertyXMLoader;
@@ -20,7 +19,7 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 /**
  * Created by Dem on 24.03.2016.
  */
-public class APITest extends BaseTest {
+public class TEST_API_getAdById extends BaseTest {
 
     @Test
     public void API_Post_Test() throws InterruptedException, IOException {
@@ -32,29 +31,16 @@ public class APITest extends BaseTest {
 
         PostAdBody postAdBody = new PostAdBody();
 
-
         postAdBody.addParamField(new PostField());
-        postAdBody.addField(new PostField("category_id", 39 + ""));
-        postAdBody.addField(new PostField("city_id", 32 + ""));
-        postAdBody.addField(new PostField("description", "War... War never changesWar..."));
-        postAdBody.addField(new PostField("type", "private"));
-        postAdBody.addField(new PostField("title", "Pronto-pronto"));
+        postAdBody.addField(new PostField("category_id", props.getProperty("category_id")));
+        postAdBody.addField(new PostField("city_id", props.getProperty("city_id")));
+        postAdBody.addField(new PostField("description", props.getProperty("description")));
+        postAdBody.addField(new PostField("type", props.getProperty("type")));
+        postAdBody.addField(new PostField("title", props.getProperty("title")));
 
-        postAdBody.addUserInfoField(new PostField("mobile", "+996-778888888"));
-        postAdBody.addUserInfoField(new PostField("username", "GUI_TEST_USER"));
-        postAdBody.addUserInfoField(new PostField("testAPI", "1"));
-
-
-//        postAdBody.addParamField(new PostField());
-//        postAdBody.addField(new PostField("category_id", props.getProperty("category_id")));
-//        postAdBody.addField(new PostField("city_id", props.getProperty("city_id")));
-//        postAdBody.addField(new PostField("description", props.getProperty("description")));
-//        postAdBody.addField(new PostField("type", props.getProperty("username")));
-//        postAdBody.addField(new PostField("title", props.getProperty("title")));
-//
-//        postAdBody.addUserInfoField(new PostField("mobile", props.getProperty("mobile")));
-//        postAdBody.addUserInfoField(new PostField("username", props.getProperty("username")));
-//        postAdBody.addUserInfoField(new PostField("testAPI", props.getProperty("testAPI")));
+        postAdBody.addUserInfoField(new PostField("mobile", props.getProperty("mobile")));
+        postAdBody.addUserInfoField(new PostField("username", props.getProperty("username")));
+        postAdBody.addUserInfoField(new PostField("testAPI", props.getProperty("testAPI")));
         String userId = "9346";
 
         Call<PostAdResponse> res = APIManager.getInstance().postAd(postAdBody, userId);

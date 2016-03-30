@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created by DeBeers on 24.03.2016.
  */
-public class AddPostTest extends BaseTest {
+public class TEST_API_postAd extends BaseTest {
 
 
     @Test

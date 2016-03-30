@@ -102,7 +102,7 @@ public class APIManager {
 
 
         return new Retrofit.Builder()
-                .baseUrl("http://api.beta.lalafo.az/api/")
+                .baseUrl("http://api.lalafo.az/ru/api/")
                 .addConverterFactory(new ToStringConverterFactory()).addConverterFactory(createGsonConverterFactory())
                 .client(createHttpClient())
                 .build();

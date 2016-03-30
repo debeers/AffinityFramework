@@ -2,11 +2,8 @@ package Actions;
 
 import Entities.Post;
 import PageObjects.PostPage;
-import com.codeborne.selenide.Condition;
 
 import java.awt.*;
-
-import static com.codeborne.selenide.Selenide.$;
 
 /**
  * Created by DeBeers on 08.03.2016.
@@ -21,11 +18,38 @@ public class PostAdd {
             System.out.println("Undercategory is not setted");
     }
 
+    public static void setThirdCategoryIfExists(PostPage postPage, Post post) throws InterruptedException {
+
+        if (!post.getThirdCategory().equals("null"))
+            postPage.setThirdCategory(post.getThirdCategory());
+        else
+            System.out.println("Third Category is no set");
+    }
+
+    public static void setAdditionalParameterIfExists(PostPage postPage, Post post) throws InterruptedException {
+
+        if (!post.getAdditionalParam().equals("null"))
+            postPage.setAdditionalParam(post.getAdditionalParam());
+        else
+            System.out.println("Additional Parameter 'AREA' is not set");
+    }
+
+    public static void setFourthCategoryIfExists(PostPage postPage, Post post) throws InterruptedException {
+
+        if (!post.getFourthCategory().equals("null"))
+            postPage.setFourthCategory(post.getFourthCategory());
+        else
+            System.out.println("Fourth Category is not set");
+    }
+
     public static PostPage makeNewPost(PostPage postPage, Post post, int countOfFilesToUpload)
             throws InterruptedException, AWTException {
 
         postPage.setCategory(post.getCategory());
         setUnderCategoryIfExsist(postPage, post);
+        setThirdCategoryIfExists(postPage, post);
+        setAdditionalParameterIfExists(postPage, post);
+        setFourthCategoryIfExists(postPage, post);
         postPage.UploadImages(post, countOfFilesToUpload);
         postPage.setPostTitle(post.getTitle());
         postPage.setDescription(post.getDescription());

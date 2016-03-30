@@ -19,18 +19,19 @@
     <test name="Affinity_Smoke_1.0">
 
         <classes>
-            <class name="Tests.APITests.APITest"/>
-            <!--<class name="Tests.DBTests.DBConnectTest"/>
+            <class name="Tests.GUITests.TEST_AddPost.TEST_PostFourthLevelCat"/>
+            <!-- <class name="Tests.APITests.TEST_API_getAdById"/>
+            <class name="Tests.SQL_Tests.TEST_SQLConnect"/>
 
 
-            <class name="Tests.GUITests.AddPost.AddPostToAnotherCatTest"/>
-            <class name="Tests.GUITests.AddPost.AddNewPostToThirdLevelCat"/>
+            <class name="Tests.GUITests.TEST_AddPost.TEST_PostToOtherCat"/>
+            <class name="Tests.GUITests.TEST_AddPost.TEST_PostThirdLevelCat"/>
 
-            <class name="Tests.GUITests.AddPost.PostPageIsOn"/>
-            <class name="Tests.GUITests.AddPost.AddNewPost"/>
-            <class name="Tests.GUITests.Search.Search"/>
-            <class name="Tests.GUITests.Registration.RegistrationOfNewUser"/>
-            <class name="Tests.GUITests.Login.Login_Positive"/>-->
+            <class name="Tests.GUITests.TEST_AddPost.TEST_PostPageIsAvailable"/>
+            <class name="Tests.GUITests.TEST_AddPost.TEST_AddNewPost"/>
+            <class name="Tests.GUITests.TEST_Search.TEST_Search"/>
+            <class name="Tests.GUITests.TEST_Registration.TEST_RegistrationWithAllFields"/>
+            <class name="Tests.GUITests.TEST_Login.TEST_PositiveLogin"/>-->
 
         </classes>
     </test>

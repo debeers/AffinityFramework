@@ -1,4 +1,4 @@
-package Tests.DBTests;
+package Tests.SQL_Tests;
 
 import DBUtils.DBUtill;
 import Tests.BaseTest;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 /**
  * Created by Dem on 28.03.2016.
  */
-public class DBConnectTest extends BaseTest {
+public class TEST_SQLConnect extends BaseTest {
 
     @Test
     public void DBConnectionTest() throws SQLException, IOException {

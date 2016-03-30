@@ -1,4 +1,4 @@
-package Tests.GUITests.Search;
+package Tests.GUITests.TEST_Search;
 import PageObjects.MainPage;
 import Tests.BaseTest;
 import org.testng.Assert;
@@ -15,13 +15,13 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 /**
  * Created by DeBeers on 13.03.2016.
  */
-public class Search extends BaseTest {
+public class TEST_Search extends BaseTest {
 
     @Test
     public void Search_Test() throws InterruptedException, IOException, AWTException, SQLException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/Search/Search.xml");
+                "/src/main/java/Tests/GUITests/TEST_Search/TEST_Search.xml");
 
         MainPage mainPage = new MainPage(driver);
         List<String> searchResults = search(mainPage.clickOnSearchButton(), props);

@@ -47,6 +47,10 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public List<WebElement> underCategoriesList;
 
     @CacheLookup
+    @FindBy(xpath = "*//div/input[@name='param_id[16]']")
+    public WebElement areaParameter;
+
+    @CacheLookup
     @FindBy(xpath = ".//*[@id='1']//input[contains(@class,'yalla-upload-button')]")
     public List<WebElement> uploadPhotoButton;
 
@@ -176,6 +180,22 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     public void setUnderCategory(String underCategoryIndex) throws InterruptedException {
         selectFromDropdawnMenuByIndex(underCategoriesChoose, underCategoriesList, underCategoryIndex);
+        waitTillLoaderHides();
+    }
+
+    public void setThirdCategory(String thirdCategory) throws InterruptedException {
+        selectFromDropdawnMenuByIndex(underCategoriesChoose, underCategoriesList, thirdCategory);
+        waitTillLoaderHides();
+    }
+
+    public void setAdditionalParam(String additionalParam) { $(areaParameter).
+            shouldBe(visible).
+            sendKeys(additionalParam);
+
+    }
+
+    public void setFourthCategory(String fourthCategory) throws InterruptedException {
+        selectFromDropdawnMenuByIndex(underCategoriesChoose, underCategoriesList, fourthCategory);
         waitTillLoaderHides();
     }
 

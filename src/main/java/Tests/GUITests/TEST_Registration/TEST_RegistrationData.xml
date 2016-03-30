@@ -3,7 +3,7 @@
 
     <!--Test Data -->
     <entry key="mobilePhoneNumber">556323810</entry>
-    <entry key="emailDomen">@gmail.com</entry>
+    <entry key="emailDomain">@gmail.com</entry>
     <entry key="password">roottoor</entry>
     <entry key="phonePrefix">556</entry>
 

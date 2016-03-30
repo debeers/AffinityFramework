@@ -1,4 +1,4 @@
-package Tests.GUITests.AddPost;
+package Tests.GUITests.TEST_AddPost;
 
 import Entities.Post;
 import PageObjects.MainPage;
@@ -9,24 +9,20 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.awt.*;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
 import static Actions.PostAdd.makeNewPost;
 import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 
-/**
- * Created by DeBeers on 28.03.2016.
- */
-public class AddPostWithNegotiateblePrice extends BaseTest {
-
+public class TEST_PostToOtherCat extends BaseTest{
     @Test
-    public void Add_Post_With_Negotiateble_Price() throws IOException, AWTException, InterruptedException {
+    public void Add_Post_To_Another_Category() throws IOException, AWTException, InterruptedException {
+
 
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/AddPost/DATA/AddPostWithNegotiablePrice.xml");
+                "/src/main/java/Tests/GUITests/TEST_AddPost/DATA/TEST_PostToOtherCat.xml");
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;
@@ -54,9 +50,9 @@ public class AddPostWithNegotiateblePrice extends BaseTest {
 
 
         //
-        //Verify negotiateble price is set
+        //Verify price field
         //
-        Assert.assertEquals(yourPostPage.getPriceString().trim(), props.getProperty("PriceFieldAssertion"), "Price is not correct");
+        Assert.assertTrue(yourPostPage.checkForYourBreadcrumbExsistByHREFValue(baseUrl, props.getProperty("CategoryApi")));
         log.info("Data on preview page is consistant, post is correct");
 
     }
