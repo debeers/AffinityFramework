@@ -1,9 +1,9 @@
 package Tests;
 
+import DBUtils.DBConnection;
+import Registry.Registry;
 import Entities.LoginObject;
 import GeneralHelpers.Logger;
-import Registry.Registry;
-import DBUtils.DBConnection;
 import com.codeborne.selenide.WebDriverRunner;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -44,11 +44,11 @@ public class BaseTest {
 
     @BeforeSuite(alwaysRun = true)
     public void preCondition() throws IOException, ClassNotFoundException, SQLException {
-//        Properties props =  propertyXMLoader(System.getProperty("user.dir") +
-//                "\\src\\main\\java\\DBUtils\\Connections\\DB_CONNECTION.xml");
-//
-//        jdbcConnection = new DBConnection().initDBConnection(props);
-//        Registry.set("dbConnection", jdbcConnection);
+        Properties props =  propertyXMLoader(System.getProperty("user.dir") +
+                "\\src\\main\\java\\DBUtils\\Connections\\DB_CONNECTION.xml");
+
+        jdbcConnection = new DBConnection().initDBConnection(props);
+        Registry.set("dbConnection", jdbcConnection);
     }
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})

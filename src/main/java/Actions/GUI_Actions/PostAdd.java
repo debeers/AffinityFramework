@@ -34,7 +34,7 @@ public class PostAdd {
         if (!post.getAdditionalParam().equals("null"))
             postPage.setAdditionalParam(post.getAdditionalParam());
         else
-            System.out.println("Additional Parameter 'AREA' is not set");
+            System.out.println("Additional Parameter 'AREA' should not be set in this CATEGORY: " + post.getCategory());
     }
 
     public static void setFourthCategoryIfExists(PostPage postPage, Post post) throws InterruptedException {
@@ -43,6 +43,14 @@ public class PostAdd {
             postPage.setFourthCategory(post.getFourthCategory());
         else
             System.out.println("Fourth Category is not set");
+    }
+
+    public static void setFourthCategoryYearIfExists(PostPage postPage, Post post) throws InterruptedException {
+
+        if (!post.getFourthCategoryYear().equals("null"))
+            postPage.setFourthCategoryYear(post.getFourthCategoryYear());
+        else
+            System.out.println("Fourth Category YEAR OF MANUFACTURE is not set");
     }
 
     public static void setFifthCategoryIfExists(PostPage postPage, Post post) throws InterruptedException {
@@ -69,6 +77,22 @@ public class PostAdd {
             System.out.println("Seventh Category is not set");
     }
 
+    public static void setAddParamMileageIfExists(PostPage postPage, Post post) throws InterruptedException {
+
+        if (!post.getAdditionalParamMileage().equals("null"))
+            postPage.setAdditionalParamMileage(post.getAdditionalParamMileage());
+        else
+            System.out.println("Parameter 'MILEAGE' should not be set in this CATEGORY: " + post.getCategory());
+    }
+
+    public static void setAddParamEngineIfExists(PostPage postPage, Post post) throws InterruptedException {
+
+        if (!post.getAdditionalParamEngine().equals("null"))
+            postPage.setAdditionalParamEngine(post.getAdditionalParamEngine());
+        else
+            System.out.println("Parameter 'ENGINE' should not be set in this CATEGORY: " + post.getCategory());
+    }
+
     public static PostPage makeNewPost(PostPage postPage, Post post, int countOfFilesToUpload)
             throws InterruptedException, AWTException {
 
@@ -76,10 +100,13 @@ public class PostAdd {
         setUnderCategoryIfExsist(postPage, post);
         setThirdCategoryIfExists(postPage, post);
         setFourthCategoryIfExists(postPage, post);
+        setFourthCategoryYearIfExists(postPage, post);
         setFifthCategoryIfExists(postPage, post);
         setSixthCategoryIfExists(postPage, post);
         setSeventhCategoryIfExists(postPage,post);
         setAdditionalParameterIfExists(postPage, post);
+        setAddParamMileageIfExists(postPage, post);
+        setAddParamEngineIfExists(postPage, post);
         postPage.UploadImages(post, countOfFilesToUpload);
         postPage.setPostTitle(post.getTitle());
         postPage.setDescription(post.getDescription());

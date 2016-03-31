@@ -14,25 +14,28 @@ import java.util.Properties;
  */
 public class Post {
 
-    private String category         = "";
-    private String underCategory    = "";
-    private String thirdCategory    = "";
-    private String additionalParam  = "";
-    private String fourthCategory   = "";
-    private String fifthCategory    = "";
-    private String sixthCategory    = "";
-    private String seventhCategory  = "";
-    private String title            = "";
-    private String description      = "";
-    private String price            = "";
-    private String currencyType     = "";
-    private boolean isNegotiable    = false;
-    private String region           = "";
-    private String privacyType      = "";
-    private String name             = "";
-    private String phone            = "";
-    private boolean hideNumber      = false;
-    private String email            = "";
+    private String category                = "";
+    private String underCategory           = "";
+    private String thirdCategory           = "";
+    private String additionalParam         = "";
+    private String additionalParamMileage  = "";
+    private String additionalParamEngine   = "";
+    private String fourthCategory          = "";
+    private String fourthCategoryYear      = "";
+    private String fifthCategory           = "";
+    private String sixthCategory           = "";
+    private String seventhCategory         = "";
+    private String title                   = "";
+    private String description             = "";
+    private String price                   = "";
+    private String currencyType            = "";
+    private boolean isNegotiable           = false;
+    private String region                  = "";
+    private String privacyType             = "";
+    private String name                    = "";
+    private String phone                   = "";
+    private boolean hideNumber             = false;
+    private String email                   = "";
 
     private File file1;
     private File file2;
@@ -44,31 +47,34 @@ public class Post {
     private List<File> listOfFiles = new ArrayList<>();
 
     public Post(String category, String underCategory, String thirdCategory, String additionalParam,
-                String fourthCategory, String fifthCategory, String sixthCategory, String seventhCategory,
-                String title, String description, String price,
+                String fourthCategory, String fourthCategoryYear, String fifthCategory, String sixthCategory, String seventhCategory,
+                String additionalParamMileage, String additionalParamEngine, String title, String description, String price,
                 String currencyType, boolean isNegotiable, String region, String privacyType, String name,
                 String phone, boolean hideNumber, String email, String file1, String file2, String file3,
                 String file4, String file5) {
 
-        this.category         = category;
-        this.underCategory    = underCategory;
-        this.thirdCategory    = thirdCategory;
-        this.additionalParam  = additionalParam;
-        this.fourthCategory   = fourthCategory;
-        this.fifthCategory    = fifthCategory;
-        this.sixthCategory    = sixthCategory;
-        this.seventhCategory  = seventhCategory;
-        this.title            = title;
-        this.description      = description;
-        this.price            = price;
-        this.currencyType     = currencyType;
-        this.isNegotiable     = isNegotiable;
-        this.region           = region;
-        this.privacyType      = privacyType;
-        this.name             = name;
-        this.phone            = phone;
-        this.hideNumber       = hideNumber;
-        this.email            = email;
+        this.category                      = category;
+        this.underCategory                 = underCategory;
+        this.thirdCategory                 = thirdCategory;
+        this.additionalParam               = additionalParam;
+        this.fourthCategory                = fourthCategory;
+        this.fourthCategoryYear            = fourthCategoryYear;
+        this.fifthCategory                 = fifthCategory;
+        this.sixthCategory                 = sixthCategory;
+        this.seventhCategory               = seventhCategory;
+        this.additionalParamMileage        = additionalParamMileage;
+        this.additionalParamEngine         = additionalParamEngine;
+        this.title                         = title;
+        this.description                   = description;
+        this.price                         = price;
+        this.currencyType                  = currencyType;
+        this.isNegotiable                  = isNegotiable;
+        this.region                        = region;
+        this.privacyType                   = privacyType;
+        this.name                          = name;
+        this.phone                         = phone;
+        this.hideNumber                    = hideNumber;
+        this.email                         = email;
 
         listOfFiles.add(this.file1 = new File(file1));
         listOfFiles.add(this.file2 = new File(file2));
@@ -80,25 +86,29 @@ public class Post {
     }
 
     public Post(Properties props) {
-        this.category         = props.getProperty("CategoryIndex");
-        this.underCategory    = props.getProperty("UnderCategoryIndex");
-        this.thirdCategory    = props.getProperty("ThirdCategoryIndex");
-        this.additionalParam  = props.getProperty("AdditionalParam");
-        this.fourthCategory   = props.getProperty("FourthCategoryIndex");
-        this.fifthCategory    = props.getProperty("FifthCategoryIndex");
-        this.sixthCategory    = props.getProperty("SixthCategoryIndex");
-        this.seventhCategory  = props.getProperty("SeventhCategoryIndex");
-        this.title            = props.getProperty("PostTitle");
-        this.description      = props.getProperty("Description") + RandomStringUtils.randomAlphabetic(50);
-        this.price            = props.getProperty("Price");
-        this.currencyType     = props.getProperty("CurrencyType");
-        this.isNegotiable     = Boolean.parseBoolean(props.getProperty("IsNegotiable"));
-        this.region           = props.getProperty("RegionIndex");
-        this.privacyType      = props.getProperty("PostAs");
-        this.name             = props.getProperty("Name");
-        this.phone            = props.getProperty("TelephoneNumber");
-        this.hideNumber       = Boolean.parseBoolean(props.getProperty("HideNumber"));
-        this.email            = props.getProperty("Email");
+        this.category                      = props.getProperty("CategoryIndex");
+        this.underCategory                 = props.getProperty("UnderCategoryIndex");
+        this.thirdCategory                 = props.getProperty("ThirdCategoryIndex");
+        this.additionalParam               = props.getProperty("AdditionalParam");
+        this.fourthCategory                = props.getProperty("FourthCategoryIndex");
+        this.fourthCategoryYear            = props.getProperty("FourthCategoryYear");
+        this.fifthCategory                 = props.getProperty("FifthCategoryIndex");
+        this.sixthCategory                 = props.getProperty("SixthCategoryIndex");
+        this.seventhCategory               = props.getProperty("SeventhCategoryIndex");
+        this.additionalParamMileage        = props.getProperty("AdditionalParamMileage");
+        this.additionalParamEngine         = props.getProperty("AdditionalParamEngine");
+        this.title                         = props.getProperty("PostTitle");
+        this.description                   = props.getProperty("Description")
+                                             + RandomStringUtils.randomAlphabetic(50);
+        this.price                         = props.getProperty("Price");
+        this.currencyType                  = props.getProperty("CurrencyType");
+        this.isNegotiable                  = Boolean.parseBoolean(props.getProperty("IsNegotiable"));
+        this.region                        = props.getProperty("RegionIndex");
+        this.privacyType                   = props.getProperty("PostAs");
+        this.name                          = props.getProperty("Name");
+        this.phone                         = props.getProperty("TelephoneNumber");
+        this.hideNumber                    = Boolean.parseBoolean(props.getProperty("HideNumber"));
+        this.email                         = props.getProperty("Email");
 
         listOfFiles.add(this.file1 = new File(props.getProperty("File1")));
         listOfFiles.add(this.file2 = new File(props.getProperty("File2")));
@@ -118,6 +128,7 @@ public class Post {
         System.out.println("THIRD CATEGORY INDEX:........ " + this.getThirdCategory());
         System.out.println("ADDITIONAL PARAMETER:........ " + this.getAdditionalParam());
         System.out.println("FOURTH CATEGORY INDEX:....... " + this.getFourthCategory());
+        System.out.println("FOURTH CATEGORY YEAR:........ " + this.getFourthCategoryYear());
         System.out.println("FIFTH CATEGORY INDEX:........ " + this.getFifthCategory());
         System.out.println("SIXTH CATEGORY INDEX:........ " + this.getSixthCategory());
         System.out.println("SEVENTH CATEGORY INDEX:...... " + this.getSeventhCategory());
@@ -157,11 +168,17 @@ public class Post {
 
     public String getFourthCategory() { return fourthCategory; }
 
+    public String getFourthCategoryYear() { return fourthCategoryYear; }
+
     public String getFifthCategory() { return fifthCategory; }
 
     public String getSixthCategory() { return sixthCategory; }
 
     public String getSeventhCategory() { return seventhCategory; }
+
+    public String getAdditionalParamMileage() { return additionalParamMileage; }
+
+    public String getAdditionalParamEngine() { return additionalParamEngine; }
 
     public void setUnderCategory(String underCategory) {
         this.underCategory = underCategory;
@@ -173,11 +190,17 @@ public class Post {
 
     public void setFourthCategory(String fourthCategory) { this.fourthCategory = fourthCategory; }
 
+    public void setFourthCategoryYear(String fourthCategoryYear) { this.fourthCategoryYear = fourthCategoryYear; }
+
     public void setFifthCategory(String fifthCategory) { this.fifthCategory = fifthCategory; }
 
     public void setSixthCategory(String sixthCategory) { this.sixthCategory = sixthCategory; }
 
     public void setSeventhCategory(String seventhCategory) {this.seventhCategory = seventhCategory; }
+
+    public void setAdditionalParamMileage(String additionalParamMileage) {this.additionalParamMileage = additionalParamMileage; }
+
+    public void setAdditionalParamEngine(String additionalParamEngine) {this.additionalParamEngine = additionalParamEngine; }
 
     public void setCategory(String category) {
         this.category = category;

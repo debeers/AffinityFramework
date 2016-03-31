@@ -56,43 +56,43 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     //Post to Used Cars category --BEGIN--
     @CacheLookup
-    @FindBy(xpath = "*//select[contains(@name,'param_id[4]')]/following-sibling::div[contains(@class,'chosen-container-single')]/a")
+    @FindBy(xpath = "*//div[3]/div[1]/a")
     public WebElement fourthCategorySelectYear;
 
     @CacheLookup
-    @FindBy(xpath = "*//select[contains(@name,'param_id[4]')]/following-sibling::div[contains(@class,'chosen-container-single')]/div/ul/li[contains(@class,'active-result')]")
+    @FindBy(xpath = "*//div[3]/div[1]/div/ul/li")
     public List<WebElement> fourthCategoriesListYear;
 
     @CacheLookup
-    @FindBy(xpath = "*//select[contains(@name,'param_id[3]')]/following-sibling::div[contains(@class,'chosen-container-single')]/a")
+    @FindBy(xpath = "*//div[2]/div/div[4]/div[1]/a")
     public WebElement fifthCategorySelectBody;
 
     @CacheLookup
-    @FindBy(xpath = "*//select[contains(@name,'param_id[3]')]/following-sibling::div[contains(@class,'chosen-container-single')]/div/ul/li[contains(@class,'active-result')]")
+    @FindBy(xpath = "*//div[2]/div/div[4]/div[1]/ul/li")
     public List<WebElement> fifthCategoriesListBody;
 
     @CacheLookup
-    @FindBy(xpath = "*//div/input[@name='param_id[5]']")
+    @FindBy(xpath = "*//div[2]/div/div[5]/input")
     public WebElement mileage;
 
     @CacheLookup
-    @FindBy(xpath = "*//select[contains(@name,'param_id[17]')]/following-sibling::div[contains(@class,'chosen-container-single')]/a")
+    @FindBy(xpath = "*//div[6]/div[1]/a")
     public WebElement sixthCategorySelectGearbox;
 
     @CacheLookup
-    @FindBy(xpath = "*//select[contains(@name,'param_id[17]')]/following-sibling::div[contains(@class,'chosen-container-single')]/div/ul/li[contains(@class,'active-result')]")
+    @FindBy(xpath = "*//div[6]/div[1]/div/ul/li")
     public List<WebElement> sixthCategoriesListGearbox;
 
     @CacheLookup
-    @FindBy(xpath = "*//select[contains(@name,'param_id[20]')]/following-sibling::div[contains(@class,'chosen-container-single')]/a")
+    @FindBy(xpath = "*//div[7]/div[1]/a")
     public WebElement seventhCategorySelectEngineType;
 
     @CacheLookup
-    @FindBy(xpath = "*//select[contains(@name,'param_id[17]')]/following-sibling::div[contains(@class,'chosen-container-single')]/div/ul/li[contains(@class,'active-result')]")
+    @FindBy(xpath = "*//div[7]/div[1]/div/ul/li")
     public List<WebElement> seventhCategoriesListEngine;
 
     @CacheLookup
-    @FindBy(xpath = "*//div/input[@name='param_id[21]']")
+    @FindBy(xpath = "*//div[2]/div/div[8]/input")
     public WebElement engineVolume;
 
     //Post to Used Cars category --END--
@@ -253,6 +253,11 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
             sendKeys(additionalParam);
     }
 
+    public void setFourthCategoryYear(String fourthCategoryYear) throws InterruptedException {
+        selectFromDropdawnMenuByIndex(fourthCategorySelectYear, fourthCategoriesListYear, fourthCategoryYear);
+        waitTillLoaderHides();
+    }
+
     public void setFourthCategory(String fourthCategory) throws InterruptedException {
         selectFromDropdawnMenuByIndex(fourthCategorySelect, fourthCategoriesList, fourthCategory);
         waitTillLoaderHides();
@@ -271,6 +276,18 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public void setSeventhCategory(String seventhCategory) throws InterruptedException {
         selectFromDropdawnMenuByIndex(seventhCategorySelectEngineType, seventhCategoriesListEngine, seventhCategory);
         waitTillLoaderHides();
+    }
+
+    public void setAdditionalParamMileage(String  mileageParam) throws InterruptedException {
+        $(mileage).
+                shouldBe(visible).
+                sendKeys(mileageParam);
+    }
+
+    public void setAdditionalParamEngine(String engineParam) throws InterruptedException {
+        $(engineVolume).
+                shouldBe(visible).
+                sendKeys(engineParam);
     }
 
     public void setPostTitle(String title) {
@@ -335,8 +352,9 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         $(emailField).shouldBe(visible).sendKeys(email);
     }
 
-    public void clickOnPreviewButton() {
+    public PostPreviewPage clickOnPreviewButton() {
         $(previewButton).shouldBe(visible).click();
+        return null;
     }
 
     public PostPreviewPage clickOnPreviewButtonAndLoadPage(){

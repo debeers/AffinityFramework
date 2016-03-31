@@ -5,6 +5,7 @@ import Tests.BaseTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -14,8 +15,14 @@ public class TEST_SQLConnect extends BaseTest {
 
     @Test
     public void DBConnectionTest() throws SQLException, IOException {
-        
+
         DBUtill db = new DBUtill();
-        db.getColumn("SELECT id FROM user WHERE id=5", "id");
+        ResultSet result = db.getResultSet("SELECT * FROM user WHERE username LIKE '%asan%'");
+        while (result.next()) {
+            System.out.println(
+                    result.getString(1) + " " +
+                    result.getString(2) + " " +
+                    result.getString(3));
+        }
     }
 }
