@@ -7,13 +7,13 @@
     <entry key="UnderCategoryIndex">2</entry>
     <entry key="ThirdCategoryIndex">2</entry>
     <entry key="AdditionalParam">75</entry>
+    <entry key="AdditionalParamMileage">null</entry>
+    <entry key="AdditionalParamEngine">null</entry>
     <entry key="FourthCategoryIndex">7</entry>
     <entry key="FourthCategoryYear">null</entry>
     <entry key="FifthCategoryIndex">null</entry>
     <entry key="SixthCategoryIndex">null</entry>
     <entry key="SeventhCategoryIndex">null</entry>
-    <entry key="AdditionalParamMileage">null</entry>
-    <entry key="AdditionalParamEngine">null</entry>
     <entry key="PostTitle">Test Post</entry>
     <entry key="Description">TEST DESCRIPTION </entry>
     <entry key="Price">78</entry>

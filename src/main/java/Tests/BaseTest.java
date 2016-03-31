@@ -1,7 +1,5 @@
 package Tests;
 
-import DBUtils.DBConnection;
-import Registry.Registry;
 import Entities.LoginObject;
 import GeneralHelpers.Logger;
 import com.codeborne.selenide.WebDriverRunner;
@@ -26,10 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Calendar;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
-import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 
 
 public class BaseTest {
@@ -43,13 +38,13 @@ public class BaseTest {
     public static java.sql.Connection jdbcConnection;
 
     @BeforeSuite(alwaysRun = true)
-    public void preCondition() throws IOException, ClassNotFoundException, SQLException {
+  /*  public void preCondition() throws IOException, ClassNotFoundException, SQLException {
         Properties props =  propertyXMLoader(System.getProperty("user.dir") +
                 "\\src\\main\\java\\DBUtils\\Connections\\DB_CONNECTION.xml");
 
         jdbcConnection = new DBConnection().initDBConnection(props);
         Registry.set("dbConnection", jdbcConnection);
-    }
+    } */
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
     @BeforeMethod(alwaysRun = true)

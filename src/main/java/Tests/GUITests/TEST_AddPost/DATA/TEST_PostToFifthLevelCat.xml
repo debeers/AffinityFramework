@@ -9,7 +9,9 @@
     <entry key="FourthCategoryIndex">null</entry>
     <entry key="FourthCategoryYear">95</entry>
     <entry key="FifthCategoryIndex">4</entry>
-    <entry key="AdditionalParam">50000</entry>
+    <entry key="AdditionalParam">null</entry>
+    <entry key="AdditionalParamMileage">50000</entry>
+    <entry key="AdditionalParamEngine">2</entry>
     <entry key="SixthCategoryIndex">2</entry>
     <entry key="SeventhCategoryIndex">1</entry>
     <entry key="PostTitle">Test Post</entry>
