@@ -23,7 +23,7 @@ public class PostAdd {
         if (!post.getThirdCategory().equals("null"))
             postPage.setThirdCategory(post.getThirdCategory());
         else
-            System.out.println("Third Category is no set");
+            System.out.println("Third Category is not set");
     }
 
     public static void setAdditionalParameterIfExists(PostPage postPage, Post post) throws InterruptedException {
@@ -42,14 +42,41 @@ public class PostAdd {
             System.out.println("Fourth Category is not set");
     }
 
+    public static void setFifthCategoryIfExists(PostPage postPage, Post post) throws InterruptedException {
+
+        if (!post.getFifthCategory().equals("null"))
+            postPage.setFifthCategory(post.getFifthCategory());
+        else
+            System.out.println("Fifth Category is not set");
+    }
+
+    public static void setSixthCategoryIfExists(PostPage postPage, Post post) throws InterruptedException {
+
+        if (!post.getSixthCategory().equals("null"))
+            postPage.setSixthCategory(post.getSixthCategory());
+        else
+            System.out.println("Sixth Category is not set");
+    }
+
+    public static void setSeventhCategoryIfExists(PostPage postPage, Post post) throws InterruptedException {
+
+        if (!post.getSeventhCategory().equals("null"))
+            postPage.setSeventhCategory(post.getSeventhCategory());
+        else
+            System.out.println("Seventh Category is not set");
+    }
+
     public static PostPage makeNewPost(PostPage postPage, Post post, int countOfFilesToUpload)
             throws InterruptedException, AWTException {
 
         postPage.setCategory(post.getCategory());
         setUnderCategoryIfExsist(postPage, post);
         setThirdCategoryIfExists(postPage, post);
-        setAdditionalParameterIfExists(postPage, post);
         setFourthCategoryIfExists(postPage, post);
+        setFifthCategoryIfExists(postPage, post);
+        setSixthCategoryIfExists(postPage, post);
+        setSeventhCategoryIfExists(postPage,post);
+        setAdditionalParameterIfExists(postPage, post);
         postPage.UploadImages(post, countOfFilesToUpload);
         postPage.setPostTitle(post.getTitle());
         postPage.setDescription(post.getDescription());

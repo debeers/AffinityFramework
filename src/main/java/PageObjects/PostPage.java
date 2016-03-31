@@ -47,6 +47,65 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public List<WebElement> underCategoriesList;
 
     @CacheLookup
+    @FindBy(xpath = "*//div[2]/div[1]/a")
+    public WebElement thirdCategorySelect;
+
+    @CacheLookup
+    @FindBy(xpath = "*//div[2]/div[1]/div/ul/li")
+    public List<WebElement> thirdCategoriesList;
+
+    //Post to Used Cars category --BEGIN--
+    @CacheLookup
+    @FindBy(xpath = "*//select[contains(@name,'param_id[4]')]/following-sibling::div[contains(@class,'chosen-container-single')]/a")
+    public WebElement fourthCategorySelectYear;
+
+    @CacheLookup
+    @FindBy(xpath = "*//select[contains(@name,'param_id[4]')]/following-sibling::div[contains(@class,'chosen-container-single')]/div/ul/li[contains(@class,'active-result')]")
+    public List<WebElement> fourthCategoriesListYear;
+
+    @CacheLookup
+    @FindBy(xpath = "*//select[contains(@name,'param_id[3]')]/following-sibling::div[contains(@class,'chosen-container-single')]/a")
+    public WebElement fifthCategorySelectBody;
+
+    @CacheLookup
+    @FindBy(xpath = "*//select[contains(@name,'param_id[3]')]/following-sibling::div[contains(@class,'chosen-container-single')]/div/ul/li[contains(@class,'active-result')]")
+    public List<WebElement> fifthCategoriesListBody;
+
+    @CacheLookup
+    @FindBy(xpath = "*//div/input[@name='param_id[5]']")
+    public WebElement mileage;
+
+    @CacheLookup
+    @FindBy(xpath = "*//select[contains(@name,'param_id[17]')]/following-sibling::div[contains(@class,'chosen-container-single')]/a")
+    public WebElement sixthCategorySelectGearbox;
+
+    @CacheLookup
+    @FindBy(xpath = "*//select[contains(@name,'param_id[17]')]/following-sibling::div[contains(@class,'chosen-container-single')]/div/ul/li[contains(@class,'active-result')]")
+    public List<WebElement> sixthCategoriesListGearbox;
+
+    @CacheLookup
+    @FindBy(xpath = "*//select[contains(@name,'param_id[20]')]/following-sibling::div[contains(@class,'chosen-container-single')]/a")
+    public WebElement seventhCategorySelectEngineType;
+
+    @CacheLookup
+    @FindBy(xpath = "*//select[contains(@name,'param_id[17]')]/following-sibling::div[contains(@class,'chosen-container-single')]/div/ul/li[contains(@class,'active-result')]")
+    public List<WebElement> seventhCategoriesListEngine;
+
+    @CacheLookup
+    @FindBy(xpath = "*//div/input[@name='param_id[21]']")
+    public WebElement engineVolume;
+
+    //Post to Used Cars category --END--
+
+    @CacheLookup
+    @FindBy(xpath = "*//div[4]/div[1]/a")
+    public WebElement fourthCategorySelect;
+
+    @CacheLookup
+    @FindBy(xpath = "*//div[4]/div[1]/div/ul/li")
+    public List<WebElement> fourthCategoriesList;
+
+    @CacheLookup
     @FindBy(xpath = "*//div/input[@name='param_id[16]']")
     public WebElement areaParameter;
 
@@ -184,18 +243,33 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public void setThirdCategory(String thirdCategory) throws InterruptedException {
-        selectFromDropdawnMenuByIndex(underCategoriesChoose, underCategoriesList, thirdCategory);
+        selectFromDropdawnMenuByIndex(thirdCategorySelect, thirdCategoriesList, thirdCategory);
         waitTillLoaderHides();
     }
 
-    public void setAdditionalParam(String additionalParam) { $(areaParameter).
+    public void setAdditionalParam(String additionalParam) {
+        $(areaParameter).
             shouldBe(visible).
             sendKeys(additionalParam);
-
     }
 
     public void setFourthCategory(String fourthCategory) throws InterruptedException {
-        selectFromDropdawnMenuByIndex(underCategoriesChoose, underCategoriesList, fourthCategory);
+        selectFromDropdawnMenuByIndex(fourthCategorySelect, fourthCategoriesList, fourthCategory);
+        waitTillLoaderHides();
+    }
+
+    public void setFifthCategory(String fifthCategory) throws InterruptedException {
+        selectFromDropdawnMenuByIndex(fifthCategorySelectBody, fifthCategoriesListBody, fifthCategory);
+        waitTillLoaderHides();
+    }
+
+    public void setSixthCategory(String sixthCategory) throws InterruptedException {
+        selectFromDropdawnMenuByIndex(sixthCategorySelectGearbox, sixthCategoriesListGearbox, sixthCategory);
+        waitTillLoaderHides();
+    }
+
+    public void setSeventhCategory(String seventhCategory) throws InterruptedException {
+        selectFromDropdawnMenuByIndex(seventhCategorySelectEngineType, seventhCategoriesListEngine, seventhCategory);
         waitTillLoaderHides();
     }
 

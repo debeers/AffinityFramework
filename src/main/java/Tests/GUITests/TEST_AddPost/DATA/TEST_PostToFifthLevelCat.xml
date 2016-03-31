@@ -3,14 +3,14 @@
 
     <!--Test Data -->
 
-    <entry key="CategoryIndex">45</entry>
-    <entry key="UnderCategoryIndex">2</entry>
-    <entry key="ThirdCategoryIndex">null</entry>
-    <entry key="AdditionalParam">null</entry>
-    <entry key="FourthCategoryIndex">null</entry>
-    <entry key="FifthCategoryIndex">null</entry>
-    <entry key="SixthCategoryIndex">null</entry>
-    <entry key="SeventhCategoryIndex">null</entry>
+    <entry key="CategoryIndex">49</entry>
+    <entry key="UnderCategoryIndex">68</entry>
+    <entry key="ThirdCategoryIndex">26</entry>
+    <entry key="FourthCategoryIndex">95</entry>
+    <entry key="FifthCategoryIndex">4</entry>
+    <entry key="AdditionalParam">50000</entry>
+    <entry key="SixthCategoryIndex">2</entry>
+    <entry key="SeventhCategoryIndex">1</entry>
     <entry key="PostTitle">Test Post</entry>
     <entry key="Description">TEST DESCRIPTION </entry>
     <entry key="Price">78</entry>
