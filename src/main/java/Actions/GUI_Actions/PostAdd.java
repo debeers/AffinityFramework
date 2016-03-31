@@ -4,6 +4,9 @@ import Entities.Post;
 import PageObjects.PostPage;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by DeBeers on 08.03.2016.
@@ -117,4 +120,35 @@ public class PostAdd {
             return false;
     }
 
+
+    public static void compareErrors(List<String> actual, List<String> expected) {
+
+
+        List<String> foundErrors = new ArrayList<>();
+        boolean ifFound = false;
+
+        actual.stream().forEach((p) -> {
+
+            for (String expectedError : expected) {
+
+                if (p.equals(expectedError)) {
+
+                    foundErrors.add(p);
+                    System.out.println("We are found exact error::: " + p);
+                }
+            }
+        });
+
+//        for (String expectedError : expected){
+//
+//            if(foundErrors.contains(expectedError))
+//                   return true;
+//            else   return false;
+//
+//        }
+//
+//
+//    }
+
+    }
 }
