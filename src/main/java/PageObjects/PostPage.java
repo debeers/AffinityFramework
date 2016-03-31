@@ -354,7 +354,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     public PostPreviewPage clickOnPreviewButton() {
         $(previewButton).shouldBe(visible).click();
-        return null;
+        return new PostPreviewPage(driver);
     }
 
     public PostPreviewPage clickOnPreviewButtonAndLoadPage(){
