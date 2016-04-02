@@ -62,7 +62,7 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
 
     public UserAccountPage clickOnRegisterButton() {
         $(registrationButton).shouldBe(visible).click();
-        if (getFieldsErrors().isEmpty()){
+        if (getAllFieldsErrors().isEmpty()){
             return new UserAccountPage(driver);
         } else {
             System.out.println(
@@ -86,7 +86,7 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
     }
 
     @Override
-    public List<String> getFieldsErrors() {
+    public List<String> getAllFieldsErrors() {
         List<String> errorsList = new ArrayList<>();
         try {
             if ($$(errorMessages).isEmpty()) {

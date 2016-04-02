@@ -62,6 +62,16 @@ public class YourPostPage extends TopMenuGeneralPage {
         return breadcrumbs;
     }
 
+
+
+    public String getTextFromDescription(){
+        return $(description).shouldBe(Condition.visible).getText();
+    }
+
+    public String getTextFromTitle(){
+        return $(postTitle).shouldBe(Condition.visible).getText();
+    }
+
     public List<String> getHREFvalueFromListOfBreadcrumbs(){
 
         List<String> hrefs = new ArrayList<>();

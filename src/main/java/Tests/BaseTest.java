@@ -14,10 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 import ru.stqa.selenium.factory.WebDriverFactory;
 
 import java.io.File;
@@ -47,7 +44,7 @@ public class BaseTest {
     } */
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
-    @BeforeMethod(alwaysRun = true)
+    @BeforeTest(alwaysRun = true)
     public void setUp(String URL, String clientLoginParam, String clientPasswordParam)
             throws ClassNotFoundException, IOException, SQLException {
 
@@ -88,7 +85,7 @@ public class BaseTest {
         }
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterTest(alwaysRun = true)
     public void tearDown(ITestResult result) throws Exception {
 
         if (ITestResult.FAILURE == result.getStatus()) {

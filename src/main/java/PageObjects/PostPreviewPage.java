@@ -18,6 +18,9 @@ public class PostPreviewPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[@id='photos']//img")
     public List<WebElement> previewPhotos;
 
+    @FindBy(xpath = ".//*[@id='second-step']/div/h3")
+    public WebElement previewTitle;
+
     @FindBy(xpath = ".//ul[contains(@class,'posting-steps')]/li[contains(@class,'step-2 active')]")
     public WebElement previewStepTab;
 
@@ -66,6 +69,10 @@ public class PostPreviewPage extends TopMenuGeneralPage {
         return $(previewDescription).shouldBe(Condition.visible).getText();
     }
 
+    public String getTextFromTitle(){
+        return $(previewTitle).shouldBe(Condition.visible).getText();
+    }
+
     public PostPage clickOnEditButton(){
         $(editButton).shouldBe(Condition.visible).click();
         return new PostPage(driver);
@@ -76,9 +83,9 @@ public class PostPreviewPage extends TopMenuGeneralPage {
         return new SuccessPostedPage(driver);
     }
 
-    public SuccessPostedPage clickOnPostedAdName(){
+    public YourPostPage clickOnPostedAdName(){
         $(postedAdName).shouldBe(Condition.visible).click();
-        return new SuccessPostedPage(driver);
+        return new YourPostPage(driver);
     }
 
     public PostPreviewPage(WebDriver driver) {

@@ -2,10 +2,12 @@ package Actions.GUI_Actions;
 
 import Entities.Post;
 import PageObjects.PostPage;
+import org.openqa.selenium.WebDriver;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 /**
@@ -148,17 +150,15 @@ public class PostAdd {
     }
 
 
-    public static void compareErrors(List<String> actual, List<String> expected) {
-
+    public static boolean compareErrors(List<String> actual, List<String> expected) {
 
         List<String> foundErrors = new ArrayList<>();
-        boolean ifFound = false;
 
         actual.stream().forEach((p) -> {
 
             for (String expectedError : expected) {
 
-                if (p.equals(expectedError)) {
+                if (p.contains(expectedError)) {
 
                     foundErrors.add(p);
                     System.out.println("We are found exact error::: " + p);
@@ -166,16 +166,55 @@ public class PostAdd {
             }
         });
 
-//        for (String expectedError : expected){
-//
-//            if(foundErrors.contains(expectedError))
-//                   return true;
-//            else   return false;
-//
-//        }
-//
-//
-//    }
+        if (foundErrors.isEmpty())
+             return false;
+        else return true;
 
     }
+
+    public static boolean compareErrors(List<String> actual, String expected) {
+
+        boolean[] r = {false};
+        actual.stream().forEach((p) -> {
+
+                 if (p.contains(expected))
+                     System.out.println("We are found exact error::: " + p);
+                     r[0] = true;
+         });
+
+        return r[0];
+    }
+
+    public static boolean compareErrors(String actual, String expected) {
+        System.out.println("actual error:::" + actual);
+        System.out.println("actual expected:::" + expected);
+            if (actual.contains(expected)) {
+                System.out.println("We are found exact error::: ");
+                 return true;
+            }
+            else return false;
+    }
+
+    public static boolean compeareAllertMessage(WebDriver driver, String allertMessage){
+
+            if(getAllertText(driver).contains(allertMessage))
+                return true;
+        else    return false;
+    }
+
+    public static String getAllertText(WebDriver driver){
+        String actualAllertMessage = "";
+        try {
+
+            actualAllertMessage = driver.switchTo().alert().getText();
+            return actualAllertMessage;
+
+        }catch (Exception e){
+            System.out.println("No allerts appears, test passed");
+        }
+
+        return actualAllertMessage;
+    }
+
+
 }

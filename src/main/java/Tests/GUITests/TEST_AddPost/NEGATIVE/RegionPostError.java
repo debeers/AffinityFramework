@@ -1,4 +1,4 @@
-package Tests.GUITests.TEST_AddPost;
+package Tests.GUITests.TEST_AddPost.NEGATIVE;
 
 import Entities.Post;
 import PageObjects.MainPage;
@@ -19,9 +19,14 @@ import static Actions.GUI_Actions.PostAdd.makeNewPost;
 import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 import static com.codeborne.selenide.Selenide.$;
 
-public class TEST_AddNewPost extends BaseTest {
+/**
+ * Created by DeBeers on 02.04.2016.
+ */
+public class RegionPostError extends BaseTest {
+
+
     @Test
-    public void Add_Post() throws InterruptedException, IOException, AWTException, SQLException {
+    public void Add_Post_RegionError() throws InterruptedException, IOException, AWTException, SQLException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
                 "/src/main/java/Tests/GUITests/TEST_AddPost/DATA/TEST_AddNewPost.xml");
@@ -73,9 +78,10 @@ public class TEST_AddNewPost extends BaseTest {
                 "Success message is different!");
         log.info("Test passed, new post posted, with correct data entered during forming process: YoouuuHHuuu!!!");
 
-       // SuccessPostedPage postedAd = postPreviewPage.clickOnPostedAdName();
+        // SuccessPostedPage postedAd = postPreviewPage.clickOnPostedAdName();
         log.info("We are on the posted Advert page");
 
     }
-}
 
+
+}

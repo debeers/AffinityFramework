@@ -19,7 +19,9 @@
     <test name="Affinity_Smoke_1.0">
 
         <classes>
-            <!--<class name="Tests.SQL_Tests.TEST_SQLConnect"/>-->
+            <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.IncorrectData"/>
+
+            <!--<class name="Tests.SQL_Tests.TEST_SQLConnect"/>
             <class name="Tests.APITests.TEST_API_getAdById"/>
             <class name="Tests.GUITests.TEST_AddPost.TEST_PostPageIsAvailable"/>
             <class name="Tests.GUITests.TEST_AddPost.TEST_PostToOtherCat"/>
@@ -32,7 +34,7 @@
             <class name="Tests.GUITests.TEST_Search.TEST_Search"/>
             <class name="Tests.GUITests.TEST_Registration.TEST_RegistrationWithAllFields"/>
             <class name="Tests.GUITests.TEST_Login.TEST_PositiveLogin"/>
-
+            -->
         </classes>
     </test>
 </suite>

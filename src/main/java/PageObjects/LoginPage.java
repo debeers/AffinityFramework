@@ -51,7 +51,7 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
     public UserAccountPage clickOnLoginButton(WebDriver driver) {
         $(loginPageLoginButton).shouldBe(visible).click();
 
-        if (getFieldsErrors().isEmpty()){
+        if (getAllFieldsErrors().isEmpty()){
             return new UserAccountPage(driver);
         } else {
             System.out.println(
@@ -76,7 +76,7 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     @Override
-    public List<String> getFieldsErrors() {
+    public List<String> getAllFieldsErrors() {
         List<String> errorsList = new ArrayList<>();
         try {
             if (!$$(errorMessagesLoginForm).isEmpty()) {

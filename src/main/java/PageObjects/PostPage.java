@@ -164,6 +164,24 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@class='error-message']")
     public List<WebElement> errors;
 
+    @FindBy(xpath = ".//*[@id='title-errors']")
+    public WebElement titleErrorBlock;
+
+    @FindBy(xpath = ".//*[@id='description-errors']")
+    public WebElement descriptionErrorBlock;
+
+    @FindBy(xpath = ".//*[@id='name-errors']")
+    public WebElement nameErrorBlock;
+
+    @FindBy(xpath = ".//*[@id='email-errors']")
+    public WebElement emailErrorBlock;
+
+    @FindBy(xpath = ".//*[@id='telephone-errors']")
+    public WebElement phoneErrorBlock;
+
+    @FindBy(xpath = ".//*[@id='price-errors']")
+    public WebElement priceErrorBlock;
+
     @FindBy(xpath = ".//*[@id='1']/div/input")
     public WebElement fileUpload1;
 
@@ -180,21 +198,10 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public WebElement fileUpload5;
 
 
-    /**
-     * Repeatedly check if the loader is still visible
-     */
-   /* public void waitTillLoaderFinishes() {
-        String loadingDotsPath = "//div[@class='ebLoader-Holder']//span[contains(@class, 'ebLoader-Dots')]";
+    public String getTextFromDescriptionErrorBlock(){
+        return $(descriptionErrorBlock).shouldBe(visible).getText();
+    }
 
-        try {
-            mEventDriver.findElement(By.xpath(loadingDotsPath));
-            WebDriverWait wait = new WebDriverWait(mEventDriver, LOADER_WAIT_TIMEOUT);
-            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(loadingDotsPath)));
-        } catch (NoSuchElementException e) {
-        } catch (TimeoutException e) {
-            Assert.fail("Timeout exception caught while waiting for loader to finish");
-        }
-    } */
 
     public void waitTillLoaderHides() {
 
@@ -207,16 +214,6 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         }
     }
 
-   /* public void waitTillLoaderDissappear() {
-        try {
-            if (loader.isDisplayed()) {
-                $(loader).should(disappear);
-                log.info("Waiting till loader disappear");
-            }
-        } catch (Exception e) {
-            log.info("No loaders were found, go nex step");
-        }
-    } */
 
     public void selectFromDropdawnMenuByIndex(WebElement element, List<WebElement> list, String index)
             throws InterruptedException {
@@ -361,7 +358,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
         clickOnPreviewButton();
 
-        if (getFieldsErrors().size() == 0) {
+        if (getAllFieldsErrors().size() == 0) {
             return new PostPreviewPage(driver);
         } else {
             System.out.println(
@@ -370,10 +367,16 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         }
     }
 
+    public void fillinNegativeDataInTheFieldAndSubmit(String enterData, WebElement input, WebElement button) throws InterruptedException {
+        $(input).shouldBe(visible).clear();
+        $(input).shouldBe(visible).sendKeys(enterData);
+        button.click();
+    }
+
     public SuccessPostedPage clickOnSubmitButton() {
         $(submitButton).shouldBe(visible).click();
 
-        if (getFieldsErrors().isEmpty()) {
+        if (getAllFieldsErrors().isEmpty()) {
             return new SuccessPostedPage(driver);
         } else {
             System.out.println(
@@ -383,13 +386,14 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     @Override
-    public List<String> getFieldsErrors() {
+    public List<String> getAllFieldsErrors() {
+
         List<String> errorsList = new ArrayList<>();
         try {
-            if ($$(errors).isEmpty()) {
+            if (!$$(errors).isEmpty()) {
                 errors.stream().forEach((p) -> {
                     errorsList.add(p.getText());
-                    System.out.println("ERRORS EXIST IN ENTERING REGISTRATION DATA:: " + p.getText());
+                    System.out.println("ERRORS EXIST IN ENTERING POST DATA:: " + p.getText());
                 });
                 return errorsList;
             }
@@ -399,6 +403,26 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         }
         return errorsList;
     }
+
+
+    public String getFieldError(WebElement errorBlock){
+
+        String titleError = "";
+        try {
+            Thread.sleep(4000);
+            if ($(errorBlock).isDisplayed()) {
+
+                titleError = $(errorBlock).shouldBe(visible).getText();
+                return titleError;
+            }else return titleError;
+
+
+        }catch (Exception e){
+            System.out.println("No error was appear");
+        }
+        return titleError;
+    }
+
 
     public void UploadImages(Post post, int countOfFilesToUpload)
             throws InterruptedException, AWTException {
