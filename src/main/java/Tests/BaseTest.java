@@ -35,13 +35,15 @@ public class BaseTest {
     public static java.sql.Connection jdbcConnection;
 
     @BeforeSuite(alwaysRun = true)
-  /*  public void preCondition() throws IOException, ClassNotFoundException, SQLException {
-        Properties props =  propertyXMLoader(System.getProperty("user.dir") +
+    public void preCondition() throws IOException, ClassNotFoundException, SQLException {
+    /*    Properties props =  propertyXMLoader(System.getProperty("user.dir") +
                 "\\src\\main\\java\\DBUtils\\Connections\\DB_CONNECTION.xml");
 
         jdbcConnection = new DBConnection().initDBConnection(props);
         Registry.set("dbConnection", jdbcConnection);
-    } */
+    */
+
+    }
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
     @BeforeTest(alwaysRun = true)
