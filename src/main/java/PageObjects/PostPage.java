@@ -288,16 +288,25 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public void setPostTitle(String title) {
-        $(titleField).shouldBe(visible).sendKeys(title);
+        $(titleField).
+                shouldBe(visible).
+                sendKeys(title);
     }
 
     public void setDescription(String description) {
-        $(descriptionField).shouldBe(visible).sendKeys(description);
+
+        $(descriptionField).
+                shouldBe(visible).
+                sendKeys(description);
     }
 
     public void setPrice(String price) {
-        $(priceField).shouldBe(visible).clear();
-        $(priceField).shouldBe(visible).sendKeys(price);
+        $(priceField).
+                shouldBe(visible).
+                clear();
+        $(priceField).
+                shouldBe(visible).
+                sendKeys(price);
     }
 
     public void setCurrency(String currency) throws InterruptedException {
@@ -317,40 +326,56 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public void setPrivateTypeAsPrivate() {
-        $(radioButtonPrivate).shouldBe(visible).click();
+        $(radioButtonPrivate).
+                    shouldBe(visible).
+                    click();
     }
 
     public void setPrivateTypeAsBusines() {
-        $(radioButtonBusiness).shouldBe(visible).click();
+        $(radioButtonBusiness).
+                    shouldBe(visible).
+                    click();
     }
 
     public void setPostAs(String privateOrBusines) {
-
         if (privateOrBusines.equals("business")) {
             setPrivateTypeAsBusines();
         } else setPrivateTypeAsPrivate();
     }
 
     public void setName(String name) {
-        $(nameField).shouldBe(visible).sendKeys(name);
+        $(nameField).
+                shouldBe(visible).
+                sendKeys(name);
     }
 
     public void setTelephoneNumber(String telephoneNumber) {
-        $(phoneField).shouldBe(visible).clear();
-        $(phoneField).shouldBe(visible).sendKeys(telephoneNumber);
+        $(phoneField).
+                shouldBe(visible).
+                clear();
+        $(phoneField).
+                shouldBe(visible).
+                sendKeys(telephoneNumber);
     }
 
     public void setHidePhoneNumber(boolean hidePhoneNumber) {
         if (hidePhoneNumber)
-            $(hidePhoneCheckBox).shouldBe(visible).click();
+            $(hidePhoneCheckBox).
+                    shouldBe(visible).
+                    click();
     }
 
     public void setEmail(String email) {
-        $(emailField).shouldBe(visible).sendKeys(email);
+
+        $(emailField).
+                shouldBe(visible).
+                sendKeys(email);
     }
 
     public PostPreviewPage clickOnPreviewButton() {
-        $(previewButton).shouldBe(visible).click();
+        $(previewButton).
+                shouldBe(visible).
+                click();
         return new PostPreviewPage(driver);
     }
 
@@ -368,13 +393,19 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public void fillinNegativeDataInTheFieldAndSubmit(String enterData, WebElement input, WebElement button) throws InterruptedException {
-        $(input).shouldBe(visible).clear();
-        $(input).shouldBe(visible).sendKeys(enterData);
+        $(input).
+                shouldBe(visible).
+                clear();
+        $(input).
+                shouldBe(visible).
+                sendKeys(enterData);
         button.click();
     }
 
     public SuccessPostedPage clickOnSubmitButton() {
-        $(submitButton).shouldBe(visible).click();
+        $(submitButton).
+                shouldBe(visible).
+                click();
 
         if (getAllFieldsErrors().isEmpty()) {
             return new SuccessPostedPage(driver);

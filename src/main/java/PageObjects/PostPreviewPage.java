@@ -46,7 +46,9 @@ public class PostPreviewPage extends TopMenuGeneralPage {
     public WebElement postedAdName;
 
     public String getTextFromPreviewStepTab(){
-        return $(previewStepTab).shouldBe(Condition.visible).getText();
+        return $(previewStepTab).
+                shouldBe(Condition.visible).
+                getText();
     }
 
     public int getUploadedPhotosCount(){
@@ -54,37 +56,53 @@ public class PostPreviewPage extends TopMenuGeneralPage {
     }
 
     public String getTextFromPreviewPrice(){
-        return $(previewPrice).shouldBe(Condition.visible).getText();
+        return $(previewPrice).
+                shouldBe(Condition.visible).
+                getText();
     }
 
     public String getTextFromPreviewSellerName(){
-        return $(previewSellerName).shouldBe(Condition.visible).getText();
+        return $(previewSellerName).
+                shouldBe(Condition.visible).
+                getText();
     }
 
     public String getTextFromPreviewSellerCity(){
-        return $(previewSellerCity).shouldBe(Condition.visible).getText();
+        return $(previewSellerCity).
+                shouldBe(Condition.visible).
+                getText();
     }
 
     public String getTextFromPreviewDescription(){
-        return $(previewDescription).shouldBe(Condition.visible).getText();
+        return $(previewDescription).
+                shouldBe(Condition.visible).
+                getText();
     }
 
     public String getTextFromTitle(){
-        return $(previewTitle).shouldBe(Condition.visible).getText();
+        return $(previewTitle).
+                shouldBe(Condition.visible).
+                getText();
     }
 
     public PostPage clickOnEditButton(){
-        $(editButton).shouldBe(Condition.visible).click();
+        $(editButton).
+                shouldBe(Condition.visible).
+                click();
         return new PostPage(driver);
     }
 
     public SuccessPostedPage clickOnAddPostButton(){
-        $(addPostButton).shouldBe(Condition.visible).click();
+        $(addPostButton).
+                shouldBe(Condition.visible).
+                click();
         return new SuccessPostedPage(driver);
     }
 
     public YourPostPage clickOnPostedAdName(){
-        $(postedAdName).shouldBe(Condition.visible).click();
+        $(postedAdName).
+                shouldBe(Condition.visible).
+                click();
         return new YourPostPage(driver);
     }
 

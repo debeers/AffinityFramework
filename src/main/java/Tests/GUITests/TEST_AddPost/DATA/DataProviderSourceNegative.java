@@ -43,7 +43,7 @@ public class DataProviderSourceNegative {
         };
     }
 
-    @DataProvider(name="negativePostEmail")
+    @DataProvider(name="negativePostPrice")
     public static Object[][] negativePostPrice(){
         return new Object[][]{
                 {"", "Необходимо заполнить поле «Цена»."},
@@ -54,9 +54,6 @@ public class DataProviderSourceNegative {
                 {"2147483648", ""},
                 {"asdf", "Необходимо заполнить поле «Цена»."},
                 {"!@#$%^&*(", "Необходимо заполнить поле «Цена»."},
-
-
-
         };
     }
 
