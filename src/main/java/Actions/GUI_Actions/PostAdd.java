@@ -8,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 
 /**
@@ -175,9 +174,9 @@ public class PostAdd {
         });
 
         if (foundErrors.isEmpty())
-             return false;
-        else return true;
-
+            return false;
+        else
+            return true;
     }
 
     public static boolean compareErrors(List<String> actual, String expected) {
@@ -189,7 +188,6 @@ public class PostAdd {
                      System.out.println("We are found exact error::: " + p);
                      r[0] = true;
          });
-
         return r[0];
     }
 
@@ -198,16 +196,18 @@ public class PostAdd {
         System.out.println("actual expected:::" + expected);
             if (actual.contains(expected)) {
                 System.out.println("We are found exact error::: ");
-                 return true;
+                return true;
             }
-            else return false;
+            else
+                return false;
     }
 
     public static boolean compeareAllertMessage(WebDriver driver, String allertMessage){
 
             if(getAllertText(driver).contains(allertMessage))
                 return true;
-        else    return false;
+            else
+                return false;
     }
 
     public static String getAllertText(WebDriver driver){
@@ -220,9 +220,6 @@ public class PostAdd {
         }catch (Exception e){
             System.out.println("No allerts appears, test passed");
         }
-
         return actualAllertMessage;
     }
-
-
 }

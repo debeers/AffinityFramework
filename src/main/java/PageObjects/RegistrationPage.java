@@ -37,31 +37,49 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
 
 
     public RegistrationPage enterMobilePhoneNumber(String mobilePhoneNumber) {
-        $(mobilePhoneNumberField).shouldBe(visible).clear();
-        $(mobilePhoneNumberField).shouldBe(visible).sendKeys(mobilePhoneNumber);
+        $(mobilePhoneNumberField).
+                shouldBe(visible).
+                clear();
+        $(mobilePhoneNumberField).
+                shouldBe(visible).
+                sendKeys(mobilePhoneNumber);
         return new RegistrationPage(driver);
     }
 
     public RegistrationPage enterEmail(String email) {
-        $(emailField).shouldBe(visible).clear();
-        $(emailField).shouldBe(visible).sendKeys(email);
+        $(emailField).
+                shouldBe(visible).
+                clear();
+        $(emailField).
+                shouldBe(visible).
+                sendKeys(email);
         return new RegistrationPage(driver);
     }
 
     public RegistrationPage enterPassword(String password) {
-        $(passwordField).shouldBe(visible).clear();
-        $(passwordField).shouldBe(visible).sendKeys(password);
+        $(passwordField).
+                shouldBe(visible).
+                clear();
+        $(passwordField).
+                shouldBe(visible).
+                sendKeys(password);
         return new RegistrationPage(driver);
     }
 
     public RegistrationPage enterConfirmationPassword(String password) {
-        $(passwordConfirmField).shouldBe(visible).clear();
-        $(passwordConfirmField).shouldBe(visible).sendKeys(password);
+        $(passwordConfirmField).
+                shouldBe(visible).
+                clear();
+        $(passwordConfirmField).
+                shouldBe(visible).
+                sendKeys(password);
         return new RegistrationPage(driver);
     }
 
     public UserAccountPage clickOnRegisterButton() {
-        $(registrationButton).shouldBe(visible).click();
+        $(registrationButton).
+                shouldBe(visible).
+                click();
         if (getAllFieldsErrors().isEmpty()){
             return new UserAccountPage(driver);
         } else {

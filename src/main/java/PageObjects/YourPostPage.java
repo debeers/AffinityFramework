@@ -43,11 +43,15 @@ public class YourPostPage extends TopMenuGeneralPage {
     
 
     public String getPostTitle(){
-        return $(postTitle).shouldBe(Condition.visible).getText();
+        return $(postTitle).
+                shouldBe(Condition.visible).
+                getText();
     }
 
     public String getCity(){
-        return $(city).shouldBe(Condition.visible).getText();
+        return $(city).
+                shouldBe(Condition.visible).
+                getText();
     }
 
     public String getPriceString(){
@@ -55,21 +59,25 @@ public class YourPostPage extends TopMenuGeneralPage {
     }
 
     public String getDescription(){
-        return $(description).shouldBe(Condition.visible).getText();
+        return $(description).
+                shouldBe(Condition.visible).
+                getText();
     }
 
     public List<WebElement> getListOfBreadcrumbs(){
         return breadcrumbs;
     }
 
-
-
     public String getTextFromDescription(){
-        return $(description).shouldBe(Condition.visible).getText();
+        return $(description).
+                shouldBe(Condition.visible).
+                getText();
     }
 
     public String getTextFromTitle(){
-        return $(postTitle).shouldBe(Condition.visible).getText();
+        return $(postTitle).
+                shouldBe(Condition.visible).
+                getText();
     }
 
     public List<String> getHREFvalueFromListOfBreadcrumbs(){
@@ -88,11 +96,12 @@ public class YourPostPage extends TopMenuGeneralPage {
     public List<String> getTextsFromListOfBreadcrumbs(){
 
         List<String> hrefs = new ArrayList<>();
-        $$(breadcrumbs).stream().forEach((b)-> {
+        $$(breadcrumbs).
+                stream().
+                forEach((b)-> {
 
             System.out.println("Breadcrumb found:::   " + b);
             hrefs.add(b.getText());
-
         });
         return hrefs;
     }
@@ -109,9 +118,7 @@ public class YourPostPage extends TopMenuGeneralPage {
                         chk[0] = true;
                     } else
                         System.out.println("Breadcrumb does not exist!");
-
                 });
-
             return chk[0];
     }
 
@@ -134,11 +141,15 @@ public class YourPostPage extends TopMenuGeneralPage {
     }
 
     public String getCurrency(){
-        return getPriceString().subSequence(0, 1).toString();
+        return getPriceString().
+                subSequence(0, 1).
+                toString();
     }
 
     public String getPrice(){
-        return getPriceString().subSequence(2, 4).toString();
+        return getPriceString().
+                subSequence(2, 4).
+                toString();
     }
 
     public YourPostPage(WebDriver driver) {
