@@ -56,7 +56,7 @@ public class TEST_PostThirdLevelCat extends BaseTest {
         Assert.assertEquals(yourPostPage.getPrice(), post.getPrice(), "Price is not correct");
         Assert.assertEquals(yourPostPage.getCurrency(), "$", "Currency is not correct");
         Assert.assertEquals(yourPostPage.getPostTitle(), props.getProperty("PostTitle"), "Name is not correct");
-        Assert.assertEquals(yourPostPage.getDescription(), post.getDescription(), "Description is not correct");
+        Assert.assertEquals(yourPostPage.getDescription().toLowerCase().trim(), post.getDescription().toLowerCase().trim(), "Description is not correct");
        // Assert.assertTrue(yourPostPage.checkForYourBreadcrumbExsistByHREFValue("/agdam/drugoe/"));
         log.info("Data on preview page is consistant, post is correct");
 

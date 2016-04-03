@@ -39,16 +39,16 @@ public class TEST_PostFourthLevelCat extends BaseTest {
         log.info("We are on the composing page");
 
         //Create new post
-        YourPostPage yourPostPage = makeNewPost(postPage, post, countForPhotoUploads).
-                            clickOnSubmitButton().
-                            clickOnPreviewYourPost();
+        YourPostPage yourPostPage = makeNewPost(postPage, post, countForPhotoUploads)
+                .clickOnSubmitButton()
+                .clickOnPreviewYourPost();
         log.info("We are on the preview page of your post. Checking data for consistence:::");
 
         //Verify data on preview page
         Assert.assertEquals(yourPostPage.getPrice(), post.getPrice(), "Price is not correct");
         Assert.assertEquals(yourPostPage.getCurrency(), "$", "Currency is not correct");
         Assert.assertEquals(yourPostPage.getPostTitle(), props.getProperty("PostTitle"), "Name is not correct");
-        Assert.assertEquals(yourPostPage.getDescription(), post.getDescription(), "Description is not correct");
+        Assert.assertEquals(yourPostPage.getDescription().toLowerCase().trim(), post.getDescription().toLowerCase().trim(), "Description is not correct");
         log.info("Data on preview page is consistent. Post is correct");
     }
 }

@@ -45,7 +45,7 @@ public class TEST_AddNewPost extends BaseTest {
         //Create new post
         //
         PostPreviewPage postPreviewPage = makeNewPost(postPage, post, countForPhotoUploads)
-                .clickOnPreviewButton();
+                .clickOnPreviewButtonAndLoadPage();
         log.info("We are on the preview post page, checking data for consistance:::");
 
         //
@@ -56,7 +56,7 @@ public class TEST_AddNewPost extends BaseTest {
         Assert.assertEquals(postPreviewPage.getTextFromPreviewPrice().subSequence(2, 4), post.getPrice(), "Price is not correct");
         Assert.assertEquals(postPreviewPage.getTextFromPreviewPrice().subSequence(0, 1), "$", "Currency is not correct");
         Assert.assertEquals(postPreviewPage.getTextFromPreviewSellerName(), post.getName(), "Name is not correct");
-        Assert.assertEquals(postPreviewPage.getTextFromPreviewDescription(), post.getDescription(), "Description is not correct");
+        Assert.assertEquals(postPreviewPage.getTextFromPreviewDescription().toLowerCase().trim(), post.getDescription().toLowerCase().trim(), "Description is not correct");
         log.info("Data on preview page is consistent, post is correct");
 
         //

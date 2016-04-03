@@ -44,7 +44,7 @@ public class BaseTest {
     } */
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
-    @BeforeTest(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void setUp(String URL, String clientLoginParam, String clientPasswordParam)
             throws ClassNotFoundException, IOException, SQLException {
 
@@ -85,9 +85,8 @@ public class BaseTest {
         }
     }
 
-    @AfterTest(alwaysRun = true)
-    public void tearDown(ITestResult result) throws Exception {
-
+    @AfterMethod(alwaysRun = true)
+    public void tearDownAfterTest(ITestResult result)throws Exception {
         if (ITestResult.FAILURE == result.getStatus()) {
             try {
                 // Create refernce of TakesScreenshot
@@ -120,6 +119,11 @@ public class BaseTest {
                 System.out.println("Exception while taking screenshot " + e.getMessage());
             }
         }
+    }
+
+    @AfterClass(alwaysRun = true)
+    public void tearDown() throws Exception {
+
         if (driver.getCurrentUrl() != baseUrl) {
             driver.get("http://lalafo.az/ru/user/logout");
         }

@@ -27,7 +27,6 @@ public class TEST_PostToOtherCat extends BaseTest{
         Post post = new Post(props);
         int countForPhotoUploads = 0;
 
-        //lets go hello motorolla
         //Go to main page
         //
         MainPage mainPage = new MainPage(driver);

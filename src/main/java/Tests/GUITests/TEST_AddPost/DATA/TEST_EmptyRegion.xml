@@ -18,20 +18,14 @@
     <entry key="Description">auto</entry>
     <entry key="Price">78</entry>
     <entry key="CurrencyType">USD</entry>
-    <entry key="IsNegotiable">true</entry>
-    <entry key="RegionIndex">7</entry>
+    <entry key="IsNegotiable">false</entry>
+    <entry key="RegionIndex">0</entry>
     <entry key="PostAs">business</entry>
     <entry key="Name">GUI_TEST_USER</entry>
     <entry key="TelephoneNumber">556787554</entry>
     <entry key="HideNumber">true</entry>
     <entry key="Email">debeers1989@gmail.com</entry>
 
-    <entry key="PriceFieldAssertion">договорная</entry>
-
-    <entry key="File1">C:\UploadFiles\1.jpg</entry>
-    <entry key="File2">C:\UploadFiles\2.jpg</entry>
-    <entry key="File3">C:\UploadFiles\3.jpg</entry>
-    <entry key="File4">C:\UploadFiles\4.jpg</entry>
-    <entry key="File5">C:\UploadFiles\5.jpg</entry>
+    <entry key="AssertRegionErrorMessage">Необходимо заполнить поле «Регион».</entry>
 
 </properties>

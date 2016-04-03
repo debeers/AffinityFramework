@@ -15,7 +15,7 @@
     <entry key="SixthCategoryIndex">null</entry>
     <entry key="SeventhCategoryIndex">null</entry>
     <entry key="PostTitle">!@#$%^*():"|\?/.,</entry>
-    <entry key="Description">TEST DESCRIPTION </entry>
+    <entry key="Description">auto</entry>
     <entry key="Price">78</entry>
     <entry key="CurrencyType">USD</entry>
     <entry key="IsNegotiable">false</entry>

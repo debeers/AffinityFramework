@@ -19,7 +19,7 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * Created by DeBeers on 02.04.2016.
  */
-public class ASCIISymbolsFieldsCheck extends BaseTest{
+public class TEST_SUITE_ASCIISymbolsFieldsCheck extends BaseTest{
     @Test
     public void Add_Post_Title_ASCII() throws InterruptedException, IOException, AWTException, SQLException {
 
@@ -45,14 +45,14 @@ public class ASCIISymbolsFieldsCheck extends BaseTest{
         //Create new post
         //
         PostPreviewPage postPreviewPage = makeNewPost(postPage, post, countForPhotoUploads)
-                .clickOnPreviewButton();
+                .clickOnPreviewButtonAndLoadPage();
         log.info("We are on the preview post page, checking data for consistance:::");
 
         //
         //Verify data on preview page
         //
         //Assert.assertEquals($$(postPreviewPage.previewPhotos).size(), countForPhotoUploads);
-        Assert.assertTrue(postPreviewPage.previewStepTab.isDisplayed());
+//        Assert.assertTrue($(postPreviewPage.previewStepTab).isDisplayed());
         Assert.assertEquals(postPreviewPage.getTextFromTitle(), props.getProperty("PostTitle"), "Title is not correct");
         log.info("Data on preview page is consistent, post is correct");
 
@@ -73,7 +73,7 @@ public class ASCIISymbolsFieldsCheck extends BaseTest{
         YourPostPage postPreview = postPreviewPage.clickOnPostedAdName();
         log.info("We are on the posted Advert page");
 
-        Assert.assertEquals(postPreview.getTextFromTitle(), props.getProperty("PostTitle"), "Title is not correct");
+        Assert.assertEquals(postPreview.getTextFromTitle(), post.getTitle(), "Title is not correct");
 
     }
 
@@ -103,15 +103,15 @@ public class ASCIISymbolsFieldsCheck extends BaseTest{
         //Create new post
         //
         PostPreviewPage postPreviewPage = makeNewPost(postPage, post, countForPhotoUploads)
-                .clickOnPreviewButton();
+                .clickOnPreviewButtonAndLoadPage();
         log.info("We are on the preview post page, checking data for consistance:::");
 
         //
         //Verify data on preview page
         //
         //Assert.assertEquals($$(postPreviewPage.previewPhotos).size(), countForPhotoUploads);
-        Assert.assertTrue(postPreviewPage.previewStepTab.isDisplayed());
-        Assert.assertEquals(postPreviewPage.getTextFromPreviewDescription(), props.getProperty("Description"), "Description is not correct");
+       // Assert.assertTrue($(postPreviewPage.previewStepTab).isDisplayed());
+        Assert.assertEquals(postPreviewPage.getTextFromPreviewDescription(), post.getDescription(), "Description is not correct");
         log.info("Data on preview page is consistent, post is correct");
 
         //
@@ -131,9 +131,17 @@ public class ASCIISymbolsFieldsCheck extends BaseTest{
         YourPostPage postPreview = postPreviewPage.clickOnPostedAdName();
         log.info("We are on the posted Advert page");
 
-        Assert.assertEquals(postPreview.getTextFromDescription(), props.getProperty("Description"), "Description is not correct");
+        Assert.assertEquals(postPreview.getTextFromDescription(), post.getDescription(), "Description is not correct");
 
     }
+
+
+
+
+
+
+
+
 
 
 

@@ -12,12 +12,12 @@ import java.io.IOException;
  * Created by Dem on 21.03.2016.
  */
 public class TEST_PostPageIsAvailable extends BaseTest{
+
     @Test
         public void Check_Post_Page() throws InterruptedException, IOException {
-        MainPage mainPage = new MainPage(driver);
+        new MainPage(driver).clickOnAddNewPostButton();
         log.info("We are on the main page");
 
-        PostPage postPage = mainPage.clickOnAddNewPostButton();
         Assert.assertEquals(driver.getCurrentUrl(), "http://lalafo.az/ru/ad/post/");
     }
 

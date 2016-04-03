@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class IncorrectData extends BaseTest {
+public class TEST_SUITE_IncorrectDataFillin extends BaseTest {
 
 
     @Test(dataProvider = "negativePostTitle", dataProviderClass = DataProviderSourceNegative.class)
@@ -112,7 +112,7 @@ public class IncorrectData extends BaseTest {
 
     }
 
-    @Test(dataProvider = "negativePostEmail", dataProviderClass = DataProviderSourceNegative.class)
+    @Test(dataProvider = "negativePostPrice", dataProviderClass = DataProviderSourceNegative.class)
     public void NegativeFillInPrice(String price, String expectedError) throws IOException, InterruptedException {
 
         //Go to main page

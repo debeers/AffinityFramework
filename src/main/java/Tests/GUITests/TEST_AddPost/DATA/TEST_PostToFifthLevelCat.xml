@@ -15,7 +15,7 @@
     <entry key="SixthCategoryIndex">2</entry>
     <entry key="SeventhCategoryIndex">1</entry>
     <entry key="PostTitle">Test Post</entry>
-    <entry key="Description">TEST DESCRIPTION </entry>
+    <entry key="Description">auto</entry>
     <entry key="Price">78</entry>
     <entry key="CurrencyType">USD</entry>
     <entry key="IsNegotiable">false</entry>

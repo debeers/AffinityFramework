@@ -99,7 +99,9 @@ public class Post {
         this.additionalParamEngine         = props.getProperty("AdditionalParamEngine");
         this.title                         = props.getProperty("PostTitle");
         this.description                   = props.getProperty("Description")
-                                             + RandomStringUtils.randomAlphabetic(50);
+                                            .equalsIgnoreCase("auto")
+                                            ? RandomStringUtils.randomAlphabetic(50)
+                                            : props.getProperty("Description");
         this.price                         = props.getProperty("Price");
         this.currencyType                  = props.getProperty("CurrencyType");
         this.isNegotiable                  = Boolean.parseBoolean(props.getProperty("IsNegotiable"));

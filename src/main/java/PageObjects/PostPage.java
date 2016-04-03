@@ -349,16 +349,15 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         $(emailField).shouldBe(visible).sendKeys(email);
     }
 
-    public PostPreviewPage clickOnPreviewButton() {
+    public void clickOnPreviewButton() {
         $(previewButton).shouldBe(visible).click();
-        return new PostPreviewPage(driver);
     }
 
-    public PostPreviewPage clickOnPreviewButtonAndLoadPage(){
+    public PostPreviewPage clickOnPreviewButtonAndLoadPage() throws InterruptedException {
 
         clickOnPreviewButton();
 
-        if (getAllFieldsErrors().size() == 0) {
+        if (getAllFieldsErrors().isEmpty()) {
             return new PostPreviewPage(driver);
         } else {
             System.out.println(
@@ -373,7 +372,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         button.click();
     }
 
-    public SuccessPostedPage clickOnSubmitButton() {
+    public SuccessPostedPage clickOnSubmitButton() throws InterruptedException {
         $(submitButton).shouldBe(visible).click();
 
         if (getAllFieldsErrors().isEmpty()) {
@@ -386,14 +385,18 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     @Override
-    public List<String> getAllFieldsErrors() {
+    public List<String> getAllFieldsErrors() throws InterruptedException {
 
         List<String> errorsList = new ArrayList<>();
+        Thread.sleep(4000); //need to implement waiter
         try {
             if (!$$(errors).isEmpty()) {
                 errors.stream().forEach((p) -> {
-                    errorsList.add(p.getText());
-                    System.out.println("ERRORS EXIST IN ENTERING POST DATA:: " + p.getText());
+                    if(!p.getText().trim().equalsIgnoreCase("")){
+                        errorsList.add(p.getText());
+                        System.out.println("ERRORS EXIST IN ENTERING POST DATA:: " + p.getText());
+                    }
+
                 });
                 return errorsList;
             }

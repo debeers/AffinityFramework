@@ -15,7 +15,7 @@ import static Actions.GUI_Actions.PostAdd.compeareAllertMessage;
 /**
  * Created by DeBeers on 01.04.2016.
  */
-public class XSS_Injections extends BaseTest{
+public class TEST_SUITE_XSS_Injections extends BaseTest{
 
     @Test(dataProvider="Injections", dataProviderClass=DataProviderSourceNegative.class)
     public void Negative_Post_Title_Injections(String title, String allertMessage) throws IOException, InterruptedException {
