@@ -20,7 +20,15 @@
 
         <classes>
             <!-- <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_IncorrectDataFillin"/>
+            <class name="Tests.APITests.TEST_API_getAdById"/>
 
+            <class name="Tests.GUITests.TEST_AddPost.TEST_PostPageIsAvailable"/>
+
+
+
+            <class name="Tests.GUITests.TEST_Search.TEST_Search"/>
+            <class name="Tests.GUITests.TEST_Registration.TEST_RegistrationWithAllFields"/>
+            <class name="Tests.GUITests.TEST_Login.TEST_PositiveLogin"/>
 
 
                          <class name="Tests.GUITests.TEST_AddPost.TEST_PostNegotiablePrice"/>
@@ -33,15 +41,7 @@
 
             <class name="Tests.SQL_Tests.TEST_SQLConnect"/>
 
-            <class name="Tests.APITests.TEST_API_getAdById"/>
 
-            <class name="Tests.GUITests.TEST_AddPost.TEST_PostPageIsAvailable"/>
-
-
-
-            <class name="Tests.GUITests.TEST_Search.TEST_Search"/>
-            <class name="Tests.GUITests.TEST_Registration.TEST_RegistrationWithAllFields"/>
-            <class name="Tests.GUITests.TEST_Login.TEST_PositiveLogin"/>
 
 
         </classes>

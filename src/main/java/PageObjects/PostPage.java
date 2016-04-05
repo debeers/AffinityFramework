@@ -14,6 +14,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static GeneralHelpers.JSTools.jsDeleteClassesById;
 import static GeneralHelpers.RobotUpload.uploadFile;
@@ -227,6 +228,16 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         } catch (Exception e) {
             System.out.println("We`re catched Stale element ApiWorker.exception, but fuck it!)");
         }
+    }
+
+    public List<String> getListCategoriesFromGUI(){
+        $(categoriesChoose).shouldBe(visible).click();
+        return categoriesList.stream().map(WebElement::getText).collect(Collectors.toList());
+    }
+
+    public List<String> getListCitiesFromGUI(){
+        $(regionListChoose).shouldBe(visible).click();
+        return regionList.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
     public void setCategory(String categoryIndex) throws InterruptedException {
