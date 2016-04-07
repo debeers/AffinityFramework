@@ -28,7 +28,7 @@
             <class name="Tests.GUITests.TEST_AddPost.TEST_PostFifthLevelCat"/>
             <class name="Tests.GUITests.TEST_AddPost.TEST_AddNewPost"/>
             <class name="Tests.GUITests.TEST_AddPost.TEST_PostToOtherCat"/>
-
+            <class name="Tests.APITests.TEST_API_getAdById"/>
             <class name="Tests.SQL_Tests.TEST_SQLConnect"/>
 
 

@@ -3,7 +3,7 @@ package Tests.GUITests.SMOKE;
 import PageObjects.MainPage;
 import SQLRepository.CategoriesList;
 import Tests.BaseTest;
-import junit.framework.Assert;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -32,12 +32,14 @@ public class TEST_CategoriesValidation extends BaseTest {
         //
         //Go to compose new post
         //
+        //mainPage.
+          //      clickOnAddNewPostButton().
+          //      getListCategoriesFromGUI().stream().forEach((p) -> System.out.println("new GUI cat::: " + p));
         Assert.assertTrue(
                 mainPage
                 .clickOnAddNewPostButton()
                 .getListCategoriesFromGUI()
-                .containsAll(new CategoriesList(sql).getCategories())
-        );
+                .containsAll(new CategoriesList(sql).getCategories()));
 
         log.info("Test passed, categories equals");
     }
