@@ -2,7 +2,7 @@
 <properties>
 
     <entry key="DB_DRIVER">oracle.jdbc.driver.OracleDriver</entry>
-    <entry key="DB_CONNECTION">jdbc:mysql://78.47.248.187/lalafo_kg</entry>
+    <entry key="DB_CONNECTION">jdbc:mysql://78.47.248.187/lalafo_az</entry>
     <entry key="DB_USER">read_only</entry>
     <entry key="DB_PASSWORD">K3sZwPBEvNv5c7YJ9GMh</entry>
 

@@ -5,6 +5,7 @@ import DBUtils.DBUtill;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -16,20 +17,24 @@ public class CategoriesList {
     private List<String> categories;
 
     public CategoriesList(Properties props) throws IOException, SQLException {
-        this.init(props);
+        init(props);
     }
 
+    public CategoriesList() {}
     public CategoriesList(List<String> categories) {
-        this.categories = categories;
+       this.categories = categories;
     }
 
-    public void init(Properties props) throws IOException, SQLException {
+    public List<String> init(Properties props) throws IOException, SQLException {
         DBUtill db = new DBUtill();
         ResultSet result = db.getResultSet(props.getProperty("getCategories"));
 
-        if (result.next()) {
-            this.categories.add(result.getString("l_name"));
+        while (result.next()) {
+            List<String> categories = new ArrayList<String>();
+            categories.add(result.getString("l_name"));
+            System.out.println(categories);
         }
+        return categories;
     }
 
     public List<String> getCategories() {

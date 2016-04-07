@@ -14,8 +14,10 @@
     <entry key="AdditionalParamEngine">2</entry>
     <entry key="SixthCategoryIndex">2</entry>
     <entry key="SeventhCategoryIndex">1</entry>
-    <entry key="PostTitle">Test Post</entry>
-    <entry key="Description">auto</entry>
+    <entry key="PostTitle">Volkswagen Passat CC с пробегом, 2014</entry>
+    <entry key="Description">volkswagen passat cc, 2014 год
+        пробег: 50000-55000, коробка передач: механическая, тип двигателя: бензиновый, объем: 2
+    </entry>
     <entry key="Price">78</entry>
     <entry key="CurrencyType">USD</entry>
     <entry key="IsNegotiable">false</entry>
