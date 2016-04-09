@@ -1,7 +1,7 @@
 package Tests.GUITests.SMOKE;
 
-import PageObjects.MainPage;
-import SQLRepository.CategoriesList;
+import PageObjects.PostPage;
+import SQLRepository.ListContainer;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -24,22 +24,17 @@ public class TEST_CategoriesValidation extends BaseTest {
         Properties sql = propertyXMLoader(System.getProperty("user.dir") +
                 "/src/main/java/SQLRepository/AZ_RU_Lalafo_SQL.xml");
 
-        //Go to main page
-        //
-        MainPage mainPage = new MainPage(driver);
-        log.info("We are on the main page");
+        driver.get("http://lalafo.az/ru/ad/post/");
+        PostPage postPage = new PostPage(driver);
 
         //
         //Go to compose new post
         //
-        //mainPage.
-          //      clickOnAddNewPostButton().
-          //      getListCategoriesFromGUI().stream().forEach((p) -> System.out.println("new GUI cat::: " + p));
         Assert.assertTrue(
-                mainPage
-                .clickOnAddNewPostButton()
-                .getListCategoriesFromGUI()
-                .containsAll(new CategoriesList(sql).getCategories()));
+                postPage
+                        .getListCategoriesFromGUI()
+                        .containsAll(new ListContainer(sql.getProperty("getCategories")).getList())
+        );
 
         log.info("Test passed, categories equals");
     }

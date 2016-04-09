@@ -235,24 +235,32 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         return categoriesList.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
+    public List<String> getListUnderCategoriesFromGUI(){
+        $(underCategoriesChoose).shouldBe(visible).click();
+        return underCategoriesList.stream().map(WebElement::getText).collect(Collectors.toList());
+    }
+
     public List<String> getListCitiesFromGUI(){
         $(regionListChoose).shouldBe(visible).click();
         return regionList.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
-    public void setCategory(String categoryIndex) throws InterruptedException {
+    public PostPage setCategory(String categoryIndex) throws InterruptedException {
         selectFromDropdawnMenuByIndex(categoriesChoose, categoriesList, categoryIndex);
         waitTillLoaderHides();
+        return this;
     }
 
-    public void setUnderCategory(String underCategoryIndex) throws InterruptedException {
+    public PostPage setUnderCategory(String underCategoryIndex) throws InterruptedException {
         selectFromDropdawnMenuByIndex(underCategoriesChoose, underCategoriesList, underCategoryIndex);
         waitTillLoaderHides();
+        return this;
     }
 
-    public void setThirdCategory(String thirdCategory) throws InterruptedException {
+    public PostPage setThirdCategory(String thirdCategory) throws InterruptedException {
         selectFromDropdawnMenuByIndex(thirdCategorySelect, thirdCategoriesList, thirdCategory);
         waitTillLoaderHides();
+        return this;
     }
 
     public void setAdditionalParam(String additionalParam) {
