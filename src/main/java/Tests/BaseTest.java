@@ -46,7 +46,6 @@ public class BaseTest {
         jdbcConnection = new DBConnection().initDBConnection(props);
         Registry.Registry.set("dbConnection", jdbcConnection);
 
-
     }
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})

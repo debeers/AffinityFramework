@@ -20,7 +20,7 @@
 
         <classes>
 
-            <class name="Tests.GUITests.SMOKE.TEST_CategoriesValidation"/>
+            <class name="Tests.GUITests.SMOKE.TEST_UndercategoryValidation"/>
             <!--<class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_IncorrectDataFillin"/>
             <class name="Tests.GUITests.TEST_AddPost.TEST_PostNegotiablePrice"/>
             <class name="Tests.GUITests.TEST_AddPost.TEST_PostThirdLevelCat"/>

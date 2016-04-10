@@ -44,7 +44,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public WebElement underCategoriesChoose;
 
     @CacheLookup
-    @FindBy(xpath = ".//*[@id='subcategory_chosen']//div//ul//li[contains(@class,'active-result')]")
+    @FindBy(xpath = ".//*[@id='subcategory_chosen']//div//ul//li[@class='active-result'][position()>0]")
     public List<WebElement> underCategoriesList;
 
     @CacheLookup
@@ -232,7 +232,12 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     public List<String> getListCategoriesFromGUI(){
         $(categoriesChoose).shouldBe(visible).click();
-        return categoriesList.stream().map(WebElement::getText).collect(Collectors.toList());
+        return categoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
+    }
+
+    public List<String> getListUnderCategoriesFromGUI(){
+        $(underCategoriesChoose).shouldBe(visible).click();
+        return underCategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
     }
 
     public List<String> getListCitiesFromGUI(){
@@ -240,19 +245,22 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         return regionList.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
-    public void setCategory(String categoryIndex) throws InterruptedException {
+    public PostPage setCategory(String categoryIndex) throws InterruptedException {
         selectFromDropdawnMenuByIndex(categoriesChoose, categoriesList, categoryIndex);
         waitTillLoaderHides();
+        return this;
     }
 
-    public void setUnderCategory(String underCategoryIndex) throws InterruptedException {
+    public PostPage setUnderCategory(String underCategoryIndex) throws InterruptedException {
         selectFromDropdawnMenuByIndex(underCategoriesChoose, underCategoriesList, underCategoryIndex);
         waitTillLoaderHides();
+        return this;
     }
 
-    public void setThirdCategory(String thirdCategory) throws InterruptedException {
+    public PostPage setThirdCategory(String thirdCategory) throws InterruptedException {
         selectFromDropdawnMenuByIndex(thirdCategorySelect, thirdCategoriesList, thirdCategory);
         waitTillLoaderHides();
+        return this;
     }
 
     public void setAdditionalParam(String additionalParam) {

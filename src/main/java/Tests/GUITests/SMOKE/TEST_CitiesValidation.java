@@ -1,7 +1,7 @@
 package Tests.GUITests.SMOKE;
 
 import PageObjects.MainPage;
-import SQLRepository.CitiesList;
+import SQLRepository.ListContainer;
 import Tests.BaseTest;
 import junit.framework.Assert;
 import org.testng.annotations.Test;
@@ -35,7 +35,7 @@ public class TEST_CitiesValidation extends BaseTest {
                 mainPage
                         .clickOnAddNewPostButton()
                         .getListCitiesFromGUI()
-                        .containsAll(new CitiesList(sql).getCities())
+                        .containsAll(new ListContainer(sql.getProperty("getCities")).getList())
         );
 
         log.info("Test passed, categories equals");
