@@ -44,7 +44,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public WebElement underCategoriesChoose;
 
     @CacheLookup
-    @FindBy(xpath = ".//*[@id='subcategory_chosen']//div//ul//li[contains(@class,'active-result')]")
+    @FindBy(xpath = ".//*[@id='subcategory_chosen']//div//ul//li[@class='active-result'][position()>0]")
     public List<WebElement> underCategoriesList;
 
     @CacheLookup
@@ -232,7 +232,12 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     public List<String> getListCategoriesFromGUI(){
         $(categoriesChoose).shouldBe(visible).click();
-        return categoriesList.stream().map(WebElement::getText).collect(Collectors.toList());
+        return categoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
+    }
+
+    public List<String> getListUnderCategoriesFromGUI(){
+        $(underCategoriesChoose).shouldBe(visible).click();
+        return underCategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
     }
 
     public List<String> getListUnderCategoriesFromGUI(){

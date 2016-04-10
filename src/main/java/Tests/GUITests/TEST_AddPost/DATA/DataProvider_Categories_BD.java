@@ -24,6 +24,8 @@ public class DataProvider_Categories_BD {
                 {"23", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=3 AND parent_id=313) AND lang_id='ru'"},
                 {"45", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=3 AND parent_id=9) AND lang_id='ru'"},
                 {"46", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=3 AND parent_id=12) AND lang_id='ru'"},
+                {"47", "SELECT value FROM param_value WHERE param_id=4"},
+                {"48", "SELECT value FROM param_value WHERE param_id=4"},
                 {"49", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=3 AND parent_id=1011) AND lang_id='ru'"},
                 {"51", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=3 AND parent_id=1080) AND lang_id='ru'"},
                 {"52", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=3 AND parent_id=1081) AND lang_id='ru'"},

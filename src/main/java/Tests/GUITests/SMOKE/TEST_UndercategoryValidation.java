@@ -1,15 +1,23 @@
 package Tests.GUITests.SMOKE;
 
+import PageObjects.MainPage;
 import PageObjects.PostPage;
 import SQLRepository.ListContainer;
 import Tests.BaseTest;
+import Tests.GUITests.TEST_AddPost.DATA.DataProviderSourceNegative;
 import Tests.GUITests.TEST_AddPost.DATA.DataProvider_Categories_BD;
+import org.apache.commons.collections4.CollectionUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.Collator;
+import java.util.Collection;
 import java.util.List;
+
+
+import static org.hamcrest.Matchers.containsInAnyOrder;
 
 /**
  * Created by DeBeers on 09.04.2016.
@@ -28,8 +36,10 @@ public class TEST_UndercategoryValidation extends BaseTest {
 
         List<String> undercategoriesGUI = postPage.getListUnderCategoriesFromGUI();
         List<String> undercategoriesDB  = new ListContainer(sqlQuery).getList();
+        undercategoriesGUI.sort(Collator.getInstance());
+        undercategoriesDB.sort(Collator.getInstance());
 
-        Assert.assertEquals(undercategoriesGUI, undercategoriesDB, "Lists are not equals");
+        Assert.assertEquals(undercategoriesGUI, undercategoriesDB);
 
     }
 }

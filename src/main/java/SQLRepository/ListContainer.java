@@ -28,7 +28,7 @@ public class ListContainer {
         ResultSet result = db.getResultSet(sqlQuery);
 
         while (result.next()) {
-            cities.add(result.getString("l_name"));
+            cities.add(result.getString("l_name").trim());
         }
     }
 
