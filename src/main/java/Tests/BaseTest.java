@@ -38,14 +38,14 @@ public class BaseTest {
     public static org.slf4j.Logger log;
     public static java.sql.Connection jdbcConnection;
 
+
+    @Parameters({"DB_DRIVER", "DB_CONNECTION", "DB_USER", "DB_PASSWORD"})
     @BeforeSuite(alwaysRun = true)
-    public void preCondition() throws IOException, ClassNotFoundException, SQLException {
-        Properties props =  propertyXMLoader(System.getProperty("user.dir") +
-                "\\src\\main\\java\\DBUtils\\Connections\\DB_CONNECTION.xml");
+    public void preCondition(String DB_DRIVER, String DB_CONNECTION, String DB_USER, String DB_PASSWORD)
+            throws IOException, ClassNotFoundException, SQLException {
 
-        jdbcConnection = new DBConnection().initDBConnection(props);
+        jdbcConnection = new DBConnection().initDBConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
         Registry.Registry.set("dbConnection", jdbcConnection);
-
     }
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})

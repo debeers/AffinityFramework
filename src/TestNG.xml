@@ -4,8 +4,8 @@
 <suite name="Test" >
 
     <suite-files>
-        <suite-file path="C:\Users\DeBeers\IdeaProjects\AffinityFramework\src\main\SUITES\AZ.xml"/>
-        <suite-file path="C:\Users\DeBeers\IdeaProjects\AffinityFramework\src\main\SUITES\KG.xml"/>
+        <suite-file path="src\main\SUITES\AZ.xml"/>
+        <suite-file path="src\main\SUITES\KG.xml"/>
     </suite-files>
 </suite>
 

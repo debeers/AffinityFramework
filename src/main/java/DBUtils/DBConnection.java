@@ -26,12 +26,12 @@ import java.util.Properties;
 
         public DBConnection(){}
 
-        public Connection initDBConnection(Properties properties) throws SQLException, IOException, ClassNotFoundException {
+        public Connection initDBConnection(String DB_CONNECTION, String DB_USER, String DB_PASSWORD) throws SQLException, IOException, ClassNotFoundException {
 
             connection = DriverManager.getConnection(
-                    properties.getProperty("DB_CONNECTION"),
-                    properties.getProperty("DB_USER"),
-                    properties.getProperty("DB_PASSWORD")
+                    DB_CONNECTION,
+                    DB_USER,
+                    DB_PASSWORD
             );
 
             System.out.println("xml found=======================================");
