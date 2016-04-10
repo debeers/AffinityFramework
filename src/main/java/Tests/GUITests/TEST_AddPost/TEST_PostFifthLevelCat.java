@@ -34,8 +34,7 @@ public class TEST_PostFifthLevelCat extends BaseTest {
         log.info("We are on the main page");
 
         //Go to compose new post page
-        PostPage postPage = mainPage.
-                            clickOnAddNewPostButton();
+        PostPage postPage = mainPage.clickOnAddNewPostButton();
         log.info("We are on the composing page");
 
         //Create new post
