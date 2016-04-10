@@ -1,10 +1,8 @@
 package Tests.GUITests.SMOKE;
 
-import PageObjects.MainPage;
 import PageObjects.PostPage;
 import SQLRepository.ListContainer;
 import Tests.BaseTest;
-import Tests.GUITests.TEST_AddPost.DATA.DataProviderSourceNegative;
 import Tests.GUITests.TEST_AddPost.DATA.DataProvider_Categories_BD;
 import org.testng.Assert;
 import org.testng.annotations.Test;
