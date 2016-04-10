@@ -130,7 +130,7 @@ public class BaseTest {
     public void tearDown() throws Exception {
 
         if (driver.getCurrentUrl() != baseUrl) {
-            driver.get("http://lalafo.az/ru/user/logout");
+            driver.get(baseUrl + "/user/logout");
         }
 
         driver.manage().deleteAllCookies();

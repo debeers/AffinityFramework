@@ -40,6 +40,5 @@ public class TEST_UndercategoryValidation extends BaseTest {
         undercategoriesDB.sort(Collator.getInstance());
 
         Assert.assertEquals(undercategoriesGUI, undercategoriesDB);
-
     }
 }

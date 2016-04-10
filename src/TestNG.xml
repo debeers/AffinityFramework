@@ -1,47 +1,15 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Contentmart.in smoke test suite" >
+<!--suppress ALL -->
+<suite name="Test" >
 
-    <!-- <listeners>
-     <listener class-name="Utilities.RetryListener"/>
-     </listeners>-->
-
-    <!--Credentials: -->
-
-    <parameter name="clientLoginParam"     value="debeers1989@gmail.com"         />
-    <parameter name="clientPasswordParam"  value="roottoor"                     />
-    <!--Credentials: END -->
-
-
-    <!--Properties: -->
-    <parameter name = "URL"  value="http://lalafo.az/ru/"/>
-
-    <test name="Affinity_Smoke_1.0">
-
-        <classes>
-
-            <class name="Tests.GUITests.SMOKE.TEST_UndercategoryValidation"/>
-            <!--<class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_IncorrectDataFillin"/>
-            <class name="Tests.GUITests.TEST_AddPost.TEST_PostNegotiablePrice"/>
-            <class name="Tests.GUITests.TEST_AddPost.TEST_PostThirdLevelCat"/>
-            <class name="Tests.GUITests.TEST_AddPost.TEST_PostFourthLevelCat"/>
-            <class name="Tests.GUITests.TEST_AddPost.TEST_PostFifthLevelCat"/>
-            <class name="Tests.GUITests.TEST_AddPost.TEST_AddNewPost"/>
-            <class name="Tests.GUITests.TEST_AddPost.TEST_PostToOtherCat"/>
-            <class name="Tests.APITests.TEST_API_getAdById"/>
-            <class name="Tests.SQL_Tests.TEST_SQLConnect"/>
-
-
-            <class name="Tests.APITests.TEST_API_getAdById"/>
-            <class name="Tests.GUITests.TEST_AddPost.TEST_PostPageIsAvailable"/>
-
-
-
-            <class name="Tests.GUITests.TEST_Search.TEST_Search"/>
-            <class name="Tests.GUITests.TEST_Registration.TEST_RegistrationWithAllFields"/>
-            <class name="Tests.GUITests.TEST_Login.TEST_PositiveLogin"/>-->
-
-
-        </classes>
-    </test>
+    <suite-files>
+        <suite-file path="C:\Users\DeBeers\IdeaProjects\AffinityFramework\src\main\SUITES\AZ.xml"/>
+        <suite-file path="C:\Users\DeBeers\IdeaProjects\AffinityFramework\src\main\SUITES\KG.xml"/>
+    </suite-files>
 </suite>
+
+
+
+
+
