@@ -21,8 +21,10 @@
 
         <test name="Affinity_Smoke_1.0">
             <classes>
-
-                <class name="Tests.APITests.TEST_RegisterAUser"/>
+                <class name="Tests.GUITests.TEST_Login.TEST_PositiveLogin"/>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostNegotiablePrice"/>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostToOtherCat"/>
+                <!--<class name="Tests.APITests.TEST_RegisterAUser"/>-->
                 <!--<class name="Tests.GUITests.SMOKE.TEST_UndercategoryValidation"/>
                 <class name="Tests.GUITests.SMOKE.TEST_CitiesValidation"/>
 
