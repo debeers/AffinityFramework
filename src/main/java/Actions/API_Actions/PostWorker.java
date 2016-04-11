@@ -3,12 +3,15 @@ package Actions.API_Actions;
 import ApiWorker.APIManager;
 import ApiWorker.model.PostField;
 import ApiWorker.model.ads.Ad;
-import ApiWorker.model.ads.getadbyid.GetAdByIdResponse;
+import ApiWorker.model.ads.getads.GetAdsData;
+import ApiWorker.model.ads.getads.GetAdsResponse;
 import ApiWorker.model.ads.postad.PostAdBody;
 import ApiWorker.model.ads.postad.PostAdResponse;
+import ApiWorker.model.filter.AdFilter;
 import retrofit2.Call;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -17,7 +20,8 @@ import java.util.Properties;
 public class PostWorker {
 
 
-    public static String createNewPostViaAPI(Properties props) throws IOException {
+
+    public static long createNewPostViaAPI(Properties props) throws IOException {
 
         PostAdBody postAdBody = new PostAdBody();
 
@@ -33,23 +37,32 @@ public class PostWorker {
         postAdBody.addUserInfoField(new PostField("testAPI", props.getProperty("testAPI")));
 
         Call<PostAdResponse> res = APIManager.getInstance().postAd(postAdBody, props.getProperty("userId"));
-        String postId = res.execute().body().getData().getId();
+        long postId = Long.parseLong(res.execute().body().getData().getId());
         System.out.println("POST ID IS::: " + postId);
 
         return postId;
     }
 
-    public static Ad getPostByIdViaAPI(String postId) throws IOException {
+    //public static Ad getPostByIdViaAPI(String postId) throws IOException {
 
-        Call<GetAdByIdResponse> getAdById = APIManager.getInstance().getAdById(postId);
-        return getAdById.execute().body().getAdList().get(0);
+     //   Call<GetAdByIdResponse> getAdById = APIManager.getInstance().getAdById(postId);
+     //   return getAdById.execute().body().getAdList().get(0);
+    //}
+
+
+    public static List<Ad> getAdsViaAPI() throws IOException {
+        AdFilter filter = new AdFilter();
+        //filter.setCategoryId(80);
+        //filter.setLocationId(1);
+        Call<GetAdsResponse> getAdsList = APIManager.getInstance().getAdList(filter,2);
+
+        return getAdsList.execute().body().getData().getAdList();
     }
 
-
-    public static void getAdsViaAPI(){
-
-      //  Call<> getAd = APIManager.getInstance().getAdList();
-
+    public static Ad getAdFromList(long postId) throws IOException {
+        GetAdsData pullMyAd = (GetAdsData) getAdsViaAPI();
+        Ad pullAdsData = pullMyAd.getAd(postId);
+        return pullAdsData;
     }
 
 }

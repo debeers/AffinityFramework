@@ -2,7 +2,6 @@ package Actions.GUI_Actions;
 
 import Entities.Post;
 import PageObjects.PostPage;
-import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 
 import java.awt.*;
@@ -122,8 +121,7 @@ public class PostAdd {
 
         return postPage;
     }
-
-//    public String makeDescription(String descriptionParam){
+    //    public String makeDescription(String descriptionParam){
 //
 //        if(descriptionParam.equalsIgnoreCase("auto"))
 //             return RandomStringUtils.randomAlphabetic(50);

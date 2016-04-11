@@ -13,6 +13,8 @@
     <parameter name="DB_CONNECTION"  value="jdbc:mysql://78.47.248.187/lalafo_az"   />
     <parameter name="DB_USER"        value="read_only"                             />
     <parameter name="DB_PASSWORD"    value="K3sZwPBEvNv5c7YJ9GMh"                 />
+    <parameter name="userLogin"      value="Test_User_API@mail.com"                />
+    <parameter name="userPhone"      value="+994-701231231"                       />
 
     <!--Properties: -->
     <parameter name = "URL"  value="http://lalafo.az/ru/"/>
@@ -20,9 +22,13 @@
         <test name="Affinity_Smoke_1.0">
             <classes>
 
-                <class name="Tests.GUITests.SMOKE.TEST_UndercategoryValidation"/>
-                <!--<class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_IncorrectDataFillin"/>
+                <class name="Tests.APITests.TEST_RegisterAUser"/>
+                <!--<class name="Tests.GUITests.SMOKE.TEST_UndercategoryValidation"/>
+                <class name="Tests.GUITests.SMOKE.TEST_CitiesValidation"/>
+
+                 <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_IncorrectDataFillin"/>
                 <class name="Tests.GUITests.TEST_Login.TEST_PositiveLogin"/>
+                <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_IncorrectDataFillin"/>
                 <class name="Tests.GUITests.TEST_AddPost.TEST_PostNegotiablePrice"/>
                 <class name="Tests.GUITests.TEST_AddPost.TEST_PostThirdLevelCat"/>
                 <class name="Tests.GUITests.TEST_AddPost.TEST_PostFourthLevelCat"/>
@@ -34,8 +40,7 @@
                 <class name="Tests.APITests.TEST_API_getAdById"/>
                 <class name="Tests.GUITests.TEST_AddPost.TEST_PostPageIsAvailable"/>
                 <class name="Tests.GUITests.TEST_Search.TEST_Search"/>
-                <class name="Tests.GUITests.TEST_Registration.TEST_RegistrationWithAllFields"/>
-                -->
+                <class name="Tests.GUITests.TEST_Registration.TEST_RegistrationWithAllFields"/>-->
             </classes>
         </test>
     </suite>

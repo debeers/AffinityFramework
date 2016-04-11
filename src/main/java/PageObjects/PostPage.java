@@ -52,7 +52,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public WebElement thirdCategorySelect;
 
     @CacheLookup
-    @FindBy(xpath = "*//div[2]/div[1]/div/ul/li")
+    @FindBy(xpath = "*//div[2]/div[1]/div/ul/li[@class='active-result'][position()>0]")
     public List<WebElement> thirdCategoriesList;
 
     //Post to Used Cars category --BEGIN--
@@ -61,15 +61,15 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public WebElement fourthCategorySelectYear;
 
     @CacheLookup
-    @FindBy(xpath = "*//div[3]/div[1]/div/ul/li")
+    @FindBy(xpath = "*//div[3]/div[1]/div/ul/li[@class='active-result'][position()>0]")
     public List<WebElement> fourthCategoriesListYear;
 
     @CacheLookup
-    @FindBy(xpath = "*//div[2]/div/div[4]/div[1]/a")
+    @FindBy(xpath = "*//div[4]/div[1]/a")
     public WebElement fifthCategorySelectBody;
 
     @CacheLookup
-    @FindBy(xpath = "*//div[2]/div/div[4]/div[1]/ul/li")
+    @FindBy(xpath = "*//div[4]/div[1]/div/ul/li[@class='active-result'][position()>0]")
     public List<WebElement> fifthCategoriesListBody;
 
     @CacheLookup
@@ -240,9 +240,14 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         return underCategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
     }
 
-    public List<String> getListUnderCategoriesFromGUI(){
-        $(underCategoriesChoose).shouldBe(visible).click();
-        return underCategoriesList.stream().map(WebElement::getText).collect(Collectors.toList());
+    public List<String> getFourthLvlSubCategoryFromGUI(){
+        $(fifthCategorySelectBody).shouldBe(visible).click();
+        return fifthCategoriesListBody.stream().map(WebElement::getText).collect(Collectors.toList());
+    }
+
+    public List<String> getThirdLvlSubCategoryFromGUI(){
+        $(thirdCategorySelect).shouldBe(visible).click();
+        return thirdCategoriesList.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
     public List<String> getListCitiesFromGUI(){
@@ -274,9 +279,10 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
             sendKeys(additionalParam);
     }
 
-    public void setFourthCategoryYear(String fourthCategoryYear) throws InterruptedException {
+    public PostPage setFourthCategoryYear(String fourthCategoryYear) throws InterruptedException {
         selectFromDropdawnMenuByIndex(fourthCategorySelectYear, fourthCategoriesListYear, fourthCategoryYear);
         waitTillLoaderHides();
+        return this;
     }
 
     public void setFourthCategory(String fourthCategory) throws InterruptedException {

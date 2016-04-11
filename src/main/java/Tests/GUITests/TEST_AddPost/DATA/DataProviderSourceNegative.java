@@ -67,8 +67,8 @@ public class DataProviderSourceNegative {
     @DataProvider(name="negativeDescription")
     public static Object[][] negativeDescription(){
         return new Object[][]{
-                {" ", "Необходимо заполнить поле «Описание»."},
-                {RandomStringUtils.randomAlphabetic(49), "Описание слишком короткий (минимум 50 символов)."},
+                {"", "Необходимо заполнить поле «Описание»."},
+                {RandomStringUtils.randomAlphabetic(49), ""},
                 {RandomStringUtils.randomAlphabetic(50), ""},
                 {RandomStringUtils.randomAlphabetic(2049), ""},
         };

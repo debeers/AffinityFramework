@@ -1,8 +1,8 @@
 package ApiWorker.model.ads.getads;
 
+import ApiWorker.model.ads.Ad;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import ApiWorker.model.ads.Ad;
 
 import java.util.List;
 
@@ -59,5 +59,14 @@ public class GetAdsData   {
     public void setCountPages(long countPages) {
 
         this.countPages = countPages;
+    }
+    public Ad getAd(long id) {
+
+        for (Ad ad: adList) {
+
+            if (ad.getId() == id)
+                return ad;
+        }
+        return null;
     }
 }

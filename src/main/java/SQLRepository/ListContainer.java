@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * Created by DeBeers on 05.04.2016.
@@ -28,7 +27,7 @@ public class ListContainer {
         ResultSet result = db.getResultSet(sqlQuery);
 
         while (result.next()) {
-            cities.add(result.getString("l_name").trim());
+            cities.add(result.getString(1).trim());
         }
     }
 

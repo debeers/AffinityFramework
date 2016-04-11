@@ -15,13 +15,13 @@
     <parameter name="DB_PASSWORD"    value="K3sZwPBEvNv5c7YJ9GMh"                 />
 
     <!--Properties: -->
-    <parameter name = "URL"  value="http://lalafo.kg"/>
+    <parameter name = "URL"  value="http://lalafo.kg/ru/"/>
 
         <test name="Affinity_Smoke_1.0">
             <classes>
 
                 <class name="Tests.GUITests.TEST_Login.TEST_PositiveLogin"/>
-                <!--<class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_IncorrectDataFillin"/>
+                <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_IncorrectDataFillin"/>
                 <class name="Tests.GUITests.SMOKE.TEST_UndercategoryValidation"/>
                 <class name="Tests.GUITests.TEST_AddPost.TEST_PostNegotiablePrice"/>
                 <class name="Tests.GUITests.TEST_AddPost.TEST_PostThirdLevelCat"/>
@@ -35,7 +35,7 @@
                 <class name="Tests.GUITests.TEST_AddPost.TEST_PostPageIsAvailable"/>
                 <class name="Tests.GUITests.TEST_Search.TEST_Search"/>
                 <class name="Tests.GUITests.TEST_Registration.TEST_RegistrationWithAllFields"/>
-                -->
+
             </classes>
         </test>
     </suite>

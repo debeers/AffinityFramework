@@ -5,7 +5,7 @@
 
     <suite-files>
         <suite-file path="src\main\SUITES\AZ.xml"/>
-        <suite-file path="src\main\SUITES\KG.xml"/>
+        <!--<suite-file path="src\main\SUITES\KG.xml"/>-->
     </suite-files>
 </suite>
 
