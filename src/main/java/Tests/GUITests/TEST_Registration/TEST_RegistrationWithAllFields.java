@@ -22,7 +22,7 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class TEST_RegistrationWithAllFields extends BaseTest{
 
-    @Test
+    @Test(dependsOnGroups="PRECONDITION")
     public void Registration_Positive_Test() throws InterruptedException, IOException, AWTException, SQLException {
 
         Properties props  = propertyXMLoader(System.getProperty("user.dir") +

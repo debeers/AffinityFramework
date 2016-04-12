@@ -1,4 +1,4 @@
-package Tests.GUITests.SMOKE;
+package Tests.SMOKE;
 
 import Tests.BaseTest;
 import org.testng.annotations.Test;

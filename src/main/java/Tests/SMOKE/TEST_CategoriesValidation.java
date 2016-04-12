@@ -1,4 +1,4 @@
-package Tests.GUITests.SMOKE;
+package Tests.SMOKE;
 
 import PageObjects.PostPage;
 import SQLRepository.ListContainer;

@@ -20,7 +20,7 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
  */
 public class TEST_PostThirdLevelCat extends BaseTest {
 
-    @Test
+    @Test(dependsOnGroups="PRECONDITION")
     public void Add_Post_To_Third_Category() throws IOException, AWTException, InterruptedException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +

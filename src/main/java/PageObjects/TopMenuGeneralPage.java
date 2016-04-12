@@ -1,11 +1,11 @@
 package PageObjects;
 
-import com.codeborne.selenide.Condition;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static GeneralHelpers.DropdownMenuWorker.mouseOver;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -39,6 +39,12 @@ public class TopMenuGeneralPage extends BasePageObject {
     @FindBy(xpath = ".//*[@id='account-nav']/ul/li[4]/a")
     public WebElement exitTopMenuUserMenuLink;
 
+
+    public UserSettingsPage clickOnUserSettingsTopMenuLink(){
+        mouseOver(driver, userAccountTopMenuLink);
+        $(mySettingsTopMenuUserMenuLink).shouldBe(visible).click();
+        return new UserSettingsPage(driver);
+    }
 
     public MainPage clickOnLalafoTopMenuLink(){
         $(lalafoTopMenuLink).shouldBe(visible).click();
@@ -79,7 +85,6 @@ public class TopMenuGeneralPage extends BasePageObject {
 
     public TopMenuGeneralPage(WebDriver driver) {
         super(driver);
-
     }
 
     public void init(WebDriver driver) {

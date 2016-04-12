@@ -49,9 +49,8 @@ public class BaseTest {
 
         jdbcConnection = new DBConnection().initDBConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
         Registry.Registry.set("dbConnection", jdbcConnection);
-        this.server = new BrowserMobProxyServer();
+        server = new BrowserMobProxyServer();
         server.start(0);
-
     }
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
@@ -62,9 +61,9 @@ public class BaseTest {
         String TestClassName = this.getClass().getName();
         System.out.println(TestClassName);
 
-        clientLogin = new LoginObject(clientLoginParam, clientPasswordParam);
-        baseUrl = URL;
-        log = LoggerFactory.getLogger(Logger.class);
+        clientLogin  = new LoginObject(clientLoginParam, clientPasswordParam);
+        baseUrl      = URL;
+        log          = LoggerFactory.getLogger(Logger.class);
 
         Proxy seleniumProxy = ClientUtil.createSeleniumProxy(server);
         String path = System.getProperty("user.dir") + "\\src\\main\\java\\Downloaded_Files";
@@ -92,7 +91,7 @@ public class BaseTest {
         try {
             driver.get(URL);
             Assert.assertTrue(driver.getCurrentUrl().contains(URL), "We are not on main page!"
-                    + driver.getCurrentUrl() + "  " + "But expected:::: " + URL);
+                    + driver.getCurrentUrl() + "  But expected:::: " + URL);
         } catch (Exception e) {
             System.out.println("<<<<< We are not on the MAIN PAGE >>>>>");
         }
@@ -143,7 +142,6 @@ public class BaseTest {
         }
 
         driver.manage().deleteAllCookies();
-
 
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {

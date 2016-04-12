@@ -20,7 +20,7 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
  */
 public class TEST_PostNegotiablePrice extends BaseTest {
 
-    @Test
+    @Test(dependsOnGroups="PRECONDITION")
     public void Add_Post_With_Negotiateble_Price() throws IOException, AWTException, InterruptedException {
 
 

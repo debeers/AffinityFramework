@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class TEST_PostPageIsAvailable extends BaseTest{
 
-    @Test
+    @Test(dependsOnGroups="PRECONDITION")
         public void Check_Post_Page() throws InterruptedException, IOException {
         new MainPage(driver).clickOnAddNewPostButton();
         log.info("We are on the main page");

@@ -16,10 +16,9 @@ import static Actions.GUI_Actions.PostAdd.makeNewPost;
 import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 
 public class TEST_PostToOtherCat extends BaseTest{
-    @Test
+
+    @Test(dependsOnGroups="PRECONDITION")
     public void Add_Post_To_Another_Category() throws IOException, AWTException, InterruptedException {
-
-
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
                 "/src/main/java/Tests/GUITests/TEST_AddPost/DATA/TEST_PostToOtherCat.xml");
@@ -38,7 +37,6 @@ public class TEST_PostToOtherCat extends BaseTest{
         PostPage postPage = mainPage.clickOnAddNewPostButton();
         log.info("We are on the composing new post page");
 
-
         //
         //Create new post
         //
@@ -46,7 +44,6 @@ public class TEST_PostToOtherCat extends BaseTest{
                 .clickOnSubmitButton()
                 .clickOnPreviewYourPost();
         log.info("We are on the preview of your post page, checking data for consistance:::");
-
 
         //
         //Verify price field

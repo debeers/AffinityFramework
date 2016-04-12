@@ -17,7 +17,7 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 import static com.codeborne.selenide.Selenide.$;
 
 public class TEST_AddNewPost extends BaseTest {
-    @Test
+    @Test(dependsOnGroups="PRECONDITION")
     public void Add_Post() throws InterruptedException, IOException, AWTException, SQLException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
@@ -47,7 +47,6 @@ public class TEST_AddNewPost extends BaseTest {
         //
         //Verify data on preview page
         //
-        //Assert.assertEquals($$(postPreviewPage.previewPhotos).size(), countForPhotoUploads);
         Assert.assertTrue(postPreviewPage.previewStepTab.isDisplayed());
         Assert.assertEquals(postPreviewPage.getTextFromPreviewPrice().subSequence(2, 4), post.getPrice(), "Price is not correct");
         Assert.assertEquals(postPreviewPage.getTextFromPreviewPrice().subSequence(0, 1), "$", "Currency is not correct");

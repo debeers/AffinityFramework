@@ -17,7 +17,7 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
  */
 public class TEST_Search extends BaseTest {
 
-    @Test
+    @Test(dependsOnGroups="PRECONDITION")
     public void Search_Test() throws InterruptedException, IOException, AWTException, SQLException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +
