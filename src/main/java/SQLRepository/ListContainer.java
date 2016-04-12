@@ -14,6 +14,7 @@ import java.util.List;
 public class ListContainer {
 
     private List<String> cities = new ArrayList<>();
+    private String city;
 
     public ListContainer(String sqlQuery) throws IOException, SQLException {
         init(sqlQuery);
@@ -30,6 +31,9 @@ public class ListContainer {
             cities.add(result.getString(1).trim());
         }
     }
+
+    public String getCity () { return city; }
+    public void setCity(String city) { this.city = city; }
 
     public List<String> getList() {
         return cities;

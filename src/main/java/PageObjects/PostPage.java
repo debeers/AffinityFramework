@@ -208,7 +208,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
         try {
             driver.findElement(By.id("loader"));
-            WebDriverWait wait = new WebDriverWait(driver, 8000);
+            WebDriverWait wait = new WebDriverWait(driver, 2000);
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loader")));
         } catch (Exception e) {
             log.info("Timeout while waiting for loader to disappear");
@@ -242,12 +242,12 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     public List<String> getFourthLvlSubCategoryFromGUI(){
         $(fifthCategorySelectBody).shouldBe(visible).click();
-        return fifthCategoriesListBody.stream().map(WebElement::getText).collect(Collectors.toList());
+        return fifthCategoriesListBody.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
     }
 
     public List<String> getThirdLvlSubCategoryFromGUI(){
         $(thirdCategorySelect).shouldBe(visible).click();
-        return thirdCategoriesList.stream().map(WebElement::getText).collect(Collectors.toList());
+        return thirdCategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
     }
 
     public List<String> getListCitiesFromGUI(){

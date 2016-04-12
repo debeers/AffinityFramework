@@ -17,7 +17,7 @@ public class DropdownMenuWorker {
             throws InterruptedException {
 
         $(element).shouldBe(visible).click();
-        Thread.sleep(1500);
+        Thread.sleep(1000);
         try {
             list
                     .stream()

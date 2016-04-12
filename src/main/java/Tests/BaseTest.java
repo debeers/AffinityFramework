@@ -41,8 +41,6 @@ public class BaseTest {
     public static org.slf4j.Logger log;
     public static java.sql.Connection jdbcConnection;
     public static BrowserMobProxyServer server;
-    public static ClientUtil seleniumProxy;
-
 
     @Parameters({"DB_DRIVER", "DB_CONNECTION", "DB_USER", "DB_PASSWORD"})
     @BeforeSuite(alwaysRun = true)
@@ -141,11 +139,11 @@ public class BaseTest {
     public void tearDown() throws Exception {
 
         if (driver.getCurrentUrl() != baseUrl) {
-            driver.get(baseUrl + "/user/logout");
+            driver.get(baseUrl + "user/logout");
         }
 
         driver.manage().deleteAllCookies();
-        driver.quit();
+
 
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
@@ -182,6 +180,7 @@ public class BaseTest {
         } catch (Exception e) {
             log.info("HOUSTON, WE HAVE A PROBLEM - DEBUG PLEASE TO CHECK IF A HAR FILE WAS CREATED");
         }
+        driver.quit();
     }
 
 }

@@ -63,6 +63,8 @@ public class TEST_UndercategoryValidation extends BaseTest {
 
         List <String> fourthSubcategoriesGUI = postPage.getFourthLvlSubCategoryFromGUI();
         List <String> fourthSubcategoriesDB  = new ListContainer(sqlQuery).getList();
+        fourthSubcategoriesGUI.sort(Collator.getInstance());
+        fourthSubcategoriesDB.sort(Collator.getInstance());
 
         Assert.assertEquals(fourthSubcategoriesGUI , fourthSubcategoriesDB, "Subcategories are not equal");
     }

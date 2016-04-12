@@ -1,10 +1,7 @@
 package Tests.GUITests.TEST_AddPost;
 
 import Entities.Post;
-import PageObjects.MainPage;
-import PageObjects.PostPage;
-import PageObjects.PostPreviewPage;
-import PageObjects.SuccessPostedPage;
+import PageObjects.*;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -72,7 +69,7 @@ public class TEST_AddNewPost extends BaseTest {
                 "Success message is different!");
         log.info("Test passed, new post posted, with correct data entered during forming process: YoouuuHHuuu!!!");
 
-       // SuccessPostedPage postedAd = postPreviewPage.clickOnPostedAdName();
+        //SuccessPostedPage postedAd = postPreviewPage.clickOnPostedAdName();
         log.info("We are on the posted Advert page");
 
     }

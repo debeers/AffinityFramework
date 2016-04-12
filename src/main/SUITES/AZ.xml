@@ -21,28 +21,36 @@
 
         <test name="Affinity_Smoke_1.0">
             <classes>
+                <class name="Tests.APITests.TEST_API_getAdById"/>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostNegotiablePrice"/>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostToOtherCat"/>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostNegotiablePrice"/>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostThirdLevelCat"/>
+                <!--<class name="Tests.GUITests.SMOKE.TEST_UndercategoryValidation"/>
+                <class name="Tests.GUITests.SMOKE.TEST_CitiesValidation"/>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostPageIsAvailable"/>
                 <class name="Tests.GUITests.TEST_Login.TEST_PositiveLogin"/>
                 <class name="Tests.GUITests.TEST_AddPost.TEST_PostNegotiablePrice"/>
                 <class name="Tests.GUITests.TEST_AddPost.TEST_PostToOtherCat"/>
-                <!--<class name="Tests.APITests.TEST_RegisterAUser"/>-->
-                <!--<class name="Tests.GUITests.SMOKE.TEST_UndercategoryValidation"/>
-                <class name="Tests.GUITests.SMOKE.TEST_CitiesValidation"/>
-
-                 <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_IncorrectDataFillin"/>
-                <class name="Tests.GUITests.TEST_Login.TEST_PositiveLogin"/>
-                <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_IncorrectDataFillin"/>
                 <class name="Tests.GUITests.TEST_AddPost.TEST_PostNegotiablePrice"/>
                 <class name="Tests.GUITests.TEST_AddPost.TEST_PostThirdLevelCat"/>
                 <class name="Tests.GUITests.TEST_AddPost.TEST_PostFourthLevelCat"/>
                 <class name="Tests.GUITests.TEST_AddPost.TEST_PostFifthLevelCat"/>
                 <class name="Tests.GUITests.TEST_AddPost.TEST_AddNewPost"/>
-                <class name="Tests.GUITests.TEST_AddPost.TEST_PostToOtherCat"/>
-                <class name="Tests.APITests.TEST_API_getAdById"/>
+                <class name="Tests.GUITests.TEST_Search.TEST_Search"/>
+                <class name="Tests.GUITests.TEST_Registration.TEST_RegistrationWithAllFields"/>
+
+                <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_ASCIISymbolsFieldsCheck"/>
+                <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_Empty_Select_Check"/>
+                <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_XSS_Injections"/>
+                <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_IncorrectDataFillin"/>
+
+
+
                 <class name="Tests.SQL_Tests.TEST_SQLConnect"/>
                 <class name="Tests.APITests.TEST_API_getAdById"/>
-                <class name="Tests.GUITests.TEST_AddPost.TEST_PostPageIsAvailable"/>
-                <class name="Tests.GUITests.TEST_Search.TEST_Search"/>
-                <class name="Tests.GUITests.TEST_Registration.TEST_RegistrationWithAllFields"/>-->
+                <class name="Tests.APITests.TEST_RegisterAUser"/>
+                <class name="Tests.APITests.TEST_API_getAdById"/>-->
             </classes>
         </test>
     </suite>
