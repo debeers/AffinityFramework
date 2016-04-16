@@ -1,0 +1,36 @@
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <!--Test Data -->
+
+    <entry key="CategoryIndex">4</entry>
+    <entry key="UnderCategoryIndex">3</entry>
+    <entry key="ThirdCategoryIndex">null</entry>
+    <entry key="AdditionalParam">null</entry>
+    <entry key="AdditionalParamMileage">null</entry>
+    <entry key="AdditionalParamEngine">null</entry>
+    <entry key="FourthCategoryIndex">null</entry>
+    <entry key="FourthCategoryYear">null</entry>
+    <entry key="FifthCategoryIndex">null</entry>
+    <entry key="SixthCategoryIndex">null</entry>
+    <entry key="SeventhCategoryIndex">null</entry>
+    <entry key="PostTitle">Test title</entry>
+    <entry key="Description">!@#$%^*():"|\?/.,!@#$%^*():"|\?/.,!@#$%^*():"|\?/.,!@#$%^*():"|\?/.,!@#$%^*():"|\?/.,!@#$%^*():"|\?/.,!@#$%^*():"|\?/.,!@#$%^*():"|\?/.,</entry>
+    <entry key="Price">78</entry>
+    <entry key="CurrencyType">USD</entry>
+    <entry key="IsNegotiable">false</entry>
+    <entry key="RegionIndex">1</entry>
+    <entry key="CityIndex">1</entry>
+    <entry key="PostAs">business</entry>
+    <entry key="Name">GUI_TEST_USER</entry>
+    <entry key="TelephoneNumber">515787554</entry>
+    <entry key="HideNumber">true</entry>
+    <entry key="Email">debeers1989@gmail.com</entry>
+
+    <entry key="File1">C:\UploadFiles\1.jpg</entry>
+    <entry key="File2">C:\UploadFiles\2.jpg</entry>
+    <entry key="File3">C:\UploadFiles\3.jpg</entry>
+    <entry key="File4">C:\UploadFiles\4.jpg</entry>
+    <entry key="File5">C:\UploadFiles\5.jpg</entry>
+
+</properties>

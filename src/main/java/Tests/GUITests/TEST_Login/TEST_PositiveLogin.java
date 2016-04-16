@@ -18,7 +18,7 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class TEST_PositiveLogin extends BaseTest{
 
-    @Test(dependsOnGroups="PRECONDITION")
+    @Test
     public void Login_Positive_Test() throws InterruptedException, IOException, AWTException, SQLException {
 
         String emailSubSequence = (String) clientLogin.getLogin().subSequence(0, 11); // user account link (email subsequence) for assertion

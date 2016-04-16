@@ -17,7 +17,7 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 
 public class TEST_API_getAdById extends BaseTest {
 
-    @Test(groups="API", dependsOnGroups="PRECONDITION")
+    @Test
     public void API_Post_Test() throws InterruptedException, IOException, SQLException {
 
         Properties props = propertyXMLoader(System.getProperty("user.dir") +

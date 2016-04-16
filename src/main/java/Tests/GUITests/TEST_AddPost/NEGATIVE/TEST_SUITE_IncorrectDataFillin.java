@@ -3,8 +3,8 @@ package Tests.GUITests.TEST_AddPost.NEGATIVE;
 import PageObjects.ErrorHandler;
 import PageObjects.MainPage;
 import PageObjects.PostPage;
+import TEST_RESOURCES.DATA_SOURCES.AZ_RU.DATA_PROVIDERS.DataProvider_negativePostFieldsCheck;
 import Tests.BaseTest;
-import Tests.GUITests.TEST_AddPost.DATA.DataProviderSourceNegative;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,7 +13,7 @@ import java.io.IOException;
 public class TEST_SUITE_IncorrectDataFillin extends BaseTest {
 
 
-    @Test(dataProvider = "negativePostTitle", dataProviderClass = DataProviderSourceNegative.class)
+    @Test(dataProvider = "negativePostTitle", dataProviderClass = DataProvider_negativePostFieldsCheck.class)
     public void NegativeFillIn(String title, String expectedError) throws IOException, InterruptedException {
 
         //Go to main page
@@ -33,7 +33,7 @@ public class TEST_SUITE_IncorrectDataFillin extends BaseTest {
     }
 
 
-    @Test(dataProvider = "negativeDescription", dataProviderClass = DataProviderSourceNegative.class)
+    @Test(dataProvider = "negativeDescription", dataProviderClass = DataProvider_negativePostFieldsCheck.class)
     public void NegativeFillInDescription(String description, String expectedError) throws IOException, InterruptedException {
 
         //Go to main page
@@ -53,7 +53,7 @@ public class TEST_SUITE_IncorrectDataFillin extends BaseTest {
     }
 
 
-    @Test(dataProvider = "negativeName", dataProviderClass = DataProviderSourceNegative.class)
+    @Test(dataProvider = "negativeName", dataProviderClass = DataProvider_negativePostFieldsCheck.class)
     public void NegativeFillInName(String name, String expectedError) throws IOException, InterruptedException {
 
         //Go to main page
@@ -73,7 +73,7 @@ public class TEST_SUITE_IncorrectDataFillin extends BaseTest {
     }
 
 
-    @Test(dataProvider = "negativePostEmail", dataProviderClass = DataProviderSourceNegative.class)
+    @Test(dataProvider = "negativePostEmail", dataProviderClass = DataProvider_negativePostFieldsCheck.class)
     public void NegativeFillInEmail(String email, String expectedError) throws IOException, InterruptedException {
 
         //Go to main page
@@ -93,7 +93,7 @@ public class TEST_SUITE_IncorrectDataFillin extends BaseTest {
     }
 
 
-    @Test(dataProvider = "negativePostPhone", dataProviderClass = DataProviderSourceNegative.class)
+    @Test(dataProvider = "negativePostPhone", dataProviderClass = DataProvider_negativePostFieldsCheck.class)
     public void NegativeFillInPhone(String email, String expectedError) throws IOException, InterruptedException {
 
         //Go to main page
@@ -112,7 +112,7 @@ public class TEST_SUITE_IncorrectDataFillin extends BaseTest {
 
     }
 
-    @Test(dataProvider = "negativePostPrice", dataProviderClass = DataProviderSourceNegative.class)
+    @Test(dataProvider = "negativePostPrice", dataProviderClass = DataProvider_negativePostFieldsCheck.class)
     public void NegativeFillInPrice(String price, String expectedError) throws IOException, InterruptedException {
 
         //Go to main page

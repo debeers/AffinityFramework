@@ -1,0 +1,184 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Affinity full regression suite KG" >
+
+    <!--Credentials: -->
+
+    <parameter name="clientLoginParam"     value="debeers1989@gmail.com"         />
+    <parameter name="clientPasswordParam"  value="roottoor"                     />
+    <!--Credentials: END -->
+
+    <!--DB CONNECTION -->
+    <parameter name="DB_DRIVER"      value="oracle.jdbc.driver.OracleDriver"         />
+    <parameter name="DB_CONNECTION"  value="jdbc:mysql://78.47.248.187/lalafo_az"   />
+    <parameter name="DB_USER"        value="read_only"                             />
+    <parameter name="DB_PASSWORD"    value="K3sZwPBEvNv5c7YJ9GMh"                 />
+
+    <!--Properties: -->
+    <parameter name = "URL"  value="http://lalafo.kg/ru"/>
+
+
+    <test name="TEST_PostNegotiablePrice_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TEST_AddPost.TEST_PostNegotiablePrice"/>
+        </classes>
+    </test>
+
+
+    <!--
+
+
+
+
+
+        <test name="TEST_Undercategory_Validation_KG_RU">
+        <classes>
+            <class name="Tests.SMOKE.TEST_UndercategoryValidation"/>
+        </classes>
+    </test>
+
+        <test name="TEST_ThirdSubcategory_Validation_KG_RU">
+        <classes>
+            <class name="Tests.SMOKE.TEST_ThirdSubcategory_Validation"/>
+        </classes>
+    </test>
+
+    <test name="TEST_FourthCategory_Validation_KG_RU">
+        <classes>
+            <class name="Tests.SMOKE.TEST_FourthCategory_Validation"/>
+        </classes>
+    </test>
+
+        <test name="TEST_IncorrectDataFillin_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_IncorrectDataFillin"/>
+            </classes>
+        </test>
+
+        <test name="TEST_PositiveLogin_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_Login.TEST_PositiveLogin"/>
+            </classes>
+        </test>
+
+        <test name="TEST_SUITE_XSS_Injections_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_XSS_Injections"/>
+            </classes>
+        </test>
+
+        <test name="TEST_AddNewPost_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_AddNewPost"/>
+            </classes>
+        </test>
+
+        <test name="TEST_Deactivation_User_Account.Deactivation_User_Account_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_Deactivation_User_Account.Deactivation_User_Account"/>
+            </classes>
+        </test>
+
+        <test name="TEST_API_getAdById_KG_RU">
+            <classes>
+                <class name="Tests.APITests.TEST_API_getAdById"/>
+            </classes>
+        </test>
+
+        <test name="TEST_PostNegotiablePrice_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostNegotiablePrice"/>
+            </classes>
+        </test>
+
+        <test name="TEST_PostToOtherCat_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostToOtherCat"/>
+            </classes>
+        </test>
+
+        <test name="TEST_PostThirdLevelCat_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostThirdLevelCat"/>
+            </classes>
+        </test>
+
+        <test name="TEST_PostPageIsAvailable_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostPageIsAvailable"/>
+            </classes>
+        </test>
+
+        <test name="TEST_PostFourthLevelCat_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostFourthLevelCat"/>
+            </classes>
+        </test>
+
+        <test name="TEST_PostFourthLevelCat_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostFourthLevelCat"/>
+            </classes>
+        </test>
+
+        <test name="TEST_PostFourthLevelCat_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_AddPost.TEST_PostFifthLevelCat"/>
+            </classes>
+        </test>
+
+        <test name="TEST_Search_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_Search.TEST_Search"/>
+            </classes>
+        </test>
+
+        <test name="TEST_Registration_Positive_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_Registration.TEST_Registration_Positive"/>
+            </classes>
+        </test>
+
+        <test name="TEST_SUITE_Empty_Select_Check_KG_RU">
+            <classes>
+                <class name="Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_Empty_Select_Check"/>
+            </classes>
+        </test>
+
+        <test name="TEST_SUITE_ASCIISymbolsFieldsCheck_KG_RU">
+            <classes>
+                <class name=" Tests.GUITests.TEST_AddPost.NEGATIVE.TEST_SUITE_ASCIISymbolsFieldsCheck"/>
+            </classes>
+        </test>
+
+        <test name="TEST_SQLConnect_KG_RU">
+            <classes>
+                <class name="Tests.SQL_Tests.TEST_SQLConnect"/>
+            </classes>
+        </test>
+
+        <test name="TEST_API_getAdById_KG_RU">
+            <classes>
+                <class name="Tests.APITests.TEST_API_getAdById"/>
+            </classes>
+        </test>
+
+        <test name="TEST_API_getAdById_KG_RU">
+            <classes>
+                <class name="Tests.APITests.TEST_API_getAdById"/>
+            </classes>
+        </test>
+
+        <test name="TEST_RegisterAUser_KG_RU">
+            <classes>
+                <class name="Tests.SMOKE.TEST_RegisterAUser"/>
+            </classes>
+        </test>
+
+        <test name="TEST_RegisterAUser_KG_RU">
+            <classes>
+                <class name="Tests.APITests.TEST_API_getAdById"/>
+            </classes>
+        </test>
+        -->
+</suite>

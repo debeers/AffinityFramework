@@ -1,0 +1,31 @@
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <!--Test Data -->
+
+    <entry key="CategoryIndex">4</entry>
+    <entry key="UnderCategoryIndex">3</entry>
+    <entry key="ThirdCategoryIndex">null</entry>
+    <entry key="AdditionalParam">null</entry>
+    <entry key="AdditionalParamMileage">null</entry>
+    <entry key="AdditionalParamEngine">null</entry>
+    <entry key="FourthCategoryIndex">null</entry>
+    <entry key="FourthCategoryYear">null</entry>
+    <entry key="FifthCategoryIndex">null</entry>
+    <entry key="SixthCategoryIndex">null</entry>
+    <entry key="SeventhCategoryIndex">null</entry>
+    <entry key="PostTitle">Test Post</entry>
+    <entry key="Description">auto</entry>
+    <entry key="Price">78</entry>
+    <entry key="CurrencyType">USD</entry>
+    <entry key="IsNegotiable">false</entry>
+    <entry key="RegionIndex">0</entry>
+    <entry key="PostAs">business</entry>
+    <entry key="Name">GUI_TEST_USER</entry>
+    <entry key="TelephoneNumber">515787554</entry>
+    <entry key="HideNumber">true</entry>
+    <entry key="Email">debeers1989@gmail.com</entry>
+
+    <entry key="AssertRegionErrorMessage">Необходимо заполнить поле Регион.</entry>
+    <entry key="AssertRegionErrMessKG">Регионду талаасын толтуруңуз.</entry>
+</properties>

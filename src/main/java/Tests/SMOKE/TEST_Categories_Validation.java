@@ -2,6 +2,7 @@ package Tests.SMOKE;
 
 import PageObjects.PostPage;
 import SQLRepository.ListContainer;
+import TEST_RESOURCES.ResourcesFactory;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,25 +16,23 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 /**
  * Created by DeBeers on 05.04.2016.
  */
-public class TEST_CategoriesValidation extends BaseTest {
+public class TEST_Categories_Validation extends BaseTest {
 
 
     @Test
-    public void Validate_categories_in_post() throws IOException, SQLException {
+    public void TEST_Categories_Validation() throws IOException, SQLException {
 
-        Properties sql = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/SQLRepository/AZ_RU_Lalafo_SQL.xml");
+        Properties props = new ResourcesFactory().getResources("TEST_Categories_Validation");
 
         driver.get("http://lalafo.az/ru/ad/post/");
         PostPage postPage = new PostPage(driver);
 
-        //
         //Go to compose new post
         //
         Assert.assertTrue(
                 postPage
                         .getListCategoriesFromGUI()
-                        .containsAll(new ListContainer(sql.getProperty("getCategories")).getList())
+                        .containsAll(new ListContainer(props.getProperty("getCategories")).getList())
         );
 
         log.info("Test passed, categories equals");

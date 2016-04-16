@@ -2,6 +2,7 @@ package Tests.SMOKE;
 
 import PageObjects.MainPage;
 import SQLRepository.ListContainer;
+import TEST_RESOURCES.ResourcesFactory;
 import Tests.BaseTest;
 import junit.framework.Assert;
 import org.testng.annotations.Test;
@@ -15,27 +16,25 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 /**
  * Created by DeBeers on 06.04.2016.
  */
-public class TEST_CitiesValidation extends BaseTest {
+public class TEST_Cities_Validation extends BaseTest {
 
     @Test
-    public void Cities_Validation_Test() throws IOException, SQLException {
+    public void TEST_Cities_Validation() throws IOException, SQLException {
 
-        Properties sql = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/SQLRepository/AZ_RU_Lalafo_SQL.xml");
+        Properties props = new ResourcesFactory().getResources("TEST_Cities_Validation");
 
         //Go to main page
         //
         MainPage mainPage = new MainPage(driver);
         log.info("We are on the main page");
 
-        //
         //Go to compose new post
         //
         Assert.assertTrue(
                 mainPage
                         .clickOnAddNewPostButton()
                         .getListCitiesFromGUI()
-                        .containsAll(new ListContainer(sql.getProperty("getCities")).getList())
+                        .containsAll(new ListContainer(props.getProperty("getCities")).getList())
         );
 
         log.info("Test passed, categories equals");

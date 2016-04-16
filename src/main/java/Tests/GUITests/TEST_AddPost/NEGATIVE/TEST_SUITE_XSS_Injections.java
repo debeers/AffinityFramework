@@ -2,8 +2,8 @@ package Tests.GUITests.TEST_AddPost.NEGATIVE;
 
 import PageObjects.MainPage;
 import PageObjects.PostPage;
+import TEST_RESOURCES.DATA_SOURCES.AZ_RU.DATA_PROVIDERS.DataProvider_Injections;
 import Tests.BaseTest;
-import Tests.GUITests.TEST_AddPost.DATA.DataProviderSourceNegative;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,14 +11,16 @@ import java.io.IOException;
 
 import static Actions.GUI_Actions.PostAdd.compareErrors;
 import static Actions.GUI_Actions.PostAdd.compeareAllertMessage;
+import static java.lang.Class.forName;
 
 /**
  * Created by DeBeers on 01.04.2016.
  */
-public class TEST_SUITE_XSS_Injections extends BaseTest{
+public class TEST_SUITE_XSS_Injections extends BaseTest {
 
-    @Test(dataProvider="Injections", dataProviderClass=DataProviderSourceNegative.class)
-    public void Negative_Post_Title_Injections(String title, String allertMessage) throws IOException, InterruptedException {
+
+    @Test(dataProvider="Injections", dataProviderClass= DataProvider_Injections.class)
+    public void Negative_Post_Title_Injections(String title, String allertMessage) throws IOException, InterruptedException, ClassNotFoundException {
 
             //Go to main page
             //
@@ -36,7 +38,7 @@ public class TEST_SUITE_XSS_Injections extends BaseTest{
 
         }
 
-    @Test(dataProvider="Injections", dataProviderClass=DataProviderSourceNegative.class)
+    @Test(dataProvider="Injections", dataProviderClass=DataProvider_Injections.class)
     public void Negative_Post_Name_Injections(String name, String allertMessage) throws IOException, InterruptedException {
 
         //Go to main page
@@ -55,7 +57,7 @@ public class TEST_SUITE_XSS_Injections extends BaseTest{
 
     }
 
-    @Test(dataProvider="Injections", dataProviderClass=DataProviderSourceNegative.class)
+    @Test(dataProvider="Injections", dataProviderClass=DataProvider_Injections.class)
     public void Negative_Post_Description_Injections(String description, String allertMessage) throws IOException, InterruptedException {
 
         //Go to main page

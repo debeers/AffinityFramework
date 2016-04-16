@@ -2,6 +2,7 @@ package Tests.GUITests.TEST_Registration;
 
 import Entities.User;
 import PageObjects.UserAccountPage;
+import TEST_RESOURCES.ResourcesFactory;
 import Tests.BaseTest;
 import org.apache.commons.lang.RandomStringUtils;
 import org.testng.Assert;
@@ -20,13 +21,12 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * Created by DeBeers on 08.03.2016.
  */
-public class TEST_RegistrationWithAllFields extends BaseTest{
+public class TEST_Registration_Positive extends BaseTest{
 
-    @Test(dependsOnGroups="PRECONDITION")
-    public void Registration_Positive_Test() throws InterruptedException, IOException, AWTException, SQLException {
+    @Test
+    public void TEST_Registration_Positive() throws InterruptedException, IOException, AWTException, SQLException {
 
-        Properties props  = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/TEST_Registration/TEST_RegistrationData.xml");
+        Properties props = new ResourcesFactory().getResources("TEST_Registration_Positive");
 
         //
         // Prepearing user data and create new user entity

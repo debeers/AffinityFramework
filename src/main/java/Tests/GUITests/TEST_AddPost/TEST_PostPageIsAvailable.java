@@ -13,12 +13,12 @@ import java.io.IOException;
  */
 public class TEST_PostPageIsAvailable extends BaseTest{
 
-    @Test(dependsOnGroups="PRECONDITION")
+    @Test
         public void Check_Post_Page() throws InterruptedException, IOException {
         new MainPage(driver).clickOnAddNewPostButton();
         log.info("We are on the main page");
 
-        Assert.assertEquals(driver.getCurrentUrl(), "http://lalafo.az/ru/ad/post/");
+        Assert.assertEquals(driver.getCurrentUrl(), baseUrl + "ad/post/");
     }
 
 }

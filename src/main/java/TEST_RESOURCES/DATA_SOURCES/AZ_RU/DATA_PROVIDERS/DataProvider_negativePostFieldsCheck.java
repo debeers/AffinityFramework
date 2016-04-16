@@ -1,21 +1,27 @@
-package Tests.GUITests.TEST_AddPost.DATA;
+package TEST_RESOURCES.DATA_SOURCES.AZ_RU.DATA_PROVIDERS;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.testng.annotations.DataProvider;
 
 /**
- * Created by DeBeers on 31.03.2016.
+ * Created by DeBeers on 16.04.2016.
  */
-public class DataProviderSourceNegative {
+public class DataProvider_negativePostFieldsCheck {
 
-
-    @DataProvider(name="negativePostTitle")
-    public static Object[][] negativePostTitle(){
+    @DataProvider(name="negativeDescription")
+    public static Object[][] negativeDescription(){
         return new Object[][]{
-                {" ", "Необходимо заполнить поле «Заголовок»."},
-                {RandomStringUtils.randomAlphabetic(4), "Заголовок слишком короткий (минимум 5 символов)."},
-                {RandomStringUtils.randomAlphabetic(5), ""},
-                {RandomStringUtils.randomAlphabetic(71), ""}
+                {"", "Необходимо заполнить поле «Описание»."},
+                {RandomStringUtils.randomAlphabetic(49), ""},
+                {RandomStringUtils.randomAlphabetic(50), ""},
+                {RandomStringUtils.randomAlphabetic(2049), ""},
+        };
+    }
+
+    @DataProvider(name="negativeName")
+    public static Object[][] negativeName(){
+        return new Object[][]{
+                {" ", "Необходимо заполнить поле «Имя»."}
         };
     }
 
@@ -57,27 +63,34 @@ public class DataProviderSourceNegative {
         };
     }
 
-    @DataProvider(name="Injections")
-    public static Object[][] Injections(){
+    @DataProvider(name="negativePostTitle")
+    public static Object[][] negativePostTitle(){
         return new Object[][]{
-                {"<script>alert(‘hello, Amigo’)</script>", "hello, Amigo"}
+                {" ", "Необходимо заполнить поле «Заголовок»."},
+                {RandomStringUtils.randomAlphabetic(4), "Заголовок слишком короткий (минимум 5 символов)."},
+                {RandomStringUtils.randomAlphabetic(5), ""},
+                {RandomStringUtils.randomAlphabetic(71), ""}
         };
     }
 
-    @DataProvider(name="negativeDescription")
-    public static Object[][] negativeDescription(){
-        return new Object[][]{
-                {"", "Необходимо заполнить поле «Описание»."},
-                {RandomStringUtils.randomAlphabetic(49), ""},
-                {RandomStringUtils.randomAlphabetic(50), ""},
-                {RandomStringUtils.randomAlphabetic(2049), ""},
-        };
-    }
 
-    @DataProvider(name="negativeName")
-    public static Object[][] negativeName(){
-        return new Object[][]{
-                {" ", "Необходимо заполнить поле «Имя»."}
-        };
-    }
+    //////////////////////////////////// AZ_AZ ///////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

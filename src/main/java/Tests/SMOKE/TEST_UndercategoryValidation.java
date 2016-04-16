@@ -3,8 +3,9 @@ package Tests.SMOKE;
 import PageObjects.PostPage;
 import SQLRepository.ListContainer;
 import Tests.BaseTest;
-import Tests.GUITests.TEST_AddPost.DATA.DataProvider_Categories_BD;
+import TEST_RESOURCES.DATA_SOURCES.AZ_RU.DATA_PROVIDERS.DataProvider_Categories_BD;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -17,13 +18,14 @@ import java.util.List;
  */
 public class TEST_UndercategoryValidation extends BaseTest {
 
-    @Test(dataProvider = "Undercategory", dataProviderClass = DataProvider_Categories_BD.class)
+
+    @Test(dataProvider = "underCategory_validation", dataProviderClass = DataProvider_Categories_BD.class)
     public void underCategory_validation(String categoryIndex, String sqlQuery) throws IOException, InterruptedException, SQLException {
 
         //
         //Go to compose new post
         //
-        driver.get("http://lalafo.az/ru/ad/post/");
+        driver.get(baseUrl+"ad/post/");
         PostPage postPage = new PostPage(driver);
         postPage.setCategory(categoryIndex);
 
@@ -35,37 +37,4 @@ public class TEST_UndercategoryValidation extends BaseTest {
         Assert.assertEquals(undercategoriesGUI, undercategoriesDB);
     }
 
-    @Test(dataProvider = "ThirdSubCategory", dataProviderClass = DataProvider_Categories_BD.class)
-    public void thirdSubcategory_validation(String categoryIndex, String subcategoryIndex, String sqlQuery) throws IOException, InterruptedException, SQLException {
-        //
-        // Go to compose new post
-        //
-        driver.get("http://lalafo.az/ru/ad/post/");
-        PostPage postPage = new PostPage(driver);
-        postPage.setCategory(categoryIndex).setUnderCategory(subcategoryIndex);
-
-        List<String> thirdSubcategoriesGui = postPage.getThirdLvlSubCategoryFromGUI();
-        List<String> thirdSubcategoriesDB  = new ListContainer(sqlQuery).getList();
-        thirdSubcategoriesGui.sort(Collator.getInstance());
-        thirdSubcategoriesDB.sort(Collator.getInstance());
-
-        Assert.assertEquals(thirdSubcategoriesGui , thirdSubcategoriesDB, "Subcategories are not equal");
-    }
-
-    @Test(dataProvider = "FourthCategory", dataProviderClass = DataProvider_Categories_BD.class)
-    public void fourthCategory_validation(String categoryIndex, String subcategoryIndex, String sqlQuery) throws IOException, InterruptedException, SQLException {
-        //
-        //Go to compose new post
-        //
-        driver.get("http://lalafo.az/ru/ad/post/");
-        PostPage postPage = new PostPage(driver);
-        postPage.setCategory(categoryIndex).setUnderCategory(subcategoryIndex);
-
-        List <String> fourthSubcategoriesGUI = postPage.getFourthLvlSubCategoryFromGUI();
-        List <String> fourthSubcategoriesDB  = new ListContainer(sqlQuery).getList();
-        fourthSubcategoriesGUI.sort(Collator.getInstance());
-        fourthSubcategoriesDB.sort(Collator.getInstance());
-
-        Assert.assertEquals(fourthSubcategoriesGUI , fourthSubcategoriesDB, "Subcategories are not equal");
-    }
 }

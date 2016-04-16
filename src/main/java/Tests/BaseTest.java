@@ -41,6 +41,8 @@ public class BaseTest {
     public static org.slf4j.Logger log;
     public static java.sql.Connection jdbcConnection;
     public static BrowserMobProxyServer server;
+    public static final String DATA_SOURCE_DIR = System.getProperty("user.dir") +
+            "/src/main/java/TEST_RESOURCES/DATA_SOURCES/";
 
     @Parameters({"DB_DRIVER", "DB_CONNECTION", "DB_USER", "DB_PASSWORD"})
     @BeforeSuite(alwaysRun = true)
@@ -52,6 +54,14 @@ public class BaseTest {
         server = new BrowserMobProxyServer();
         server.start(0);
     }
+    @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
+    @BeforeTest(alwaysRun = true)
+    public void testSetup(String URL, String clientLoginParam, String clientPasswordParam){
+
+        clientLogin  = new LoginObject(clientLoginParam, clientPasswordParam);
+        baseUrl      = URL;
+
+    }
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
     @BeforeClass(alwaysRun = true)
@@ -61,8 +71,7 @@ public class BaseTest {
         String TestClassName = this.getClass().getName();
         System.out.println(TestClassName);
 
-        clientLogin  = new LoginObject(clientLoginParam, clientPasswordParam);
-        baseUrl      = URL;
+
         log          = LoggerFactory.getLogger(Logger.class);
 
         Proxy seleniumProxy = ClientUtil.createSeleniumProxy(server);
@@ -75,6 +84,7 @@ public class BaseTest {
         fProfile.setPreference("browser.download.manager.showWhenStarting", false);
         fProfile.setPreference("browser.helperApps.alwaysAsk.force", false);
         fProfile.setPreference("browser.helperApps.neverAsk.saveToDisk", "text/plain");
+        //fProfile.setPreference("webdriver.load.strategy", "unstable");
 
         DesiredCapabilities dc = DesiredCapabilities.firefox();
         dc.setCapability(CapabilityType.PROXY, seleniumProxy);
@@ -88,13 +98,13 @@ public class BaseTest {
         WebDriverRunner.setWebDriver(driver);
         server.newHar("lalafo.az");
 
-        try {
-            driver.get(URL);
-            Assert.assertTrue(driver.getCurrentUrl().contains(URL), "We are not on main page!"
-                    + driver.getCurrentUrl() + "  But expected:::: " + URL);
-        } catch (Exception e) {
-            System.out.println("<<<<< We are not on the MAIN PAGE >>>>>");
-        }
+//        try {
+         driver.get(URL);
+////            Assert.assertTrue(driver.getCurrentUrl().contains(URL), "We are not on main page!"
+////                    + driver.getCurrentUrl() + "  But expected:::: " + URL);
+//        } catch (Exception e) {
+//            System.out.println("<<<<< We are not on the MAIN PAGE >>>>>");
+//        }
     }
 
     @AfterMethod(alwaysRun = true)
@@ -138,7 +148,7 @@ public class BaseTest {
     public void tearDown() throws Exception {
 
         if (driver.getCurrentUrl() != baseUrl) {
-            driver.get(baseUrl + "user/logout");
+            driver.get(baseUrl + "/user/logout");
         }
 
         driver.manage().deleteAllCookies();

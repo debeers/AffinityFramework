@@ -4,6 +4,7 @@ import Entities.Post;
 import PageObjects.MainPage;
 import PageObjects.PostPage;
 import PageObjects.YourPostPage;
+import TEST_RESOURCES.ResourcesFactory;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -11,6 +12,7 @@ import org.testng.annotations.Test;
 import java.awt.*;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.ThreadFactory;
 
 import static Actions.GUI_Actions.PostAdd.makeNewPost;
 import static UtilsGUI.PropertiesLoader.propertyXMLoader;
@@ -20,12 +22,16 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
  */
 public class TEST_PostNegotiablePrice extends BaseTest {
 
-    @Test(dependsOnGroups="PRECONDITION")
-    public void Add_Post_With_Negotiateble_Price() throws IOException, AWTException, InterruptedException {
+    @Test
+    public void TEST_PostNegotiablePrice() throws IOException, AWTException, InterruptedException {
 
 
-        Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/TEST_AddPost/DATA/TEST_PostNegotiablePrice.xml");
+
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    BASE URL::: " + baseUrl);
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    CURRENT URL::: " + driver.getCurrentUrl());
+        Thread.sleep(15000);
+        Properties props = new ResourcesFactory().getResources("TEST_PostNegotiablePrice");
+
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;
@@ -41,7 +47,6 @@ public class TEST_PostNegotiablePrice extends BaseTest {
         PostPage postPage = mainPage.clickOnAddNewPostButton();
         log.info("We are on the composing new post page");
 
-
         //
         //Create new post
         //
@@ -50,13 +55,11 @@ public class TEST_PostNegotiablePrice extends BaseTest {
                 .clickOnPreviewYourPost();
         log.info("We are on the preview of your post page, checking data for consistance:::");
 
-
         //
         //Verify negotiateble price is set
         //
         Assert.assertEquals(yourPostPage.getPriceString().trim(), props.getProperty("PriceFieldAssertion"), "Price is not correct");
         log.info("Data on preview page is consistant, post is correct");
-
     }
 
 }

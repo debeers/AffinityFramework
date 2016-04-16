@@ -4,6 +4,7 @@ import Entities.Post;
 import PageObjects.MainPage;
 import PageObjects.PostPage;
 import PageObjects.YourPostPage;
+import TEST_RESOURCES.ResourcesFactory;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,11 +18,10 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 
 public class TEST_PostToOtherCat extends BaseTest{
 
-    @Test(dependsOnGroups="PRECONDITION")
+    @Test
     public void Add_Post_To_Another_Category() throws IOException, AWTException, InterruptedException {
 
-        Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/TEST_AddPost/DATA/TEST_PostToOtherCat.xml");
+        Properties props = new ResourcesFactory().getResources("Add_Post_To_Another_Category");
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;

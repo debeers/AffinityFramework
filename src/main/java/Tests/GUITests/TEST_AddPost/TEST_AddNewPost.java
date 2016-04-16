@@ -2,6 +2,7 @@ package Tests.GUITests.TEST_AddPost;
 
 import Entities.Post;
 import PageObjects.*;
+import TEST_RESOURCES.ResourcesFactory;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,15 +14,13 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import static Actions.GUI_Actions.PostAdd.makeNewPost;
-import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 import static com.codeborne.selenide.Selenide.$;
 
 public class TEST_AddNewPost extends BaseTest {
-    @Test(dependsOnGroups="PRECONDITION")
-    public void Add_Post() throws InterruptedException, IOException, AWTException, SQLException {
+    @Test
+    public void TEST_AddNewPost() throws InterruptedException, IOException, AWTException, SQLException {
 
-        Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/TEST_AddPost/DATA/TEST_AddNewPost.xml");
+        Properties props = new ResourcesFactory().getResources("TEST_AddNewPost");
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;

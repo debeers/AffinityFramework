@@ -2,6 +2,7 @@ package Tests.GUITests.TEST_AddPost.NEGATIVE;
 
 import Entities.Post;
 import PageObjects.*;
+import TEST_RESOURCES.ResourcesFactory;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -23,8 +24,7 @@ public class TEST_SUITE_ASCIISymbolsFieldsCheck extends BaseTest{
     @Test
     public void Add_Post_Title_ASCII() throws InterruptedException, IOException, AWTException, SQLException {
 
-        Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/TEST_AddPost/DATA/TEST_AdPostWithASCIITitle.xml");
+        Properties props = new ResourcesFactory().getResources("Add_Post_Title_ASCII");
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;
@@ -81,8 +81,7 @@ public class TEST_SUITE_ASCIISymbolsFieldsCheck extends BaseTest{
     @Test
     public void Add_Post_Description_ASCII() throws InterruptedException, IOException, AWTException, SQLException {
 
-        Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/TEST_AddPost/DATA/TEST_AdPostWithASCII_Description.xml");
+        Properties props = new ResourcesFactory().getResources("Add_Post_Description_ASCII");
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;

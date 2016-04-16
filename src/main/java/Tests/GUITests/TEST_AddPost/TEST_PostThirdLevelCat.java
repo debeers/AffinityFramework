@@ -4,6 +4,7 @@ import Entities.Post;
 import PageObjects.MainPage;
 import PageObjects.PostPage;
 import PageObjects.YourPostPage;
+import TEST_RESOURCES.ResourcesFactory;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -20,11 +21,10 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
  */
 public class TEST_PostThirdLevelCat extends BaseTest {
 
-    @Test(dependsOnGroups="PRECONDITION")
+    @Test
     public void Add_Post_To_Third_Category() throws IOException, AWTException, InterruptedException {
 
-        Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/TEST_AddPost/DATA/TEST_PostThirdLevelCat.xml");
+        Properties props = new ResourcesFactory().getResources("Add_Post_To_Third_Category");
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;
@@ -48,7 +48,6 @@ public class TEST_PostThirdLevelCat extends BaseTest {
                 .clickOnSubmitButton()
                 .clickOnPreviewYourPost();
         log.info("We are on the preview of your post page, checking data for consistance:::");
-
 
         //
         //Verify data on preview your post page

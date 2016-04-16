@@ -1,5 +1,6 @@
 package Tests.GUITests.TEST_Search;
 import PageObjects.MainPage;
+import TEST_RESOURCES.ResourcesFactory;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,11 +18,10 @@ import static UtilsGUI.PropertiesLoader.propertyXMLoader;
  */
 public class TEST_Search extends BaseTest {
 
-    @Test(dependsOnGroups="PRECONDITION")
-    public void Search_Test() throws InterruptedException, IOException, AWTException, SQLException {
+    @Test
+    public void TEST_Search() throws InterruptedException, IOException, AWTException, SQLException {
 
-        Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/GUITests/TEST_Search/TEST_Search.xml");
+        Properties props = new ResourcesFactory().getResources("TEST_Search");
 
         MainPage mainPage = new MainPage(driver);
         List<String> searchResults = search(mainPage.clickOnSearchButton(), props);

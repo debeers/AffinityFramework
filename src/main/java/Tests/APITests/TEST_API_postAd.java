@@ -13,7 +13,7 @@ import java.io.IOException;
 public class TEST_API_postAd extends BaseTest {
 
 
-    @Test(groups="API", dependsOnGroups="PRECONDITION")
+    @Test
     public void Add_Post_API() throws IOException {
 
 //        String userId = "9346";
