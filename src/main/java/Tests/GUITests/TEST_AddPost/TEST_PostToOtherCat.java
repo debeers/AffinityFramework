@@ -14,14 +14,13 @@ import java.io.IOException;
 import java.util.Properties;
 
 import static Actions.GUI_Actions.PostAdd.makeNewPost;
-import static UtilsGUI.PropertiesLoader.propertyXMLoader;
 
 public class TEST_PostToOtherCat extends BaseTest{
 
     @Test
-    public void Add_Post_To_Another_Category() throws IOException, AWTException, InterruptedException {
+    public void TEST_Add_Post_To_Another_Category() throws IOException, AWTException, InterruptedException {
 
-        Properties props = new ResourcesFactory().getResources("Add_Post_To_Another_Category");
+        Properties props = new ResourcesFactory().getResources("TEST_Add_Post_To_Another_Category");
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;

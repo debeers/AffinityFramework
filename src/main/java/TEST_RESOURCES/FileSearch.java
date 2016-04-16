@@ -41,6 +41,7 @@ public class FileSearch {
             for (String matched : fileSearch.getResult()) {
                 System.out.println("Found : " + matched);
                 return matched;
+
             }
         }
         return "############## NO FILES FOUND #############";
