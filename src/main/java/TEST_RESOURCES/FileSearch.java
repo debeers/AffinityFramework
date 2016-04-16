@@ -29,9 +29,9 @@ public class FileSearch {
     public static String searchResources(String beginDirectory, String testName, String local) {
 
         FileSearch fileSearch = new FileSearch();
-        System.out.println("=================  SEARCH .xml data::  " + testName + "_" + local + ".xml");
+        System.out.println("=================  SEARCH .xml data::  " + "TEST_" + testName + "_" + local + ".xml");
 
-        fileSearch.searchDirectory(new File(beginDirectory), testName + "_" + local + ".xml");
+        fileSearch.searchDirectory(new File(beginDirectory), "TEST_" + testName + "_" + local + ".xml");
         int count = fileSearch.getResult().size();
         if (count == 0) {
             System.out.println("\nNo result found!");

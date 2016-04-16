@@ -22,16 +22,23 @@
     <parameter name = "URL"          value="http://lalafo.az/ru/"  />
 
 
-    <test name="TEST_PostNegotiablePrice_AZ_RU">
+
+    <test name="TEST_PostToOtherCat_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TEST_AddPost.TEST_PostToOtherCat"/>
+        </classes>
+    </test>
+
+
+
+    <!--
+        <test name="TEST_PostNegotiablePrice_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TEST_AddPost.TEST_PostNegotiablePrice"/>
         </classes>
     </test>
 
 
-
-
-    <!--
     <test name="TEST_Undercategory_Validation_AZ_RU">
         <classes>
             <class name="Tests.SMOKE.TEST_UndercategoryValidation"/>
