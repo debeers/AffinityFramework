@@ -26,12 +26,12 @@ public class FileSearch {
     }
 
 
-    public static String searchResources(String beginDirectory, String testName) {
+    public static String searchResources(String beginDirectory, String testName, String local) {
 
         FileSearch fileSearch = new FileSearch();
+        System.out.println("=================  SEARCH .xml data::  " + testName + "_" + local + ".xml");
 
-        //try different directory and filename :)C:\Users\DeBeers\IdeaProjects\AffinityFramework\src\main\java\TEST_RESOURCES\DATA_SOURCES\AZ_RU\Add_Post\TEST_AddNewPost_AZ_RU.xml
-        fileSearch.searchDirectory(new File(beginDirectory), testName + "_AZ_RU"+".xml");
+        fileSearch.searchDirectory(new File(beginDirectory), testName + "_" + local + ".xml");
         int count = fileSearch.getResult().size();
         if (count == 0) {
             System.out.println("\nNo result found!");

@@ -54,6 +54,7 @@ public class BaseTest {
         server = new BrowserMobProxyServer();
         server.start(0);
     }
+
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
     @BeforeTest(alwaysRun = true)
     public void testSetup(String URL, String clientLoginParam, String clientPasswordParam){
@@ -71,7 +72,6 @@ public class BaseTest {
         String TestClassName = this.getClass().getName();
         System.out.println(TestClassName);
 
-
         log          = LoggerFactory.getLogger(Logger.class);
 
         Proxy seleniumProxy = ClientUtil.createSeleniumProxy(server);
@@ -84,7 +84,6 @@ public class BaseTest {
         fProfile.setPreference("browser.download.manager.showWhenStarting", false);
         fProfile.setPreference("browser.helperApps.alwaysAsk.force", false);
         fProfile.setPreference("browser.helperApps.neverAsk.saveToDisk", "text/plain");
-        //fProfile.setPreference("webdriver.load.strategy", "unstable");
 
         DesiredCapabilities dc = DesiredCapabilities.firefox();
         dc.setCapability(CapabilityType.PROXY, seleniumProxy);

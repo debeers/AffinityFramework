@@ -25,13 +25,7 @@ public class TEST_PostNegotiablePrice extends BaseTest {
     @Test
     public void TEST_PostNegotiablePrice() throws IOException, AWTException, InterruptedException {
 
-
-
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    BASE URL::: " + baseUrl);
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    CURRENT URL::: " + driver.getCurrentUrl());
-        Thread.sleep(15000);
         Properties props = new ResourcesFactory().getResources("TEST_PostNegotiablePrice");
-
 
         Post post = new Post(props);
         int countForPhotoUploads = 0;

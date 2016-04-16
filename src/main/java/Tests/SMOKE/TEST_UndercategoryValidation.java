@@ -25,7 +25,7 @@ public class TEST_UndercategoryValidation extends BaseTest {
         //
         //Go to compose new post
         //
-        driver.get(baseUrl+"ad/post/");
+        driver.get(baseUrl + "ad/post/");
         PostPage postPage = new PostPage(driver);
         postPage.setCategory(categoryIndex);
 
