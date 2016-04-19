@@ -1,4 +1,4 @@
-package ApiWorker.model.users.checkuser;
+package ApiWorker.model.users.checkUser;
 
 import ApiWorker.model.BaseResponse;
 import ApiWorker.model.users.User;

@@ -69,6 +69,16 @@ public class TopMenuGeneralPage extends BasePageObject {
         return new LoginPage(driver);
     }
 
+    /*public Object clickOnUserAccountLinkWithPhone(String userPhone) {
+        WebElement accLinc = $(userAccountTopMenuLink).shouldBe(visible);
+
+        if(accLinc.getText().contains(userPhone)){
+            accLinc.click();
+            return new UserAccountPage(driver);
+        } else accLinc.click();
+        return new LoginPage(driver);
+    }*/
+
     public void clickOnLocalizationTopMenuLink(){
         $(localizationTopMenuLink).shouldBe(visible).click();
     }

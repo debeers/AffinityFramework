@@ -1,4 +1,4 @@
-package ApiWorker.model.filter.getcategories;
+package ApiWorker.model.filter.getCategories;
 
 import ApiWorker.model.ads.Ad;
 import ApiWorker.model.filter.Filter;

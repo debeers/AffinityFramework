@@ -1,4 +1,4 @@
-package ApiWorker.model.ads.uploadimage;
+package ApiWorker.model.ads.uploadImage;
 
 import ApiWorker.model.BaseResponse;
 import com.google.gson.annotations.SerializedName;

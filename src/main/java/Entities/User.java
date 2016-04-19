@@ -5,18 +5,24 @@ package Entities;
  */
 public class User {
 
-    private String phoneNumber = "";
-    private String email = "";
-    private String password = "";
-
+    private String phoneNumber  = "";
+    private String email        = "";
+    private String password     = "";
+    private String userPhone    = "";
+    private String userPassword = "";
 
     public User(){}
 
-    public User(String phoneNumber, String email, String password) {
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.password = password;
+    public User(String userPhone, String email, String password) {
+        this.userPhone    = userPhone;
+        this.email        = email;
+        this.password     = password;
         userLog();
+    }
+
+    public User(String userPhone, String password) {
+        this.userPhone    = userPhone;
+        this.password     = password;
     }
 
 
@@ -53,5 +59,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getUserPhone() { return userPhone; }
+    public String getUserPassword() { return userPassword; }
 
 }

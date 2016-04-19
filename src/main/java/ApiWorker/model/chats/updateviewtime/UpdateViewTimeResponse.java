@@ -1,4 +1,4 @@
-package ApiWorker.model.chats.updateviewtime;
+package ApiWorker.model.chats.updateViewTime;
 
 
 import ApiWorker.model.BaseResponse;

@@ -4,7 +4,8 @@
 <suite name="Test" >
 
     <suite-files>
-         <suite-file path="src\main\SUITES\AZ_RU.xml"/>
+        <suite-file path="src\main\SUITES\AZ_RU.xml"/>
+        <suite-file path="src\main\SUITES\AZ_AZ,xml"/>
         <suite-file path="src\main\SUITES\KG_RU.xml"/>
    </suite-files>
 </suite>

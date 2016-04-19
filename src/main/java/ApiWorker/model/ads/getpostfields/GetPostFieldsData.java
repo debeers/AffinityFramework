@@ -1,4 +1,4 @@
-package ApiWorker.model.ads.getpostfields;
+package ApiWorker.model.ads.getPostFields;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

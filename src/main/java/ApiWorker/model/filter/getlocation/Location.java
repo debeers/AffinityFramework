@@ -1,4 +1,4 @@
-package ApiWorker.model.filter.getlocation;
+package ApiWorker.model.filter.getLocation;
 
 import ApiWorker.model.filter.Filter;
 import com.google.gson.annotations.SerializedName;

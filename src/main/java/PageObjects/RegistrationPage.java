@@ -99,6 +99,14 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
         return clickOnRegisterButton();
     }
 
+    public UserAccountPage enterRegistrationDataShort(String mobilePhoneNumber, String password) {
+        enterMobilePhoneNumber(mobilePhoneNumber);
+        enterPassword(password);
+        enterConfirmationPassword(password);
+
+        return clickOnRegisterButton();
+    }
+
     public RegistrationPage(WebDriver driver) {
         super(driver);
     }

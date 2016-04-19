@@ -3,9 +3,9 @@ package Actions.API_Actions;
 import ApiWorker.APIManager;
 import ApiWorker.model.PostField;
 import ApiWorker.model.ads.Ad;
-import ApiWorker.model.ads.getadbyid.GetAdByIdResponse;
-import ApiWorker.model.ads.postad.PostAdBody;
-import ApiWorker.model.ads.postad.PostAdResponse;
+import ApiWorker.model.ads.getAdById.GetAdByIdResponse;
+import ApiWorker.model.ads.postAd.PostAdBody;
+import ApiWorker.model.ads.postAd.PostAdResponse;
 import retrofit2.Call;
 
 import java.io.IOException;

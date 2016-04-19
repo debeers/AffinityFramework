@@ -1,4 +1,4 @@
-package ApiWorker.model.users.getmobileauth;
+package ApiWorker.model.users.getMobileAuth;
 
 import ApiWorker.model.BaseResponse;
 import ApiWorker.model.users.User;

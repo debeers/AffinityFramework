@@ -39,9 +39,12 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='categoryId_chosen']//ul//li[contains(@class,'active-result')]")
     public List<WebElement> categoriesList;
 
-    @CacheLookup
+
     @FindBy(xpath = ".//*[@id='subcategory_chosen']/a")
     public WebElement underCategoriesChoose;
+
+    @FindBy(xpath = ".//*[@id='subcategory_chosen']//div//ul//li[@class='active-result result-selected']")
+    public WebElement defaultUnderCategoryById;
 
     @CacheLookup
     @FindBy(xpath = ".//*[@id='subcategory_chosen']//div//ul//li[@class='active-result'][position()>0]")
@@ -50,6 +53,10 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @CacheLookup
     @FindBy(xpath = "*//div[2]/div[1]/a")
     public WebElement thirdCategorySelect;
+
+    @CacheLookup
+    @FindBy(xpath = ".//*[@id='subcategory_chosen']/a")
+    public WebElement thirdCategorySelectById;
 
     @CacheLookup
     @FindBy(xpath = "*//div[2]/div[1]/div/ul/li[@class='active-result'][position()>0]")
@@ -126,6 +133,12 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='priceBlock']/input")
     public WebElement priceField;
 
+    @FindBy(xpath = ".//*[@id='categories-and-params']//div[1]/a")
+    public WebElement underCategoryParameter;
+
+    @FindBy(xpath = ".//*[@id='categories-and-params']//div[1]/div//ul//li[@class='active-result'][position()>0]")
+    public List<WebElement> underCategoryParameterList;
+
     @FindBy(xpath = ".//*[@id='currencies']")
     public WebElement choseCurrency;
 
@@ -137,6 +150,12 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     @FindBy(xpath = ".//*[@id='regionId_chosen']//ul/li[contains(@class,'active-result')]")
     public List<WebElement> regionList;
+
+    @FindBy(xpath = ".//*[@id='for-cities']/div[1]/div/a")
+    public WebElement citiesListChoose;
+
+    @FindBy(xpath = ".//*[@id='for-cities']/div[1]/div/div/ul/li[@class='active-result'][position()>0]")
+    public List<WebElement> citiesList;
 
     @FindBy(xpath = ".//*[@id='first-step']//label[contains(@class,'label-radio')][1]")
     public WebElement radioButtonPrivate;
@@ -199,7 +218,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public WebElement fileUpload5;
 
 
-    public String getTextFromDescriptionErrorBlock(){
+    public String getTextFromDescriptionErrorBlock() {
         return $(descriptionErrorBlock).shouldBe(visible).getText();
     }
 
@@ -230,27 +249,33 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         }
     }
 
-    public List<String> getListCategoriesFromGUI(){
+    public List<String> getListCategoriesFromGUI() {
         $(categoriesChoose).shouldBe(visible).click();
         return categoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
     }
 
-    public List<String> getListUnderCategoriesFromGUI(){
-        $(underCategoriesChoose).shouldBe(visible).click();
-        return underCategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
+    public List<String> getListUnderCategoriesFromGUI() {
+        if ($(underCategoriesChoose).isDisplayed()) {
+            $(underCategoriesChoose).shouldBe(visible).click();
+            return underCategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
+        } else {
+            $(underCategoryParameter).shouldBe(visible).click();
+            return underCategoryParameterList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
+        }
     }
 
-    public List<String> getFourthLvlSubCategoryFromGUI(){
+    public List<String> getFourthLvlSubCategoryFromGUI() {
         $(fifthCategorySelectBody).shouldBe(visible).click();
         return fifthCategoriesListBody.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
     }
 
-    public List<String> getThirdLvlSubCategoryFromGUI(){
+    public List<String> getThirdLvlSubCategoryFromGUI() {
+
         $(thirdCategorySelect).shouldBe(visible).click();
         return thirdCategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
     }
 
-    public List<String> getListCitiesFromGUI(){
+    public List<String> getListCitiesFromGUI() {
         $(regionListChoose).shouldBe(visible).click();
         return regionList.stream().map(WebElement::getText).collect(Collectors.toList());
     }
@@ -262,7 +287,9 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public PostPage setUnderCategory(String underCategoryIndex) throws InterruptedException {
-        selectFromDropdawnMenuByIndex(underCategoriesChoose, underCategoriesList, underCategoryIndex);
+        if ($(defaultUnderCategoryById).exists()) {
+            selectFromDropdawnMenuByIndex(underCategoriesChoose, underCategoriesList, underCategoryIndex);
+        }
         waitTillLoaderHides();
         return this;
     }
@@ -275,8 +302,8 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     public void setAdditionalParam(String additionalParam) {
         $(areaParameter).
-            shouldBe(visible).
-            sendKeys(additionalParam);
+                shouldBe(visible).
+                sendKeys(additionalParam);
     }
 
     public PostPage setFourthCategoryYear(String fourthCategoryYear) throws InterruptedException {
@@ -305,7 +332,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         waitTillLoaderHides();
     }
 
-    public void setAdditionalParamMileage(String  mileageParam) throws InterruptedException {
+    public void setAdditionalParamMileage(String mileageParam) throws InterruptedException {
         $(mileage).
                 shouldBe(visible).
                 sendKeys(mileageParam);
@@ -344,6 +371,15 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public void setRegion(String regionIndex) throws InterruptedException {
         selectFromDropdawnMenuByIndex(regionListChoose, regionList, regionIndex);
         waitTillLoaderHides();
+    }
+
+    public void setCity(String cityIndex) throws InterruptedException {
+        if ($(citiesListChoose).exists()) {
+            selectFromDropdawnMenuByIndex(citiesListChoose, citiesList, cityIndex);
+            waitTillLoaderHides();
+        } else {
+            log.info("There is no city field on this locale");
+        }
     }
 
     public void setPrivateTypeAsPrivate() {
@@ -422,7 +458,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         try {
             if (!$$(errors).isEmpty()) {
                 errors.stream().forEach((p) -> {
-                    if(!p.getText().trim().equalsIgnoreCase("")){
+                    if (!p.getText().trim().equalsIgnoreCase("")) {
                         errorsList.add(p.getText());
                         System.out.println("ERRORS EXIST IN ENTERING POST DATA:: " + p.getText());
                     }
@@ -438,7 +474,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
 
-    public String getFieldError(WebElement errorBlock){
+    public String getFieldError(WebElement errorBlock) {
 
         String titleError = "";
         try {
@@ -447,10 +483,10 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
                 titleError = $(errorBlock).shouldBe(visible).getText();
                 return titleError;
-            }else return titleError;
+            } else return titleError;
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("No error was appear");
         }
         return titleError;

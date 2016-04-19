@@ -1,4 +1,4 @@
-package ApiWorker.model.filter.getcategories;
+package ApiWorker.model.filter.getCategories;
 
 import ApiWorker.model.BaseResponse;
 import com.google.gson.annotations.SerializedName;

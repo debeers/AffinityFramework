@@ -1,4 +1,4 @@
-package ApiWorker.model.filter.getlocation;
+package ApiWorker.model.filter.getLocation;
 
 /**
  * Created by artem on 9/6/15.

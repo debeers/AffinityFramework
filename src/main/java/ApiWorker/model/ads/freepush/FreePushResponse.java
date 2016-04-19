@@ -1,4 +1,4 @@
-package ApiWorker.model.ads.freepush;
+package ApiWorker.model.ads.freePush;
 
 
 import ApiWorker.model.BaseResponse;

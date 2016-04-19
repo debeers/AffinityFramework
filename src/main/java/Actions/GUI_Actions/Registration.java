@@ -15,7 +15,7 @@ public class Registration {
         LoginPage loginPage = (LoginPage) mainPage.clickOnUserAccountLink(user.getEmail());
 
         RegistrationPage registrationPage = loginPage.clickOnRegistrationLink();
-        return registrationPage.enterRegistrationData(user.getPhoneNumber(), user.getEmail(), user.getPassword());
+        return registrationPage.enterRegistrationData(user.getUserPhone(), user.getEmail(), user.getPassword());
     }
 
 }

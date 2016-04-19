@@ -1,4 +1,4 @@
-package ApiWorker.model.ads.getads;
+package ApiWorker.model.ads.getAds;
 
 
 import com.google.gson.annotations.Expose;

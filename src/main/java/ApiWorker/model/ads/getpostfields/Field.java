@@ -1,4 +1,4 @@
-package ApiWorker.model.ads.getpostfields;
+package ApiWorker.model.ads.getPostFields;
 
 import java.util.List;
 

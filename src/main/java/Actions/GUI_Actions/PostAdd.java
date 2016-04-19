@@ -94,6 +94,13 @@ public class PostAdd {
             System.out.println("Parameter 'ENGINE' should not be set in this CATEGORY: " + post.getCategory());
     }
 
+    public static void setCityIfExists(PostPage postPage, Post post) throws InterruptedException {
+        if (!post.getCity().equals("null"))
+            postPage.setCity(post.getCity());
+        else
+            System.out.println("THERE IS NO REGION ON THIS WEBSITE: ");
+    }
+
     public static PostPage makeNewPost(PostPage postPage, Post post, int countOfFilesToUpload)
             throws InterruptedException, AWTException {
 
@@ -113,6 +120,7 @@ public class PostAdd {
         postPage.setDescription(post.getDescription());
         ifSetNegotiatablePrice(postPage, post);
         postPage.setRegion(post.getRegion());
+        setCityIfExists(postPage, post);
         postPage.setPostAs(post.getPrivacyType());
         postPage.setName(post.getName());
         postPage.setTelephoneNumber(post.getPhone());

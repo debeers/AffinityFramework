@@ -1,4 +1,4 @@
-package ApiWorker.model.users.recoverypass;
+package ApiWorker.model.users.recoveryPass;
 
 
 import ApiWorker.model.BaseResponse;

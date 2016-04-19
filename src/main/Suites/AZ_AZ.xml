@@ -1,0 +1,164 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Affinity full regression suite AZ" >
+
+    <!--Credentials: -->
+
+    <parameter name="clientLoginParam"     value="debeers1989@gmail.com"         />
+    <parameter name="clientPasswordParam"  value="roottoor"                     />
+    <!--Credentials: END -->
+
+    <!--DB CONNECTION -->
+    <parameter name="DB_DRIVER"      value="oracle.jdbc.driver.OracleDriver"         />
+    <parameter name="DB_CONNECTION"  value="jdbc:mysql://78.47.248.187/lalafo_az"   />
+    <parameter name="DB_USER"        value="read_only"                             />
+    <parameter name="DB_PASSWORD"    value="K3sZwPBEvNv5c7YJ9GMh"                 />
+
+    <!--PRE CONDITION -->
+    <parameter name="userLogin"      value="Test_User_API@mail.com"              />
+    <parameter name="userPhone"      value="+994-701231231"                     />
+
+    <!--Properties: -->
+    <parameter name = "URL"          value="http://lalafo.az/"  />
+
+
+
+    <test name="TEST_PostToAnotherCat_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTPostToOtherCat"/>
+        </classes>
+    </test>
+
+    <test name="TEST_PostWithNegotiablePrice_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTPostNegotiablePrice"/>
+        </classes>
+    </test>
+
+
+    <test name="TESTSubCategoryValidationAZ_AZ">
+        <classes>
+            <class name="Tests.Smoke.TESTUndercategoryValidation"/>
+        </classes>
+    </test>
+
+    <test name="TESTThirdSubcategoryValidationAZ_AZ">
+        <classes>
+            <class name="Tests.Smoke.TESTThirdSubcategoryValidation"/>
+        </classes>
+    </test>
+
+    <test name="TESTFourthCategoryValidationAZ_AZ">
+        <classes>
+            <class name="Tests.Smoke.TESTFourthCategoryValidation"/>
+        </classes>
+    </test>
+
+        <test name="TESTSuiteIncorrectDataFillinAZ_AZ">
+            <classes>
+                <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteIncorrectDataFillin"/>
+            </classes>
+        </test>
+
+        <test name="TEST_PositiveLogin_AZ_AZ">
+            <classes>
+                <class name="Tests.GUITests.TESTLogin.TESTPositiveLogin"/>
+            </classes>
+        </test>
+
+        <test name="TEST_SuiteXSSInjections_AZ_AZ">
+            <classes>
+                <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteXSSInjections"/>
+            </classes>
+        </test>
+
+        <test name="TEST_AddNewPost_AZ_AZ">
+            <classes>
+                <class name="Tests.GUITests.TESTAddPost.TESTAddNewPost"/>
+            </classes>
+        </test>
+
+        <test name="TEST_SuiteAddPostUnderCategoryError">
+            <classes>
+                <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteAddPostUnderCategoryError"/>
+            </classes>
+        </test>
+
+        <test name="TEST_SuiteASCIITitleCheck">
+            <classes>
+                <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteASCIITitleCheck"/>
+            </classes>
+        </test>
+
+        <test name="TEST_SuiteDescriptionASCII">
+            <classes>
+                <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteDescriptionASCII"/>
+            </classes>
+        </test>
+
+        <test name="TEST_DeactivationUserAccount.DeactivationUserAccount_AZ_AZ">
+            <classes>
+                <class name="Tests.GUITests.TESTDeactivationUserAccount.TESTDeactivationUserAccount"/>
+            </classes>
+        </test>
+
+        <test name="TEST_API_getAdById_AZ_AZ">
+            <classes>
+                <class name="Tests.APITests.TESTApiGetAdById"/>
+            </classes>
+        </test>
+
+        <test name="TEST_PostThirdLevelCat_AZ_AZ">
+            <classes>
+                <class name="Tests.GUITests.TESTAddPost.TESTPostThirdLevelCat"/>
+            </classes>
+        </test>
+
+        <test name="TEST_PostPageIsAvailable_AZ_AZ">
+            <classes>
+                <class name="Tests.GUITests.TESTAddPost.TESTPostPageIsAvailable"/>
+            </classes>
+        </test>
+
+
+        <test name="TEST_Search_AZ_AZ">
+            <classes>
+                <class name="Tests.GUITests.TESTSearch.TESTSearch"/>
+            </classes>
+        </test>
+
+        <test name="TEST_Registration_Positive_AZ_AZ">
+            <classes>
+                <class name="Tests.GUITests.TESTRegistration.TESTRegistrationPositive"/>
+            </classes>
+        </test>
+
+        <test name="TEST_SuiteAddPostCategoryError_AZ_AZ">
+            <classes>
+                <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteAddPostCategoryError"/>
+            </classes>
+        </test>
+
+        <test name=" TEST_SQLConnect_AZ_AZ">
+            <classes>
+                <class name="Tests.SQLTests.TESTConnectSQL"/>
+            </classes>
+        </test>
+
+
+        <test name="TEST_RegisterAUser_AZ_AZ">
+            <classes>
+                <class name="Tests.APITests.TESTApiGetAdById"/>
+            </classes>
+        </test>
+
+
+    </suite>
+
+
+
+
+
+
+
+

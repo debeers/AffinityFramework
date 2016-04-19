@@ -1,4 +1,4 @@
-package ApiWorker.model2.categoryparams;
+package ApiWorker.model2.categoryParams;
 
 
 import com.google.gson.annotations.SerializedName;

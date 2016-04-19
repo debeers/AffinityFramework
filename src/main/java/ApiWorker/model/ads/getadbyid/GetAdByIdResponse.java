@@ -1,4 +1,4 @@
-package ApiWorker.model.ads.getadbyid;
+package ApiWorker.model.ads.getAdById;
 
 import ApiWorker.model.BaseResponse;
 import ApiWorker.model.ads.Ad;

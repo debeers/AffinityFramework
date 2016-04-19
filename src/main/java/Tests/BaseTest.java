@@ -42,7 +42,8 @@ public class BaseTest {
     public static java.sql.Connection jdbcConnection;
     public static BrowserMobProxyServer server;
     public static final String DATA_SOURCE_DIR = System.getProperty("user.dir") +
-            "/src/main/java/TEST_RESOURCES/DATA_SOURCES/";
+            "/src/main/java/TESTResources/DataSources/";
+
 
     @Parameters({"DB_DRIVER", "DB_CONNECTION", "DB_USER", "DB_PASSWORD"})
     @BeforeSuite(alwaysRun = true)
@@ -79,6 +80,7 @@ public class BaseTest {
         File downloadDir = new File(path);
         FirefoxProfile fProfile = new FirefoxProfile();
         fProfile.setAcceptUntrustedCertificates(true);
+        //fProfile.setPreference("webdriver.load.strategy", "unstable");
         fProfile.setPreference("browser.download.dir", downloadDir.getAbsolutePath());
         fProfile.setPreference("browser.download.folderList", 2);
         fProfile.setPreference("browser.download.manager.showWhenStarting", false);
@@ -91,8 +93,8 @@ public class BaseTest {
         dc.setCapability(FirefoxDriver.PROFILE, fProfile);
 
         driver = WebDriverFactory.getDriver(dc);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 10);
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 3);
         driver.manage().window().maximize();
         WebDriverRunner.setWebDriver(driver);
         server.newHar("lalafo.az");

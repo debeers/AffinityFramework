@@ -1,4 +1,4 @@
-package ApiWorker.model.filter.getparams;
+package ApiWorker.model.filter.getParams;
 
 import ApiWorker.model.BaseResponse;
 import com.google.gson.annotations.Expose;

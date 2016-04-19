@@ -8,7 +8,7 @@ import java.util.List;
 
 
 import ApiWorker.model.BaseModel;
-import ApiWorker.model.filter.getparams.Currency;
+import ApiWorker.model.filter.getParams.Currency;
 import ApiWorker.model2.KeyValue;
 import org.apache.http.util.TextUtils;
 

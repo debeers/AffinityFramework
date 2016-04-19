@@ -1,6 +1,5 @@
 package GeneralHelpers;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -20,7 +19,7 @@ public class DropdownMenuWorker {
             throws InterruptedException {
 
         $(element).shouldBe(visible).click();
-        Thread.sleep(1000);
+        Thread.sleep(1500);
         try {
             list
                     .stream()

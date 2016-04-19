@@ -49,7 +49,11 @@ public class MainPage extends TopMenuGeneralPage {
 
     public PostPage clickOnAddNewPostButton(){
 
-        $(addNewPostButtonTop).shouldBe(visible).click();
+         if ($(addNewPostButtonTop).isDisplayed()) {
+             $(addNewPostButtonTop).click();
+         } else {
+             $(addNewPostButtonTop).waitUntil(visible, 3).click();
+         }
         return new PostPage(driver);
     }
 

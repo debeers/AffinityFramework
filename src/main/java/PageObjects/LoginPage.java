@@ -48,6 +48,12 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
         return new LoginPage(driver);
     }
 
+    public LoginPage enterUserPhone(String userPhone) {
+        $(loginPageEmailField).shouldBe(visible).clear();
+        $(loginPageEmailField).shouldBe(visible).sendKeys(userPhone);
+        return new LoginPage(driver);
+    }
+
     public UserAccountPage clickOnLoginButton(WebDriver driver) {
         $(loginPageLoginButton).shouldBe(visible).click();
 
@@ -67,6 +73,12 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
 
     public UserAccountPage loginAs(WebDriver driver, String email, String password) {
         enterEmail(email);
+        enterPassword(password);
+        return clickOnLoginButton(driver);
+    }
+
+    public UserAccountPage loginViaPhone(WebDriver driver, String userPhone, String password){
+        enterUserPhone(userPhone);
         enterPassword(password);
         return clickOnLoginButton(driver);
     }

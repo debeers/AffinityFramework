@@ -1,4 +1,4 @@
-package ApiWorker.model.ads.postad;
+package ApiWorker.model.ads.postAd;
 
 
 import ApiWorker.model.BaseResponse;

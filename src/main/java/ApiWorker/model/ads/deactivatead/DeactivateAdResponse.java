@@ -1,4 +1,4 @@
-package ApiWorker.model.ads.deactivatead;
+package ApiWorker.model.ads.deactivateAd;
 
 
 import ApiWorker.model.BaseResponse;

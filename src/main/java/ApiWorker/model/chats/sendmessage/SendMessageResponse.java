@@ -1,4 +1,4 @@
-package ApiWorker.model.chats.sendmessage;
+package ApiWorker.model.chats.sendMessage;
 
 import ApiWorker.model.BaseResponse;
 import ApiWorker.model.chats.Message;

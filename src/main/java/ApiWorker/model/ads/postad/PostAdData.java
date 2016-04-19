@@ -1,7 +1,4 @@
-package ApiWorker.model.ads.postad;
-
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+package ApiWorker.model.ads.postAd;
 
 /**
  * Created by DeBeers on 29.03.2016.

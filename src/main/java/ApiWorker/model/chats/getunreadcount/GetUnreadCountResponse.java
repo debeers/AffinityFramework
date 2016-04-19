@@ -1,4 +1,4 @@
-package ApiWorker.model.chats.getunreadcount;
+package ApiWorker.model.chats.getUnreadCount;
 
 import ApiWorker.model.BaseResponse;
 

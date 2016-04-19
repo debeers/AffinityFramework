@@ -1,4 +1,4 @@
-package ApiWorker.model.ads.postad;
+package ApiWorker.model.ads.postAd;
 
 
 import com.google.gson.Gson;
@@ -15,10 +15,10 @@ import ApiWorker.model.ListPostField;
 import ApiWorker.model.PostField;
 import ApiWorker.model.ads.Ad;
 import ApiWorker.model.ads.InfoParam;
-import ApiWorker.model.ads.getpostfields.BaseField;
-import ApiWorker.model.ads.getpostfields.Field;
-import ApiWorker.model.ads.getpostfields.Param;
-import ApiWorker.model.ads.getpostfields.UserInfoField;
+import ApiWorker.model.ads.getPostFields.BaseField;
+import ApiWorker.model.ads.getPostFields.Field;
+import ApiWorker.model.ads.getPostFields.Param;
+import ApiWorker.model.ads.getPostFields.UserInfoField;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import org.apache.http.util.TextUtils;

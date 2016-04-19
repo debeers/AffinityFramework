@@ -1,4 +1,4 @@
-package ApiWorker.model.users.signup;
+package ApiWorker.model.users.signUp;
 
 import ApiWorker.model.BaseModel;
 import com.google.gson.annotations.SerializedName;

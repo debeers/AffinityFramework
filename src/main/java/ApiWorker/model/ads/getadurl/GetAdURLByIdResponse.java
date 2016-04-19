@@ -1,4 +1,4 @@
-package ApiWorker.model.ads.getadurl;
+package ApiWorker.model.ads.getAdUrl;
 
 
 import com.google.gson.annotations.Expose;

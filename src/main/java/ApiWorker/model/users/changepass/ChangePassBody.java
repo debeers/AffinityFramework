@@ -1,4 +1,4 @@
-package ApiWorker.model.users.changepass;
+package ApiWorker.model.users.changePass;
 
 import ApiWorker.model.BaseModel;
 import ApiWorker.model.PostField;

@@ -31,6 +31,7 @@ public class Post {
     private String currencyType            = "";
     private boolean isNegotiable           = false;
     private String region                  = "";
+    private String city                    = "";
     private String privacyType             = "";
     private String name                    = "";
     private String phone                   = "";
@@ -49,7 +50,7 @@ public class Post {
     public Post(String category, String underCategory, String thirdCategory, String additionalParam,
                 String fourthCategory, String fourthCategoryYear, String fifthCategory, String sixthCategory, String seventhCategory,
                 String additionalParamMileage, String additionalParamEngine, String title, String description, String price,
-                String currencyType, boolean isNegotiable, String region, String privacyType, String name,
+                String currencyType, boolean isNegotiable, String region, String city, String privacyType, String name,
                 String phone, boolean hideNumber, String email, String file1, String file2, String file3,
                 String file4, String file5) {
 
@@ -70,6 +71,7 @@ public class Post {
         this.currencyType                  = currencyType;
         this.isNegotiable                  = isNegotiable;
         this.region                        = region;
+        this.city                          = city;
         this.privacyType                   = privacyType;
         this.name                          = name;
         this.phone                         = phone;
@@ -106,6 +108,7 @@ public class Post {
         this.currencyType                  = props.getProperty("CurrencyType");
         this.isNegotiable                  = Boolean.parseBoolean(props.getProperty("IsNegotiable"));
         this.region                        = props.getProperty("RegionIndex");
+        this.city                          = props.getProperty("CityIndex");
         this.privacyType                   = props.getProperty("PostAs");
         this.name                          = props.getProperty("Name");
         this.phone                         = props.getProperty("TelephoneNumber");
@@ -139,6 +142,7 @@ public class Post {
         System.out.println("CURRENCY TYPE:............... " + this.getCurrencyType());
         System.out.println("IS NEGOTIABLE:............... " + this.isNegotiable());
         System.out.println("REGION INDEX:................ " + this.getRegion());
+        System.out.println("CITY INDEX:.................. " + this.getCity());
         System.out.println("POST AS:..................... " + this.getPrivacyType());
         System.out.println("USER NAME:................... " + this.getName());
         System.out.println("TELEPHONE NUMBER:............ " + this.getPhone());
@@ -255,6 +259,12 @@ public class Post {
     public void setRegion(String region) {
         this.region = region;
     }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) { this.city = city; }
 
     public String getPrivacyType() {
         return privacyType;
