@@ -20,6 +20,12 @@ public class JSTools {
         js.executeScript(script);
     }
 
+    public static void jsDisableZopim(WebDriver driver) throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String script = "$('.zopim').remove();";
+        js.executeScript(script);
+    }
+
 
 
 }

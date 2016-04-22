@@ -1,11 +1,10 @@
 package PageObjects;
 
-import com.codeborne.selenide.Condition;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 /**
@@ -17,10 +16,10 @@ public class SuccessPostedPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[@id='third-step']/div[contains(@class,'_ta-center posting-success')]/div[contains(@class,'title')]")
     public WebElement successMessage;
 
-    @FindBy(xpath = ".//*[@class='sell_faster--item _make_vip']")
+    @FindBy(xpath = ".//*[@id='make_vip']")
     public WebElement makeVipPost;
 
-    @FindBy(xpath = ".//*[@class='sell_faster--item _highlight']")
+    @FindBy(xpath = ".//*[@id='mark_up']")
     public WebElement markPost;
 
     @FindBy(xpath = ".//*[@id='third-step']//div[@class='details']/a")

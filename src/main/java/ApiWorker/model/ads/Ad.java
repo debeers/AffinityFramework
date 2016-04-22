@@ -428,72 +428,21 @@ public class Ad extends BaseModel implements Serializable {
 
     public int getFirstThumbnailImageWidth() {
 
-//        if (images != null) {
-//
-//            List<Image> adImageList = images.getThumbnailImages();
-//            if (adImageList != null && !adImageList.isEmpty()) {
-//
-//                Image firstImage = adImageList.get(0);
-//                return firstImage.getWidth();
-//            }
-//        }
         return 0;
     }
 
     public int getFirstThumbnailHeight() {
 
-//        if (images != null) {
-//
-//            List<Image> adImageList = images.getThumbnailImages();
-//            if (adImageList != null && !adImageList.isEmpty()) {
-//
-//                Image firstImage = adImageList.get(0);
-//                return firstImage.getHeight();
-//            }
-//        }
         return 0;
     }
 
     public String getFirstThumbnailImageUrl() {
 
-//        if (images != null) {
-//
-//            List<Image> adImageList = images.getThumbnailImages();
-//            if (adImageList != null && !adImageList.isEmpty()) {
-//
-//                Image firstImage = adImageList.get(0);
-//                return firstImage.getUrl();
-//            }
-//        }
         return "";
     }
 
     public String getFormattedPrice(Context context, boolean showNegotiable) {
 
-//        if (isNegotiable())
-//            return showNegotiable ? context.getString(R.string.negotiable) : "";
-//
-//        long parsedPrice;
-//        try {
-//
-//            parsedPrice = Long.parseLong(price);
-//        } catch (NumberFormatException nfe) {
-//
-//            return "";
-//        }
-//
-//        StringBuilder priceSb = new StringBuilder("");
-//        if (parsedPrice > 0) {
-//
-//            priceSb.append(FormatUtils.getDecimalFormattedNumber(parsedPrice));
-//            if (!TextUtils.isEmpty(getCurrency())) {
-//
-//                priceSb.append(" ");
-//                priceSb.append(getCurrency().toUpperCase());
-//            }
-//        }
-//
-//        return priceSb.toString();
         return null;
     }
 }

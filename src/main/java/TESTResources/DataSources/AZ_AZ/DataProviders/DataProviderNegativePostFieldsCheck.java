@@ -356,7 +356,7 @@ public class DataProviderNegativePostFieldsCheck {
                 {RandomStringUtils.randomAlphabetic(71), ""}
         };
     }
-    ////////////////////////////////KG_KG////////////////////////////////////////////////
+    ////////////////////////////////KG_KY////////////////////////////////////////////////
 
     public static Object[][] NegativeDescription_KG_KG(){
         return new Object[][]{

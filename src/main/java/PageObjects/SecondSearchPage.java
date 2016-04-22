@@ -16,16 +16,16 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class SecondSearchPage extends TopMenuGeneralPage {
 
-    @FindBy(xpath = ".//*[@id='search']/div[1]/div[2]/input")
+    @FindBy(xpath = ".//*[@id='search_input']")
     public WebElement searchField;
 
     @FindBy(xpath = ".//*[@id='search']//a[contains(@class,'btn-search')]")
     public WebElement searchButton;
 
-    @FindBy(xpath = ".//*[@id='search']/div[1]/div[1]/div/a")
+    @FindBy(xpath = ".//*[@id='categories_select_chosen']/a")
     public WebElement categorieMenu;
 
-    @FindBy(xpath = ".//*[@id='search']/div[1]/div[1]/div/div/ul/li")
+    @FindBy(xpath = ".//*[@id='categories_select_chosen']/div/ul/li")
     public List<WebElement> categoriesListDropMenu;
 
     @FindBy(xpath = ".//*[@id='category-filters']//a[contains(@class,'chosen-single')]")
@@ -34,13 +34,13 @@ public class SecondSearchPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[@id='category-filters']//ul[contains(@class,'chosen-results')]/li")
     public List<WebElement> underCategoriesListDropMenu;
 
-    @FindBy(xpath = ".//*[@id='search']//div[3]/div/a[contains(@class,'chosen-single')]")
+    @FindBy(xpath = ".//*[@id='cities_chosen']/a")
     public WebElement cityMenu;
 
-    @FindBy(xpath = ".//*[@id='search']/div[1]/div[3]/div/div/ul/li")
+    @FindBy(xpath = ".//*[@id='cities_chosen']/div/ul/li")
     public List<WebElement> citiesList;
 
-    @FindBy(xpath = "//div[contains(@class,'category-items')]//div[contains(@class,'category-item clearfix')]")
+    @FindBy(xpath = "//*[@id='yw0']/div[contains(@class,'category-item clearfix')]")
     public List<WebElement> searchResultsList;
 
     @FindBy(xpath = ".//*[@id='categories']//ul/li/a")

@@ -7,7 +7,7 @@ import static TESTResources.FileSearch.searchResources;
 import static TESTResources.LOCAL.*;
 import static Tests.BaseTest.DATA_SOURCE_DIR;
 import static Tests.BaseTest.baseUrl;
-import static UtilsGUI.PropertiesLoader.propertyXMLoader;
+import static TESTResources.PropertiesLoader.propertyXMLoader;
 
 /**
  * Created by DeBeers on 13.04.2016.

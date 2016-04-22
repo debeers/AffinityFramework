@@ -5,7 +5,7 @@
     <!--Credentials: -->
 
     <parameter name="clientLoginParam"     value="debeers1989@gmail.com"         />
-    <parameter name="clientPasswordParam"  value="roottoor"                     />
+    <parameter name="clientPasswordParam"  value="11111"                     />
     <!--Credentials: END -->
 
     <!--DB CONNECTION -->
@@ -38,19 +38,19 @@
 
     <test name="TESTSubCategoryValidationAZ_AZ">
         <classes>
-            <class name="Tests.Smoke.TESTUndercategoryValidation"/>
+            <class name="Tests.GUITests.TESTAddPost.TESTUndercategoryValidation"/>
         </classes>
     </test>
 
     <test name="TESTThirdSubcategoryValidationAZ_AZ">
         <classes>
-            <class name="Tests.Smoke.TESTThirdSubcategoryValidation"/>
+            <class name="Tests.GUITests.TESTAddPost.TESTThirdSubcategoryValidation"/>
         </classes>
     </test>
 
     <test name="TESTFourthCategoryValidationAZ_AZ">
         <classes>
-            <class name="Tests.Smoke.TESTFourthCategoryValidation"/>
+            <class name="Tests.GUITests.TESTAddPost.TESTFourthCategoryValidation"/>
         </classes>
     </test>
 
@@ -62,7 +62,7 @@
 
         <test name="TEST_PositiveLogin_AZ_AZ">
             <classes>
-                <class name="Tests.GUITests.TESTLogin.TESTPositiveLogin"/>
+                <class name="Tests.Smoke.TESTPositiveLogin"/>
             </classes>
         </test>
 
@@ -74,7 +74,7 @@
 
         <test name="TEST_AddNewPost_AZ_AZ">
             <classes>
-                <class name="Tests.GUITests.TESTAddPost.TESTAddNewPost"/>
+                <class name="Tests.Smoke.TESTAddNewPost"/>
             </classes>
         </test>
 
@@ -116,7 +116,7 @@
 
         <test name="TEST_PostPageIsAvailable_AZ_AZ">
             <classes>
-                <class name="Tests.GUITests.TESTAddPost.TESTPostPageIsAvailable"/>
+                <class name="Tests.Smoke.TESTPostPageIsAvailable"/>
             </classes>
         </test>
 
@@ -129,7 +129,7 @@
 
         <test name="TEST_Registration_Positive_AZ_AZ">
             <classes>
-                <class name="Tests.GUITests.TESTRegistration.TESTRegistrationPositive"/>
+                <class name="Tests.Smoke.TESTRegistrationPositive"/>
             </classes>
         </test>
 

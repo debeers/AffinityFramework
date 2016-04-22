@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Affinity full regression suite AZ">
+<suite name="Affinity full regression suite AZ in RU language">
 
     <!--Credentials: -->
 
@@ -19,9 +19,10 @@
     <parameter name="userPhone" value="+994-701231231"/>
 
     <!--Properties: -->
-    <parameter name="URL" value="http://lalafo.az/ru/"/>
+    <parameter name="URL" value="http://lalafo.az/ru"/>
 
-    <test name="TEST_RegisterAUser_AZ_RU">
+
+    <!--<test name="TEST_RegisterAUser_AZ_RU">
         <classes>
             <class name="Tests.APITests.TESTApiGetAdById"/>
         </classes>
@@ -47,7 +48,13 @@
 
     <test name="TEST_PositiveLogin_AZ_RU">
         <classes>
-            <class name="Tests.GUITests.TESTLogin.TESTPositiveLogin"/>
+            <class name="Tests.GUITests.TESTLogin.TESTLoginVerificationWithAllOperatorstionWithAllOperators"/>
+        </classes>
+    </test>
+
+    <test name="TESTRegistrationWithAllOperatorsAZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationWithAllOperators"/>
         </classes>
     </test>
 
@@ -146,7 +153,7 @@
         <classes>
             <class name="Tests.Smoke.TESTFourthCategoryValidation"/>
         </classes>
-    </test>
+    </test>-->
 
 
 </suite>

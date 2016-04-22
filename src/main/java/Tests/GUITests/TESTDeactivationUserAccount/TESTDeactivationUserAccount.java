@@ -1,12 +1,14 @@
 package Tests.GUITests.TESTDeactivationUserAccount;
 
 import Entities.User;
+import TESTResources.ResourcesFactory;
 import Tests.BaseTest;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.util.Properties;
 
 import static Actions.GUI_Actions.Registration.registerNewUser;
 
@@ -17,11 +19,10 @@ public class TESTDeactivationUserAccount extends BaseTest {
 
     @Test
     public void DeactivationUserAccount() throws IOException, InterruptedException {
-        //Properties props = propertyXMLoader(System.getProperty("user.dir") +
-        //        "/src/main/java/Tests/GUITests/TESTRegistration/TEST_RegistrationData.xml");
+        Properties props = new ResourcesFactory().getResources("DeactivationUserAccount");
 
-        String userPhone    = "70" + RandomStringUtils.randomNumeric(7);
-        String email        = "GUI_TEST_" + RandomStringUtils.randomAlphabetic(9) + "@mail.com";//props.getProperty("emailDomain");
+        String userPhone    = "70" + props.getProperty("mobilePhoneNumber");
+        String email        = "GUI_TEST_" + RandomStringUtils.randomAlphabetic(9) + "@mail.com";
         String password     = "TEST_USER_" + RandomStringUtils.randomNumeric(7) + "_@gmail.com";
 
         User user = new User(userPhone , email , password);

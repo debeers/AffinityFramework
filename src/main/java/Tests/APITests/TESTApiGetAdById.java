@@ -13,7 +13,7 @@ import java.util.Properties;
 
 import static Actions.API_Actions.PostWorker.createNewPostViaAPI;
 import static Actions.API_Actions.PostWorker.getPostByIdViaAPI;
-import static UtilsGUI.PropertiesLoader.propertyXMLoader;
+import static TESTResources.PropertiesLoader.propertyXMLoader;
 
 public class TESTApiGetAdById extends BaseTest {
 

@@ -15,13 +15,13 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class MainPage extends TopMenuGeneralPage {
 
-    @FindBy(xpath = "*//ul/following-sibling::a[@class='post-free-ad btn green']")
+    @FindBy(xpath = ".//a[@id='post_ad_header']")
     public WebElement addNewPostButtonTop;
 
-    @FindBy(xpath = ".//*[@id='search']//input[contains(@class,'form-input form-field-xs form-search-long')]")
+    @FindBy(xpath = ".//input[@id='search_input']")
     public WebElement searchField;
 
-    @FindBy(xpath = ".//*[@id='search']/div/a")
+    @FindBy(xpath = ".//a[@id='search_button']")
     public WebElement searchButton;
 
     @FindBy(xpath = ".//*[@id='usernames_chosen']/a")

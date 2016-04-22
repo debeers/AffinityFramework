@@ -18,7 +18,7 @@
 
     <entry key="username">GUI_TEST_USER</entry>
     <entry key="Email">debeers1989@gmail.com</entry>
-    <entry key="mobile">+996-778888888</entry>
+    <entry key="mobile">+994-778888888</entry>
 
     <entry key="testAPI">1</entry>
     <entry key="resultSet">SELECT l_name FROM location_lang WHERE location_id=</entry>

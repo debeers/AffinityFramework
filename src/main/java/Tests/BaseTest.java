@@ -30,6 +30,8 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
+import static GeneralHelpers.JSTools.jsDisableZopim;
+
 
 public class BaseTest {
 
@@ -68,7 +70,7 @@ public class BaseTest {
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
     @BeforeClass(alwaysRun = true)
     public void setUp(String URL, String clientLoginParam, String clientPasswordParam)
-            throws ClassNotFoundException, IOException, SQLException {
+            throws ClassNotFoundException, IOException, SQLException, InterruptedException {
 
         String TestClassName = this.getClass().getName();
         System.out.println(TestClassName);
@@ -86,11 +88,24 @@ public class BaseTest {
         fProfile.setPreference("browser.download.manager.showWhenStarting", false);
         fProfile.setPreference("browser.helperApps.alwaysAsk.force", false);
         fProfile.setPreference("browser.helperApps.neverAsk.saveToDisk", "text/plain");
+        fProfile.setPreference("network.http.connection-timeout", 5);
 
         DesiredCapabilities dc = DesiredCapabilities.firefox();
         dc.setCapability(CapabilityType.PROXY, seleniumProxy);
         dc.setJavascriptEnabled(true);
         dc.setCapability(FirefoxDriver.PROFILE, fProfile);
+        server.blacklistRequests("\\*.zopim\\.com/.\\*", 200);
+        server.blacklistRequests("\\*.zopim\\.com/.\\*", 101);
+        server.blacklistRequests("https?://.*\\.google-analytics\\.com/.*", 200);
+        server.blacklistRequests("http://.*\\.fbcdn.net/.*", 200);
+        server.blacklistRequests("http://.*\\.facebook.com/.*", 200);
+        server.blacklistRequests("http://.*\\.plusone.google.com/.*", 200);
+        server.blacklistRequests("http://.*\\.zopim\\.com/.*", 200);
+        server.blacklistRequests("http://v2.zopim.com/.*", 200);
+        server.blacklistRequests("http://jp08.zopim.com/.*", 200);
+        server.blacklistRequests("http://jp04.zopim.com/.*", 200);
+        server.blacklistRequests("\t\n" +
+                "jp04.zopim.com", 101);
 
         driver = WebDriverFactory.getDriver(dc);
         driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
@@ -100,7 +115,10 @@ public class BaseTest {
         server.newHar("lalafo.az");
 
 //        try {
-         driver.get(URL);
+        driver.get(URL);
+        jsDisableZopim(driver);
+
+
 ////            Assert.assertTrue(driver.getCurrentUrl().contains(URL), "We are not on main page!"
 ////                    + driver.getCurrentUrl() + "  But expected:::: " + URL);
 //        } catch (Exception e) {

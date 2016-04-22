@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class UserSettingsPage extends TopMenuGeneralPage{
 
-    @FindBy(xpath = ".//*[@id='accordion']/div[3]/div[1]/h4/a")
+    @FindBy(xpath = ".//*[@id='delete_profile']")
     public WebElement deleteCabinetAccordion;
 
     @FindBy(xpath = ".//*[@id='deleteAccount']")

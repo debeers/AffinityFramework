@@ -2,7 +2,7 @@ package Tests.GUITests.TESTAddPost.NEGATIVE;
 
 import PageObjects.MainPage;
 import PageObjects.PostPage;
-import TESTResources.DataSources.AZ_RU.DataProviders.DataProviderInjections;
+import TESTResources.DataSources.AZ_AZ.DataProviders.DataProviderInjections;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;

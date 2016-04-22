@@ -35,7 +35,7 @@ public class DataProviderCategoriesBD {
         }
         else if ("TESTSubCategoryValidationKG_KG".equals(testName)) {
             result.addAll(Arrays.asList(Undercategory_KG_KG()));
-            System.out.println("Data Provider for:: KG_KG suite used  ");
+            System.out.println("Data Provider for:: KG_KY suite used  ");
             return result.toArray(new Object[result.size()][]);
         }
         else {
@@ -91,7 +91,7 @@ public class DataProviderCategoriesBD {
             result.addAll(Arrays.asList(FourthCategory_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TEST_fourthCategory_validation_KG_KG".equals(testName)) {
+        else if ("TEST_fourthCategory_validationKG_KG".equals(testName)) {
             result.addAll(Arrays.asList(FourthCategory_KG_KG()));
             return result.toArray(new Object[result.size()][]);
         }

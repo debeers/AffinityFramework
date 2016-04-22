@@ -1,0 +1,69 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Affinity SMOKE suite KG in KG language" parallel="tests" thread-count="1">
+
+    <!--Credentials: -->
+
+    <parameter name="clientLoginParam"     value="debeers1989@gmail.com"         />
+    <parameter name="clientPasswordParam"  value="11111"                     />
+    <!--Credentials: END -->
+
+    <!--DB CONNECTION -->
+    <parameter name="DB_DRIVER"      value="oracle.jdbc.driver.OracleDriver"         />
+    <parameter name="DB_CONNECTION"  value="jdbc:mysql://78.47.248.187/lalafo_kg"   />
+    <parameter name="DB_USER"        value="read_only"                             />
+    <parameter name="DB_PASSWORD"    value="K3sZwPBEvNv5c7YJ9GMh"                 />
+
+    <!--Properties: -->
+    <parameter name = "URL"  value="http://lalafo.kg/ky"/>
+
+    <test name="TEST_Registration_Positive_KG_KY">
+        <classes>
+            <class name="Tests.Smoke.TESTRegistrationPositive"/>
+        </classes>
+    </test>
+
+    <test name="TEST_RegisterAUser_KG_KY">
+        <classes>
+            <class name="Tests.APITests.TESTRegisterAUser"/>
+        </classes>
+    </test>
+
+    <test name="TEST_PositiveLogin_KG_KY">
+        <classes>
+            <class name="Tests.Smoke.TESTPositiveLogin"/>
+        </classes>
+    </test>
+
+    <test name=" TEST_SQLConnect_KG_KY">
+        <classes>
+            <class name="Tests.SQLTests.TESTConnectSQL"/>
+        </classes>
+    </test>
+
+    <test name="TEST_AddNewPost_KG_KY">
+        <classes>
+            <class name="Tests.Smoke.TESTAddNewPost"/>
+        </classes>
+    </test>
+
+    <test name="TEST_DeactivationUserAccount.DeactivationUserAccount_KG_KY">
+        <classes>
+            <class name="Tests.Smoke.TESTDeactivationUserAccount"/>
+        </classes>
+    </test>
+
+    <test name="TEST_PostPageIsAvailable_KG_KY">
+        <classes>
+            <class name="Tests.Smoke.TESTPostPageIsAvailable"/>
+        </classes>
+    </test>
+
+    <test name="TEST_Search_KG_KY">
+        <classes>
+            <class name="Tests.Smoke.TESTSearch"/>
+        </classes>
+    </test>
+
+
+</suite>

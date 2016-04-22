@@ -1,0 +1,11 @@
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <!--Test Data -->
+
+    <entry key="City">9</entry>
+    <entry key="Category">2</entry>
+    <entry key="UnderCategory">2</entry>
+    <entry key="SearchRequest">iPod</entry>
+
+</properties>

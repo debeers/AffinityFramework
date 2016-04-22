@@ -18,25 +18,25 @@ public class TopMenuGeneralPage extends BasePageObject {
     @FindBy(xpath = ".//div[contains(@class,'logo pull-left')]/a")
     public WebElement lalafoTopMenuLink;
 
-    @FindBy(xpath = ".//ul[contains(@class,'user-nav')]/li[1]/div/a")
+    @FindBy(xpath = ".//a[@id='personal_profile]")
     public WebElement userAccountTopMenuLink;
 
-    @FindBy(xpath = ".//ul[contains(@class,'user-nav')]/li[2]/a")
+    @FindBy(xpath = ".//a[@id='language']")
     public WebElement localizationTopMenuLink;
 
-    @FindBy(xpath = ".//ul[contains(@class,'user-nav')]/following-sibling::a[contains(@class,'post-free-ad btn green')]")
+    @FindBy(xpath = ".//a[@id='post_ad_header']")
     public WebElement postAddTopMenuButton;
 
-    @FindBy(xpath = ".//*[@id='account-nav']/ul/li[1]/a")
+    @FindBy(xpath = ".//a[@id='my_ads']")
     public WebElement myAddsTopMenuUserMenuLink;
 
-    @FindBy(xpath = ".//*[@id='account-nav']/ul/li[2]/a")
+    @FindBy(xpath = ".//a[@id='my_messages']")
     public WebElement myMessagesTopMenuUserMenuLink;
 
-    @FindBy(xpath = ".//*[@id='account-nav']/ul/li[3]/a")
+    @FindBy(xpath = ".//a[@id='my_settings']")
     public WebElement mySettingsTopMenuUserMenuLink;
 
-    @FindBy(xpath = ".//*[@id='account-nav']/ul/li[4]/a")
+    @FindBy(xpath = ".//a[@id='my_exit']")
     public WebElement exitTopMenuUserMenuLink;
 
 
@@ -68,16 +68,6 @@ public class TopMenuGeneralPage extends BasePageObject {
 
         return new LoginPage(driver);
     }
-
-    /*public Object clickOnUserAccountLinkWithPhone(String userPhone) {
-        WebElement accLinc = $(userAccountTopMenuLink).shouldBe(visible);
-
-        if(accLinc.getText().contains(userPhone)){
-            accLinc.click();
-            return new UserAccountPage(driver);
-        } else accLinc.click();
-        return new LoginPage(driver);
-    }*/
 
     public void clickOnLocalizationTopMenuLink(){
         $(localizationTopMenuLink).shouldBe(visible).click();

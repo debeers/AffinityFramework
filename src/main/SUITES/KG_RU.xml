@@ -38,7 +38,7 @@
 
     <test name="TEST_PositiveLogin_KG_RU">
         <classes>
-            <class name="Tests.GUITests.TESTLogin.TESTPositiveLogin"/>
+            <class name="Tests.Smoke.TESTPositiveLogin"/>
         </classes>
     </test>
 
@@ -50,7 +50,7 @@
 
     <test name="TEST_AddNewPost_KG_RU">
         <classes>
-            <class name="Tests.GUITests.TESTAddPost.TESTAddNewPost"/>
+            <class name="Tests.Smoke.TESTAddNewPost"/>
         </classes>
     </test>
 
@@ -78,11 +78,11 @@
         </classes>
     </test>
 
-    <test name="TEST_API_getAdById_KG_RU">
+    <!--<test name="TEST_API_getAdById_KG_RU">
         <classes>
             <class name="Tests.APITests.TESTApiGetAdById"/>
         </classes>
-    </test>
+    </test>-->
 
     <test name="TEST_PostThirdLevelCat_KG_RU">
         <classes>
@@ -92,7 +92,7 @@
 
     <test name="TEST_PostPageIsAvailable_KG_RU">
         <classes>
-            <class name="Tests.GUITests.TESTAddPost.TESTPostPageIsAvailable"/>
+            <class name="Tests.Smoke.TESTPostPageIsAvailable"/>
         </classes>
     </test>
 
@@ -105,7 +105,7 @@
 
     <test name="TEST_Registration_Positive_KG_RU">
         <classes>
-            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationPositive"/>
+            <class name="Tests.Smoke.TESTRegistrationPositive"/>
         </classes>
     </test>
 
@@ -124,25 +124,25 @@
 
     <test name="TEST_RegisterAUser_KG_RU">
         <classes>
-            <class name="Tests.APITests.TESTApiGetAdById"/>
+            <class name="Tests.APITests.TESTRegisterAUser"/>
         </classes>
     </test>
 
     <test name="TESTSubCategoryValidationKG_RU">
         <classes>
-            <class name="Tests.Smoke.TESTUndercategoryValidation"/>
+            <class name="Tests.GUITests.TESTAddPost.TESTUndercategoryValidation"/>
         </classes>
     </test>
 
     <test name="TESTThirdSubcategoryValidationKG_RU">
         <classes>
-            <class name="Tests.Smoke.TESTThirdSubcategoryValidation"/>
+            <class name="Tests.GUITests.TESTAddPost.TESTThirdSubcategoryValidation"/>
         </classes>
     </test>
 
     <test name="TESTFourthCategoryValidationKG_RU">
         <classes>
-            <class name="Tests.Smoke.TESTFourthCategoryValidation"/>
+            <class name="Tests.GUITests.TESTAddPost.TESTFourthCategoryValidation"/>
         </classes>
     </test>
 </suite>

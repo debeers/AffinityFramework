@@ -17,19 +17,19 @@ import static com.codeborne.selenide.Selenide.$$;
 public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler {
 
 
-    @FindBy(xpath = ".//input[contains(@name,'mobile')]")
+    @FindBy(xpath = ".//*[@id='phone_number']")
     public WebElement mobilePhoneNumberField;
 
-    @FindBy(xpath = ".//input[contains(@name,'email')]")
+    @FindBy(xpath = ".//*[@id='user-email']")
     public WebElement emailField;
 
-    @FindBy(xpath = ".//input[contains(@name,'password')]")
+    @FindBy(xpath = ".//*[@id='password']")
     public WebElement passwordField;
 
-    @FindBy(xpath = ".//input[contains(@name,'passwordConfirm')]")
+    @FindBy(xpath = ".//*[@id='password_confirm']")
     public WebElement passwordConfirmField;
 
-    @FindBy(xpath = ".//input[contains(@name,'register-submit')]")
+    @FindBy(xpath = ".//*[@id='register_btn']")
     public WebElement registrationButton;
 
     @FindBy(xpath = ".//*[@id='Register form']//div[contains(@class,'error-message')]/ul/li[1]")

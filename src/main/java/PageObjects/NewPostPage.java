@@ -7,18 +7,6 @@ import org.openqa.selenium.WebDriver;
  */
 public class NewPostPage extends TopMenuGeneralPage {
 
-
-
-
-
-
-
-
-
-
-
-
-
     public NewPostPage(WebDriver driver) {
         super(driver);
     }

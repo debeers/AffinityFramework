@@ -118,7 +118,7 @@ public class PostAdd {
         postPage.UploadImages(post, countOfFilesToUpload);
         postPage.setPostTitle(post.getTitle());
         postPage.setDescription(post.getDescription());
-        ifSetNegotiatablePrice(postPage, post);
+        ifSetNegotiablePrice(postPage, post);
         postPage.setRegion(post.getRegion());
         setCityIfExists(postPage, post);
         postPage.setPostAs(post.getPrivacyType());
@@ -136,19 +136,19 @@ public class PostAdd {
 //        else return descriptionParam;
 //    }
 
-    public static void ifSetNegotiatablePrice(PostPage postPage, Post post) throws InterruptedException {
+    public static void ifSetNegotiablePrice(PostPage postPage, Post post) throws InterruptedException {
 
-        if(!post.isNegotiable()) {
+        if(!post.isNegotiable() && !post.getCurrencyType().equals("null ")) {
             postPage.setPrice(post.getPrice());
             postPage.setCurrency(post.getCurrencyType());
         }
         else {
-            System.out.println("You are set negotiatible price");
+            System.out.println("You have set negotiable price");
             postPage.checkIsNegotiableCheckBox(post.isNegotiable());
         }
 
         if(isPriceFieldInactive(postPage)){
-            System.out.println("Price field is active with negotiatable price setted! Bug catched!");
+            System.out.println("Price field is active with negotiable price set! Bug caught!");
         }
 
     }

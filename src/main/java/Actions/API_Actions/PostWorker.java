@@ -44,15 +44,4 @@ public class PostWorker {
         Call<GetAdByIdResponse> getAdById = APIManager.getInstance().getAdById(postId);
         return getAdById.execute().body().getAdList().get(0);
     }
-
-
-    /*public static Ad getAdsViaAPI(Properties props , long postId) throws IOException {
-        AdFilter filter = new AdFilter();
-        filter.setCategoryId(Long.parseLong(props.getProperty("category_id")));
-        //filter.setLocationId(1);
-        Call<GetAdsResponse> getAdsList = APIManager.getInstance().getAdList(filter,1);
-        return getAdsList.execute().body().getData().getAd(postId);
-    }*/
-
-
 }

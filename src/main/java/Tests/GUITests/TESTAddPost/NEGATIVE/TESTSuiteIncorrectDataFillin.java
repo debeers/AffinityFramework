@@ -3,7 +3,7 @@ package Tests.GUITests.TESTAddPost.NEGATIVE;
 import PageObjects.ErrorHandler;
 import PageObjects.MainPage;
 import PageObjects.PostPage;
-import TESTResources.DataSources.AZ_RU.DataProviders.DataProviderNegativePostFieldsCheck;
+import TESTResources.DataSources.AZ_AZ.DataProviders.DataProviderNegativePostFieldsCheck;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;

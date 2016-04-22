@@ -67,8 +67,6 @@ public class APIManager {
     private HashMap<Long, GetPostFieldsResponse> mPostFieldsResponseCache;
     private HashMap<Long, CategoryParamsResponse> mCategoryParamsResponseCache;
 
-    //private AppRetrofitUrl mRetrofitEndpoint;
-
     private void clearCache() {
 
         clearPostFieldsCache();
@@ -141,15 +139,11 @@ public class APIManager {
 
     private void updateEndpoint() {
 
-//        if (mRetrofitEndpoint != null)
-//            mRetrofitEndpoint.setEndpoint(getCurrentAppEndpoint());
     }
 
 
     public static void init() {
 
-//        if (mInstance == null)
-//            mInstance = new APIManager(app);
     }
 
     public static APIManager getInstance() {
@@ -372,31 +366,6 @@ public class APIManager {
         return call;
     }
 
-//    public boolean addPushToken(String token) throws IOException {
-//
-//        List<PostField> postFieldList = new LinkedList<>();
-//        postFieldList.add(new PostField(PostField.TOKEN, token));
-//        postFieldList.add(new PostField(PostField.PLATFORM, "android"));
-//
-//        Call<String> call = mAPIService.addPushToken(BaseModel.toRequestBody(postFieldList));
-//        Response<AddPushTokenResponse> response = call.execute();
-//
-//        return isStatusOK(response);
-//    }
-//
-//    public boolean deletePushToken(String token, long userId) throws IOException {
-//
-//        List<PostField> postFieldList = new LinkedList<>();
-//        postFieldList.add(new PostField(PostField.TOKEN, token));
-//        postFieldList.add(new PostField(PostField.PLATFORM, "android"));
-//        postFieldList.add(new PostField(PostField.DELETE, "1"));
-//
-//        Call<String> call = mAPIService.deletePushToken(userId, BaseModel.toRequestBody(postFieldList));
-//        Response<DeletePushTokenResponse> response = call.execute();
-//
-//        return isStatusOK(response);
-//    }
-
     public Call sendMessage(long chatId, String msg, String userHash) throws IOException {
 
         List<PostField> postFieldList = new LinkedList<>();
@@ -504,41 +473,6 @@ public class APIManager {
 
     private Call getErrorMsg(Throwable error, String method) {
 
-//        String errorDesc = "";
-//        if (error instanceof UserAPIException)
-//            errorDesc = error.getMessage();
-//        else {
-//
-//            CrashlyticsHelper.trackAPIIssue(error, method);
-//
-//            if (error instanceof IOException)
-//                return mApp.getString(R.string.error_internet_connection);
-//        }
-//
-//        if (TextUtils.isEmpty(errorDesc))
-//            errorDesc = mApp.getString(R.string.error_something_happened);
-//
-//        return errorDesc;
         return null;
     }
-
-//    private String getServerErrorMsg(Response response, String method) {
-//
-//        String errorDesc = "";
-//        try {
-//
-//            CrashlyticsHelper.trackAPIIssue(response, method);
-//        } catch (Throwable th) {
-//
-//            MyLogger.e(TAG, "Failed to execute getServerErrorMsg ", th);
-//        } finally {
-//
-//            if (TextUtils.isEmpty(errorDesc))
-//                errorDesc = mApp.getString(R.string.error_something_happened);
-//        }
-//
-//        return null;
-//    }
-
-
 }

@@ -10,19 +10,19 @@ import org.openqa.selenium.support.FindBy;
 public class UserAccountPage extends TopMenuGeneralPage {
 
 
-    @FindBy(xpath = ".//a[contains(@class,'post-free-ad btn dblue pull-right')]")
+    @FindBy(xpath = ".//a[@id='post_add_blue_btn']")
     public WebElement addNewPostButtonFromUserAccount;
 
-    @FindBy(xpath = ".//span[contains(@class,'astat-value')]")
-    public WebElement messagesCounter;
+    @FindBy(xpath = ".//span[@id='ads_counter']")
+    public WebElement adsCounter;
 
-    @FindBy(xpath = ".//div[contains(@class,'account-main-nav clearfix')]//li[1]/a")
+    @FindBy(xpath = ".//a[@id='my_ads_tab']")
     public WebElement myPostsUserNav;
 
-    @FindBy(xpath = ".//div[contains(@class,'account-main-nav clearfix')]//li[2]/a")
+    @FindBy(xpath = ".//a[@id='my_messages_tab']")
     public WebElement myMessagesUserNav;
 
-    @FindBy(xpath = ".//div[contains(@class,'account-main-nav clearfix')]//li[3]/a")
+    @FindBy(xpath = ".//a[@id='my_settings_tab']")
     public WebElement mySettingsUserNav;
 
     @FindBy(xpath = ".//div[contains(@class,'alert alert-success alert-dismissible')]")

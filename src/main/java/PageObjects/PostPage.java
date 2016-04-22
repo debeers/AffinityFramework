@@ -121,7 +121,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='1']//input[contains(@class,'yalla-upload-button')]")
     public List<WebElement> uploadPhotoButton;
 
-    @FindBy(xpath = ".//*[@id='first-step']/div[3]/div[3]/input")
+    @FindBy(xpath = ".//*[@id='title']")
     public WebElement titleField;
 
     @FindBy(id = "loader")
@@ -130,7 +130,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='decription']")
     public WebElement descriptionField;
 
-    @FindBy(xpath = ".//*[@id='priceBlock']/input")
+    @FindBy(xpath = ".//*[@id='price']")
     public WebElement priceField;
 
     @FindBy(xpath = ".//*[@id='categories-and-params']//div[1]/a")
@@ -142,7 +142,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='currencies']")
     public WebElement choseCurrency;
 
-    @FindBy(xpath = ".//*[@id='priceBlock']/label[2]")
+    @FindBy(xpath = ".//*[@id='isNegotiable']")
     public WebElement isNegotiableCheckBox;
 
     @FindBy(xpath = ".//*[@id='regionId_chosen']/a")
@@ -157,22 +157,22 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='for-cities']/div[1]/div/div/ul/li[@class='active-result'][position()>0]")
     public List<WebElement> citiesList;
 
-    @FindBy(xpath = ".//*[@id='first-step']//label[contains(@class,'label-radio')][1]")
+    @FindBy(xpath = ".//*[@id='advert_type_private']")
     public WebElement radioButtonPrivate;
 
-    @FindBy(xpath = ".//*[@id='first-step']//label[contains(@class,'label-radio')][2]")
+    @FindBy(xpath = ".//*[@id='advert_type_bussiness']")
     public WebElement radioButtonBusiness;
 
-    @FindBy(xpath = ".//input[contains(@name,'name')]")
+    @FindBy(xpath = ".//*[@id='name']")
     public WebElement nameField;
 
-    @FindBy(xpath = ".//input[contains(@name,'telephone')]")
+    @FindBy(xpath = ".//*[@id='phone_number']")
     public WebElement phoneField;
 
-    @FindBy(xpath = ".//*[@id='first-step']//label[contains(@for,'hideTelephone')]")
+    @FindBy(xpath = ".//*[@id='hideTelephone']")
     public WebElement hidePhoneCheckBox;
 
-    @FindBy(xpath = ".//input[contains(@name,'email')]")
+    @FindBy(xpath = ".//*[@id='email']")
     public WebElement emailField;
 
     @FindBy(xpath = ".//*[@id='preview-ad']")
