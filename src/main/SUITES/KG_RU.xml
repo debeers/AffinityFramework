@@ -30,7 +30,7 @@
         </classes>
     </test>
 
-    <test name="TESTSuiteIncorrectDataFillinKG_RU">
+    <test name="TESTSuiteIncorrectDataFillin_KG_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteIncorrectDataFillin"/>
         </classes>
@@ -134,13 +134,13 @@
         </classes>
     </test>
 
-    <test name="TESTThirdSubcategoryValidationKG_RU">
+    <test name="TESTThirdSubcategoryValidation_KG_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTThirdSubcategoryValidation"/>
         </classes>
     </test>
 
-    <test name="TESTFourthCategoryValidationKG_RU">
+    <test name="TESTFourthCategoryValidation_KG_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTFourthCategoryValidation"/>
         </classes>

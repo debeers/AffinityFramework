@@ -52,7 +52,7 @@
         </classes>
     </test>
 
-    <test name="TESTRegistrationWithAllOperatorsAZ_RU">
+    <test name="TESTRegistrationWithAllOperators_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTRegistration.TESTRegistrationWithAllOperators"/>
         </classes>
@@ -131,25 +131,25 @@
         </classes>
     </test>
 
-    <test name="TESTSuiteIncorrectDataFillinAZ_RU">
+    <test name="TESTSuiteIncorrectDataFillin_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteIncorrectDataFillin"/>
         </classes>
     </test>
 
-    <test name="TESTSubCategoryValidationAZ_RU">
+    <test name="TESTSubCategoryValidation_AZ_RU">
         <classes>
             <class name="Tests.Smoke.TESTUndercategoryValidation"/>
         </classes>
     </test>
 
-    <test name="TESTThirdSubcategoryValidationAZ_RU">
+    <test name="TESTThirdSubcategoryValidation_AZ_RU">
         <classes>
             <class name="Tests.Smoke.TESTThirdSubcategoryValidation"/>
         </classes>
     </test>
 
-    <test name="TESTFourthCategoryValidationAZ_RU">
+    <test name="TESTFourthCategoryValidation_AZ_RU">
         <classes>
             <class name="Tests.Smoke.TESTFourthCategoryValidation"/>
         </classes>

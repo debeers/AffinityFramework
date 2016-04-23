@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Affinity SMOKE suite AZ in AZ language" parallel="tests" thread-count="1">
+<suite name="Affinity SMOKE suite AZ in AZ language">
 
     <!--Credentials: -->
 

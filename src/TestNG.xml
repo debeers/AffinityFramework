@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <!--suppress ALL -->
-<suite name="Test" parallel="tests" thread-count="3">
+<suite name="Test">
 
     <suite-files>
 
@@ -11,6 +11,10 @@
         <suite-file path="src\main\SUITES\Smoke_AZ_RU.xml"/>
         <suite-file path="src\main\SUITES\Smoke_KG_RU.xml"/>
         <suite-file path="src\main\SUITES\Smoke_KG_KY.xml"/>
+        <suite-file path="src\main\SUITES\Smoke_AF_Dari.xml"/>
+        <suite-file path="src\main\SUITES\Smoke_AF_EN.xml"/>
+        <suite-file path="src\main\SUITES\Smoke_AF_PS.xml"/>
+        <suite-file path="src\main\SUITES\Smoke_NP_EN.xml"/>
         <!--<suite-file path="src\main\SUITES\AZ_RU.xml"/>
         <suite-file path="src\main\SUITES\AZ_AZ.xml"/>
         <suite-file path="src\main\SUITES\KG_RU.xml"/>-->

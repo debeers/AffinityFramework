@@ -138,7 +138,7 @@ public class PostAdd {
 
     public static void ifSetNegotiablePrice(PostPage postPage, Post post) throws InterruptedException {
 
-        if(!post.isNegotiable() && !post.getCurrencyType().equals("null ")) {
+        if(!post.isNegotiable() && !post.getCurrencyType().equals("null")) {
             postPage.setPrice(post.getPrice());
             postPage.setCurrency(post.getCurrencyType());
         }

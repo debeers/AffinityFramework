@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Affinity full regression suite AZ" >
+<suite name="Affinity full regression suite AZ in AZ lang" >
 
     <!--Credentials: -->
 
@@ -36,25 +36,25 @@
     </test>
 
 
-    <test name="TESTSubCategoryValidationAZ_AZ">
+    <test name="TESTSubCategoryValidation_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTUndercategoryValidation"/>
         </classes>
     </test>
 
-    <test name="TESTThirdSubcategoryValidationAZ_AZ">
+    <test name="TESTThirdSubcategoryValidation_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTThirdSubcategoryValidation"/>
         </classes>
     </test>
 
-    <test name="TESTFourthCategoryValidationAZ_AZ">
+    <test name="TESTFourthCategoryValidation_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTFourthCategoryValidation"/>
         </classes>
     </test>
 
-        <test name="TESTSuiteIncorrectDataFillinAZ_AZ">
+        <test name="TESTSuiteIncorrectDataFillin_AZ_AZ">
             <classes>
                 <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteIncorrectDataFillin"/>
             </classes>
