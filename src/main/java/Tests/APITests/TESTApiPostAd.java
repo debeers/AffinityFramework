@@ -1,6 +1,8 @@
 package Tests.APITests;
 
 import ApiWorker.APIManager;
+import ApiWorker.model.PostField;
+import ApiWorker.model.ads.postAd.PostAdBody;
 import Tests.BaseTest;
 import org.testng.annotations.Test;
 import retrofit2.Call;
@@ -16,19 +18,19 @@ public class TESTApiPostAd extends BaseTest {
     @Test
     public void Add_Post_API() throws IOException {
 
-//        String userId = "9346";
-//
-//        PostAdBody postAdBody = new PostAdBody();
-//        postAdBody.addField(new PostField("category_id", 39 + ""));
-//        postAdBody.addField(new PostField("city_id", 33 + ""));
-//        postAdBody.addField(new PostField("description", "Hello Java 8!"));
-//        postAdBody.addField(new PostField("type", "private"));
-//        postAdBody.addField(new PostField("title", "Maverick Cronos"));
-//
-//        postAdBody.addUserInfoField(new PostField("mobile", "+996-778888888"));
-//        postAdBody.addUserInfoField(new PostField("username", "Julius Caesar"));
-//
-//        APIManager.getInstance().postAd(null, postAdBody, userId);
+        String userId = "9346";
+
+        PostAdBody postAdBody = new PostAdBody();
+        postAdBody.addField(new PostField("category_id", 39 + ""));
+        postAdBody.addField(new PostField("city_id", 33 + ""));
+        postAdBody.addField(new PostField("description", "Hello Java 8!"));
+        postAdBody.addField(new PostField("type", "private"));
+        postAdBody.addField(new PostField("title", "Maverick Cronos"));
+
+        postAdBody.addUserInfoField(new PostField("mobile", "+996-778888888"));
+        postAdBody.addUserInfoField(new PostField("username", "Julius Caesar"));
+
+        APIManager.getInstance().postAd(postAdBody, userId);
 
 
         Call res = APIManager.getInstance().signUp(false, true, "", "debeers19yyydfghgjgh89@gmail.com");

@@ -18,13 +18,11 @@ public class Login {
         return loginPage.loginAs(driver, user.getEmail(), user.getPassword());
     }
 
-
-    public static UserAccountPage loginAs(WebDriver driver, ApiWorker.model.users.User user){
+    public static UserAccountPage loginAsViaApi(WebDriver driver, User user){
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = (LoginPage) mainPage.clickOnUserAccountLink(user.getUserName());
         return loginPage.loginAs(driver, user.getUserName(), user.getPassword());
     }
-
 
     public static UserAccountPage loginAs(WebDriver driver, LoginObject clientLogin){
         MainPage mainPage = new MainPage(driver);

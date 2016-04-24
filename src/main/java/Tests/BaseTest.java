@@ -94,8 +94,10 @@ public class BaseTest {
         dc.setCapability(CapabilityType.PROXY, seleniumProxy);
         dc.setJavascriptEnabled(true);
         dc.setCapability(FirefoxDriver.PROFILE, fProfile);
-        server.blacklistRequests("\\zopim\\", 200);
-        server.blacklistRequests("\\*.zopim\\.com/.\\*", 101);
+        server.blacklistRequests("^(https?:\\/\\/)?(lalafo\\.)", 200);
+        server.blacklistRequests("^(https?:\\/\\/)?(lalafo\\.)", 101);
+        server.blacklistRequests("^(https?:\\/\\/)?(lalafo\\.)", 301);
+        /*server.blacklistRequests("\\*.zopim\\.com/.\\*", 101);
         server.blacklistRequests("https?://.*\\.google-analytics\\.com/.*", 200);
         server.blacklistRequests("http://.*\\.fbcdn.net/.*", 200);
         server.blacklistRequests("http://.*\\.facebook.com/.*", 200);
@@ -104,7 +106,7 @@ public class BaseTest {
         server.blacklistRequests("http://v2.zopim.com/.*", 200);
         server.blacklistRequests("http://jp08.zopim.com/.*", 200);
         server.blacklistRequests("http://jp04.zopim.com/.*", 200);
-        server.blacklistRequests("jp04.zopim.com", 101);
+        server.blacklistRequests("jp04.zopim.com", 101);*/
 
         driver = WebDriverFactory.getDriver(dc);
         driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
