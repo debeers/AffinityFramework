@@ -113,7 +113,10 @@ public class Post {
         this.name                          = props.getProperty("Name");
         this.phone                         = props.getProperty("TelephoneNumber");
         this.hideNumber                    = Boolean.parseBoolean(props.getProperty("HideNumber"));
-        this.email                         = props.getProperty("Email");
+        this.email                         = props.getProperty("Email")
+                                            .equalsIgnoreCase("auto")
+                                            ?("TEST_GUI_USER" + RandomStringUtils.randomAlphabetic(9)
+                                            + "@gmail.com") : props.getProperty("email");
 
         listOfFiles.add(this.file1 = new File(props.getProperty("File1")));
         listOfFiles.add(this.file2 = new File(props.getProperty("File2")));

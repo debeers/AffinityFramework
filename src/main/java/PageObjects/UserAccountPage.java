@@ -5,7 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 /**
  * Created by DeBeers on 08.03.2016.
@@ -31,8 +34,8 @@ public class UserAccountPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//div[contains(@class,'alert alert-success alert-dismissible')]")
     public WebElement successRegistrationAllert;
 
-    @FindBy(xpath = ".//td/a[contains(@id,'ad_")
-    public WebElement myAdvert;
+    @FindBy(xpath = ".//*[contains(@id,'_deactivate')]")
+    public List<WebElement> myAdverts;
 
     @FindBy(xpath = "_deactivate']")
     public WebElement deactivateAd;
@@ -45,8 +48,13 @@ public class UserAccountPage extends TopMenuGeneralPage {
     }
 
     public void deactivate(String postId){
-        if ($(myAdvert).has(Condition.attribute("id", "ad_" + postId))) {
-            $($(myAdvert) + postId + $(deactivateAd)).click();
+        try {
+            $$(myAdverts)
+                    .stream()
+                    .filter(el -> el.getAttribute("id").equals("ad_" + postId))
+                    .forEach(el -> $(el).shouldBe(Condition.visible).click());
+        } catch (Exception e){
+            log.info("Something went wrong and we have not found ad");
         }
     }
 
