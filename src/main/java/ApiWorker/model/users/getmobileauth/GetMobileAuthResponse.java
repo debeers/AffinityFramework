@@ -1,7 +1,7 @@
 package ApiWorker.model.users.getMobileAuth;
 
 import ApiWorker.model.BaseResponse;
-import ApiWorker.model.users.User;
+import Entities.User;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

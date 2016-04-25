@@ -18,25 +18,28 @@ public class TopMenuGeneralPage extends BasePageObject {
     @FindBy(xpath = ".//div[contains(@class,'logo pull-left')]/a")
     public WebElement lalafoTopMenuLink;
 
-    @FindBy(xpath = ".//a[@id='personal_profile]")
+    @FindBy(xpath = ".//*[@id='personal_profile']")
     public WebElement userAccountTopMenuLink;
 
-    @FindBy(xpath = ".//a[@id='language']")
+    @FindBy(xpath = ".//a[@class='account-link']")
+    public WebElement loggedInAccountLink;
+
+    @FindBy(xpath = ".//*[@id='language']")
     public WebElement localizationTopMenuLink;
 
-    @FindBy(xpath = ".//a[@id='post_ad_header']")
+    @FindBy(xpath = ".//*[@id='post_ad_header']")
     public WebElement postAddTopMenuButton;
 
-    @FindBy(xpath = ".//a[@id='my_ads']")
+    @FindBy(xpath = ".//*[@id='my_ads']")
     public WebElement myAddsTopMenuUserMenuLink;
 
-    @FindBy(xpath = ".//a[@id='my_messages']")
+    @FindBy(xpath = ".//*[@id='my_messages']")
     public WebElement myMessagesTopMenuUserMenuLink;
 
-    @FindBy(xpath = ".//a[@id='my_settings']")
+    @FindBy(xpath = ".//*[@id='my_settings']")
     public WebElement mySettingsTopMenuUserMenuLink;
 
-    @FindBy(xpath = ".//a[@id='my_exit']")
+    @FindBy(xpath = ".//*[@id='my_exit']")
     public WebElement exitTopMenuUserMenuLink;
 
 

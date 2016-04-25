@@ -1,6 +1,6 @@
 package Tests.APITests;
 
-import ApiWorker.model.users.User;
+import Entities.User;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;

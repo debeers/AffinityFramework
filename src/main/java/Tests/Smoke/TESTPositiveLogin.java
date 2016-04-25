@@ -34,7 +34,7 @@ public class TESTPositiveLogin extends BaseTest{
         Assert.assertTrue(userAccountPage.myMessagesUserNav.isDisplayed(), "My messages tab is not displaing on user account page");
         Assert.assertTrue($(userAccountPage.myPostsUserNav).isDisplayed(), "Posts tab is not displaing on user account page");
         Assert.assertTrue($(userAccountPage.mySettingsUserNav).isDisplayed(), "Settings tab is not displaing on user account page");
-        String tmp = new String($(userAccountPage.userAccountTopMenuLink).getText().getBytes(Charset.forName("utf-8")));
+        String tmp = new String($(userAccountPage.loggedInAccountLink).getText().getBytes(Charset.forName("utf-8")));
                 Assert.assertTrue(tmp.contains(emailSubSequence), "User email is not contains in user account menu link!");
     }
 

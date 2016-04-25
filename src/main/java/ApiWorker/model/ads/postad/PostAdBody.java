@@ -1,17 +1,7 @@
 package ApiWorker.model.ads.postAd;
 
 
-import com.google.gson.Gson;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-
-import ApiWorker.model.BaseModel;
 import ApiWorker.model.Image;
-import ApiWorker.model.ListPostField;
 import ApiWorker.model.PostField;
 import ApiWorker.model.ads.Ad;
 import ApiWorker.model.ads.InfoParam;
@@ -19,9 +9,16 @@ import ApiWorker.model.ads.getPostFields.BaseField;
 import ApiWorker.model.ads.getPostFields.Field;
 import ApiWorker.model.ads.getPostFields.Param;
 import ApiWorker.model.ads.getPostFields.UserInfoField;
+import com.google.gson.Gson;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import org.apache.http.util.TextUtils;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by artem on 4/5/15.
@@ -32,13 +29,11 @@ public class PostAdBody  {
 
     private static final int IMAGE_LIST_SIZE = 9;
 
-    public PostAdBody(List<PostField> fieldList, List<PostField> paramList, List<PostField> userInfoList, String[] imageList, ListPostField imageIdListField, ListPostField imageIdToRemove) {
+    public PostAdBody(List<PostField> fieldList, List<PostField> paramList, List<PostField> userInfoList, String[] imageList) {
         this.fieldList = fieldList;
         this.paramList = paramList;
         this.userInfoList = userInfoList;
         this.imageList = imageList;
-        this.imageIdListField = imageIdListField;
-        this.imageIdToRemove = imageIdToRemove;
     }
 
     @SerializedName("fields")
@@ -54,10 +49,6 @@ public class PostAdBody  {
     private List<PostField> userInfoList;
 
     private String[] imageList;
-
-    private ListPostField imageIdListField;
-
-    private ListPostField imageIdToRemove;
 
     public PostAdBody() {
 
@@ -129,16 +120,6 @@ public class PostAdBody  {
         return imageList;
     }
 
-    public void setImageIdList(ListPostField field) {
-
-        this.imageIdListField = field;
-    }
-
-    public void setImageIdToRemove(ListPostField imageIdToRemove) {
-
-        this.imageIdToRemove = imageIdToRemove;
-    }
-
     public void setImageList(String[] imageList) {
 
         this.imageList = imageList;
@@ -169,12 +150,6 @@ public class PostAdBody  {
 
         if (userInfoList != null)
             userInfoList.clear();
-    }
-
-    public void clearImageIds() {
-
-        imageIdListField = null;
-        imageIdToRemove = null;
     }
 
     public void addField(PostField postField) {
@@ -236,22 +211,9 @@ public class PostAdBody  {
         HashMap<String, RequestBody> map = new HashMap<>();
 
         Object fields = null;
-        if (imageIdListField != null || imageIdToRemove != null) {
 
-            List<BaseModel> list = new LinkedList<>();
-
-            if (imageIdListField != null)
-                list.add(imageIdListField);
-            if (imageIdToRemove != null)
-                list.add(imageIdToRemove);
-
-            if (getFieldList() != null)
-                list.addAll(getFieldList());
-            fields = list;
-        } else {
-
-            if (getFieldList() != null)
-                fields = getFieldList();
+        if (getFieldList() != null) {
+            fields = getFieldList();
         }
 
         Gson gson = new Gson();

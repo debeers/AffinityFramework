@@ -4,7 +4,6 @@ import Entities.User;
 import PageObjects.UserAccountPage;
 import TESTResources.ResourcesFactory;
 import Tests.BaseTest;
-import org.apache.commons.lang.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -26,7 +25,7 @@ public class TESTDeactivationOfAnActiveAdvert extends BaseTest {
         String postId    = createNewPostViaAPI(props);
 
         String userPhone = props.getProperty("mobilePrefix") + props.getProperty("phoneNumber");
-        String email     = "GUI_TEST_" + RandomStringUtils.randomAlphabetic(9) + props.getProperty("emailDomain");
+        String email     = props.getProperty("email");
         String password  = props.getProperty("password");
 
         User user        = new User(userPhone, email, password);

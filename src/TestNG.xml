@@ -5,7 +5,8 @@
 
     <suite-files>
 
-        <suite-file path="src\main\SUITES\Smoke_TJ_TG.xml"/>
+        <suite-file path="src\main\SUITES\Smoke_AZ_AZ.xml"/>
+        <!--<suite-file path="src\main\SUITES\Smoke_TJ_TG.xml"/>
         <suite-file path="src\main\SUITES\Smoke_TJ_RU.xml"/>
         <suite-file path="src\main\SUITES\Smoke_AZ_AZ.xml"/>
         <suite-file path="src\main\SUITES\Smoke_AZ_RU.xml"/>
@@ -14,7 +15,7 @@
         <suite-file path="src\main\SUITES\Smoke_AF_Dari.xml"/>
         <suite-file path="src\main\SUITES\Smoke_AF_EN.xml"/>
         <suite-file path="src\main\SUITES\Smoke_AF_PS.xml"/>
-        <suite-file path="src\main\SUITES\Smoke_NP_EN.xml"/>
+        <suite-file path="src\main\SUITES\Smoke_NP_EN.xml"/>-->
         <!--<suite-file path="src\main\SUITES\AZ_RU.xml"/>
         <suite-file path="src\main\SUITES\AZ_AZ.xml"/>
         <suite-file path="src\main\SUITES\KG_RU.xml"/>-->

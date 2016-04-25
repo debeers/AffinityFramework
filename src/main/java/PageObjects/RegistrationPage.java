@@ -20,7 +20,7 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
     @FindBy(xpath = ".//*[@id='phone_number']")
     public WebElement mobilePhoneNumberField;
 
-    @FindBy(xpath = ".//*[@id='user-email']")
+    @FindBy(xpath = ".//*[@id='user_email']")
     public WebElement emailField;
 
     @FindBy(xpath = ".//*[@id='password']")

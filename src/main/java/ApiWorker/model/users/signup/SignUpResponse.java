@@ -3,7 +3,7 @@ package ApiWorker.model.users.signUp;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import ApiWorker.model.BaseResponse;
-import ApiWorker.model.users.User;
+import Entities.User;
 
 /**
  * Created by artem on 7/26/15.

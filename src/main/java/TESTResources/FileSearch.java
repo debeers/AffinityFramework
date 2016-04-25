@@ -31,7 +31,7 @@ public class FileSearch {
         FileSearch fileSearch = new FileSearch();
         System.out.println("=================  SEARCH .xml data::  " + "TEST" + testName + "_" + local + ".xml");
 
-        fileSearch.searchDirectory(new File(beginDirectory), "TEST" + testName + local + "_" + ".xml");
+        fileSearch.searchDirectory(new File(beginDirectory), "TEST" + testName + "_" + local + ".xml");
         int count = fileSearch.getResult().size();
         if (count == 0) {
             System.out.println("\nNo result found!");
