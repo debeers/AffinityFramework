@@ -21,9 +21,10 @@
     <!--Properties: -->
     <parameter name = "URL"          value="http://beta.lalafo.az"  />
 
-    <test name="TESTDeactivationOfAnActiveAdvert_AZ_AZ">
+
+    <test name="TEST_LoginChangePasswordAndRelogin_AZ_AZ">
         <classes>
-            <class name="Tests.GUITests.TESTDeactivationOfAdvert.TESTDeactivationOfAnActiveAdvert"/>
+            <class name="Tests.GUITests.TESTLogin.TESTLoginChangePasswordAndRelogin"/>
         </classes>
     </test>
     <!--<test name="TEST_Registration_Positive_AZ_AZ">
@@ -76,7 +77,18 @@
         <classes>
             <class name="Tests.Smoke.TESTSearch"/>
         </classes>
-    </test>-->
+    </test>
+    <test name="TESTDeactivationOfAnActiveAdvert_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTDeactivationOfAdvert.TESTDeactivationOfAnActiveAdvert"/>
+        </classes>
+    </test>
+    <test name="TEST_DeactivationOfAnAdvertInPremoderation_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTDeactivationOfAdvert.TESTDeactivationOfAnAdvertInPremoderation"/>
+        </classes>
+    </test>
+    -->
 
 
     </suite>

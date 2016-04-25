@@ -49,6 +49,18 @@ public class TopMenuGeneralPage extends BasePageObject {
         return new UserSettingsPage(driver);
     }
 
+    public UserSettingsPage clickOnUserSettingsTopMenuLinkWhenLoggedIn(){
+        mouseOver(driver, loggedInAccountLink);
+        $(mySettingsTopMenuUserMenuLink).shouldBe(visible).click();
+        return new UserSettingsPage(driver);
+    }
+
+    public MainPage clickOnExitFromAccountLink(){
+        mouseOver(driver, loggedInAccountLink);
+        $(exitTopMenuUserMenuLink).shouldBe(visible).click();
+        return new MainPage(driver);
+    }
+
     public MainPage clickOnLalafoTopMenuLink(){
         $(lalafoTopMenuLink).shouldBe(visible).click();
         return new MainPage(driver);

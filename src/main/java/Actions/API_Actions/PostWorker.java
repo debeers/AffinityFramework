@@ -31,7 +31,9 @@ public class PostWorker {
 
         postAdBody.addUserInfoField(new PostField("mobile", props.getProperty("mobile")));
         postAdBody.addUserInfoField(new PostField("username", props.getProperty("username")));
-        postAdBody.addUserInfoField(new PostField("testAPI", props.getProperty("testAPI")));
+        if (!props.getProperty("testAPI").equals("null")) {
+            postAdBody.addUserInfoField(new PostField("testAPI", props.getProperty("testAPI")));
+        }
 
         Call<PostAdResponse> res = APIManager.getInstance().postAd(postAdBody, props.getProperty("userId"));
         String postId = res.execute().body().getData().getId();

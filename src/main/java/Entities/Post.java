@@ -116,7 +116,7 @@ public class Post {
         this.email                         = props.getProperty("Email")
                                             .equalsIgnoreCase("auto")
                                             ?("TEST_GUI_USER" + RandomStringUtils.randomAlphabetic(9)
-                                            + "@gmail.com") : props.getProperty("email");
+                                            + "@gmail.com") : props.getProperty("Email");
 
         listOfFiles.add(this.file1 = new File(props.getProperty("File1")));
         listOfFiles.add(this.file2 = new File(props.getProperty("File2")));

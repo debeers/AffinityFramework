@@ -4,7 +4,6 @@ import Entities.User;
 import TESTResources.DataSources.AZ_AZ.DataProviders.DataProviderMobileOperators;
 import TESTResources.ResourcesFactory;
 import Tests.BaseTest;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -23,10 +22,10 @@ public class TESTRegistrationWithAllOperators extends BaseTest {
         Properties props = new ResourcesFactory().getResources("RegistrationPositive");
 
         String userPhone    = mobileOperatorsCode + props.getProperty("mobilePhoneNumber");
-        String email        = "GUI_TEST_" + RandomStringUtils.randomAlphabetic(9) + props.getProperty("emailDomain");
+        props.getProperty("Email");
         String password     = props.getProperty("password");
 
-        User user = new User(userPhone , email , password);
+        User user = new User(userPhone , props , password);
         registerNewUser(driver, user)
                 .clickOnUserSettingsTopMenuLink()
                 .deleteAccount();

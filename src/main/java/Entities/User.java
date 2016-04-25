@@ -3,6 +3,9 @@ package Entities;
 import ApiWorker.model.BaseModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.apache.commons.lang.RandomStringUtils;
+
+import java.util.Properties;
 
 /**
  * Created by DeBeers on 08.03.2016.
@@ -44,9 +47,12 @@ public class User extends BaseModel {
     public User(){}
 
     ////////GUI CONSTRUCTORS///////////
-    public User(String userPhone, String email, String password) {
+    public User(String userPhone, Properties props, String password) {
         this.userPhone    = userPhone;
-        this.email        = email;
+        this.email        = props.getProperty("Email")
+                            .equalsIgnoreCase("auto")
+                            ?("TEST_GUI_USER" + RandomStringUtils.randomAlphabetic(9)
+                            + "@gmail.com") : props.getProperty("Email");
         this.password     = password;
         userLog();
     }

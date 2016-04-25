@@ -3,7 +3,6 @@ package Tests.Smoke;
 import Entities.User;
 import TESTResources.ResourcesFactory;
 import Tests.BaseTest;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,10 +21,10 @@ public class TESTDeactivationUserAccount extends BaseTest {
         Properties props = new ResourcesFactory().getResources("DeactivationPositive");
 
         String userPhone    = props.getProperty("phonePrefix") + props.getProperty("mobilePhoneNumber");
-        String email        = "GUI_TEST_" + RandomStringUtils.randomAlphabetic(9) + "@mail.com";
+        props.getProperty("Email");
         String password     = "11111";
 
-        User user = new User(userPhone , email , password);
+        User user = new User(userPhone , props , password);
         registerNewUser(driver, user)
                 .clickOnUserSettingsTopMenuLink()
                 .deleteAccount();

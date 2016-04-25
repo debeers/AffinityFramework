@@ -22,10 +22,10 @@ public class TESTDeactivationUserAccount extends BaseTest {
         Properties props = new ResourcesFactory().getResources("DeactivationUserAccount");
 
         String userPhone    = "70" + props.getProperty("mobilePhoneNumber");
-        String email        = "GUI_TEST_" + RandomStringUtils.randomAlphabetic(9) + "@mail.com";
+        props.getProperty("Email");
         String password     = "TEST_USER_" + RandomStringUtils.randomNumeric(7) + "_@gmail.com";
 
-        User user = new User(userPhone , email , password);
+        User user = new User(userPhone , props , password);
         registerNewUser(driver, user)
                 .clickOnUserSettingsTopMenuLink()
                 .deleteAccount();

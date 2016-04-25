@@ -16,16 +16,16 @@ import static Actions.GUI_Actions.Login.loginViaPhone;
 /**
  * Created by Dem on 24.04.2016.
  */
-public class TESTDeactivationOfAnActiveAdvert extends BaseTest {
+public class TESTDeactivationOfAnAdvertInPremoderation extends BaseTest {
 
     @Test
-    public void DeactivationOfAnActiveAdvert() throws IOException, InterruptedException {
-        Properties props = new ResourcesFactory().getResources("DeactivationOfAnActiveAdvert");
+    public void DeactivationOfAnAdvertInPremoderation() throws IOException, InterruptedException {
+        Properties props = new ResourcesFactory().getResources("DeactivationOfAnAdvertInPremoderation");
 
         String postId    = createNewPostViaAPI(props);
 
         String userPhone = props.getProperty("mobilePrefix") + props.getProperty("phoneNumber");
-        props.getProperty("email");
+        props.getProperty("Email");
         String password  = props.getProperty("password");
 
         User user        = new User(userPhone, props, password);

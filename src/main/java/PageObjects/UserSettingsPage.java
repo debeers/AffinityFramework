@@ -21,6 +21,21 @@ public class UserSettingsPage extends TopMenuGeneralPage{
     @FindBy(xpath = "//a[@class = 'btn dblue btn-confirm']")
     public WebElement confirmButtonInPopUp;
 
+    @FindBy(xpath = ".//*[@id='change_password']")
+    public WebElement changePasswordAccordion;
+
+    @FindBy(xpath = ".//*[@id='change_password_new']")
+    public WebElement newPasswordField;
+
+    @FindBy(xpath = ".//*[@id='change_password_confirm']")
+    public WebElement confirmPasswordField;
+
+    @FindBy(xpath = ".//*[@id='change-password-button']")
+    public WebElement passwordChangingButton;
+
+    @FindBy(xpath = ".//div[@class='successful_block']/span")
+    public WebElement passwordWasChangedMessage;
+
 
     public UserSettingsPage clickOnDeleteCabinetAccordion(){
         $(deleteCabinetAccordion).shouldBe(Condition.visible).click();
@@ -37,10 +52,40 @@ public class UserSettingsPage extends TopMenuGeneralPage{
         return this;
     }
 
+    public UserSettingsPage clickOnChangePasswordAccordion(){
+        $(changePasswordAccordion).shouldBe(Condition.visible).click();
+        return this;
+    }
+
+    public UserSettingsPage setNewPassword(String newPassword){
+        $(newPasswordField).shouldBe(Condition.visible).clear();
+        $(newPasswordField).shouldBe(Condition.visible).sendKeys(newPassword);
+        return this;
+    }
+
+    public UserSettingsPage confirmNewPassword(String newPassword){
+        $(confirmPasswordField).shouldBe(Condition.visible).clear();
+        $(confirmPasswordField).shouldBe(Condition.visible).sendKeys(newPassword);
+        return this;
+    }
+
+    public UserSettingsPage clickOnPasswordConfirmationButton(){
+        $(passwordChangingButton).shouldBe(Condition.visible).click();
+        return this;
+    }
+
     public void deleteAccount(){
         clickOnDeleteCabinetAccordion();
         clickOnDeleteAccountButton();
         clickOnConfirmButtonInPopUp();
+    }
+
+    public UserSettingsPage changePassword(String newPassword){
+        clickOnChangePasswordAccordion();
+        setNewPassword(newPassword);
+        confirmNewPassword(newPassword);
+        clickOnPasswordConfirmationButton();
+        return new UserSettingsPage(driver);
     }
 
     public UserSettingsPage(WebDriver driver) {
