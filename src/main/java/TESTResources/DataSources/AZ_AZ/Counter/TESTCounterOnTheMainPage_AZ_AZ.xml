@@ -1,0 +1,8 @@
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <!--Test Data -->
+
+    <entry key="sqlQuery">SELECT (SELECT COUNT(id) FROM ad WHERE status='accepted') + (SELECT COUNT(id) FROM ad WHERE status='deactivated')</entry>
+
+</properties>

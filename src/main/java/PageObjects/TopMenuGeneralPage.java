@@ -1,5 +1,6 @@
 package PageObjects;
 
+import org.apache.commons.lang.StringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +18,9 @@ public class TopMenuGeneralPage extends BasePageObject {
 
     @FindBy(xpath = ".//div[contains(@class,'logo pull-left')]/a")
     public WebElement lalafoTopMenuLink;
+
+    @FindBy(xpath = ".//div[@class='total-adv-count']")
+    public WebElement headerCounterOfAds;
 
     @FindBy(xpath = ".//*[@id='personal_profile']")
     public WebElement userAccountTopMenuLink;
@@ -64,6 +68,10 @@ public class TopMenuGeneralPage extends BasePageObject {
     public MainPage clickOnLalafoTopMenuLink(){
         $(lalafoTopMenuLink).shouldBe(visible).click();
         return new MainPage(driver);
+    }
+
+    public String pullAdvertsCount(){
+         return StringUtils.substringBefore($(headerCounterOfAds).shouldBe(visible).getText(), " ");
     }
 
     public LoginPage clickOnUserAccountUnAutorizedLink(){

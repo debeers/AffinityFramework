@@ -22,14 +22,22 @@
     <parameter name = "URL"          value="http://beta.lalafo.az"  />
 
 
-    <test name="TEST_LoginChangePasswordAndRelogin_AZ_AZ">
+
+
+    <test name="TEST_CheckPriceFomat_AZ_AZ">
         <classes>
-            <class name="Tests.GUITests.TESTLogin.TESTLoginChangePasswordAndRelogin"/>
+            <class name="Tests.GUITests.TESTListing.TESTCheckPriceFormat"/>
         </classes>
     </test>
     <!--<test name="TEST_Registration_Positive_AZ_AZ">
         <classes>
             <class name="Tests.Smoke.TESTRegistrationPositive"/>
+        </classes>
+    </test>
+
+    <test name="TEST_LoginChangePasswordAndRelogin_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTLogin.TESTLoginChangePasswordAndRelogin"/>
         </classes>
     </test>
 
@@ -86,6 +94,16 @@
     <test name="TEST_DeactivationOfAnAdvertInPremoderation_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTDeactivationOfAdvert.TESTDeactivationOfAnAdvertInPremoderation"/>
+        </classes>
+    </test>
+    <test name="TEST_CheckVipAdvertsInListing_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckVipAdvertsInListing"/>
+        </classes>
+    </test>
+    <test name="TEST_CounterOnTheMainPage_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTCounter.TESTCounterOnTheMainPage"/>
         </classes>
     </test>
     -->

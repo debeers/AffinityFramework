@@ -1,6 +1,6 @@
 package Actions.GUI_Actions;
 
-import PageObjects.SecondSearchPage;
+import PageObjects.ListingPage;
 
 import java.util.List;
 import java.util.Properties;
@@ -10,13 +10,13 @@ import java.util.Properties;
  */
 public class Search {
 
-    public static List<String> search(SecondSearchPage secondSearchPage, Properties props) throws InterruptedException {
+    public static List<String> search(ListingPage listingPage, Properties props) throws InterruptedException {
 
-        secondSearchPage.selectCategorie(props.getProperty("Category"));
-        secondSearchPage.selectUnderCategorie(props.getProperty("UnderCategory"));
-        secondSearchPage.enterSearchRequest(props.getProperty("SearchRequest"));
-        secondSearchPage.clickOnSeaqrchButton();
+        listingPage.selectCategories(props.getProperty("Category"));
+        listingPage.selectUnderCategories(props.getProperty("UnderCategory"));
+        listingPage.enterSearchRequest(props.getProperty("SearchRequest"));
+        listingPage.clickOnSeaqrchButton();
 
-        return secondSearchPage.foundEqualsTitlesInSearchResults(props.getProperty("SearchRequest"));
+        return listingPage.foundEqualsTitlesInSearchResults(props.getProperty("SearchRequest"));
     }
 }

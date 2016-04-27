@@ -38,9 +38,9 @@ public class MainPage extends TopMenuGeneralPage {
 
 
 
-    public SecondSearchPage clickOnSearchButton(){
+    public ListingPage clickOnSearchButton(){
         $(searchButton).shouldBe(visible).click();
-        return new SecondSearchPage(driver);
+        return new ListingPage(driver);
     }
 
     public void selectCityForSearch(String index) throws InterruptedException {

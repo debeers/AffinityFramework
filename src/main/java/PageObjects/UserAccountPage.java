@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -50,7 +49,6 @@ public class UserAccountPage extends TopMenuGeneralPage {
 
     public void deactivate(String postId) {
 
-        List<WebElement> myAccountAds = new ArrayList<>();
         try {
             if (!$$(myAdverts).isEmpty()) {
                 myAdverts
