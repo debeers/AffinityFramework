@@ -36,6 +36,9 @@ public class MainPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[@id='categories']//ul/li/a")
     public List<WebElement> underCategoriesList;
 
+    @FindBy(xpath = ".//*[@id='category_otdam-darom']")
+    public WebElement categoryFreebies;
+
 
 
     public ListingPage clickOnSearchButton(){
@@ -55,6 +58,15 @@ public class MainPage extends TopMenuGeneralPage {
              $(addNewPostButtonTop).waitUntil(visible, 3).click();
          }
         return new PostPage(driver);
+    }
+
+    public ListingPage clickOnFreebiesCategory(){
+        if ($(categoryFreebies).isDisplayed()) {
+            $(categoryFreebies).click();
+        } else {
+            $(categoryFreebies).waitUntil(visible, 3).click();
+        }
+        return new ListingPage(driver);
     }
 
     public MainPage(WebDriver driver) {

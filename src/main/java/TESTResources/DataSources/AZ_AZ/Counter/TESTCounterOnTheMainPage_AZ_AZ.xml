@@ -4,5 +4,5 @@
     <!--Test Data -->
 
     <entry key="sqlQuery">SELECT (SELECT COUNT(id) FROM ad WHERE status='accepted') + (SELECT COUNT(id) FROM ad WHERE status='deactivated')</entry>
-
+    <entry key="firstCharIndex">1</entry>
 </properties>

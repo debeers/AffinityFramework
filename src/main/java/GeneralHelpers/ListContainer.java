@@ -23,6 +23,10 @@ public class ListContainer {
         this.cities = cities;
     }
 
+    public ListContainer() {
+
+    }
+
     public void init(String sqlQuery) throws IOException, SQLException {
         DBUtill db = new DBUtill();
         ResultSet result = db.getResultSet(sqlQuery);

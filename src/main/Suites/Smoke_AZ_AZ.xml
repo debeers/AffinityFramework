@@ -23,10 +23,9 @@
 
 
 
-
-    <test name="TEST_CheckPriceFomat_AZ_AZ">
+    <test name="TEST_CheckCategoryAndSubcategoryInListing_AZ_AZ">
         <classes>
-            <class name="Tests.GUITests.TESTListing.TESTCheckPriceFormat"/>
+            <class name="Tests.GUITests.TESTListing.TESTCheckCategoryAndSubcategoryInListing"/>
         </classes>
     </test>
     <!--<test name="TEST_Registration_Positive_AZ_AZ">
@@ -104,6 +103,21 @@
     <test name="TEST_CounterOnTheMainPage_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTCounter.TESTCounterOnTheMainPage"/>
+        </classes>
+    </test>
+    <test name="TEST_CheckPriceFormat_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckPriceFormat"/>
+        </classes>
+    </test>
+    <test name="TEST_CheckPriceFormat_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckPriceFormat"/>
+        </classes>
+    </test>
+    <test name="TEST_CategoryFreebiesHasNoPrice_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCategoryFreebiesHasNoPrice"/>
         </classes>
     </test>
     -->

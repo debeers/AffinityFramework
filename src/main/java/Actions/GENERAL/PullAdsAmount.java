@@ -17,7 +17,8 @@ public class PullAdsAmount {
                 .substringBefore((new ListContainer(props.getProperty("sqlQuery"))
                         .getList()
                         .toString()), "]")
-                .substring(1);
+                .substring(Integer.parseInt(props.getProperty("firstCharIndex")));
         return adsCountFromDB;
     }
 }
+

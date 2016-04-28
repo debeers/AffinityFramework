@@ -1,5 +1,6 @@
 package PageObjects;
 
+import com.codeborne.selenide.ElementsCollection;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -84,6 +85,9 @@ public class ListingPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[@id='vip_tag']")
     public WebElement vipAdvertIcon;
 
+    @FindBy(xpath = ".//div[@class='details']/a")
+    public List<WebElement> titlesOfAdverts;
+
     @CacheLookup
     @FindBy(xpath = ".//*[contains(@class,'simple-ad')]")
     public List<WebElement> simpleAdverts;
@@ -136,6 +140,10 @@ public class ListingPage extends TopMenuGeneralPage {
 
     public int pullVipAdvertsAmount() throws InterruptedException {
         return $$(vipAdverts).size();
+    }
+
+    public ElementsCollection getTitlesOfAdvert() {
+        return $$(titlesOfAdverts);
     }
 
     public List<String> pullSimpleAdvertsAmount() throws InterruptedException {

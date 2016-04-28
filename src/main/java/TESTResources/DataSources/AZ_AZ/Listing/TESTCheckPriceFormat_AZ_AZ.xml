@@ -6,5 +6,6 @@
     <entry key="localCurrency">man</entry>
     <entry key="usdCurrency">$</entry>
     <entry key="negotiablePrice">razılaşma yolu ilə</entry>
+    <entry key="emptyPrice">null</entry>
 
 </properties>
