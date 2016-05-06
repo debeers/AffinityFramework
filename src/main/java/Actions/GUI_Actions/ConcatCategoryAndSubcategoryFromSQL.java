@@ -1,6 +1,6 @@
 package Actions.GUI_Actions;
 
-import GeneralHelpers.ListContainer;
+import DBUtils.DBUtill;
 import com.codeborne.selenide.ElementsCollection;
 
 import java.io.IOException;
@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-import java.util.stream.Collectors;
 
 import static Actions.GUI_Actions.TrimAdvertIDFromTitle.stackAllIDsToTheList;
 
@@ -18,58 +17,66 @@ import static Actions.GUI_Actions.TrimAdvertIDFromTitle.stackAllIDsToTheList;
  */
 public class ConcatCategoryAndSubcategoryFromSQL {
 
-    public static ListContainer getSubcategoryIDForEachAdvertOutOfTheList(Properties props, ElementsCollection elements) throws IOException, SQLException {
-        ListContainer getCategoriesNamesFromSQL = new ListContainer();
-        if (!stackAllIDsToTheList(elements, props).isEmpty()) {
-            for (String temp : stackAllIDsToTheList(elements, props)) {
-                getCategoriesNamesFromSQL.init((props.getProperty("getIdForEachSubCategory") + temp));
-            }
+
+    public static List<String> getSubcategoryIDForEachAdvertOutOfTheList(Properties props, ElementsCollection elements) throws IOException, SQLException {
+        List<String> getCategoriesNamesFromSQL = new ArrayList<>();
+        DBUtill dbUtill = new DBUtill();
+        List<String> advertsIds = stackAllIDsToTheList(elements, props);
+        if (!advertsIds.isEmpty()) {
+            for (int i = 0; i < advertsIds.size(); i++)
+            getCategoriesNamesFromSQL.add(dbUtill.getColumn((props.getProperty("getIdForEachSubCategory") + advertsIds.get(i)), "category_id"));
         }
-        System.out.println(getCategoriesNamesFromSQL.getList());
         return getCategoriesNamesFromSQL;
     }
 
-    public static ListContainer getCategoryIDsForEachSubcategory(Properties props, ElementsCollection elements) throws IOException, SQLException {
-        ListContainer getCategoryNamesFromSQLUsingID = new ListContainer();
-        if (!getSubcategoryIDForEachAdvertOutOfTheList(props , elements).getList().isEmpty()) {
-            for ( String temp: getSubcategoryIDForEachAdvertOutOfTheList(props, elements).getList()){
-                getCategoryNamesFromSQLUsingID.init(props.getProperty("getParenIdForEachSubCategory") + temp);
+    public static List<String> getCategoryIDsForEachSubcategory(Properties props, ElementsCollection elements) throws IOException, SQLException {
+        List<String> getCategoryNamesFromSQLUsingID = new ArrayList<>();
+        DBUtill dbUtill = new DBUtill();
+        List<String> subcategoriesIds = getSubcategoryIDForEachAdvertOutOfTheList(props, elements);
+        if (!subcategoriesIds.isEmpty()) {
+            for (int i = 0; i < subcategoriesIds.size(); i++) {
+                getCategoryNamesFromSQLUsingID.add(dbUtill.getColumn((props.getProperty("getParenIdForEachSubCategory") + subcategoriesIds.get(i)), "parent_id"));
             }
         }
-        System.out.println(getCategoryNamesFromSQLUsingID.getList());
         return getCategoryNamesFromSQLUsingID;
     }
 
-    public static ListContainer getSubcategoryNamesUsingItsId(Properties props, ElementsCollection elements) throws IOException, SQLException {
-        ListContainer getSubcategoryNamesUsingItsIdFromSQL = new ListContainer();
-        if (!getSubcategoryIDForEachAdvertOutOfTheList(props, elements).getList().isEmpty()) {
-            for (String temp : getSubcategoryIDForEachAdvertOutOfTheList(props, elements).getList()) {
-                getSubcategoryNamesUsingItsIdFromSQL.init(props.getProperty("getSubcategoryName") + temp);
+    public static List<String> getSubcategoryNamesUsingItsId(Properties props, ElementsCollection elements) throws IOException, SQLException {
+        List<String> getSubcategoryNamesUsingItsIdFromSQL = new ArrayList<>();
+        DBUtill dbUtill = new DBUtill();
+        List<String> subcategoriesIds = getCategoryIDsForEachSubcategory(props, elements);
+        if (!subcategoriesIds.isEmpty()) {
+            for (int i = 0; i < subcategoriesIds.size(); i++) {
+                getSubcategoryNamesUsingItsIdFromSQL.add(dbUtill.getColumn((props.getProperty("getSubcategoryName") + subcategoriesIds.get(i)), "name"));
             }
         }
-        System.out.println(getSubcategoryNamesUsingItsIdFromSQL.getList());
         return getSubcategoryNamesUsingItsIdFromSQL;
     }
 
-    public static ListContainer getCategoryNameUsingItsId(Properties props, ElementsCollection elements) throws IOException, SQLException {
-        ListContainer getCategoryNameUsingItsIdFromSQL = new ListContainer();
-        if (!getCategoryIDsForEachSubcategory(props, elements).getList().isEmpty()) {
-            for ( String temp: getCategoryIDsForEachSubcategory(props, elements).getList()) {
-                getCategoryNameUsingItsIdFromSQL.init(props.getProperty("getCategoryName") + temp);
+    public static List<String> getCategoryNameUsingItsId(Properties props, ElementsCollection elements) throws IOException, SQLException {
+        List<String> getCategoryNameUsingItsIdFromSQL = new ArrayList<>();
+        DBUtill dbUtill = new DBUtill();
+        List<String> categoriesIds = getCategoryIDsForEachSubcategory(props, elements);
+        if (!categoriesIds.isEmpty()) {
+            for (int i = 0; i < categoriesIds.size(); i++) {
+                getCategoryNameUsingItsIdFromSQL.add(dbUtill.getColumn((props.getProperty("getCategoryName") + categoriesIds.get(i)), "name"));
             }
         }
-        System.out.println(getCategoryNameUsingItsIdFromSQL.getList());
         return getCategoryNameUsingItsIdFromSQL;
     }
 
     public static List<String> concatenateCategoryWthSubcategory(Properties props, ElementsCollection category) throws IOException, SQLException {
         List<String> getConcatenatedCategoriesWithSubcategories = new ArrayList<>();
-        if (!getCategoryNameUsingItsId(props, category).getList().isEmpty() && !getSubcategoryNamesUsingItsId(props, category).getList().isEmpty()) {
-            for (String temp : getCategoryNameUsingItsId(props, category).getList()) {
-                getConcatenatedCategoriesWithSubcategories.addAll(getSubcategoryNamesUsingItsId(props, category).getList().stream().map(temp2 -> temp + " > " + temp2).collect(Collectors.toList()));
+        List<String> advertsIds = stackAllIDsToTheList(category, props);
+        List<String> categoriesNames = getCategoryNameUsingItsId(props, category);
+        List<String> subcategoriesNames = getSubcategoryNamesUsingItsId(props, category);
+            if (!categoriesNames.isEmpty() && !subcategoriesNames.isEmpty()) {
+                for (int i = 0; i < getCategoryNameUsingItsId(props,category).size(); i++) {
+                    getConcatenatedCategoriesWithSubcategories.add(categoriesNames.get(i).toLowerCase() + " > " + subcategoriesNames.get(i).toLowerCase());
+                }
+                System.out.println(getConcatenatedCategoriesWithSubcategories);
             }
-            System.out.println(getConcatenatedCategoriesWithSubcategories);
-        }
+        System.out.println("IDs of the Adverts that will be used in the test::: " + advertsIds);
         return getConcatenatedCategoriesWithSubcategories;
     }
 }

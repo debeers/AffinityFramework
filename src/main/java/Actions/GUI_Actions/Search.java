@@ -15,7 +15,7 @@ public class Search {
         listingPage.selectCategories(props.getProperty("Category"));
         listingPage.selectUnderCategories(props.getProperty("UnderCategory"));
         listingPage.enterSearchRequest(props.getProperty("SearchRequest"));
-        listingPage.clickOnSeaqrchButton();
+        listingPage.clickOnSearchButton();
 
         return listingPage.foundEqualsTitlesInSearchResults(props.getProperty("SearchRequest"));
     }

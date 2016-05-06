@@ -75,6 +75,9 @@ public class ListingPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[@id='vip_tag']")
     public List<WebElement> vipAdvertsIcon;
 
+    @FindBy(xpath = ".//div[@class='details']/div[@class='info']")
+    public List<WebElement> advertsInformation;
+
     private final By vipAdvertisementIcon = By.xpath(".//*[@id='vip_tag']");
 
     private final By simpleAdvertPrice = By.xpath(".//div[@id='price']");
@@ -146,6 +149,10 @@ public class ListingPage extends TopMenuGeneralPage {
         return $$(titlesOfAdverts);
     }
 
+    public List<String> getAdvertsInformation() {
+        return pullListText($$(advertsInformation));
+    }
+
     public List<String> pullSimpleAdvertsAmount() throws InterruptedException {
         return pullListText($$(simpleAdverts));
     }
@@ -167,7 +174,7 @@ public class ListingPage extends TopMenuGeneralPage {
         $(searchField).shouldBe(visible).sendKeys(searchRequest);
     }
 
-    public void clickOnSeaqrchButton() {
+    public void clickOnSearchButton() {
         $(searchButton).shouldBe(visible).click();
     }
 
@@ -178,7 +185,7 @@ public class ListingPage extends TopMenuGeneralPage {
         selectCityForSearch(cityIndex);
         selectCategories(categoryIndex);
         selectUnderCategories(undercatIndex);
-        clickOnSeaqrchButton();
+        clickOnSearchButton();
 
         return foundEqualsTitlesInSearchResults(searchRequest);
     }
