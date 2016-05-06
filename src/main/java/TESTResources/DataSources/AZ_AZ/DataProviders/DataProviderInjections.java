@@ -10,7 +10,7 @@ public class DataProviderInjections {
     @DataProvider(name="Injections")
     public static Object[][] Injections(){
         return new Object[][]{
-                {"<script>alert(‘hello, Amigo’)</script>", "hello, Amigo"}
+                {"<script>alert('hello, Amigo')</script>", "hello, Amigo"}
         };
     }
 

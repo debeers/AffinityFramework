@@ -7,9 +7,10 @@ import Tests.BaseTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Properties;
 
-import static Actions.GUI_Actions.ConcatCategoryAndSubcategoryFromSQL.executeSQLquery;
+import static Actions.GUI_Actions.ConcatCategoryAndSubcategoryFromSQL.*;
 
 /**
  * Created by Dem on 28.04.2016.
@@ -17,10 +18,14 @@ import static Actions.GUI_Actions.ConcatCategoryAndSubcategoryFromSQL.executeSQL
 public class TESTCheckCategoryAndSubcategoryInListing extends BaseTest {
 
     @Test
-    public void CheckCategoryAndSubcategoryInListing() throws IOException {
+    public void CheckCategoryAndSubcategoryInListing() throws IOException, SQLException {
         Properties props = new ResourcesFactory().getResources("CheckCategoryAndSubcategoryInListing");
         MainPage mainPage = new MainPage(driver);
         ListingPage listingPage = mainPage.clickOnSearchButton();
-        executeSQLquery(props, listingPage.getTitlesOfAdvert());
+        getSubcategoryIDForEachAdvertOutOfTheList(props, listingPage.getTitlesOfAdvert());
+        getCategoryIDsForEachSubcategory(props, listingPage.getTitlesOfAdvert());
+        getSubcategoryNamesUsingItsId(props, listingPage.getTitlesOfAdvert());
+        getCategoryNameUsingItsId(props, listingPage.getTitlesOfAdvert());
+        concatenateCategoryWthSubcategory(props, listingPage.getTitlesOfAdvert());
     }
 }

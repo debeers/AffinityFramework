@@ -29,7 +29,7 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//a[@id='password_recovery']")
     public WebElement loginPageForgotpasswordLink;
 
-    @FindBy(xpath = ".//a[@id='registration']")
+    @FindBy(xpath = ".//a[@id='personal_profile']")
     public WebElement loginPageRegistrationLink;
 
     @FindBy(xpath = ".//*[@id='Login form']//div[contains(@class,'error-message')]/ul/li[1]")

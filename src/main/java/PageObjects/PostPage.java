@@ -40,35 +40,35 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public List<WebElement> categoriesList;
 
 
-    @FindBy(xpath = ".//*[@id='subcategory_chosen']/a")
-    public WebElement underCategoriesChoose;
+    @FindBy(xpath = ".//*[@id='1_subcategory_chosen']/a")
+    public WebElement firstSubCategoryChoose;
 
     @FindBy(xpath = ".//*[@id='subcategory_chosen']//div//ul//li[@class='active-result result-selected']")
     public WebElement defaultUnderCategoryById;
 
     @CacheLookup
-    @FindBy(xpath = ".//*[@id='subcategory_chosen']//div//ul//li[@class='active-result'][position()>0]")
-    public List<WebElement> underCategoriesList;
+    @FindBy(xpath = ".//*[@id='1_subcategory_chosen']//div//ul//li[@class='active-result'][position()>0]")
+    public List<WebElement> firstSubCategoriesList;
 
     @CacheLookup
-    @FindBy(xpath = "*//div[2]/div[1]/a")
-    public WebElement thirdCategorySelect;
+    @FindBy(xpath = ".//*[@id='2_subcategory_chosen']/a")
+    public WebElement secondSubCategorySelect;
 
     @CacheLookup
     @FindBy(xpath = ".//*[@id='subcategory_chosen']/a")
     public WebElement thirdCategorySelectById;
 
     @CacheLookup
-    @FindBy(xpath = "*//div[2]/div[1]/div/ul/li[@class='active-result'][position()>0]")
-    public List<WebElement> thirdCategoriesList;
+    @FindBy(xpath = ".//*[@id='2_subcategory_chosen']/div/ul/li[@class='active-result'][position()>0]")
+    public List<WebElement> secondSubCategoriesList;
 
     //Post to Used Cars category --BEGIN--
     @CacheLookup
-    @FindBy(xpath = "*//div[3]/div[1]/a")
+    @FindBy(xpath = ".//select[@name='param_id[4]']/following-sibling::div/a")
     public WebElement fourthCategorySelectYear;
 
     @CacheLookup
-    @FindBy(xpath = "*//div[3]/div[1]/div/ul/li[@class='active-result'][position()>0]")
+    @FindBy(xpath = ".//select[@name='param_id[4]']/following-sibling::div//ul/li[@class='active-result'][position()>0]")
     public List<WebElement> fourthCategoriesListYear;
 
     @CacheLookup
@@ -255,9 +255,9 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public List<String> getListUnderCategoriesFromGUI() {
-        if ($(underCategoriesChoose).isDisplayed()) {
-            $(underCategoriesChoose).shouldBe(visible).click();
-            return underCategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
+        if ($(firstSubCategoryChoose).isDisplayed()) {
+            $(firstSubCategoryChoose).shouldBe(visible).click();
+            return firstSubCategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
         } else {
             $(underCategoryParameter).shouldBe(visible).click();
             return underCategoryParameterList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
@@ -271,8 +271,8 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     public List<String> getThirdLvlSubCategoryFromGUI() {
 
-        $(thirdCategorySelect).shouldBe(visible).click();
-        return thirdCategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
+        $(secondSubCategorySelect).shouldBe(visible).click();
+        return secondSubCategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
     }
 
     public List<String> getListCitiesFromGUI() {
@@ -288,14 +288,14 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     public PostPage setUnderCategory(String underCategoryIndex) throws InterruptedException {
         if ($(defaultUnderCategoryById).exists()) {
-            selectFromDropdawnMenuByIndex(underCategoriesChoose, underCategoriesList, underCategoryIndex);
+            selectFromDropdawnMenuByIndex(firstSubCategoryChoose, firstSubCategoriesList, underCategoryIndex);
         }
         waitTillLoaderHides();
         return this;
     }
 
     public PostPage setThirdCategory(String thirdCategory) throws InterruptedException {
-        selectFromDropdawnMenuByIndex(thirdCategorySelect, thirdCategoriesList, thirdCategory);
+        selectFromDropdawnMenuByIndex(secondSubCategorySelect, secondSubCategoriesList, thirdCategory);
         waitTillLoaderHides();
         return this;
     }

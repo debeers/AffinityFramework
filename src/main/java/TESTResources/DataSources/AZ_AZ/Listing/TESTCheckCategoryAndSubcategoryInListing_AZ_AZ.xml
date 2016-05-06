@@ -3,7 +3,10 @@
 
     <!--Test Data -->
 
-    <entry key="firstPartOfSQLQuery">SELECT category_id FROM ad WHERE id=</entry>
+    <entry key="getIdForEachSubCategory">SELECT category_id FROM ad WHERE id=</entry>
+    <entry key="getParenIdForEachSubCategory">SELECT parent_id FROM category WHERE id=</entry>
+    <entry key="getSubcategoryName">SELECT name FROM category WHERE id=</entry>
+    <entry key="getCategoryName">SELECT name FROM category WHERE id=</entry>
     <entry key="separator">_</entry>
 
 

@@ -21,8 +21,7 @@ public class TrimAdvertIDFromTitle {
     }
 
     public static String trimAdvertToGetItsId(WebElement element, Properties props) {
-        String advertId = StringUtils.substringAfter(getIdAttributeFromAdvertTitle(element), props.getProperty("separator"));
-        return advertId;
+        return StringUtils.substringAfter(getIdAttributeFromAdvertTitle(element), props.getProperty("separator"));
     }
 
     public static List<String> stackAllIDsToTheList(ElementsCollection elements, Properties props) {

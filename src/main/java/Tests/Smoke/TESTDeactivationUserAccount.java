@@ -21,7 +21,7 @@ public class TESTDeactivationUserAccount extends BaseTest {
         Properties props = new ResourcesFactory().getResources("DeactivationPositive");
 
         String userPhone    = props.getProperty("phonePrefix") + props.getProperty("mobilePhoneNumber");
-        props.getProperty("Email");
+        props.getProperty("email");
         String password     = "11111";
 
         User user = new User(userPhone , props , password);

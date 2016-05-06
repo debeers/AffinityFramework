@@ -49,10 +49,10 @@ public class User extends BaseModel {
     ////////GUI CONSTRUCTORS///////////
     public User(String userPhone, Properties props, String password) {
         this.userPhone    = userPhone;
-        this.email        = props.getProperty("Email")
+        this.email        = props.getProperty("email")
                             .equalsIgnoreCase("auto")
                             ?("TEST_GUI_USER" + RandomStringUtils.randomAlphabetic(9)
-                            + "@gmail.com") : props.getProperty("Email");
+                            + "@gmail.com") : props.getProperty("email");
         this.password     = password;
         userLog();
     }

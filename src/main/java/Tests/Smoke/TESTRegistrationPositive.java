@@ -30,7 +30,7 @@ public class TESTRegistrationPositive extends BaseTest{
         // Preparing user data and create new user entity
         //
         String mobilePhone = props.getProperty("phonePrefix") + props.getProperty("mobilePhoneNumber");
-        props.getProperty("Email");
+        props.getProperty("email");
         String password = props.getProperty("password");
 
         User user = new User(mobilePhone, props, password);
