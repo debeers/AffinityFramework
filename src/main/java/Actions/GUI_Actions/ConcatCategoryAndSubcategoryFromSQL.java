@@ -20,48 +20,56 @@ public class ConcatCategoryAndSubcategoryFromSQL {
 
     public static List<String> getSubcategoryIDForEachAdvertOutOfTheList(Properties props, ElementsCollection elements) throws IOException, SQLException {
         List<String> getCategoriesNamesFromSQL = new ArrayList<>();
-        DBUtill dbUtill = new DBUtill();
+        //DBUtill dbUtill = new DBUtill();
         List<String> advertsIds = stackAllIDsToTheList(elements, props);
         if (!advertsIds.isEmpty()) {
+            DBUtill dbUtill = new DBUtill();
             for (int i = 0; i < advertsIds.size(); i++)
             getCategoriesNamesFromSQL.add(dbUtill.getColumn((props.getProperty("getIdForEachSubCategory") + advertsIds.get(i)), "category_id"));
         }
+
         return getCategoriesNamesFromSQL;
     }
 
     public static List<String> getCategoryIDsForEachSubcategory(Properties props, ElementsCollection elements) throws IOException, SQLException {
         List<String> getCategoryNamesFromSQLUsingID = new ArrayList<>();
-        DBUtill dbUtill = new DBUtill();
+        //DBUtill dbUtill = new DBUtill();
         List<String> subcategoriesIds = getSubcategoryIDForEachAdvertOutOfTheList(props, elements);
         if (!subcategoriesIds.isEmpty()) {
+            DBUtill dbUtill = new DBUtill();
             for (int i = 0; i < subcategoriesIds.size(); i++) {
                 getCategoryNamesFromSQLUsingID.add(dbUtill.getColumn((props.getProperty("getParenIdForEachSubCategory") + subcategoriesIds.get(i)), "parent_id"));
             }
         }
+
         return getCategoryNamesFromSQLUsingID;
     }
 
     public static List<String> getSubcategoryNamesUsingItsId(Properties props, ElementsCollection elements) throws IOException, SQLException {
         List<String> getSubcategoryNamesUsingItsIdFromSQL = new ArrayList<>();
-        DBUtill dbUtill = new DBUtill();
-        List<String> subcategoriesIds = getCategoryIDsForEachSubcategory(props, elements);
+
+        List<String> subcategoriesIds = getSubcategoryIDForEachAdvertOutOfTheList(props, elements);
         if (!subcategoriesIds.isEmpty()) {
+            DBUtill dbUtill = new DBUtill();
             for (int i = 0; i < subcategoriesIds.size(); i++) {
                 getSubcategoryNamesUsingItsIdFromSQL.add(dbUtill.getColumn((props.getProperty("getSubcategoryName") + subcategoriesIds.get(i)), "name"));
             }
         }
+
         return getSubcategoryNamesUsingItsIdFromSQL;
     }
 
     public static List<String> getCategoryNameUsingItsId(Properties props, ElementsCollection elements) throws IOException, SQLException {
         List<String> getCategoryNameUsingItsIdFromSQL = new ArrayList<>();
-        DBUtill dbUtill = new DBUtill();
+
         List<String> categoriesIds = getCategoryIDsForEachSubcategory(props, elements);
         if (!categoriesIds.isEmpty()) {
+            DBUtill dbUtill = new DBUtill();
             for (int i = 0; i < categoriesIds.size(); i++) {
                 getCategoryNameUsingItsIdFromSQL.add(dbUtill.getColumn((props.getProperty("getCategoryName") + categoriesIds.get(i)), "name"));
             }
         }
+
         return getCategoryNameUsingItsIdFromSQL;
     }
 

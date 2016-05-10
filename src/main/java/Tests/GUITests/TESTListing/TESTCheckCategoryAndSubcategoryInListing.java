@@ -24,8 +24,9 @@ public class TESTCheckCategoryAndSubcategoryInListing extends BaseTest {
         Properties props = new ResourcesFactory().getResources("CheckCategoryAndSubcategoryInListing");
         MainPage mainPage = new MainPage(driver);
         ListingPage listingPage = mainPage.clickOnSearchButton();
-        Assert.assertEquals(trimAdvertsInfo(listingPage.getAdvertsInformation()),
-                concatenateCategoryWthSubcategory(props, listingPage.getTitlesOfAdvert()));
+        Assert.assertEquals(concatenateCategoryWthSubcategory(props, listingPage.getTitlesOfAdvert()), trimAdvertsInfo(listingPage.getAdvertsInformation()));
 
     }
+
+
 }
