@@ -21,7 +21,11 @@
     <!--Properties: -->
     <parameter name="URL" value="http://beta.lalafo.az"/>
 
-
+    <test name="TEST_CheckCategoryAndSubcategoryInListing_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckCategoryAndSubcategoryInListing"/>
+        </classes>
+    </test>
     <!--<test name="TEST_CheckCategoryAndSubcategoryInListing_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTCheckCategoryAndSubcategoryInListing"/>

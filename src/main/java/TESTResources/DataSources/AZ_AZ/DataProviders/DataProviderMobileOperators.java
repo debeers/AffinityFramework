@@ -18,19 +18,19 @@ public class DataProviderMobileOperators {
         List<Object[]> result = Lists.newArrayList();
         String testName = context.getName();
 
-        if ("TESTRegistrationWithAllOperatorsAZ_RU".equals(testName)) {
+        if ("TESTRegistrationWithAllOperators_AZ_RU".equals(testName)) {
             result.addAll(Arrays.asList(MobileOperators_AZ_RU()));
             System.out.println("Data Provider or:: AZ_RU suite is used ");
             return result.toArray(new Object[result.size()][]);
-        } else if ("TESTRegistrationWithAllOperatorsAZ_AZ".equals(testName)) {
+        } else if ("TESTRegistrationWithAllOperators_AZ_AZ".equals(testName)) {
             result.addAll(Arrays.asList(MobileOperators_AZ_RU()));
             System.out.println("Data Provider or:: AZ_AZ suite is used ");
             return result.toArray(new Object[result.size()][]);
-        } else if ("TESTRegistrationWithAllOperatorsKG_RU".equals(testName)) {
+        } else if ("TESTRegistrationWithAllOperators_KG_RU".equals(testName)) {
             result.addAll(Arrays.asList(MobileOperators_KG_RU()));
             System.out.println("Data Provider or:: KG_RU suite is used ");
             return result.toArray(new Object[result.size()][]);
-        } else if ("TESTRegistrationWithAllOperatorsKG_KG".equals(testName)) {
+        } else if ("TESTRegistrationWithAllOperators_KG_KG".equals(testName)) {
             result.addAll(Arrays.asList(MobileOperators_KG_RU()));
             System.out.println("Data Provider or:: KG_KY suite is used ");
             return result.toArray(new Object[result.size()][]);
