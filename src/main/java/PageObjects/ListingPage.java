@@ -27,7 +27,7 @@ public class ListingPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[@id='search_input']")
     public WebElement searchField;
 
-    @FindBy(xpath = ".//*[@id='search']//a[contains(@class,'btn-search')]")
+    @FindBy(xpath = ".//*[@id='search_button']")
     public WebElement searchButton;
 
     @FindBy(xpath = ".//*[@id='categories_select_chosen']/a")

@@ -54,8 +54,8 @@ public class BaseTest {
 
         jdbcConnection = new DBConnection().initDBConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
         Registry.Registry.set("dbConnection", jdbcConnection);
-        server = new BrowserMobProxyServer();
-        server.start(0);
+        server = new BrowserMobProxyServer(8082);
+        server.start();
     }
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
@@ -83,6 +83,9 @@ public class BaseTest {
         FirefoxProfile fProfile = new FirefoxProfile();
         fProfile.setAcceptUntrustedCertificates(true);
         //fProfile.setPreference("webdriver.load.strategy", "unstable");
+        fProfile.setPreference("network.proxy.http", "http://127.0.0.1");
+        fProfile.setPreference("network.proxy.http_port", 8082);
+
         fProfile.setPreference("browser.download.dir", downloadDir.getAbsolutePath());
         fProfile.setPreference("browser.download.folderList", 2);
         fProfile.setPreference("browser.download.manager.showWhenStarting", false);
@@ -91,7 +94,7 @@ public class BaseTest {
         fProfile.setPreference("network.http.connection-timeout", 5);
 
         DesiredCapabilities dc = DesiredCapabilities.firefox();
-        dc.setCapability(CapabilityType.PROXY, seleniumProxy);
+        dc.setCapability(CapabilityType.PROXY, fProfile);
         dc.setJavascriptEnabled(true);
         dc.setCapability(FirefoxDriver.PROFILE, fProfile);
         server.blacklistRequests("^(https?:\\/\\/)?(lalafo\\.)", 200);
@@ -117,7 +120,6 @@ public class BaseTest {
 
 //        try {
         driver.get(URL);
-        jsDisableZopim(driver);
 
 
 ////            Assert.assertTrue(driver.getCurrentUrl().contains(URL), "We are not on main page!"
