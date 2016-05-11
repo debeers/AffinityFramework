@@ -18,22 +18,22 @@ public class DataProviderCategoriesBD {
         List<Object[]> result = Lists.newArrayList();
         String testName = context.getName();
 
-        if ("TESTSubCategoryValidationAZ_RU".equals(testName)) {
+        if ("TESTSubCategoryValidation_AZ_RU".equals(testName)) {
             result.addAll(Arrays.asList(Undercategory_AZ_RU()));
             System.out.println("Data Provider for:: AZ_RU suite used  ");
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSubCategoryValidationKG_RU".equals(testName)) {
+        else if ("TESTSubCategoryValidation_KG_RU".equals(testName)) {
             result.addAll(Arrays.asList(Undercategory_KG_RU()));
             System.out.println("Data Provider for:: KG_RU suite used  ");
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSubCategoryValidationAZ_AZ".equals(testName)) {
+        else if ("TESTSubCategoryValidation_AZ_AZ".equals(testName)) {
             result.addAll(Arrays.asList(Undercategory_AZ_AZ()));
             System.out.println("Data Provider for:: AZ_AZ suite used  ");
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSubCategoryValidationKG_KG".equals(testName)) {
+        else if ("TESTSubCategoryValidation_KG_KG".equals(testName)) {
             result.addAll(Arrays.asList(Undercategory_KG_KG()));
             System.out.println("Data Provider for:: KG_KY suite used  ");
             return result.toArray(new Object[result.size()][]);
@@ -50,19 +50,19 @@ public class DataProviderCategoriesBD {
         List<Object[]> result = Lists.newArrayList();
         String testName = context.getName();
 
-        if ("TESTThirdSubcategoryValidationAZ_RU".equals(testName)) {
+        if ("TESTThirdSubcategoryValidation_AZ_RU".equals(testName)) {
             result.addAll(Arrays.asList(ThirdSubCategory_AZ_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTThirdSubcategoryValidationKG_RU".equals(testName)) {
+        else if ("TESTThirdSubcategoryValidation_KG_RU".equals(testName)) {
             result.addAll(Arrays.asList(ThirdSubCategory_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTThirdSubcategoryValidationKG_KG".equals(testName)) {
+        else if ("TESTThirdSubcategoryValidation_KG_KG".equals(testName)) {
             result.addAll(Arrays.asList(ThirdSubCategory_KG_KG()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTThirdSubcategoryValidationAZ_AZ".equals(testName)) {
+        else if ("TESTThirdSubcategoryValidation_AZ_AZ".equals(testName)) {
             result.addAll(Arrays.asList(ThirdSubCategory_AZ_AZ()));
             return result.toArray(new Object[result.size()][]);
         }
@@ -79,19 +79,19 @@ public class DataProviderCategoriesBD {
         List<Object[]> result = Lists.newArrayList();
         String testName = context.getName();
 
-        if ("TESTFourthCategoryValidationAZ_AZ".equals(testName)) {
+        if ("TESTFourthCategoryValidation_AZ_AZ".equals(testName)) {
             result.addAll(Arrays.asList(FourthCategory_AZ_AZ()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTFourthCategoryValidationAZ_RU".equals(testName)) {
+        else if ("TESTFourthCategoryValidation_AZ_RU".equals(testName)) {
             result.addAll(Arrays.asList(FourthCategory_AZ_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTFourthCategoryValidationKG_RU".equals(testName)) {
+        else if ("TESTFourthCategoryValidation_KG_RU".equals(testName)) {
             result.addAll(Arrays.asList(FourthCategory_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TEST_fourthCategory_validationKG_KG".equals(testName)) {
+        else if ("TEST_fourthCategory_validation_KG_KG".equals(testName)) {
             result.addAll(Arrays.asList(FourthCategory_KG_KG()));
             return result.toArray(new Object[result.size()][]);
         }

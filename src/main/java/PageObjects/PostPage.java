@@ -142,7 +142,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='currencies']")
     public WebElement choseCurrency;
 
-    @FindBy(xpath = ".//*[@id='isNegotiable']")
+    @FindBy(xpath = ".//*[@id='isNegotiable']/..")
     public WebElement isNegotiableCheckBox;
 
     @FindBy(xpath = ".//*[@id='regionId_chosen']/a")
