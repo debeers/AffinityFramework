@@ -160,7 +160,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='advert_type_private']")
     public WebElement radioButtonPrivate;
 
-    @FindBy(xpath = ".//*[@id='advert_type_bussiness']")
+    @FindBy(xpath = ".//*[@id='advert_type_business']/..")
     public WebElement radioButtonBusiness;
 
     @FindBy(xpath = ".//*[@id='name']")
@@ -169,7 +169,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='phone_number']")
     public WebElement phoneField;
 
-    @FindBy(xpath = ".//*[@id='hideTelephone']")
+    @FindBy(xpath = ".//*[@id='hideTelephone']/..")
     public WebElement hidePhoneCheckBox;
 
     @FindBy(xpath = ".//*[@id='email']")
@@ -387,7 +387,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public void setPrivateTypeAsBusines() {
-        $(radioButtonBusiness).shouldBe(visible).click();
+        $(radioButtonBusiness).click();
     }
 
     public void setPostAs(String privateOrBusines) {

@@ -3,6 +3,7 @@ package Tests.Smoke;
 import Entities.User;
 import TESTResources.ResourcesFactory;
 import Tests.BaseTest;
+import org.apache.commons.lang.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -20,16 +21,16 @@ public class TESTDeactivationUserAccount extends BaseTest {
     public void DeactivationUserAccount() throws IOException, InterruptedException {
         Properties props = new ResourcesFactory().getResources("DeactivationPositive");
 
-        String userPhone    = props.getProperty("phonePrefix") + props.getProperty("mobilePhoneNumber");
+        String userPhone    = props.getProperty("phonePrefix") + RandomStringUtils.randomNumeric(7);
         props.getProperty("email");
         String password     = "11111";
 
         User user = new User(userPhone , props , password);
         registerNewUser(driver, user)
-                .clickOnUserSettingsTopMenuLink()
+                .clickOnUserSettingsTopMenuLinkWhenLoggedIn()
                 .deleteAccount();
 
-        Assert.assertEquals(driver.getCurrentUrl(), baseUrl);
+        Assert.assertEquals(driver.getCurrentUrl(), baseUrl + "/");
 
     }
 }

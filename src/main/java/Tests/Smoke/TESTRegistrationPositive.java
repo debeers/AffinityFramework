@@ -44,7 +44,7 @@ public class TESTRegistrationPositive extends BaseTest{
         // Check user page for consistance and that user email is displaing in user account menu link
         //
         //Assert.assertTrue($(userAccountPage.successRegistrationAllert).isDisplayed(), "Success registration allert is not appear");
-        Assert.assertTrue($(userAccountPage.adsCounter).isDisplayed(), "Message counter is not displaing on user account page");
+        //Assert.assertTrue($(userAccountPage.adsCounter).isDisplayed(), "Message counter is not displaing on user account page");
         Assert.assertTrue($(userAccountPage.myMessagesUserNav).isDisplayed(), "My messages tab is not displaing on user account page");
         Assert.assertTrue($(userAccountPage.myPostsUserNav).isDisplayed(), "Posts tab is not displaing on user account page");
         Assert.assertTrue($(userAccountPage.mySettingsUserNav).isDisplayed(), "Settings tab is not displaing on user account page");

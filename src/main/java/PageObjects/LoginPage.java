@@ -29,7 +29,7 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//a[@id='password_recovery']")
     public WebElement loginPageForgotpasswordLink;
 
-    @FindBy(xpath = ".//a[@id='personal_profile']")
+    @FindBy(xpath = ".//*[@id='Login form']/div/div[1]/div/div/div/h4/a")
     public WebElement loginPageRegistrationLink;
 
     @FindBy(xpath = ".//*[@id='Login form']//div[contains(@class,'error-message')]/ul/li[1]")
@@ -66,7 +66,7 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
         }
     }
 
-    public RegistrationPage clickOnRegistrationLink() throws InterruptedException {
+    public RegistrationPage clickOnRegistrationLink(WebDriver driver) throws InterruptedException {
         $(loginPageRegistrationLink).shouldBe(visible).click();
         return new RegistrationPage(driver);
     }

@@ -177,6 +177,7 @@ public class BaseTest {
         if (!"".equals(verificationErrorString)) {
             Assert.fail(verificationErrorString);
         }
+
     }
 
     @AfterSuite
@@ -207,6 +208,9 @@ public class BaseTest {
             }
         } catch (Exception e) {
             log.info("HOUSTON, WE HAVE A PROBLEM - DEBUG PLEASE TO CHECK IF A HAR FILE WAS CREATED");
+        }
+        if (!jdbcConnection.isClosed()) {
+            jdbcConnection.close();
         }
         driver.quit();
     }

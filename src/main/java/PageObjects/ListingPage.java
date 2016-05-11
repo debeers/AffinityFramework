@@ -54,7 +54,7 @@ public class ListingPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[@id='categories']//ul/li/a")
     public List<WebElement> underCategoriesListLinks;
 
-    @FindBy(xpath = ".//*[@id='yw0']//a[contains(@class,'name')]")//.//*[@id='yw0']//a[contains(@class,'name')]
+    @FindBy(xpath = ".//div[@id='yw0']//*[contains(@id,'ad_')]")//.//*[@id='yw0']//a[contains(@class,'name')]
     public List<WebElement> searchResultTitles;
 
     @FindBy(xpath = ".//*[@id='expand-cats']/span")

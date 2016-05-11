@@ -21,7 +21,7 @@ public class TESTLoginChangePasswordAndRelogin extends BaseTest {
         Properties props = new ResourcesFactory().getResources("LoginChangePasswordAndRelogin");
 
         String userPhone = props.getProperty("phonePrefix") + props.getProperty("mobilePhoneNumber");
-        props.getProperty("Email");
+        props.getProperty("email");
         String password = "11111";
         props.getProperty("newPassword");
 

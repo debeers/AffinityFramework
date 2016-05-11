@@ -100,7 +100,7 @@ public class APIManager {
 
 
         return new Retrofit.Builder()
-                .baseUrl("http://api.lalafo.az/ru/api/")
+                .baseUrl("http://api.lalafo.az/api/")
                 .addConverterFactory(new ToStringConverterFactory()).addConverterFactory(createGsonConverterFactory())
                 .client(createHttpClient())
                 .build();
@@ -434,9 +434,9 @@ public class APIManager {
         return call;
     }
 
-    public Call checkUser(String mobile) throws IOException {
+    public Call checkUser(String userPhone) throws IOException {
 
-        Call<CheckUserResponse> call = mAPIService.checkUser(mobile);
+        Call<CheckUserResponse> call = mAPIService.checkUser(userPhone);
         return call;
     }
 

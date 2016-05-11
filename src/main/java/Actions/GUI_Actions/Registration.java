@@ -14,7 +14,7 @@ public class Registration {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = (LoginPage) mainPage.clickOnUserAccountLink(user.getEmail());
 
-        RegistrationPage registrationPage = loginPage.clickOnRegistrationLink();
+        RegistrationPage registrationPage = loginPage.clickOnRegistrationLink(driver);
         return registrationPage.enterRegistrationData(user.getUserPhone(), user.getEmail(), user.getPassword());
     }
 

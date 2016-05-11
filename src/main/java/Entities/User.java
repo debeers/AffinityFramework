@@ -20,7 +20,7 @@ public class User extends BaseModel {
 
     private String phoneNumber  = "";
     private String email        = "";
-    private String password     = "";
+    private String guiPassword     = "";
     private String userPhone    = "";
     private String userPassword = "";
 
@@ -53,13 +53,13 @@ public class User extends BaseModel {
                             .equalsIgnoreCase("auto")
                             ?("TEST_GUI_USER" + RandomStringUtils.randomAlphabetic(9)
                             + "@gmail.com") : props.getProperty("email");
-        this.password     = password;
+        this.guiPassword  = password;
         userLog();
     }
 
     public User(String userPhone, String password) {
         this.userPhone    = userPhone;
-        this.password     = password;
+        this.guiPassword  = password;
     }
     //////////////////////////////////
     ///////API CONSTRUCTORS///////////
@@ -106,11 +106,11 @@ public class User extends BaseModel {
     }
 
     public String getPassword() {
-        return password;
+        return guiPassword;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.guiPassword = password;
     }
 
     public String getUserPhone() { return userPhone; }

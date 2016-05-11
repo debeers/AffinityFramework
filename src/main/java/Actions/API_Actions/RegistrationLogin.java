@@ -1,9 +1,9 @@
 package Actions.API_Actions;
 
 import ApiWorker.APIManager;
-import Entities.User;
 import ApiWorker.model.users.checkUser.CheckUserResponse;
 import ApiWorker.model.users.signUp.SignUpResponse;
+import Entities.User;
 import retrofit2.Call;
 
 import java.io.IOException;

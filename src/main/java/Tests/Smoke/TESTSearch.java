@@ -26,7 +26,7 @@ public class TESTSearch extends BaseTest {
 
         MainPage mainPage = new MainPage(driver);
         List<String> searchResults = search(mainPage.clickOnSearchButton(), props);
-        Assert.assertTrue(searchResults.contains("iPod"), "No matches found!!!");
+        Assert.assertTrue(searchResults.contains("ipod"), "No matches found!!!");
         searchResults.stream().forEach(System.out::println);
     }
 }
