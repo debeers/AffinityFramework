@@ -40,14 +40,14 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public List<WebElement> categoriesList;
 
 
-    @FindBy(xpath = ".//*[@id='1_subcategory_chosen']/a")
+    @FindBy(xpath = ".//*[@id='categoryId_chosen']/a")
     public WebElement firstSubCategoryChoose;
 
     @FindBy(xpath = ".//*[@id='subcategory_chosen']//div//ul//li[@class='active-result result-selected']")
     public WebElement defaultUnderCategoryById;
 
     @CacheLookup
-    @FindBy(xpath = ".//*[@id='1_subcategory_chosen']//div//ul//li[@class='active-result'][position()>0]")
+    @FindBy(xpath = ".//*[@id='categoryId_chosen']//div//ul//li[@class='active-result'][position()>0]")
     public List<WebElement> firstSubCategoriesList;
 
     @CacheLookup
@@ -198,7 +198,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='update-ad']")
     public WebElement submitButton;
 
-    @FindBy(xpath = ".//*[@class='error-message']")
+    @FindBy(xpath = ".//*[contains(@id,'error')]")
     public List<WebElement> errors;
 
     @FindBy(xpath = ".//*[@id='title-errors']")

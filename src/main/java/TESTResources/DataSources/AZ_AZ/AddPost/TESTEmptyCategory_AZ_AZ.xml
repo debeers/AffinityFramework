@@ -4,6 +4,5 @@
     <!--Test Data -->
 
     <entry key="CategoryIndex">0</entry>
-    <entry key="AssertCategoryErrorMessage">Выберите категорию</entry>
-    <entry key="AssertCategoryErrMessAZ">Kateqoriya seçin</entry>
+    <entry key="AssertCategoryErrorMessage">Kateqoriya seçin</entry>
 </properties>

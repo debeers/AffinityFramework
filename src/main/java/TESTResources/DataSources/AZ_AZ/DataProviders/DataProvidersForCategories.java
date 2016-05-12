@@ -672,7 +672,7 @@ public class DataProvidersForCategories {
 
     public static Object[][] FourthCategory_AZ_AZ(){
         return new Object[][]{
-                {"49", "1", "SELECT value FROM param_value WHERE id IN (SELECT param_value_id FROM param_value_lang WHERE l_id BETWEEN 1 and 12)"},
+                {"49", "1", "SELECT value FROM param_value WHERE id IN (SELECT param_value_id FROM param_value_lang WHERE l_id BETWEEN 1 AND 12)"},
                 {"49", "2", "SELECT value FROM param_value WHERE id IN (SELECT param_value_id FROM param_value_lang WHERE l_id BETWEEN 1 and 12)"},
                 {"49", "3", "SELECT value FROM param_value WHERE id IN (SELECT param_value_id FROM param_value_lang WHERE l_id BETWEEN 1 and 12)"},
                 {"49", "4", "SELECT value FROM param_value WHERE id IN (SELECT param_value_id FROM param_value_lang WHERE l_id BETWEEN 1 and 12)"},

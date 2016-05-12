@@ -40,7 +40,7 @@ public class TESTSuiteAddPostCategoryError extends BaseTest {
         postPage.setUnderCategory(props.getProperty("UnderCategoryIndex"));
         postPage.clickOnPreviewButton();
 
-        Assert.assertTrue(postPage.getAllFieldsErrors().contains(props.getProperty("AssertUnderCategoryErrorMessage")), "No error was found");
+        Assert.assertTrue(postPage.getAllFieldsErrors().contains(props.getProperty("AssertCategoryErrorMessage")), "No error was found");
 
     }
 }

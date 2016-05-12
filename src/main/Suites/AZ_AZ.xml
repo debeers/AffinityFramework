@@ -21,7 +21,8 @@
     <!--Properties: -->
     <parameter name = "URL"          value="http://beta.lalafo.az/"  />
 
-    <test name="TESTPropertyParametersCheck_AZ_AZ">
+
+    <!--<test name="TESTPropertyParametersCheck_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTPropertyParametersCheck"/>
         </classes>
@@ -41,7 +42,7 @@
             <class name="Tests.GUITests.TESTAddPost.TESTMotorcyclesYearsOfManufacture"/>
         </classes>
     </test>
-    <!--<test name="TEST_PostToAnotherCat_AZ_AZ">
+    <test name="TEST_PostToAnotherCat_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTPostToOtherCat"/>
         </classes>
