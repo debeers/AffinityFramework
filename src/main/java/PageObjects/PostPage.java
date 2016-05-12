@@ -298,7 +298,11 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public List<String> getPropertyParametersList() {
-        $(propertyParams).shouldBe(visible).click();
+        if ($(propertyParams).exists()){
+            $(propertyParams).shouldBe(visible).click();}
+        else {
+            $(secondSubCategorySelect).shouldBe(visible).click();
+        }
         return propertyParamsList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
     }
 
