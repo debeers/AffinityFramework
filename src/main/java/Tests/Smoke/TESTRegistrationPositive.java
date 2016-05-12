@@ -4,6 +4,7 @@ import Entities.User;
 import PageObjects.UserAccountPage;
 import TESTResources.ResourcesFactory;
 import Tests.BaseTest;
+import org.apache.commons.lang.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,7 +30,7 @@ public class TESTRegistrationPositive extends BaseTest{
         //
         // Preparing user data and create new user entity
         //
-        String mobilePhone = props.getProperty("phonePrefix") + props.getProperty("mobilePhoneNumber");
+        String mobilePhone = props.getProperty("phonePrefix") + RandomStringUtils.randomNumeric(7);
         props.getProperty("email");
         String password = props.getProperty("password");
 

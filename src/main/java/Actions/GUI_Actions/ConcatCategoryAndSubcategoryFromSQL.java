@@ -20,7 +20,6 @@ public class ConcatCategoryAndSubcategoryFromSQL {
 
     public static List<String> getSubcategoryIDForEachAdvertOutOfTheList(Properties props, ElementsCollection elements) throws IOException, SQLException {
         List<String> getCategoriesNamesFromSQL = new ArrayList<>();
-        //DBUtill dbUtill = new DBUtill();
         List<String> advertsIds = stackAllIDsToTheList(elements, props);
         if (!advertsIds.isEmpty()) {
             DBUtill dbUtill = new DBUtill();
@@ -33,7 +32,6 @@ public class ConcatCategoryAndSubcategoryFromSQL {
 
     public static List<String> getCategoryIDsForEachSubcategory(Properties props, ElementsCollection elements) throws IOException, SQLException {
         List<String> getCategoryNamesFromSQLUsingID = new ArrayList<>();
-        //DBUtill dbUtill = new DBUtill();
         List<String> subcategoriesIds = getSubcategoryIDForEachAdvertOutOfTheList(props, elements);
         if (!subcategoriesIds.isEmpty()) {
             DBUtill dbUtill = new DBUtill();

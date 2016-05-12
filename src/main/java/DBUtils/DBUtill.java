@@ -71,7 +71,7 @@ public class DBUtill {
                 //System.out.println("get column result: " + rs.getString(column));
                 return rs.getString(column);
             }
-            connection.close();
+            //connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
