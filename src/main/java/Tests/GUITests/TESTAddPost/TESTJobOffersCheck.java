@@ -22,7 +22,7 @@ public class TESTJobOffersCheck extends BaseTest {
         driver.get(baseUrl + "ad/post/");
         PostPage postPage = new PostPage(driver);
         postPage.setCategory(categoryIndex);
-        postPage.setUnderCategory(subcategoryIndex);
+        postPage.setUnderCategoryForCertainPages(subcategoryIndex);
 
         List<String> workingScheduleGUI = postPage.getWorkingScheduleList();
         List<String> workingScheduleDB  = new ListContainer(sqlQuery).getList();
