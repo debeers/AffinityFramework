@@ -46,6 +46,15 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='subcategory_chosen']//div//ul//li[@class='active-result result-selected']")
     public WebElement defaultUnderCategoryById;
 
+    @FindBy(xpath = ".//*[@id='1_subcategory_chosen']//div//ul//li[@class='active-result result-selected']")
+    public WebElement defaultFirstSubcategory;
+
+    @FindBy(xpath = ".//*[@id='1_subcategory_chosen']/a")
+    public WebElement defaultFirstSubcategoryClick;
+
+    @FindBy(xpath = ".//*[@id='1_subcategory_chosen']//div//ul//li[@class='active-result'][position()>0]")
+    public List<WebElement> defaultFirstSubcategoriesList;
+
     @CacheLookup
     @FindBy(xpath = ".//*[@id='categoryId_chosen']//div//ul//li[@class='active-result'][position()>0]")
     public List<WebElement> firstSubCategoriesList;
@@ -330,6 +339,16 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         waitTillLoaderHides();
         return this;
     }
+
+    public PostPage setUnderCategoryForCertainPages(String underCategoryIndex) throws InterruptedException {
+        if ($(defaultFirstSubcategory).exists()) {
+            selectFromDropdawnMenuByIndex(defaultFirstSubcategoryClick, defaultFirstSubcategoriesList, underCategoryIndex);
+        }
+        waitTillLoaderHides();
+        return this;
+    }
+
+
 
     public PostPage setThirdCategory(String thirdCategory) throws InterruptedException {
         selectFromDropdawnMenuByIndex(secondSubCategorySelect, secondSubCategoriesList, thirdCategory);

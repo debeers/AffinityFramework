@@ -22,7 +22,7 @@ public class TESTPropertyParametersCheck extends BaseTest {
         driver.get(baseUrl + "ad/post/");
         PostPage postPage = new PostPage(driver);
         postPage.setCategory(categoryIndex);
-        postPage.setUnderCategory(subcategoryIndex);
+        postPage.setUnderCategoryForCertainPages(subcategoryIndex);
 
         List<String> propertyParametersGUI = postPage.getPropertyParametersList();
         List<String> propertyParametersDB  = new ListContainer(sqlQuery).getList();

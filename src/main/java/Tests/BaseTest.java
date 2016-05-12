@@ -30,8 +30,6 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
-import static GeneralHelpers.JSTools.jsDisableZopim;
-
 
 public class BaseTest {
 
@@ -97,9 +95,9 @@ public class BaseTest {
         dc.setCapability(CapabilityType.PROXY, fProfile);
         dc.setJavascriptEnabled(true);
         dc.setCapability(FirefoxDriver.PROFILE, fProfile);
-        server.blacklistRequests("^(https?:\\/\\/)?(lalafo\\.)", 200);
-        server.blacklistRequests("^(https?:\\/\\/)?(lalafo\\.)", 101);
-        server.blacklistRequests("^(https?:\\/\\/)?(lalafo\\.)", 301);
+        //server.blacklistRequests("^(https?:\\/\\/)?(lalafo\\.)", 200);
+        //server.blacklistRequests("^(https?:\\/\\/)?(lalafo\\.)", 101);
+        //server.blacklistRequests("^(https?:\\/\\/)?(lalafo\\.)", 301);
         /*server.blacklistRequests("\\*.zopim\\.com/.\\*", 101);
         server.blacklistRequests("https?://.*\\.google-analytics\\.com/.*", 200);
         server.blacklistRequests("http://.*\\.fbcdn.net/.*", 200);
