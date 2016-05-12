@@ -2,7 +2,7 @@ package Tests.GUITests.TESTAddPost;
 
 import PageObjects.PostPage;
 import GeneralHelpers.ListContainer;
-import TESTResources.DataSources.AZ_AZ.DataProviders.DataProviderCategoriesBD;
+import TESTResources.DataSources.AZ_AZ.DataProviders.DataProviderSelector;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class TESTThirdSubcategoryValidation extends BaseTest{
 
-    @Test(dataProvider = "thirdSubcategory_validation", dataProviderClass = DataProviderCategoriesBD.class)
+    @Test(dataProvider = "thirdSubcategory_validation", dataProviderClass = DataProviderSelector.class)
     public void thirdSubcategory_validation(String categoryIndex, String subcategoryIndex, String sqlQuery) throws IOException, InterruptedException, SQLException {
         //
         // Go to compose new post

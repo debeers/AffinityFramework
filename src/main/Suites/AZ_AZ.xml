@@ -21,7 +21,21 @@
     <!--Properties: -->
     <parameter name = "URL"          value="http://beta.lalafo.az/"  />
 
-
+    <test name="TESTPropertyParametersCheck_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTPropertyParametersCheck"/>
+        </classes>
+    </test>
+    <test name="TESTLookingForJobCheck_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTLookingForJobCheck"/>
+        </classes>
+    </test>
+    <test name="TESTJobOffersCheck_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTJobOffersCheck"/>
+        </classes>
+    </test>
     <test name="TESTMotorcyclesYearsOfManufacture_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTMotorcyclesYearsOfManufacture"/>

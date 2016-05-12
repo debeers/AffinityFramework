@@ -63,13 +63,6 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public List<WebElement> secondSubCategoriesList;
 
     //Post to Used Cars category --BEGIN--
-    @CacheLookup
-    @FindBy(xpath = ".//select[@name='param_id[4]']/following-sibling::div/a")
-    public WebElement fourthCategorySelectYear;
-
-    @CacheLookup
-    @FindBy(xpath = ".//select[@name='param_id[4]']/following-sibling::div//ul/li[@class='active-result'][position()>0]")
-    public List<WebElement> fourthCategoriesListYear;
 
     @CacheLookup
     @FindBy(xpath = "*//div[4]/div[1]/a")
@@ -105,6 +98,34 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     //Post to Used Cars category --END--
 
+    //Parameters
+    //
+    @CacheLookup
+    @FindBy(xpath = ".//select[@name='param_id[4]']/following-sibling::div/a")
+    public WebElement fourthCategorySelectYear;
+
+    @CacheLookup
+    @FindBy(xpath = ".//select[@name='param_id[4]']/following-sibling::div//ul/li[@class='active-result'][position()>0]")
+    public List<WebElement> fourthCategoriesListYear;
+
+    @CacheLookup
+    @FindBy(xpath = "*//div/input[@name='param_id[16]']")
+    public WebElement areaParameter;
+
+    @FindBy(xpath = ".//select[@name='param_id[11]']/following-sibling::div/a")
+    public WebElement propertyParams;
+
+    @FindBy(xpath = ".//select[@name='param_id[11]']/following-sibling::div//ul/li[position()>1]")
+    public List<WebElement> propertyParamsList;
+
+    @FindBy(xpath = ".//select[@name='param_id[9]']/following-sibling::div/a")
+    public WebElement workingSchedule;
+
+    @FindBy(xpath = ".//select[@name='param_id[9]']/following-sibling::div//ul/li[position()>1]")
+    public List<WebElement> workingScheduleList;
+    //
+    //Parameters --END-
+
     @CacheLookup
     @FindBy(xpath = "*//div[4]/div[1]/a")
     public WebElement fourthCategorySelect;
@@ -112,10 +133,6 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @CacheLookup
     @FindBy(xpath = "*//div[4]/div[1]/div/ul/li")
     public List<WebElement> fourthCategoriesList;
-
-    @CacheLookup
-    @FindBy(xpath = "*//div/input[@name='param_id[16]']")
-    public WebElement areaParameter;
 
     @CacheLookup
     @FindBy(xpath = ".//*[@id='1']//input[contains(@class,'yalla-upload-button')]")
@@ -278,6 +295,16 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public List<String> getYearOfManufactureForMotorcyclesCategory() {
         $(fourthCategorySelectYear).shouldBe(visible).click();
         return fourthCategoriesListYear.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
+    }
+
+    public List<String> getPropertyParametersList() {
+        $(propertyParams).shouldBe(visible).click();
+        return propertyParamsList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
+    }
+
+    public List<String> getWorkingScheduleList() {
+        $(workingSchedule).shouldBe(visible).click();
+        return workingScheduleList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
     }
 
     public List<String> getListCitiesFromGUI() {

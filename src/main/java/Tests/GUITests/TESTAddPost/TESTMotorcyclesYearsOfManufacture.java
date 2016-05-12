@@ -2,7 +2,7 @@ package Tests.GUITests.TESTAddPost;
 
 import GeneralHelpers.ListContainer;
 import PageObjects.PostPage;
-import TESTResources.DataSources.AZ_AZ.DataProviders.DataProviderCategoriesBD;
+import TESTResources.DataSources.AZ_AZ.DataProviders.DataProviderSelector;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class TESTMotorcyclesYearsOfManufacture extends BaseTest {
 
-    @Test(dataProvider = "motorcyclesYearsOfManufacture", dataProviderClass = DataProviderCategoriesBD.class)
+    @Test(dataProvider = "motorcyclesYearsOfManufacture", dataProviderClass = DataProviderSelector.class)
     public void motorcyclesYearsOfManufacture(String categoryIndex, String subcategoryIndex, String sqlQuery) throws IOException, InterruptedException, SQLException {
         driver.get(baseUrl + "ad/post/");
         PostPage postPage = new PostPage(driver);
