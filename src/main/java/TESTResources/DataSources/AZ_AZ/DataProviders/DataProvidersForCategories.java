@@ -585,16 +585,16 @@ public class DataProvidersForCategories {
 
     public static Object[][] PropertyParametersCheck_AZ_AZ() {
         return new Object[][]{
-                {"51", "1", "SELECT l_value FROM param_value_lang WHERE param_value_id IN (SELECT id FROM param_value WHERE param_id=11)"},
-                {"51", "2", "SELECT l_value FROM param_value_lang WHERE param_value_id IN (SELECT id FROM param_value WHERE param_id=11)"},
-                {"51", "3", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=1088) AND lang_id='ru'"},
-                {"51", "4", "SELECT l_value FROM param_value_lang WHERE param_value_id IN (SELECT id FROM param_value WHERE param_id=11)"},
-                {"52", "1", "SELECT l_value FROM param_value_lang WHERE param_value_id IN (SELECT id FROM param_value WHERE param_id=11)"},
-                {"52", "2", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=1088) AND lang_id='ru'"},
-                {"53", "1", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=1089) AND lang_id='ru'"},
-                {"53", "2", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=1090) AND lang_id='ru'"},
-                {"54", "1", "SELECT l_value FROM param_value_lang WHERE param_value_id IN (SELECT id FROM param_value WHERE param_id=11)"},
-                {"54", "2", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=1092) AND lang_id='ru'"},
+                {"51", "1", "SELECT value FROM param_value WHERE param_id=11"},
+                {"51", "2", "SELECT value FROM param_value WHERE param_id=11"},
+                {"51", "3", "SELECT name FROM category WHERE lvl =4 AND parent_id=1088"},
+                {"51", "4", "SELECT value FROM param_value WHERE param_id=11"},
+                {"52", "1", "SELECT value FROM param_value WHERE param_id=11"},
+                {"52", "2", "SELECT name FROM category WHERE lvl =4 AND parent_id=1088"},
+                {"53", "1", "SELECT name FROM category WHERE lvl =4 AND parent_id=1089"},
+                {"53", "2", "SELECT name FROM category WHERE lvl =4 AND parent_id=1090"},
+                {"54", "1", "SELECT value FROM param_value WHERE param_id=11"},
+                {"54", "2", "SELECT name FROM category WHERE lvl =4 AND parent_id=1092"},
         };
     }
 
