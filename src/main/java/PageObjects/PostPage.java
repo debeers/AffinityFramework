@@ -275,6 +275,11 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         return secondSubCategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
     }
 
+    public List<String> getYearOfManufactureForMotorcyclesCategory() {
+        $(fourthCategorySelectYear).shouldBe(visible).click();
+        return fourthCategoriesListYear.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
+    }
+
     public List<String> getListCitiesFromGUI() {
         $(regionListChoose).shouldBe(visible).click();
         return regionList.stream().map(WebElement::getText).collect(Collectors.toList());

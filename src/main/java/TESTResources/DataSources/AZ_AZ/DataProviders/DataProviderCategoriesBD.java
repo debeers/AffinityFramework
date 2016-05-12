@@ -73,6 +73,30 @@ public class DataProviderCategoriesBD {
         return new Object[][]{{"Common test data"}};
     }
 
+    @DataProvider(name = "motorcyclesYearsOfManufacture")
+    public static Object[][] motorcyclesYearsOfManufacture(ITestContext context) {
+        List<Object[]> result = Lists.newArrayList();
+        String testName = context.getName();
+
+        if ("TESTMotorcyclesYearsOfManufacture_AZ_AZ".equals(testName)) {
+            result.addAll(Arrays.asList(MotorcyclesYearsOfManufacture_AZ_AZ()));
+            return result.toArray(new Object[result.size()][]);
+        }
+        else if ("TESTMotorcyclesYearsOfManufacture_AZ_RU".equals(testName)) {
+            result.addAll(Arrays.asList(MotorcyclesYearsOfManufacture_AZ_RU()));
+            return result.toArray(new Object[result.size()][]);
+        }
+        else if ("TESTMotorcyclesYearsOfManufacture_KG_KG".equals(testName)) {
+            result.addAll(Arrays.asList(MotorcyclesYearsOfManufacture_KG_KG()));
+            return result.toArray(new Object[result.size()][]);
+        }
+        else if ("TESTMotorcyclesYearsOfManufacture_KG_RU".equals(testName)) {
+            result.addAll(Arrays.asList(MotorcyclesYearsOfManufacture_KG_RU()));
+            return result.toArray(new Object[result.size()][]);
+        }
+        return new Object[][]{{"Common test data"}};
+    }
+
 
     @DataProvider(name = "fourthCategory_validation")
     public static Object[][] fourthCategory_validation(ITestContext context) {
@@ -136,24 +160,6 @@ public class DataProviderCategoriesBD {
                 {"3", "1", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=379) AND lang_id='ru'"},
                 {"6", "4", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=1140) AND lang_id='ru'"},
                 {"7", "3", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=1142) AND lang_id='ru'"},
-                {"46", "1", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "2", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "3", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "4", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "5", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "6", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "7", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "8", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "9", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "10", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "11", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "12", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "13", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "14", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "15", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "16", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "17", "SELECT value FROM param_value WHERE param_id=4"},
-                {"46", "18", "SELECT value FROM param_value WHERE param_id=4"},
                 {"51", "1", "SELECT l_value FROM param_value_lang WHERE param_value_id IN (SELECT id FROM param_value WHERE param_id=11)"},
                 {"51", "2", "SELECT l_value FROM param_value_lang WHERE param_value_id IN (SELECT id FROM param_value WHERE param_id=11)"},
                 {"51", "3", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=1088) AND lang_id='ru'"},
@@ -226,6 +232,29 @@ public class DataProviderCategoriesBD {
                 {"75", "30", "SELECT l_value FROM param_value_lang WHERE param_value_id IN (SELECT id FROM param_value WHERE param_id=9)"},
                 {"75", "31", "SELECT l_value FROM param_value_lang WHERE param_value_id IN (SELECT id FROM param_value WHERE param_id=9)"},
                 {"75", "32", "SELECT l_value FROM param_value_lang WHERE param_value_id IN (SELECT id FROM param_value WHERE param_id=9)"},
+        };
+    }
+
+    public static Object[][] MotorcyclesYearsOfManufacture_AZ_RU() {
+        return new Object[][]{
+                {"46", "1", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "2", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "3", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "4", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "5", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "6", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "7", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "8", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "9", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "10", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "11", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "12", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "13", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "14", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "15", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "16", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "17", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "18", "SELECT value FROM param_value WHERE param_id=4"},
         };
     }
 
@@ -393,24 +422,6 @@ public class DataProviderCategoriesBD {
             return new Object[][]{
                     {"6", "4", "SELECT name FROM category WHERE lvl=4 AND parent_id=1140"},
                     {"7", "3", "SELECT name FROM category WHERE lvl=4 AND parent_id=1142"},
-                    {"45", "1", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "2", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "3", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "4", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "5", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "6", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "7", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "8", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "9", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "10", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "11", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "12", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "13", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "14", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "15", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "16", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "17", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                    {"45", "18", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
                     {"49", "1", "SELECT name FROM category WHERE lvl=3 AND parent_id=1081"},
                     {"49", "2", "SELECT name FROM category WHERE lvl=3 AND parent_id=1081"},
                     {"49", "3", "SELECT name FROM category WHERE lvl=4 AND parent_id=1088"},
@@ -459,6 +470,29 @@ public class DataProviderCategoriesBD {
 
             };
         }
+
+    public static Object[][] MotorcyclesYearsOfManufacture_KG_RU() {
+        return new Object[][]{
+                {"45", "1", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "2", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "3", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "4", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "5", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "6", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "7", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "8", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "9", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "10", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "11", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "12", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "13", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "14", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "15", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "16", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "17", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "18", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+        };
+    }
 
 
         public static Object[][] FourthCategory_KG_RU () {
@@ -714,6 +748,29 @@ public class DataProviderCategoriesBD {
         };
     }
 
+    public static Object[][] MotorcyclesYearsOfManufacture_AZ_AZ() {
+        return new Object[][]{
+                {"46", "1", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "2", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "3", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "4", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "5", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "6", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "7", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "8", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "9", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "10", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "11", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "12", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "13", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "14", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "15", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "16", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "17", "SELECT value FROM param_value WHERE param_id=4"},
+                {"46", "18", "SELECT value FROM param_value WHERE param_id=4"},
+        };
+    }
+
 
     public static Object[][] FourthCategory_AZ_AZ(){
         return new Object[][]{
@@ -878,24 +935,6 @@ public class DataProviderCategoriesBD {
         return new Object[][]{
                 {"6", "1", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=1140)"},
                 {"7", "3", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=1142)"},
-                {"45", "1", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "2", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "3", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "4", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "5", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "6", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "7", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "8", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "9", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "10", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "11", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "12", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "13", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "14", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "15", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "16", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "17", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
-                {"45", "18", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
                 {"49", "1", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=3 AND parent_id=1081)"},
                 {"49", "2", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=3 AND parent_id=1081)"},
                 {"49", "3", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=1088)"},
@@ -941,6 +980,29 @@ public class DataProviderCategoriesBD {
                 {"72", "30", "SELECT value FROM param_value WHERE param_id=9"},
                 {"72", "31", "SELECT value FROM param_value WHERE param_id=9"},
                 {"72", "32", "SELECT value FROM param_value WHERE param_id=9"},
+        };
+    }
+
+    public static Object[][] MotorcyclesYearsOfManufacture_KG_KG() {
+        return new Object[][]{
+                {"45", "1", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "2", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "3", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "4", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "5", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "6", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "7", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "8", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "9", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "10", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "11", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "12", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "13", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "14", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "15", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "16", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "17", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
+                {"45", "18", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
         };
     }
 
