@@ -21,16 +21,7 @@
     <!--Properties: -->
     <parameter name="URL" value="http://beta.lalafo.az"/>
 
-    <test name="TEST_CheckCategoryAndSubcategoryInListing_AZ_AZ">
-        <classes>
-            <class name="Tests.GUITests.TESTListing.TESTCheckCategoryAndSubcategoryInListing"/>
-        </classes>
-    </test>
-    <!--<test name="TEST_CheckCategoryAndSubcategoryInListing_AZ_AZ">
-        <classes>
-            <class name="Tests.GUITests.TESTListing.TESTCheckCategoryAndSubcategoryInListing"/>
-        </classes>
-    </test>
+
     <test name="TEST_Registration_Positive_AZ_AZ">
         <classes>
             <class name="Tests.Smoke.TESTRegistrationPositive"/>
@@ -61,13 +52,11 @@
         </classes>
     </test>
 
-
     <test name=" TEST_SQLConnect_AZ_AZ">
         <classes>
             <class name="Tests.SQLTests.TESTConnectSQL"/>
         </classes>
     </test>
-
 
     <test name="TEST_AddNewPost_AZ_AZ">
         <classes>
@@ -75,18 +64,12 @@
         </classes>
     </test>
 
-
     <test name="TEST_PostPageIsAvailable_AZ_AZ">
         <classes>
             <class name="Tests.Smoke.TESTPostPageIsAvailable"/>
         </classes>
     </test>
 
-    <test name="TEST_Search_AZ_AZ">
-        <classes>
-            <class name="Tests.Smoke.TESTSearch"/>
-        </classes>
-    </test>
     <test name="TESTDeactivationOfAnActiveAdvert_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTDeactivationOfAdvert.TESTDeactivationOfAnActiveAdvert"/>
@@ -116,7 +99,7 @@
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTCategoryFreebiesHasNoPrice"/>
         </classes>
-    </test>-->
+    </test>
 
 </suite>
 

@@ -600,6 +600,7 @@ public class DataProvidersForCategories {
 
     public static Object[][] JobOffersCheck_AZ_AZ() {
         return new Object[][]{
+
                 {"74", "2", "SELECT value FROM param_value WHERE param_id=9"},
                 {"74", "3", "SELECT value FROM param_value WHERE param_id=9"},
                 {"74", "4", "SELECT value FROM param_value WHERE param_id=9"},

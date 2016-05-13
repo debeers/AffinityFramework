@@ -3,6 +3,7 @@ package Tests.APITests;
 
 import ApiWorker.model.ads.Ad;
 import DBUtils.DBUtill;
+import TESTResources.ResourcesFactory;
 import Tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,15 +14,13 @@ import java.util.Properties;
 
 import static Actions.API_Actions.PostWorker.createNewPostViaAPI;
 import static Actions.API_Actions.PostWorker.getPostByIdViaAPI;
-import static TESTResources.PropertiesLoader.propertyXMLoader;
 
 public class TESTApiGetAdById extends BaseTest {
 
     @Test
-    public void API_Post_Test() throws InterruptedException, IOException, SQLException {
+    public void APIgetAdById() throws InterruptedException, IOException, SQLException {
 
-        Properties props = propertyXMLoader(System.getProperty("user.dir") +
-                "/src/main/java/Tests/APITests/DATA/AddPost.xml");
+        Properties props = new ResourcesFactory().getResources("APIgetAdById");
         DBUtill db = new DBUtill();
 
         String postId  = createNewPostViaAPI(props);

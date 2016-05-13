@@ -21,8 +21,8 @@
     <entry key="mobile">+994-778888888</entry>
 
     <entry key="testAPI">1</entry>
-    <entry key="resultSet">SELECT name FROM location WHERE location_id=</entry>
-    <entry key="cityName">l_name</entry>
+    <entry key="resultSet">SELECT name FROM location WHERE id=</entry>
+    <entry key="cityName">name</entry>
 
     <entry key="File1">C:\UploadFiles\1.jpg</entry>
     <entry key="File2">C:\UploadFiles\2.jpg</entry>

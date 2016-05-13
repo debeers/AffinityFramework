@@ -22,7 +22,7 @@ public class TESTMotorcyclesYearsOfManufacture extends BaseTest {
         driver.get(baseUrl + "ad/post/");
         PostPage postPage = new PostPage(driver);
         postPage.setCategory(categoryIndex);
-        postPage.setUnderCategory(subcategoryIndex);
+        postPage.setUnderCategoryForCertainPages(subcategoryIndex);
 
         List<String> yearsOfManufactureGUI = postPage.getYearOfManufactureForMotorcyclesCategory();
         List<String> yearsOfManufactureDB  = new ListContainer(sqlQuery).getList();

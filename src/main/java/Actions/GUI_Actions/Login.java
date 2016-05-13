@@ -12,19 +12,19 @@ import org.openqa.selenium.WebDriver;
  */
 public class Login {
 
-    public static UserAccountPage loginAs(WebDriver driver, User user){
+    public static UserAccountPage loginAs(WebDriver driver, User user) throws InterruptedException {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = (LoginPage) mainPage.clickOnUserAccountLink(user.getEmail());
         return loginPage.loginAs(driver, user.getEmail(), user.getPassword());
     }
 
-    public static UserAccountPage loginAsViaApi(WebDriver driver, User user){
+    public static UserAccountPage loginAsViaApi(WebDriver driver, User user) throws InterruptedException {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = (LoginPage) mainPage.clickOnUserAccountLink(user.getUserName());
         return loginPage.loginAs(driver, user.getUserName(), user.getPassword());
     }
 
-    public static UserAccountPage loginAs(WebDriver driver, LoginObject clientLogin){
+    public static UserAccountPage loginAs(WebDriver driver, LoginObject clientLogin) throws InterruptedException {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = (LoginPage) mainPage.clickOnUserAccountLink(clientLogin.getLogin());
         return loginPage.loginAs(driver, clientLogin.getLogin(), clientLogin.getPassword());

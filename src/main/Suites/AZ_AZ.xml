@@ -4,7 +4,7 @@
 
     <!--Credentials: -->
 
-    <parameter name="clientLoginParam"     value="debeers1989@gmail.com"         />
+    <parameter name="clientLoginParam"     value="TEST_userGUI@gmail.com"         />
     <parameter name="clientPasswordParam"  value="11111"                     />
     <!--Credentials: END -->
 
@@ -21,7 +21,11 @@
     <!--Properties: -->
     <parameter name = "URL"          value="http://beta.lalafo.az/"  />
 
-
+    <test name="TEST_CheckCategoryAndSubcategoryInListing_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckCategoryAndSubcategoryInListing"/>
+        </classes>
+    </test>
     <test name="TESTPropertyParametersCheck_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTPropertyParametersCheck"/>
@@ -121,7 +125,7 @@
             </classes>
         </test>
 
-        <test name="TEST_API_getAdById_AZ_AZ">
+        <test name="TESTAPIgetAdById_AZ_AZ">
             <classes>
                 <class name="Tests.APITests.TESTApiGetAdById"/>
             </classes>
@@ -132,13 +136,6 @@
                 <class name="Tests.GUITests.TESTAddPost.TESTPostThirdLevelCat"/>
             </classes>
         </test>
-
-        <test name="TEST_PostPageIsAvailable_AZ_AZ">
-            <classes>
-                <class name="Tests.Smoke.TESTPostPageIsAvailable"/>
-            </classes>
-        </test>
-
 
         <test name="TEST_Search_AZ_AZ">
             <classes>

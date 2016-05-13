@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static GeneralHelpers.JSTools.jsDeleteClassesById;
+import static GeneralHelpers.JSTools.jsDisableDropdownCompactView;
+import static GeneralHelpers.JSTools.jsDisableDropdownCompactViewForSubcategories;
 import static GeneralHelpers.RobotUpload.uploadFile;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -29,7 +31,7 @@ import static com.codeborne.selenide.Selenide.$$;
 public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     @CacheLookup
-    @FindBy(xpath = ".//*[@id='categoryId_chosen']/a")
+    @FindBy(css = "#categoryId_chosen>a")
     public WebElement categoriesChoose;
 
     @FindBy(xpath = "html/body/div[3]/div[1]")
@@ -48,6 +50,9 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     @FindBy(xpath = ".//*[@id='1_subcategory_chosen']//div//ul//li[@class='active-result result-selected']")
     public WebElement defaultFirstSubcategory;
+
+    @FindBy(xpath = ".//div//div[@id='1_subcategory_chosen']")
+    public WebElement firstSubcategoryDiv;
 
     @FindBy(xpath = ".//*[@id='1_subcategory_chosen']/a")
     public WebElement defaultFirstSubcategoryClick;
@@ -271,7 +276,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
                     .filter(el -> el.getAttribute("data-option-array-index").equals(index))
                     .forEach(el -> $(el).shouldBe(visible).click());
         } catch (Exception e) {
-            System.out.println("We`re catched Stale element ApiWorker.exception, but fuck it!)");
+            System.out.println("We have caught STALE element exception. Trying to ignore it");
         }
     }
 
@@ -281,9 +286,9 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public List<String> getListUnderCategoriesFromGUI() {
-        if ($(firstSubCategoryChoose).isDisplayed()) {
-            $(firstSubCategoryChoose).shouldBe(visible).click();
-            return firstSubCategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
+        if ($(defaultFirstSubcategoryClick).exists()) {
+            $(defaultFirstSubcategoryClick).shouldBe(visible).click();
+            return defaultFirstSubcategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
         } else {
             $(underCategoryParameter).shouldBe(visible).click();
             return underCategoryParameterList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
@@ -327,6 +332,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public PostPage setCategory(String categoryIndex) throws InterruptedException {
+        jsDisableDropdownCompactView(driver);
         selectFromDropdawnMenuByIndex(categoriesChoose, categoriesList, categoryIndex);
         waitTillLoaderHides();
         return this;
@@ -341,10 +347,11 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public PostPage setUnderCategoryForCertainPages(String underCategoryIndex) throws InterruptedException {
-        if ($(defaultFirstSubcategory).exists()) {
+        jsDisableDropdownCompactViewForSubcategories(driver);
+        if ($(firstSubcategoryDiv).isDisplayed()) {
             selectFromDropdawnMenuByIndex(defaultFirstSubcategoryClick, defaultFirstSubcategoriesList, underCategoryIndex);
         }
-        waitTillLoaderHides();
+            waitTillLoaderHides();
         return this;
     }
 

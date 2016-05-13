@@ -71,9 +71,10 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
         return new RegistrationPage(driver);
     }
 
-    public UserAccountPage loginAs(WebDriver driver, String email, String password) {
+    public UserAccountPage loginAs(WebDriver driver, String email, String password) throws InterruptedException {
         enterEmail(email);
         enterPassword(password);
+        Thread.sleep(1500);
         return clickOnLoginButton(driver);
     }
 

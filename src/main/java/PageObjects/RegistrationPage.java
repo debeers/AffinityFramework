@@ -89,21 +89,29 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
         }
     }
 
-    public UserAccountPage enterRegistrationData(String mobilePhoneNumber, String email, String password) {
+    public UserAccountPage enterRegistrationData(String mobilePhoneNumber, String email, String password) throws InterruptedException {
 
         enterMobilePhoneNumber(mobilePhoneNumber);
         enterEmail(email);
         enterPassword(password);
         enterConfirmationPassword(password);
-
+        Thread.sleep(1500);
         return clickOnRegisterButton();
     }
 
-    public UserAccountPage enterRegistrationDataShort(String mobilePhoneNumber, String password) {
+    public UserAccountPage enterRegistrationDataUsingEmail(String email, String password) throws InterruptedException {
+        enterEmail(email);
+        enterPassword(password);
+        enterConfirmationPassword(password);
+        Thread.sleep(1500);
+        return clickOnRegisterButton();
+    }
+
+    public UserAccountPage enterRegistrationDataShort(String mobilePhoneNumber, String password) throws InterruptedException {
         enterMobilePhoneNumber(mobilePhoneNumber);
         enterPassword(password);
         enterConfirmationPassword(password);
-
+        Thread.sleep(1500);
         return clickOnRegisterButton();
     }
 

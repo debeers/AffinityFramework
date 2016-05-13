@@ -66,7 +66,7 @@ public class TESTSuiteDescriptionASCII extends BaseTest{
         Assert.assertTrue(successPostedPage.markPost.isDisplayed());
         String tmp = new String($(successPostedPage.successMessage).getText().getBytes(Charset.forName("utf-8")));
         Assert.assertEquals(tmp,
-                "Ваше объявление было отправлено на проверку",
+                props.getProperty("successPostingMessage"),
                 "Success message is different!");
         log.info("Test passed, new post posted, with correct data entered during forming process: YoouuuHHuuu!!!");
 

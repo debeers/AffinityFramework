@@ -18,4 +18,11 @@ public class Registration {
         return registrationPage.enterRegistrationData(user.getUserPhone(), user.getEmail(), user.getPassword());
     }
 
+    public static UserAccountPage registerNewUserUsingEmail(WebDriver driver, User user) throws InterruptedException {
+        MainPage mainPage = new MainPage(driver);
+        LoginPage loginPage = (LoginPage) mainPage.clickOnUserAccountLink(user.getEmail());
+        RegistrationPage registrationPage = loginPage.clickOnRegistrationLink(driver);
+        return registrationPage.enterRegistrationDataUsingEmail(user.getEmail() , user.getPassword());
+    }
+
 }

@@ -17,7 +17,7 @@ public class TESTConnectSQL extends BaseTest {
     public void DBConnectionTest() throws SQLException, IOException {
 
         DBUtill db = new DBUtill();
-        ResultSet result = db.getResultSet("SELECT * FROM user WHERE username LIKE '%asan%' AND LIMIT=50");
+        ResultSet result = db.getResultSet("SELECT * FROM user WHERE username LIKE '%asan%' LIMIT 50");
         while (result.next()) {
             System.out.println(
                     result.getString(1) + " " +

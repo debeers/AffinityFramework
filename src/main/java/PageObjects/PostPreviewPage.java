@@ -1,6 +1,7 @@
 package PageObjects;
 
 import com.codeborne.selenide.Condition;
+import org.apache.commons.lang.StringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -62,9 +63,8 @@ public class PostPreviewPage extends TopMenuGeneralPage {
     }
 
     public String getTextFromPreviewSellerName(){
-        return $(previewSellerName).
-                shouldBe(Condition.visible).
-                getText();
+        return StringUtils.substringBefore($(previewSellerName).
+                shouldBe(Condition.visible).getText(), "\n").trim();
     }
 
     public String getTextFromPreviewSellerCity(){

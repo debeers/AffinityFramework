@@ -17,7 +17,7 @@ public class PostAdd {
     public static void setUnderCategoryIfExsist(PostPage postPage, Post post) throws InterruptedException {
 
         if (!post.getUnderCategory().equals("null"))
-            postPage.setUnderCategory(post.getUnderCategory());
+            postPage.setUnderCategoryForCertainPages(post.getUnderCategory());
         else
             System.out.println("Undercategory is not setted");
     }

@@ -26,6 +26,18 @@ public class JSTools {
         js.executeScript(script);
     }
 
+    public static void jsDisableDropdownCompactView(WebDriver driver) throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String script = "$('#categoryId_chosen .chosen-results')[0].style.maxHeight = \"5000px\";";
+        js.executeScript(script);
+    }
+
+    public static void jsDisableDropdownCompactViewForSubcategories(WebDriver driver) throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String script = "$('#1_subcategory_chosen .chosen-results')[0].style.maxHeight = \"5000px\";";
+        js.executeScript(script);
+    }
+
 
 
 }

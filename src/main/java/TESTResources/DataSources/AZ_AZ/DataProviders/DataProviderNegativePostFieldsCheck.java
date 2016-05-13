@@ -18,19 +18,19 @@ public class DataProviderNegativePostFieldsCheck {
         List<Object[]> result = Lists.newArrayList();
         String testName = context.getName();
 
-        if ("TESTSuiteIncorrectDataFillinAZ_AZ".equals(testName)) {
+        if ("TESTSuiteIncorrectDataFillin_AZ_AZ".equals(testName)) {
             result.addAll(Arrays.asList(NegativeDescription_AZ_AZ()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinAZ_RU".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_AZ_RU".equals(testName)) {
             result.addAll(Arrays.asList(NegativeDescription_AZ_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinKG_RU".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_KG_RU".equals(testName)) {
             result.addAll(Arrays.asList(NegativeDescription_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinKG_KG".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_KG_KG".equals(testName)) {
             result.addAll(Arrays.asList(NegativeDescription_KG_KG()));
             return result.toArray(new Object[result.size()][]);
         }
@@ -45,19 +45,19 @@ public class DataProviderNegativePostFieldsCheck {
         List<Object[]> result = Lists.newArrayList();
         String testName = context.getName();
 
-        if ("TESTSuiteIncorrectDataFillinAZ_AZ".equals(testName)) {
+        if ("TESTSuiteIncorrectDataFillin_AZ_AZ".equals(testName)) {
             result.addAll(Arrays.asList(NegativeName_AZ_AZ()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinAZ_RU".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_AZ_RU".equals(testName)) {
             result.addAll(Arrays.asList(NegativeName_AZ_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinKG_RU".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_KG_RU".equals(testName)) {
             result.addAll(Arrays.asList(NegativeName_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinKG_KG".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_KG_KG".equals(testName)) {
             result.addAll(Arrays.asList(NegativeName_KG_KG()));
             return result.toArray(new Object[result.size()][]);
         }
@@ -72,19 +72,19 @@ public class DataProviderNegativePostFieldsCheck {
         List<Object[]> result = Lists.newArrayList();
         String testName = context.getName();
 
-        if ("TESTSuiteIncorrectDataFillinAZ_AZ".equals(testName)) {
+        if ("TESTSuiteIncorrectDataFillin_AZ_AZ".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostEmail_AZ_AZ()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinAZ_RU".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_AZ_RU".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostEmail_AZ_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinKG_RU".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_KG_RU".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostEmail_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinKG_KG".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_KG_KG".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostEmail_KG_KG()));
             return result.toArray(new Object[result.size()][]);
         }
@@ -99,19 +99,19 @@ public class DataProviderNegativePostFieldsCheck {
         List<Object[]> result = Lists.newArrayList();
         String testName = context.getName();
 
-        if ("TESTSuiteIncorrectDataFillinAZ_AZ".equals(testName)) {
+        if ("TESTSuiteIncorrectDataFillin_AZ_AZ".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostPhone_AZ_AZ()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinAZ_RU".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_AZ_RU".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostPhone_AZ_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinKG_RU".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_KG_RU".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostPhone_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinKG_KG".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_KG_KG".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostPhone_KG_KG()));
             return result.toArray(new Object[result.size()][]);
         }
@@ -126,19 +126,19 @@ public class DataProviderNegativePostFieldsCheck {
         List<Object[]> result = Lists.newArrayList();
         String testName = context.getName();
 
-        if ("TESTSuiteIncorrectDataFillinAZ_AZ".equals(testName)) {
+        if ("TESTSuiteIncorrectDataFillin_AZ_AZ".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostPrice_AZ_AZ()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinAZ_RU".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_AZ_RU".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostPrice_AZ_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinKG_RU".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_KG_RU".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostPrice_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinKG_KG".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_KG_KG".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostPrice_KG_KG()));
             return result.toArray(new Object[result.size()][]);
         }
@@ -153,19 +153,19 @@ public class DataProviderNegativePostFieldsCheck {
         List<Object[]> result = Lists.newArrayList();
         String testName = context.getName();
 
-        if ("TESTSuiteIncorrectDataFillinAZ_AZ".equals(testName)) {
+        if ("TESTSuiteIncorrectDataFillin_AZ_AZ".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostTitle_AZ_AZ()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinAZ_RU".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_AZ_RU".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostTitle_AZ_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinKG_RU".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_KG_RU".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostTitle_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillinKG_KG".equals(testName)) {
+        else if ("TESTSuiteIncorrectDataFillin_KG_KG".equals(testName)) {
             result.addAll(Arrays.asList(NegativePostTitle_KG_KG()));
             return result.toArray(new Object[result.size()][]);
         }
