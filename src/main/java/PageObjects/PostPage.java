@@ -38,9 +38,8 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     public WebElement dummyClick;
 
     @CacheLookup
-    @FindBy(xpath = ".//*[@id='categoryId_chosen']//ul//li[contains(@class,'active-result')]")
+    @FindBy(css = "#categoryId_chosen>.chosen-drop>.chosen-results>.active-result:not(:first-child)")
     public List<WebElement> categoriesList;
-
 
     @FindBy(xpath = ".//*[@id='categoryId_chosen']/a")
     public WebElement firstSubCategoryChoose;
@@ -54,7 +53,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//div//div[@id='1_subcategory_chosen']")
     public WebElement firstSubcategoryDiv;
 
-    @FindBy(xpath = ".//*[@id='1_subcategory_chosen']/a")
+    @FindBy(xpath = ".//*[@id='1_subcategory']/following-sibling::div/a")
     public WebElement defaultFirstSubcategoryClick;
 
     @FindBy(xpath = ".//*[@id='1_subcategory_chosen']//div//ul//li[@class='active-result'][position()>0]")
@@ -286,12 +285,15 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public List<String> getListUnderCategoriesFromGUI() {
-        if ($(defaultFirstSubcategoryClick).exists()) {
+        if ($(defaultFirstSubcategoryClick).isDisplayed()) {
             $(defaultFirstSubcategoryClick).shouldBe(visible).click();
             return defaultFirstSubcategoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
-        } else {
+        } else if ($(underCategoryParameter).isDisplayed()){
             $(underCategoryParameter).shouldBe(visible).click();
             return underCategoryParameterList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
+        } else {
+            $(fourthCategorySelectYear).shouldBe(visible).click();
+            return fourthCategoriesListYear.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
         }
     }
 

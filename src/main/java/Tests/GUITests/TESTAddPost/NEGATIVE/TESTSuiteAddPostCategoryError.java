@@ -33,11 +33,6 @@ public class TESTSuiteAddPostCategoryError extends BaseTest {
         PostPage postPage = mainPage.clickOnAddNewPostButton();
         log.info("We are on the composing new post page");
 
-        //
-        //Create new post
-        //
-        postPage.setCategory(props.getProperty("CategoryIndex"));
-        postPage.setUnderCategory(props.getProperty("UnderCategoryIndex"));
         postPage.clickOnPreviewButton();
 
         Assert.assertTrue(postPage.getAllFieldsErrors().contains(props.getProperty("AssertCategoryErrorMessage")), "No error was found");

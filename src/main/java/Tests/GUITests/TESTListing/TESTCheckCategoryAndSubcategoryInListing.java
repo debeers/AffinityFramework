@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import static Actions.GENERAL.TrimAdvertsInformation.trimAdvertsInfo;
+import static Actions.GENERAL.TrimAdvertsInformation.trimCategoryAndSubcategoryFromTheThumb;
 import static Actions.GUI_Actions.ConcatCategoryAndSubcategoryFromSQL.concatenateCategoryWthSubcategory;
 
 /**
@@ -24,7 +24,7 @@ public class TESTCheckCategoryAndSubcategoryInListing extends BaseTest {
         Properties props = new ResourcesFactory().getResources("CheckCategoryAndSubcategoryInListing");
         MainPage mainPage = new MainPage(driver);
         ListingPage listingPage = mainPage.clickOnSearchButton();
-        Assert.assertEquals(concatenateCategoryWthSubcategory(props, listingPage.getTitlesOfAdvert()), trimAdvertsInfo(listingPage.getAdvertsInformation()));
+        Assert.assertEquals(concatenateCategoryWthSubcategory(props, listingPage.getTitlesOfAdvert()), trimCategoryAndSubcategoryFromTheThumb(listingPage.getAdvertsInformation()));
 
     }
 

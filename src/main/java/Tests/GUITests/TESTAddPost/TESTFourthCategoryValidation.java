@@ -25,7 +25,7 @@ public class TESTFourthCategoryValidation extends BaseTest {
         driver.get(baseUrl + "ad/post/");
         PostPage postPage = new PostPage(driver);
         postPage.setCategory(categoryIndex);
-        postPage.setUnderCategory(subcategoryIndex);
+        postPage.setUnderCategoryForCertainPages(subcategoryIndex);
 
         List<String> fourthSubcategoriesGUI = postPage.getFourthLvlSubCategoryFromGUI();
         List <String> fourthSubcategoriesDB  = new ListContainer(sqlQuery).getList();

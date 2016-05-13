@@ -25,7 +25,7 @@ public class TESTThirdSubcategoryValidation extends BaseTest{
         driver.get(baseUrl + "ad/post/");
         PostPage postPage = new PostPage(driver);
         postPage.setCategory(categoryIndex);
-        postPage.setUnderCategory(subcategoryIndex);
+        postPage.setUnderCategoryForCertainPages(subcategoryIndex);
 
         List<String> thirdSubcategoriesGui = postPage.getThirdLvlSubCategoryFromGUI();
         List<String> thirdSubcategoriesDB  = new ListContainer(sqlQuery).getList();

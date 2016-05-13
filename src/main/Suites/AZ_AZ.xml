@@ -21,7 +21,12 @@
     <!--Properties: -->
     <parameter name = "URL"          value="http://beta.lalafo.az/"  />
 
-    <test name="TEST_CheckCategoryAndSubcategoryInListing_AZ_AZ">
+    <test name="TEST_Registration_Positive_AZ_AZ">
+        <classes>
+            <class name="Tests.Smoke.TESTRegistrationPositive"/>
+        </classes>
+    </test>
+    <!--<test name="TEST_CheckCategoryAndSubcategoryInListing_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTCheckCategoryAndSubcategoryInListing"/>
         </classes>
@@ -166,7 +171,7 @@
             <classes>
                 <class name="Tests.APITests.TESTApiGetAdById"/>
             </classes>
-        </test>
+        </test>-->
 
 
     </suite>

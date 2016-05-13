@@ -20,7 +20,7 @@ public class ConcatCategoryAndSubcategoryFromSQL {
 
     public static List<String> getSubcategoryIDForEachAdvertOutOfTheList(Properties props, ElementsCollection elements) throws IOException, SQLException {
         List<String> getCategoriesNamesFromSQL = new ArrayList<>();
-        List<String> advertsIds = stackAllIDsToTheList(elements, props);
+        List<String> advertsIds                = stackAllIDsToTheList(elements, props);
         if (!advertsIds.isEmpty()) {
             DBUtill dbUtill = new DBUtill();
             for (int i = 0; i < advertsIds.size(); i++)
@@ -32,7 +32,7 @@ public class ConcatCategoryAndSubcategoryFromSQL {
 
     public static List<String> getCategoryIDsForEachSubcategory(Properties props, ElementsCollection elements) throws IOException, SQLException {
         List<String> getCategoryNamesFromSQLUsingID = new ArrayList<>();
-        List<String> subcategoriesIds = getSubcategoryIDForEachAdvertOutOfTheList(props, elements);
+        List<String> subcategoriesIds               = getSubcategoryIDForEachAdvertOutOfTheList(props, elements);
         if (!subcategoriesIds.isEmpty()) {
             DBUtill dbUtill = new DBUtill();
             for (int i = 0; i < subcategoriesIds.size(); i++) {
@@ -45,8 +45,7 @@ public class ConcatCategoryAndSubcategoryFromSQL {
 
     public static List<String> getSubcategoryNamesUsingItsId(Properties props, ElementsCollection elements) throws IOException, SQLException {
         List<String> getSubcategoryNamesUsingItsIdFromSQL = new ArrayList<>();
-
-        List<String> subcategoriesIds = getSubcategoryIDForEachAdvertOutOfTheList(props, elements);
+        List<String> subcategoriesIds                     = getSubcategoryIDForEachAdvertOutOfTheList(props, elements);
         if (!subcategoriesIds.isEmpty()) {
             DBUtill dbUtill = new DBUtill();
             for (int i = 0; i < subcategoriesIds.size(); i++) {
@@ -59,8 +58,7 @@ public class ConcatCategoryAndSubcategoryFromSQL {
 
     public static List<String> getCategoryNameUsingItsId(Properties props, ElementsCollection elements) throws IOException, SQLException {
         List<String> getCategoryNameUsingItsIdFromSQL = new ArrayList<>();
-
-        List<String> categoriesIds = getCategoryIDsForEachSubcategory(props, elements);
+        List<String> categoriesIds                    = getCategoryIDsForEachSubcategory(props, elements);
         if (!categoriesIds.isEmpty()) {
             DBUtill dbUtill = new DBUtill();
             for (int i = 0; i < categoriesIds.size(); i++) {
@@ -73,9 +71,9 @@ public class ConcatCategoryAndSubcategoryFromSQL {
 
     public static List<String> concatenateCategoryWthSubcategory(Properties props, ElementsCollection category) throws IOException, SQLException {
         List<String> getConcatenatedCategoriesWithSubcategories = new ArrayList<>();
-        List<String> advertsIds = stackAllIDsToTheList(category, props);
-        List<String> categoriesNames = getCategoryNameUsingItsId(props, category);
-        List<String> subcategoriesNames = getSubcategoryNamesUsingItsId(props, category);
+        List<String> advertsIds                                 = stackAllIDsToTheList(category, props);
+        List<String> categoriesNames                            = getCategoryNameUsingItsId(props, category);
+        List<String> subcategoriesNames                         = getSubcategoryNamesUsingItsId(props, category);
             if (!categoriesNames.isEmpty() && !subcategoriesNames.isEmpty()) {
                 for (int i = 0; i < getCategoryNameUsingItsId(props,category).size(); i++) {
                     getConcatenatedCategoriesWithSubcategories.add(categoriesNames.get(i).toLowerCase() + " > " + subcategoriesNames.get(i).toLowerCase());
@@ -84,5 +82,31 @@ public class ConcatCategoryAndSubcategoryFromSQL {
             }
         System.out.println("IDs of the Adverts that will be used in the test::: " + advertsIds);
         return getConcatenatedCategoriesWithSubcategories;
+    }
+
+    public static List<String> getCitiesIDsForEachAdvertOutOfTheList(Properties props, ElementsCollection elements) throws IOException, SQLException {
+        List<String> getCitiesIDs   = new ArrayList<>();
+        List<String> advertIDs      = stackAllIDsToTheList(elements, props);
+        if (!advertIDs.isEmpty()) {
+            DBUtill dbUtill = new DBUtill();
+            for (int i = 0; i < advertIDs.size(); i++) {
+                getCitiesIDs.add(dbUtill.getColumn((props.getProperty("sqlQueryToGetCitiesIds") + advertIDs.get(i)), "city_id"));
+            }
+        }
+        return getCitiesIDs;
+    }
+
+    public static List<String> getCitiesNamesUsingTheirIDs(Properties props, ElementsCollection cities) throws  IOException, SQLException {
+        List<String> getCitiesNames = new ArrayList<>();
+        List<String> advertIDs      = stackAllIDsToTheList(cities, props);
+        List<String> citiesIds      = getCitiesIDsForEachAdvertOutOfTheList(props, cities);
+        if (!citiesIds.isEmpty()) {
+            DBUtill dbUtill = new DBUtill();
+            for (int i = 0; i < citiesIds.size(); i++) {
+                getCitiesNames.add(dbUtill.getColumn((props.getProperty("sqlQueryToGetCitiesNames") + citiesIds.get(i)), "name").toLowerCase());
+            }
+        }
+        System.out.println("IDs of Adverts that will be used in the test::: " + advertIDs);
+        return getCitiesNames;
     }
 }
