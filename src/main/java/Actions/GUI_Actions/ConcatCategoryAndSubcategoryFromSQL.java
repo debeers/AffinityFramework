@@ -2,12 +2,12 @@ package Actions.GUI_Actions;
 
 import DBUtils.DBUtill;
 import com.codeborne.selenide.ElementsCollection;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static Actions.GUI_Actions.TrimAdvertIDFromTitle.stackAllIDsToTheList;
 
@@ -108,5 +108,24 @@ public class ConcatCategoryAndSubcategoryFromSQL {
         }
         System.out.println("IDs of Adverts that will be used in the test::: " + advertIDs);
         return getCitiesNames;
+    }
+
+    public static List<String> getUpdateTimeForEachAdvertOutOfTheList(Properties props, ElementsCollection advertsTitles) throws IOException, SQLException {
+        List<String> getUpdateTime      = new ArrayList<>();
+        List<String> getUpdateTimeFinal = new ArrayList<>();
+        List<String> advertIDs          = stackAllIDsToTheList(advertsTitles, props);
+        if (!advertIDs.isEmpty()) {
+            DBUtill dbUtill = new DBUtill();
+            for (int i = 0; i < advertIDs.size(); i++) {
+                getUpdateTime.add(dbUtill.getColumn((props.getProperty("sqlQueryToGetUpdateTime") + advertIDs.get(i)), "update_time"));
+            }
+        }
+        if (!getUpdateTime.isEmpty()) {
+            getUpdateTimeFinal.addAll(getUpdateTime.stream().map(temp -> StringUtils.substringBeforeLast(temp, ":").trim()).collect(Collectors.toList()));
+            return getUpdateTimeFinal;
+        }
+        System.out.println("IDs of Adverts that will be used in the test::: " + advertIDs);
+        //return getUpdateTimeFinal;
+    return getUpdateTime;
     }
 }

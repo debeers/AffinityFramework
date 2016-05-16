@@ -58,10 +58,10 @@ public class BaseTest {
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
     @BeforeTest(alwaysRun = true)
-    public void testSetup(String URL, String clientLoginParam, String clientPasswordParam){
+    public void testSetup(String URL, String clientLoginParam, String clientPasswordParam) {
 
-        clientLogin  = new LoginObject(clientLoginParam, clientPasswordParam);
-        baseUrl      = URL;
+        clientLogin = new LoginObject(clientLoginParam, clientPasswordParam);
+        baseUrl = URL;
 
     }
 
@@ -73,7 +73,7 @@ public class BaseTest {
         String TestClassName = this.getClass().getName();
         System.out.println(TestClassName);
 
-        log          = LoggerFactory.getLogger(Logger.class);
+        log = LoggerFactory.getLogger(Logger.class);
 
         Proxy seleniumProxy = ClientUtil.createSeleniumProxy(server);
         String path = System.getProperty("user.dir") + "\\src\\main\\java\\Downloaded_Files";
@@ -212,7 +212,6 @@ public class BaseTest {
         if (!jdbcConnection.isClosed()) {
             jdbcConnection.close();
         }
-        driver.quit();
+        driver.close();
     }
-
 }

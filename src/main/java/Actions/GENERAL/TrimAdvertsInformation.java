@@ -3,6 +3,7 @@ package Actions.GENERAL;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,5 +31,28 @@ public class TrimAdvertsInformation {
             trimmedAdvertsInfoFinal.addAll(trimmedAdvertsInfo.stream().map(temp -> StringUtils.substringBefore(temp, " ").toLowerCase().trim()).collect(Collectors.toList()));
         }
         return trimmedAdvertsInfoFinal;
+    }
+
+    public static List<String> trimUpdateTimeFromTheThumb(List<String> advertsInformation) {
+        List<String> trimmedAdvertsInfo = new ArrayList<>();
+        if (!advertsInformation.isEmpty()) {
+            trimmedAdvertsInfo.addAll(advertsInformation.stream().map(temp -> temp.toLowerCase().trim()).collect(Collectors.toList()));
+        }
+        return trimmedAdvertsInfo;
+    }
+
+    public static List<String> trimSlashFromUpdateTimeListFromTheThumb(List<String> advertsInformation){
+        List<String> updateTimeWithoutASlash = new ArrayList<>();
+        List<String> updateTimeWithASlash = trimUpdateTimeFromTheThumb(advertsInformation);
+        if (!advertsInformation.isEmpty()) {
+            updateTimeWithoutASlash.addAll(updateTimeWithASlash.stream().map(temp -> temp.replace(" /", "")).collect(Collectors.toList()));
+        }
+        return updateTimeWithoutASlash;
+    }
+
+    public static List<String> sortUpdateTimeList(List<String> advertsInformation) {
+        List<String> sortedUpdateTime = trimSlashFromUpdateTimeListFromTheThumb(advertsInformation);
+        Collections.sort(sortedUpdateTime);
+        return sortedUpdateTime;
     }
 }

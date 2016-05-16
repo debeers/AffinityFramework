@@ -78,6 +78,9 @@ public class ListingPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//div[@class='details']/div[@class='info']")
     public List<WebElement> advertsInformation;
 
+    @FindBy(xpath = ".//*[@class='date-added']")
+    public List<WebElement> updateTimeList;
+
     private final By vipAdvertisementIcon = By.xpath(".//*[@id='vip_tag']");
 
     private final By simpleAdvertPrice = By.xpath(".//div[@id='price']");
@@ -94,6 +97,9 @@ public class ListingPage extends TopMenuGeneralPage {
     @CacheLookup
     @FindBy(xpath = ".//*[contains(@class,'simple-ad')]")
     public List<WebElement> simpleAdverts;
+
+    @FindBy(xpath = ".//*[contains(@class,'simple-ad')]//div[@class='details']/a")
+    public List<WebElement> simpleAdvertsTitles;
 
     @FindBy(xpath = ".//*[contains(@class,'vip-ad')]/div[@class='details']/a")
     public List<WebElement> vipAdvertsTitles;
@@ -149,8 +155,14 @@ public class ListingPage extends TopMenuGeneralPage {
         return $$(titlesOfAdverts);
     }
 
+    public ElementsCollection getTitlesOfSimpleAdverts() { return $$(simpleAdvertsTitles);}
+
     public List<String> getAdvertsInformation() {
         return pullListText($$(advertsInformation));
+    }
+
+    public List<String> getUpdateTimeListOfAdverts() {
+        return pullListText($$(updateTimeList));
     }
 
     public List<String> pullSimpleAdvertsAmount() throws InterruptedException {
