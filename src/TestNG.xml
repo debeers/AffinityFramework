@@ -5,7 +5,7 @@
 
     <suite-files>
 
-        <suite-file path="src\main\SUITES\AZ_AZ.xml"/>
+        <suite-file path="src\main\SUITES\Smoke_AZ_AZ.xml"/>
         <!--<suite-file path="src\main\SUITES\Smoke_TJ_TG.xml"/>
         <suite-file path="src\main\SUITES\Smoke_TJ_RU.xml"/>
         <suite-file path="src\main\SUITES\Smoke_AZ_AZ.xml"/>

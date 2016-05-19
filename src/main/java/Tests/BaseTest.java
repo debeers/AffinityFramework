@@ -166,22 +166,6 @@ public class BaseTest {
 
     @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
-
-        if (driver.getCurrentUrl() != baseUrl) {
-            driver.get(baseUrl + "user/logout");
-        }
-
-        driver.manage().deleteAllCookies();
-
-        String verificationErrorString = verificationErrors.toString();
-        if (!"".equals(verificationErrorString)) {
-            Assert.fail(verificationErrorString);
-        }
-
-    }
-
-    @AfterSuite
-    public void terminate() throws Exception {
         try {
 
             Calendar calendar = Calendar.getInstance();
@@ -208,6 +192,30 @@ public class BaseTest {
             }
         } catch (Exception e) {
             log.info("HOUSTON, WE HAVE A PROBLEM - DEBUG PLEASE TO CHECK IF A HAR FILE WAS CREATED");
+        }
+
+        if (driver.getCurrentUrl() != baseUrl) {
+            driver.get(baseUrl + "user/logout");
+        }
+
+        driver.manage().deleteAllCookies();
+
+        String verificationErrorString = verificationErrors.toString();
+        if (!"".equals(verificationErrorString)) {
+            Assert.fail(verificationErrorString);
+        }
+
+    }
+
+    @AfterSuite
+    public void terminate() throws Exception {
+
+
+        if (!server.isStarted()) {
+            server.abort();
+        } else {
+            log.info("Server is already stopped");
+
         }
         if (!jdbcConnection.isClosed()) {
             jdbcConnection.close();

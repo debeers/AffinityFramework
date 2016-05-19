@@ -19,10 +19,14 @@
     <parameter name="userPhone" value="+994-701231231"/>
 
     <!--Properties: -->
-    <parameter name="URL" value="http://beta.lalafo.az"/>
+    <parameter name="URL" value="http://beta.lalafo.az/"/>
 
-
-    <test name="TEST_Registration_Positive_AZ_AZ">
+    <test name="TEST_LoginChangePasswordAndRelogin_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTLogin.TESTLoginChangePasswordAndRelogin"/>
+        </classes>
+    </test>
+    <!--<test name="TEST_Registration_Positive_AZ_AZ">
         <classes>
             <class name="Tests.Smoke.TESTRegistrationPositive"/>
         </classes>
@@ -99,7 +103,7 @@
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTCategoryFreebiesHasNoPrice"/>
         </classes>
-    </test>
+    </test>-->
 
 </suite>
 

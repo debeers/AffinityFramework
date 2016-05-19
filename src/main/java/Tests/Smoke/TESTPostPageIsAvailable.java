@@ -17,7 +17,7 @@ public class TESTPostPageIsAvailable extends BaseTest{
         new MainPage(driver).clickOnAddNewPostButton();
         log.info("We are on the main page");
 
-        Assert.assertEquals(driver.getCurrentUrl(), baseUrl + "/ad/post");
+        Assert.assertEquals(driver.getCurrentUrl(), baseUrl + "ad/post");
     }
 
 }
