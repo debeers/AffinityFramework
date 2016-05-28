@@ -21,13 +21,22 @@
     <!--Properties: -->
     <parameter name = "URL"          value="http://beta.lalafo.az/"  />
 
-
-    <test name="TESTUpdateTimeCheck_AZ_AZ">
+    <test name="TESTCheckImagesOnThumbOfAdvert_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckImagesOnThumbOfAdvert"/>
+        </classes>
+    </test>
+    <test name="TESTCheckAdvertsOnTheLastPaginationPage_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckAdvertsOnTheLastPaginationPage"/>
+        </classes>
+    </test>
+    <!--<test name="TESTUpdateTimeCheck_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTUpdateTimeCheck"/>
         </classes>
     </test>
-
+-->
     <!--<test name="TEST_CheckCategoryAndSubcategoryInListing_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTCheckCategoryAndSubcategoryInListing"/>

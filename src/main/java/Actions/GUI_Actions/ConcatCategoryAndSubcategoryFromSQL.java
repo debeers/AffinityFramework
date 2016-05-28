@@ -6,7 +6,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 import java.util.stream.Collectors;
 
 import static Actions.GUI_Actions.TrimAdvertIDFromTitle.stackAllIDsToTheList;
@@ -127,5 +129,18 @@ public class ConcatCategoryAndSubcategoryFromSQL {
         System.out.println("IDs of Adverts that will be used in the test::: " + advertIDs);
         //return getUpdateTimeFinal;
     return getUpdateTime;
+    }
+
+    public static List<String> getAmountOfImagesForEachAdvertFromDB(Properties props, ElementsCollection advertTitles) throws IOException, SQLException {
+        List<String> advertIDs = stackAllIDsToTheList(advertTitles, props);
+        List<String> amountOfImagesForEachAdvert = new ArrayList<>();
+        if (!advertIDs.isEmpty()) {
+            DBUtill dbUtill = new DBUtill();
+            for (int i = 0; i < advertIDs.size(); i++) {
+                amountOfImagesForEachAdvert.add(dbUtill.getColumn((props.getProperty("sqlQueryToGetTheAmountOfImages") + advertIDs.get(i)), "COUNT(id)"));
+            }
+        }
+        System.out.println(amountOfImagesForEachAdvert);
+        return amountOfImagesForEachAdvert;
     }
 }

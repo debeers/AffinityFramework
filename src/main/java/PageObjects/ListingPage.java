@@ -1,6 +1,7 @@
 package PageObjects;
 
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 import static Actions.GUI_Actions.PopulateAdverts.populateAdverts;
 import static Actions.GUI_Actions.PopulateAdverts.pullListText;
@@ -94,6 +96,9 @@ public class ListingPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//div[@class='details']/a")
     public List<WebElement> titlesOfAdverts;
 
+    @FindBy(xpath = ".//span[@class='i-img-count']")
+    public List<WebElement> imagesCounterFromListingPage;
+
     @CacheLookup
     @FindBy(xpath = ".//*[contains(@class,'simple-ad')]")
     public List<WebElement> simpleAdverts;
@@ -109,6 +114,9 @@ public class ListingPage extends TopMenuGeneralPage {
 
     @FindBy(xpath = ".//*[contains(@class,'vip-ad')]/div[@class='details']/div[@class='info']")
     public List<WebElement> vipAdvertsInfo;
+
+    @FindBy(xpath = ".//li[@class='pagn-last']/a")
+    public WebElement lastPaginationPage;
 
     public List<String> foundEqualsTitlesInSearchResults(String searchRequest) throws InterruptedException {
         List<String> searchResults = new ArrayList<>();
@@ -169,6 +177,9 @@ public class ListingPage extends TopMenuGeneralPage {
         return pullListText($$(simpleAdverts));
     }
 
+    public ElementsCollection getImagesCountersFromThumbs() {
+        System.out.println($$(imagesCounterFromListingPage)); return $$(imagesCounterFromListingPage); }
+
     public void selectCityForSearch(String index) throws InterruptedException {
         selectFromDropdawnMenuByIndex(cityMenu, citiesList, index);
     }
@@ -188,6 +199,17 @@ public class ListingPage extends TopMenuGeneralPage {
 
     public void clickOnSearchButton() {
         $(searchButton).shouldBe(visible).click();
+    }
+
+    public ListingPage clickOnLastPaginationPage() { $(lastPaginationPage).shouldBe(visible).click();  return new ListingPage(driver); }
+
+    public List<String> getExactNumberOfImagesFromCounter() {
+        List<String> exactValueOfCounts = new ArrayList<>();
+        if (!$$(imagesCounterFromListingPage).isEmpty()) {
+            exactValueOfCounts.addAll($$(imagesCounterFromListingPage).stream().map(SelenideElement::innerText).collect(Collectors.toList()));
+        }
+        System.out.println(exactValueOfCounts);
+        return exactValueOfCounts;
     }
 
     public List<String> search(String cityIndex, String categoryIndex, String undercatIndex, String searchRequest)
