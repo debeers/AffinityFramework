@@ -17,8 +17,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static GeneralHelpers.JSTools.jsDeleteClassesById;
-import static GeneralHelpers.JSTools.jsDisableDropdownCompactView;
-import static GeneralHelpers.JSTools.jsDisableDropdownCompactViewForSubcategories;
 import static GeneralHelpers.RobotUpload.uploadFile;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -334,7 +332,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public PostPage setCategory(String categoryIndex) throws InterruptedException {
-        jsDisableDropdownCompactView(driver);
+        //jsDisableDropdownCompactView(driver);
         selectFromDropdawnMenuByIndex(categoriesChoose, categoriesList, categoryIndex);
         waitTillLoaderHides();
         return this;
@@ -349,7 +347,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public PostPage setUnderCategoryForCertainPages(String underCategoryIndex) throws InterruptedException {
-        jsDisableDropdownCompactViewForSubcategories(driver);
+        //jsDisableDropdownCompactViewForSubcategories(driver);
         if ($(firstSubcategoryDiv).isDisplayed()) {
             selectFromDropdawnMenuByIndex(defaultFirstSubcategoryClick, defaultFirstSubcategoriesList, underCategoryIndex);
         }

@@ -5,11 +5,9 @@ import Entities.LoginObject;
 import GeneralHelpers.Logger;
 import com.codeborne.selenide.WebDriverRunner;
 import net.lightbody.bmp.BrowserMobProxyServer;
-import net.lightbody.bmp.client.ClientUtil;
 import net.lightbody.bmp.core.har.Har;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Proxy;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -53,7 +51,11 @@ public class BaseTest {
         jdbcConnection = new DBConnection().initDBConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
         Registry.Registry.set("dbConnection", jdbcConnection);
         server = new BrowserMobProxyServer(8082);
-        server.start();
+        try {
+            server.start();
+        } catch (Exception e) {
+            log.info("We are already using this server");
+        }
     }
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
@@ -75,7 +77,7 @@ public class BaseTest {
 
         log = LoggerFactory.getLogger(Logger.class);
 
-        Proxy seleniumProxy = ClientUtil.createSeleniumProxy(server);
+        //Proxy seleniumProxy = ClientUtil.createSeleniumProxy(server);
         String path = System.getProperty("user.dir") + "\\src\\main\\java\\Downloaded_Files";
         File downloadDir = new File(path);
         FirefoxProfile fProfile = new FirefoxProfile();
@@ -211,8 +213,8 @@ public class BaseTest {
     public void terminate() throws Exception {
 
 
-        if (!server.isStarted()) {
-            server.abort();
+        if (!server.isStopped()) {
+            server.stop();
         } else {
             log.info("Server is already stopped");
 

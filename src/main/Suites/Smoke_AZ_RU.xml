@@ -27,7 +27,7 @@
         </classes>
     </test>
 
-    <test name="TEST_PositiveLogin_AZ_RU">
+    <!--<test name="TEST_PositiveLogin_AZ_RU">
         <classes>
             <class name="Tests.Smoke.TESTPositiveLogin"/>
         </classes>
@@ -67,7 +67,7 @@
         <classes>
             <class name="Tests.Smoke.TESTSearch"/>
         </classes>
-    </test>
+    </test>-->
 
 </suite>
 

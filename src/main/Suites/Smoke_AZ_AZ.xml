@@ -21,9 +21,9 @@
     <!--Properties: -->
     <parameter name="URL" value="http://beta.lalafo.az/"/>
 
-    <test name="TEST_LoginChangePasswordAndRelogin_AZ_AZ">
+    <test name="TEST_Registration_Positive_AZ_AZ">
         <classes>
-            <class name="Tests.GUITests.TESTLogin.TESTLoginChangePasswordAndRelogin"/>
+            <class name="Tests.Smoke.TESTRegistrationPositive"/>
         </classes>
     </test>
     <!--<test name="TEST_Registration_Positive_AZ_AZ">
