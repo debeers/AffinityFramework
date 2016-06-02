@@ -18,6 +18,51 @@
     <parameter name = "URL"  value="http://lalafo.kg/ky"/>
 
 
+    <test name="TESTCheckImagesOnThumbOfAdvert_KG_KY">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckImagesOnThumbOfAdvert"/>
+        </classes>
+    </test>
+    <test name="TESTCheckAdvertsOnTheLastPaginationPage_KG_KY">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckAdvertsOnTheLastPaginationPage"/>
+        </classes>
+    </test>
+    <test name="TESTUpdateTimeCheck_KG_KY">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTUpdateTimeCheck"/>
+        </classes>
+    </test>
+    <test name="TEST_CheckCategoryAndSubcategoryInListing_KG_KY">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckCategoryAndSubcategoryInListing"/>
+        </classes>
+    </test>
+    <test name="TESTCheckCitiesOfAdverts_KG_KY">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckCitiesOfAdvertsInListing"/>
+        </classes>
+    </test>
+    <test name="TESTPropertyParametersCheck_KG_KY">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTPropertyParametersCheck"/>
+        </classes>
+    </test>
+    <test name="TESTLookingForJobCheck_KG_KY">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTLookingForJobCheck"/>
+        </classes>
+    </test>
+    <test name="TESTJobOffersCheck_KG_KY">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTJobOffersCheck"/>
+        </classes>
+    </test>
+    <test name="TESTMotorcyclesYearsOfManufacture_KG_KY">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTMotorcyclesYearsOfManufacture"/>
+        </classes>
+    </test>
     <test name="TEST_PostToAnotherCat_KG_KY">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTPostToOtherCat"/>
@@ -27,6 +72,25 @@
     <test name="TEST_PostWithNegotiablePrice_KG_KY">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTPostNegotiablePrice"/>
+        </classes>
+    </test>
+
+
+    <test name="TESTSubCategoryValidation_KG_KY">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTUndercategoryValidation"/>
+        </classes>
+    </test>
+
+    <test name="TESTThirdSubcategoryValidation_KG_KY">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTThirdSubcategoryValidation"/>
+        </classes>
+    </test>
+
+    <test name="TESTFourthCategoryValidation_KG_KY">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTFourthCategoryValidation"/>
         </classes>
     </test>
 
@@ -54,19 +118,19 @@
         </classes>
     </test>
 
-    <test name="TEST_SuiteAddPostUnderCategoryError_KG_KY">
+    <test name="TEST_SuiteAddPostUnderCategoryError">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteAddPostUnderCategoryError"/>
         </classes>
     </test>
 
-    <test name="TEST_SuiteASCIITitleCheck_KG_KY">
+    <test name="TEST_SuiteASCIITitleCheck">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteASCIITitleCheck"/>
         </classes>
     </test>
 
-    <test name="TEST_SuiteDescriptionASCII_KG_KY">
+    <test name="TEST_SuiteDescriptionASCII">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteDescriptionASCII"/>
         </classes>
@@ -78,7 +142,7 @@
         </classes>
     </test>
 
-    <!--<test name="TEST_API_getAdById_KG_KG">
+    <!--<test name="TESTAPIgetAdById_KG_KY">
         <classes>
             <class name="Tests.APITests.TESTApiGetAdById"/>
         </classes>
@@ -89,13 +153,6 @@
             <class name="Tests.GUITests.TESTAddPost.TESTPostThirdLevelCat"/>
         </classes>
     </test>
-
-    <test name="TEST_PostPageIsAvailable_KG_KY">
-        <classes>
-            <class name="Tests.Smoke.TESTPostPageIsAvailable"/>
-        </classes>
-    </test>
-
 
     <test name="TEST_Search_KG_KY">
         <classes>
@@ -115,7 +172,7 @@
         </classes>
     </test>
 
-    <test name=" TEST_SQLConnect_KG_KY">
+    <test name="TEST_SQLConnect_KG_KY">
         <classes>
             <class name="Tests.SQLTests.TESTConnectSQL"/>
         </classes>
@@ -124,25 +181,7 @@
 
     <test name="TEST_RegisterAUser_KG_KY">
         <classes>
-            <class name="Tests.APITests.TESTRegisterAUser"/>
-        </classes>
-    </test>
-
-    <test name="TESTSubCategoryValidation_KG_KY">
-        <classes>
-            <class name="Tests.GUITests.TESTAddPost.TESTUndercategoryValidation"/>
-        </classes>
-    </test>
-
-    <test name="TESTThirdSubcategoryValidation_KG_KY">
-        <classes>
-            <class name="Tests.GUITests.TESTAddPost.TESTThirdSubcategoryValidation"/>
-        </classes>
-    </test>
-
-    <test name="TESTFourthCategoryValidation_KG_KY">
-        <classes>
-            <class name="Tests.GUITests.TESTAddPost.TESTFourthCategoryValidation"/>
+            <class name="Tests.APITests.TESTApiGetAdById"/>
         </classes>
     </test>
 </suite>

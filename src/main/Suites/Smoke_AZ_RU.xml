@@ -26,8 +26,19 @@
             <class name="Tests.Smoke.TESTRegistrationPositive"/>
         </classes>
     </test>
+    <test name="TEST_Registration_Positive_AZ_RU">
+        <classes>
+            <class name="Tests.Smoke.TESTRegistrationPositive"/>
+        </classes>
+    </test>
 
-    <!--<test name="TEST_PositiveLogin_AZ_RU">
+    <test name="TEST_LoginChangePasswordAndRelogin_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTLogin.TESTLoginChangePasswordAndRelogin"/>
+        </classes>
+    </test>
+
+    <test name="TEST_PositiveLogin_AZ_RU">
         <classes>
             <class name="Tests.Smoke.TESTPositiveLogin"/>
         </classes>
@@ -36,6 +47,12 @@
     <test name="TEST_RegisterAUser_AZ_RU">
         <classes>
             <class name="Tests.APITests.TESTRegisterAUser"/>
+        </classes>
+    </test>
+
+    <test name="TEST_DeactivationUserAccount.DeactivationUserAccount_AZ_RU">
+        <classes>
+            <class name="Tests.Smoke.TESTDeactivationUserAccount"/>
         </classes>
     </test>
 
@@ -51,23 +68,42 @@
         </classes>
     </test>
 
-    <test name="TEST_DeactivationUserAccount.DeactivationUserAccount_AZ_RU">
-        <classes>
-            <class name="Tests.Smoke.TESTDeactivationUserAccount"/>
-        </classes>
-    </test>
-
     <test name="TEST_PostPageIsAvailable_AZ_RU">
         <classes>
             <class name="Tests.Smoke.TESTPostPageIsAvailable"/>
         </classes>
     </test>
 
-    <test name="TEST_Search_AZ_RU">
+    <test name="TESTDeactivationOfAnActiveAdvert_AZ_RU">
         <classes>
-            <class name="Tests.Smoke.TESTSearch"/>
+            <class name="Tests.GUITests.TESTDeactivationOfAdvert.TESTDeactivationOfAnActiveAdvert"/>
         </classes>
-    </test>-->
+    </test>
+    <test name="TEST_DeactivationOfAnAdvertInPremoderation_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTDeactivationOfAdvert.TESTDeactivationOfAnAdvertInPremoderation"/>
+        </classes>
+    </test>
+    <test name="TEST_CheckVipAdvertsInListing_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckVipAdvertsInListing"/>
+        </classes>
+    </test>
+    <test name="TEST_CounterOnTheMainPage_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTCounter.TESTCounterOnTheMainPage"/>
+        </classes>
+    </test>
+    <test name="TEST_CheckPriceFormat_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckPriceFormat"/>
+        </classes>
+    </test>
+    <test name="TEST_CategoryFreebiesHasNoPrice_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCategoryFreebiesHasNoPrice"/>
+        </classes>
+    </test>
 
 </suite>
 

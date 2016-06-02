@@ -31,13 +31,12 @@
             <class name="Tests.GUITests.TESTListing.TESTCheckAdvertsOnTheLastPaginationPage"/>
         </classes>
     </test>
-    <!--<test name="TESTUpdateTimeCheck_AZ_AZ">
+    <test name="TESTUpdateTimeCheck_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTUpdateTimeCheck"/>
         </classes>
     </test>
--->
-    <!--<test name="TEST_CheckCategoryAndSubcategoryInListing_AZ_AZ">
+    <test name="TEST_CheckCategoryAndSubcategoryInListing_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTCheckCategoryAndSubcategoryInListing"/>
         </classes>
@@ -176,7 +175,7 @@
             </classes>
         </test>
 
-        <test name=" TEST_SQLConnect_AZ_AZ">
+        <test name="TEST_SQLConnect_AZ_AZ">
             <classes>
                 <class name="Tests.SQLTests.TESTConnectSQL"/>
             </classes>
@@ -187,9 +186,7 @@
             <classes>
                 <class name="Tests.APITests.TESTApiGetAdById"/>
             </classes>
-        </test>-->
-
-
+        </test>
     </suite>
 
 
