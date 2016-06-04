@@ -95,7 +95,7 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
         enterEmail(email);
         enterPassword(password);
         enterConfirmationPassword(password);
-        Thread.sleep(1500);
+        Thread.sleep(2500);
         return clickOnRegisterButton();
     }
 
@@ -103,7 +103,7 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
         enterEmail(email);
         enterPassword(password);
         enterConfirmationPassword(password);
-        Thread.sleep(1500);
+        Thread.sleep(2500);
         return clickOnRegisterButton();
     }
 
@@ -111,7 +111,7 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
         enterMobilePhoneNumber(mobilePhoneNumber);
         enterPassword(password);
         enterConfirmationPassword(password);
-        Thread.sleep(1500);
+        Thread.sleep(2500);
         return clickOnRegisterButton();
     }
 

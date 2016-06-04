@@ -35,8 +35,8 @@ public class DataProviderSelector {
             System.out.println("Data Provider for:: AZ_AZ suite used  ");
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSubCategoryValidation_KG_KG".equals(testName)) {
-            result.addAll(Arrays.asList(Undercategory_KG_KG()));
+        else if ("TESTSubCategoryValidation_KG_KY".equals(testName)) {
+            result.addAll(Arrays.asList(Undercategory_KG_KY()));
             System.out.println("Data Provider for:: KG_KY suite used  ");
             return result.toArray(new Object[result.size()][]);
         }
@@ -60,8 +60,8 @@ public class DataProviderSelector {
             result.addAll(Arrays.asList(ThirdSubCategory_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTThirdSubcategoryValidation_KG_KG".equals(testName)) {
-            result.addAll(Arrays.asList(ThirdSubCategory_KG_KG()));
+        else if ("TESTThirdSubcategoryValidation_KG_KY".equals(testName)) {
+            result.addAll(Arrays.asList(ThirdSubCategory_KG_KY()));
             return result.toArray(new Object[result.size()][]);
         }
         else if ("TESTThirdSubcategoryValidation_AZ_AZ".equals(testName)) {
@@ -88,8 +88,8 @@ public class DataProviderSelector {
             result.addAll(Arrays.asList(MotorcyclesYearsOfManufacture_AZ_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTMotorcyclesYearsOfManufacture_KG_KG".equals(testName)) {
-            result.addAll(Arrays.asList(MotorcyclesYearsOfManufacture_KG_KG()));
+        else if ("TESTMotorcyclesYearsOfManufacture_KG_KY".equals(testName)) {
+            result.addAll(Arrays.asList(MotorcyclesYearsOfManufacture_KG_KY()));
             return result.toArray(new Object[result.size()][]);
         }
         else if ("TESTMotorcyclesYearsOfManufacture_KG_RU".equals(testName)) {
@@ -112,8 +112,8 @@ public class DataProviderSelector {
             result.addAll(Arrays.asList(PropertyParametersCheck_AZ_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTPropertyParametersCheck_KG_KG".equals(testName)) {
-            result.addAll(Arrays.asList(PropertyParametersCheck_KG_KG()));
+        else if ("TESTPropertyParametersCheck_KG_KY".equals(testName)) {
+            result.addAll(Arrays.asList(PropertyParametersCheck_KG_KY()));
             return result.toArray(new Object[result.size()][]);
         }
         else if ("TESTPropertyParametersCheck_KG_RU".equals(testName)) {
@@ -136,8 +136,8 @@ public class DataProviderSelector {
             result.addAll(Arrays.asList(JobOffersCheck_AZ_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTJobOffersCheck_KG_KG".equals(testName)) {
-            result.addAll(Arrays.asList(JobOffersCheck_KG_KG()));
+        else if ("TESTJobOffersCheck_KG_KY".equals(testName)) {
+            result.addAll(Arrays.asList(JobOffersCheck_KG_KY()));
             return result.toArray(new Object[result.size()][]);
         }
         else if ("TESTJobOffersCheck_KG_RU".equals(testName)) {
@@ -181,8 +181,8 @@ public class DataProviderSelector {
             result.addAll(Arrays.asList(FourthCategory_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TEST_fourthCategory_validation_KG_KG".equals(testName)) {
-            result.addAll(Arrays.asList(FourthCategory_KG_KG()));
+        else if ("TEST_fourthCategory_validation_KG_KY".equals(testName)) {
+            result.addAll(Arrays.asList(FourthCategory_KG_KY()));
             return result.toArray(new Object[result.size()][]);
         }
         else {

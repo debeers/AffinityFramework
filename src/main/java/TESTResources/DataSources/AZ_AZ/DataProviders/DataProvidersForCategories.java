@@ -800,7 +800,7 @@ public class DataProvidersForCategories {
     }
 
 
-    public static Object[][] Undercategory_KG_KG(){
+    public static Object[][] Undercategory_KG_KY(){
         return new Object[][]{
                 {"2", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=3 AND parent_id=33)"},
                 {"3", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=3 AND parent_id=381)"},
@@ -830,7 +830,7 @@ public class DataProvidersForCategories {
     }
 
 
-    public static Object[][] ThirdSubCategory_KG_KG(){
+    public static Object[][] ThirdSubCategory_KG_KY(){
         return new Object[][]{
                 {"6", "1", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=1140)"},
                 {"7", "3", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=4 AND parent_id=1142)"},
@@ -870,7 +870,7 @@ public class DataProvidersForCategories {
         };
     }
 
-    public static Object[][] MotorcyclesYearsOfManufacture_KG_KG() {
+    public static Object[][] MotorcyclesYearsOfManufacture_KG_KY() {
         return new Object[][]{
                 {"45", "1", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
                 {"45", "2", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
@@ -893,7 +893,7 @@ public class DataProvidersForCategories {
         };
     }
 
-    public static Object[][] PropertyParametersCheck_KG_KG() {
+    public static Object[][] PropertyParametersCheck_KG_KY() {
         return new Object[][]{
                 {"49", "1", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=3 AND parent_id=1081)"},
                 {"49", "2", "SELECT l_name FROM category_lang WHERE category_id IN (SELECT id FROM category WHERE lvl=3 AND parent_id=1081)"},
@@ -911,7 +911,7 @@ public class DataProvidersForCategories {
         };
     }
 
-    public static Object[][] JobOffersCheck_KG_KG() {
+    public static Object[][] JobOffersCheck_KG_KY() {
         return new Object[][]{
                 {"72", "1", "SELECT value FROM param_value WHERE param_id=9"},
                 {"72", "2", "SELECT value FROM param_value WHERE param_id=9"},
@@ -948,7 +948,7 @@ public class DataProvidersForCategories {
         };
     }
 
-    public static Object[][] FourthCategory_KG_KG () {
+    public static Object[][] FourthCategory_KG_KY() {
         return new Object[][]{
                 {"43", "1", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},
                 {"43", "2", "SELECT value FROM param_value WHERE param_id=4 AND id BETWEEN 1499 AND 1791"},

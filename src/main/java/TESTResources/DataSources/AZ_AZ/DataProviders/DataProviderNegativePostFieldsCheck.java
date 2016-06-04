@@ -30,8 +30,8 @@ public class DataProviderNegativePostFieldsCheck {
             result.addAll(Arrays.asList(NegativeDescription_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillin_KG_KG".equals(testName)) {
-            result.addAll(Arrays.asList(NegativeDescription_KG_KG()));
+        else if ("TESTSuiteIncorrectDataFillin_KG_KY".equals(testName)) {
+            result.addAll(Arrays.asList(NegativeDescription_KG_KY()));
             return result.toArray(new Object[result.size()][]);
         }
         else {
@@ -57,8 +57,8 @@ public class DataProviderNegativePostFieldsCheck {
             result.addAll(Arrays.asList(NegativeName_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillin_KG_KG".equals(testName)) {
-            result.addAll(Arrays.asList(NegativeName_KG_KG()));
+        else if ("TESTSuiteIncorrectDataFillin_KG_KY".equals(testName)) {
+            result.addAll(Arrays.asList(NegativeName_KG_KY()));
             return result.toArray(new Object[result.size()][]);
         }
         else {
@@ -84,8 +84,8 @@ public class DataProviderNegativePostFieldsCheck {
             result.addAll(Arrays.asList(NegativePostEmail_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillin_KG_KG".equals(testName)) {
-            result.addAll(Arrays.asList(NegativePostEmail_KG_KG()));
+        else if ("TESTSuiteIncorrectDataFillin_KG_KY".equals(testName)) {
+            result.addAll(Arrays.asList(NegativePostEmail_KG_KY()));
             return result.toArray(new Object[result.size()][]);
         }
         else {
@@ -111,8 +111,8 @@ public class DataProviderNegativePostFieldsCheck {
             result.addAll(Arrays.asList(NegativePostPhone_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillin_KG_KG".equals(testName)) {
-            result.addAll(Arrays.asList(NegativePostPhone_KG_KG()));
+        else if ("TESTSuiteIncorrectDataFillin_KG_KY".equals(testName)) {
+            result.addAll(Arrays.asList(NegativePostPhone_KG_KY()));
             return result.toArray(new Object[result.size()][]);
         }
         else {
@@ -138,8 +138,8 @@ public class DataProviderNegativePostFieldsCheck {
             result.addAll(Arrays.asList(NegativePostPrice_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillin_KG_KG".equals(testName)) {
-            result.addAll(Arrays.asList(NegativePostPrice_KG_KG()));
+        else if ("TESTSuiteIncorrectDataFillin_KG_KY".equals(testName)) {
+            result.addAll(Arrays.asList(NegativePostPrice_KG_KY()));
             return result.toArray(new Object[result.size()][]);
         }
         else {
@@ -165,8 +165,8 @@ public class DataProviderNegativePostFieldsCheck {
             result.addAll(Arrays.asList(NegativePostTitle_KG_RU()));
             return result.toArray(new Object[result.size()][]);
         }
-        else if ("TESTSuiteIncorrectDataFillin_KG_KG".equals(testName)) {
-            result.addAll(Arrays.asList(NegativePostTitle_KG_KG()));
+        else if ("TESTSuiteIncorrectDataFillin_KG_KY".equals(testName)) {
+            result.addAll(Arrays.asList(NegativePostTitle_KG_KY()));
             return result.toArray(new Object[result.size()][]);
         }
         else {
@@ -178,7 +178,7 @@ public class DataProviderNegativePostFieldsCheck {
     //////////////////////////////////// AZ_RU ///////////////////////////////////////////////
     public static Object[][] NegativeDescription_AZ_RU(){
         return new Object[][]{
-                {"", "Необходимо заполнить поле «Описание»."},
+                {"", "Необходимо заполнить поле Описание."},
                 {RandomStringUtils.randomAlphabetic(49), ""},
                 {RandomStringUtils.randomAlphabetic(50), ""},
                 {RandomStringUtils.randomAlphabetic(2049), ""},
@@ -187,7 +187,7 @@ public class DataProviderNegativePostFieldsCheck {
 
     public static Object[][] NegativeName_AZ_RU(){
         return new Object[][]{
-                {" ", "Необходимо заполнить поле «Имя»."}
+                {" ", "Необходимо заполнить поле Имя."}
         };
     }
 
@@ -195,41 +195,41 @@ public class DataProviderNegativePostFieldsCheck {
         return new Object[][]{
                 {"", ""},
                 {"keeinesuuuuuuuuuuuuuuuuuuuuuuuuuu@mail.ru", ""},
-                {"abcdefgh", "Email в неправильном формате"},
-                {"#$%^&*@.com", "Email в неправильном формате"},
-                {"@domain.com", "Email в неправильном формате"},
-                {"email.co.in", "Email в неправильном формате"},
-                {".Email@domain.com", "Email в неправильном формате"},
-                {"email.@domain.com", "Email в неправильном формате"}
+                {"abcdefgh", "Email не является правильным E-Mail адресом."},
+                {"#$%^&*@.com", "Email не является правильным E-Mail адресом."},
+                {"@domain.com", "Email не является правильным E-Mail адресом."},
+                {"email.co.in", "Email не является правильным E-Mail адресом."},
+                {".Email@domain.com", "Email не является правильным E-Mail адресом."},
+                {"email.@domain.com", "Email не является правильным E-Mail адресом."}
         };
     }
 
     public static Object[][] NegativePostPhone_AZ_RU(){
         return new Object[][]{
-                {"", "Необходимо заполнить поле «Телефон»."},
-                {"dfghdfgh", "Необходимо заполнить поле «Телефон»."},
-                {"1111111", "Необходимо заполнить поле «Телефон»."},
-                {"123", "Необходимо заполнить поле «Телефон»."}
+                {"", "Необходимо заполнить поле Телефон."},
+                {"dfghdfgh", "Необходимо заполнить поле Телефон."},
+                {"1111111", "Необходимо заполнить поле Телефон."},
+                {"123", "Необходимо заполнить поле Телефон."}
         };
     }
 
     public static Object[][] NegativePostPrice_AZ_RU(){
         return new Object[][]{
-                {"", "Необходимо заполнить поле «Цена»."},
+                {"", "Необходимо заполнить поле Цена."},
                 {"0", "Введите правильную цену"},
                 {"1", ""},
                 {"2147483646", ""},
                 {"2147483647", ""},
                 {"2147483648", ""},
-                {"asdf", "Необходимо заполнить поле «Цена»."},
-                {"!@#$%^&*(", "Необходимо заполнить поле «Цена»."},
+                {"asdf", "Необходимо заполнить поле Цена."},
+                {"!@#$%^&*(", "Необходимо заполнить поле Цена."},
         };
     }
 
     public static Object[][] NegativePostTitle_AZ_RU(){
         return new Object[][]{
-                {" ", "Необходимо заполнить поле «Заголовок»."},
-                {RandomStringUtils.randomAlphabetic(4), "Заголовок слишком короткий (минимум 5 символов)."},
+                {" ", "Необходимо заполнить поле Заголовок."},
+                {RandomStringUtils.randomAlphabetic(4), "Поле Заголовок слишком короткое (минимум 5 символов)."},
                 {RandomStringUtils.randomAlphabetic(5), ""},
                 {RandomStringUtils.randomAlphabetic(71), ""}
         };
@@ -358,7 +358,7 @@ public class DataProviderNegativePostFieldsCheck {
     }
     ////////////////////////////////KG_KY////////////////////////////////////////////////
 
-    public static Object[][] NegativeDescription_KG_KG(){
+    public static Object[][] NegativeDescription_KG_KY(){
         return new Object[][]{
                 {"", "Түшүндүрмө талаасын толтуруңуз."},
                 {RandomStringUtils.randomAlphabetic(49), ""},
@@ -367,13 +367,13 @@ public class DataProviderNegativePostFieldsCheck {
         };
     }
 
-    public static Object[][] NegativeName_KG_KG(){
+    public static Object[][] NegativeName_KG_KY(){
         return new Object[][]{
                 {" ", "Аты талаасын толтуруңуз."}
         };
     }
 
-    public static Object[][] NegativePostEmail_KG_KG(){
+    public static Object[][] NegativePostEmail_KG_KY(){
         return new Object[][]{
                 {"", ""},
                 {"keeinesuuuuuuuuuuuuuuuuuuuuuuuuuu@mail.ru", ""},
@@ -386,7 +386,7 @@ public class DataProviderNegativePostFieldsCheck {
         };
     }
 
-    public static Object[][] NegativePostPhone_KG_KG(){
+    public static Object[][] NegativePostPhone_KG_KY(){
         return new Object[][]{
                 {"", "Телефон талаасын толтуруңуз."},
                 {"dfghdfgh", "Телефон талаасын толтуруңуз."},
@@ -395,7 +395,7 @@ public class DataProviderNegativePostFieldsCheck {
         };
     }
 
-    public static Object[][] NegativePostPrice_KG_KG(){
+    public static Object[][] NegativePostPrice_KG_KY(){
         return new Object[][]{
                 {"", "Баасы талаасын толтуруңуз."},
                 {"0", "Туура баасын жазгыла"},
@@ -408,7 +408,7 @@ public class DataProviderNegativePostFieldsCheck {
         };
     }
 
-    public static Object[][] NegativePostTitle_KG_KG(){
+    public static Object[][] NegativePostTitle_KG_KY(){
         return new Object[][]{
                 {" ", "Аталышы талаасын толтуруңуз."},
                 {RandomStringUtils.randomAlphabetic(4), "Аталышы аябай кыска (минимум 5 символ)."},

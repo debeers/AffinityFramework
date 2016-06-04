@@ -30,7 +30,7 @@ public class Login {
         return loginPage.loginAs(driver, clientLogin.getLogin(), clientLogin.getPassword());
     }
 
-    public static UserAccountPage loginViaPhone(WebDriver driver, User user) {
+    public static UserAccountPage loginViaPhone(WebDriver driver, User user) throws InterruptedException {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = (LoginPage) mainPage.clickOnUserAccountLink(user.getUserPhone());
         return loginPage.loginViaPhone(driver, user.getUserPhone(), user.getPassword());

@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Affinity full regression suite KG" >
+<suite name="Affinity full regression suite KG_KY" >
 
     <!--Credentials: -->
 
@@ -18,6 +18,16 @@
     <parameter name = "URL"  value="http://lalafo.kg/ky"/>
 
 
+    <test name="TEST_PositiveLogin_KG_KY">
+        <classes>
+            <class name="Tests.Smoke.TESTPositiveLogin"/>
+        </classes>
+    </test>
+    <test name="TEST_Registration_Positive_KG_KY">
+        <classes>
+            <class name="Tests.Smoke.TESTRegistrationPositive"/>
+        </classes>
+    </test>
     <test name="TESTCheckImagesOnThumbOfAdvert_KG_KY">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTCheckImagesOnThumbOfAdvert"/>
@@ -142,11 +152,11 @@
         </classes>
     </test>
 
-    <!--<test name="TESTAPIgetAdById_KG_KY">
+    <test name="TESTAPIgetAdById_KG_KY">
         <classes>
             <class name="Tests.APITests.TESTApiGetAdById"/>
         </classes>
-    </test>-->
+    </test>
 
     <test name="TEST_PostThirdLevelCat_KG_KY">
         <classes>

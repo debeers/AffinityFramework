@@ -21,6 +21,16 @@
     <!--Properties: -->
     <parameter name = "URL"          value="http://beta.lalafo.az/"  />
 
+    <test name="TESTLoginWithFullPhoneNumber_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTLogin.TESTLoginWithFullPhoneNumber"/>
+        </classes>
+    </test>
+    <test name="TESTLoginWithShortenedPhoneNumber_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTLogin.TESTLoginWithShortenedPhoneNumber"/>
+        </classes>
+    </test>
     <test name="TESTCheckImagesOnThumbOfAdvert_AZ_AZ">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTCheckImagesOnThumbOfAdvert"/>
