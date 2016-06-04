@@ -190,6 +190,11 @@
                 <class name="Tests.SQLTests.TESTConnectSQL"/>
             </classes>
         </test>
+    <test name="TEST_RegistrationWithAllOperators_AZ_AZ">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationWithAllOperators"/>
+        </classes>
+    </test>
 
 
         <test name="TEST_RegisterAUser_AZ_AZ">
