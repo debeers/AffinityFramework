@@ -21,87 +21,35 @@
     <!--Properties: -->
     <parameter name="URL" value="http://beta.lalafo.az/"/>
 
-    <test name="TEST_Registration_Positive_AZ_AZ">
-        <classes>
-            <class name="Tests.Smoke.TESTRegistrationPositive"/>
-        </classes>
-    </test>
-    <test name="TEST_Registration_Positive_AZ_AZ">
-        <classes>
-            <class name="Tests.Smoke.TESTRegistrationPositive"/>
-        </classes>
-    </test>
-
-    <test name="TEST_LoginChangePasswordAndRelogin_AZ_AZ">
-        <classes>
-            <class name="Tests.GUITests.TESTLogin.TESTLoginChangePasswordAndRelogin"/>
-        </classes>
-    </test>
-
-    <test name="TEST_PositiveLogin_AZ_AZ">
-        <classes>
-            <class name="Tests.Smoke.TESTPositiveLogin"/>
-        </classes>
-    </test>
-
-    <test name="TEST_RegisterAUser_AZ_AZ">
-        <classes>
-            <class name="Tests.APITests.TESTRegisterAUser"/>
-        </classes>
-    </test>
-
-    <test name="TEST_DeactivationUserAccount.DeactivationUserAccountAZ_AZ">
-        <classes>
-            <class name="Tests.Smoke.TESTDeactivationUserAccount"/>
-        </classes>
-    </test>
-
-    <test name=" TEST_SQLConnect_AZ_AZ">
-        <classes>
-            <class name="Tests.SQLTests.TESTConnectSQL"/>
-        </classes>
-    </test>
-
-    <test name="TEST_AddNewPost_AZ_AZ">
-        <classes>
-            <class name="Tests.Smoke.TESTAddNewPost"/>
-        </classes>
-    </test>
 
     <test name="TEST_PostPageIsAvailable_AZ_AZ">
         <classes>
             <class name="Tests.Smoke.TESTPostPageIsAvailable"/>
         </classes>
     </test>
-
-    <test name="TESTDeactivationOfAnActiveAdvert_AZ_AZ">
+    <test name="TEST_AddNewPost_AZ_AZ">
         <classes>
-            <class name="Tests.GUITests.TESTDeactivationOfAdvert.TESTDeactivationOfAnActiveAdvert"/>
+            <class name="Tests.Smoke.TESTAddNewPost"/>
         </classes>
     </test>
-    <test name="TEST_DeactivationOfAnAdvertInPremoderation_AZ_AZ">
+    <test name="TEST_DeactivationUserAccount.DeactivationUserAccountAZ_AZ">
         <classes>
-            <class name="Tests.GUITests.TESTDeactivationOfAdvert.TESTDeactivationOfAnAdvertInPremoderation"/>
+            <class name="Tests.Smoke.TESTDeactivationUserAccount"/>
         </classes>
     </test>
-    <test name="TEST_CheckVipAdvertsInListing_AZ_AZ">
+    <test name="TEST_PositiveLogin_AZ_AZ">
         <classes>
-            <class name="Tests.GUITests.TESTListing.TESTCheckVipAdvertsInListing"/>
+            <class name="Tests.Smoke.TESTPositiveLogin"/>
         </classes>
     </test>
-    <test name="TEST_CounterOnTheMainPage_AZ_AZ">
+    <test name="TEST_Registration_Positive_AZ_AZ">
         <classes>
-            <class name="Tests.GUITests.TESTCounter.TESTCounterOnTheMainPage"/>
+            <class name="Tests.Smoke.TESTRegistrationPositive"/>
         </classes>
     </test>
-    <test name="TEST_CheckPriceFormat_AZ_AZ">
+    <test name="TEST_Search_AZ_AZ">
         <classes>
-            <class name="Tests.GUITests.TESTListing.TESTCheckPriceFormat"/>
-        </classes>
-    </test>
-    <test name="TEST_CategoryFreebiesHasNoPrice_AZ_AZ">
-        <classes>
-            <class name="Tests.GUITests.TESTListing.TESTCategoryFreebiesHasNoPrice"/>
+            <class name="Tests.Smoke.TESTSearch"/>
         </classes>
     </test>
 

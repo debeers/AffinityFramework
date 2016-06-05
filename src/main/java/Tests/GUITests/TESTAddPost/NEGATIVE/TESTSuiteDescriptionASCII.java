@@ -44,6 +44,7 @@ public class TESTSuiteDescriptionASCII extends BaseTest{
         //
         //Create new post
         //
+        Thread.sleep(1500);
         PostPreviewPage postPreviewPage = makeNewPost(postPage, post, countForPhotoUploads)
                 .clickOnPreviewButtonAndLoadPage();
         log.info("We are on the preview post page, checking data for consistance:::");

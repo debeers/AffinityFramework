@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Affinity full regression suite KG" >
+<suite name="Affinity full regression suite KG_RU" >
 
     <!--Credentials: -->
 
     <parameter name="clientLoginParam"     value="debeers1989@gmail.com"         />
-    <parameter name="clientPasswordParam"  value="roottoor"                     />
+    <parameter name="clientPasswordParam"  value="11111"                     />
     <!--Credentials: END -->
 
     <!--DB CONNECTION -->
@@ -18,6 +18,61 @@
     <parameter name = "URL"  value="http://lalafo.kg/"/>
 
 
+    <test name="TEST_PositiveLogin_KG_RU">
+        <classes>
+            <class name="Tests.Smoke.TESTPositiveLogin"/>
+        </classes>
+    </test>
+    <test name="TEST_Registration_Positive_KG_RU">
+        <classes>
+            <class name="Tests.Smoke.TESTRegistrationPositive"/>
+        </classes>
+    </test>
+    <test name="TESTCheckImagesOnThumbOfAdvert_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckImagesOnThumbOfAdvert"/>
+        </classes>
+    </test>
+    <test name="TESTCheckAdvertsOnTheLastPaginationPage_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckAdvertsOnTheLastPaginationPage"/>
+        </classes>
+    </test>
+    <test name="TESTUpdateTimeCheck_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTUpdateTimeCheck"/>
+        </classes>
+    </test>
+    <test name="TEST_CheckCategoryAndSubcategoryInListing_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckCategoryAndSubcategoryInListing"/>
+        </classes>
+    </test>
+    <test name="TESTCheckCitiesOfAdverts_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckCitiesOfAdvertsInListing"/>
+        </classes>
+    </test>
+    <test name="TESTPropertyParametersCheck_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTPropertyParametersCheck"/>
+        </classes>
+    </test>
+    <test name="TESTLookingForJobCheck_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTLookingForJobCheck"/>
+        </classes>
+    </test>
+    <test name="TESTJobOffersCheck_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTJobOffersCheck"/>
+        </classes>
+    </test>
+    <test name="TESTMotorcyclesYearsOfManufacture_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTMotorcyclesYearsOfManufacture"/>
+        </classes>
+    </test>
     <test name="TEST_PostToAnotherCat_KG_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTPostToOtherCat"/>
@@ -27,6 +82,25 @@
     <test name="TEST_PostWithNegotiablePrice_KG_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTPostNegotiablePrice"/>
+        </classes>
+    </test>
+
+
+    <test name="TESTSubCategoryValidation_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTUndercategoryValidation"/>
+        </classes>
+    </test>
+
+    <test name="TESTThirdSubcategoryValidation_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTThirdSubcategoryValidation"/>
+        </classes>
+    </test>
+
+    <test name="TESTFourthCategoryValidation_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTAddPost.TESTFourthCategoryValidation"/>
         </classes>
     </test>
 
@@ -78,24 +152,17 @@
         </classes>
     </test>
 
-    <!--<test name="TEST_API_getAdById_KG_RU">
+    <!--<test name="TESTAPIgetAdById_KG_RU">
         <classes>
             <class name="Tests.APITests.TESTApiGetAdById"/>
         </classes>
-    </test>-->
-
+    </test>
+-->
     <test name="TEST_PostThirdLevelCat_KG_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTPostThirdLevelCat"/>
         </classes>
     </test>
-
-    <test name="TEST_PostPageIsAvailable_KG_RU">
-        <classes>
-            <class name="Tests.Smoke.TESTPostPageIsAvailable"/>
-        </classes>
-    </test>
-
 
     <test name="TEST_Search_KG_RU">
         <classes>
@@ -115,34 +182,21 @@
         </classes>
     </test>
 
-    <test name=" TEST_SQLConnect_KG_RU">
+    <test name="TEST_SQLConnect_KG_RU">
         <classes>
             <class name="Tests.SQLTests.TESTConnectSQL"/>
+        </classes>
+    </test>
+    <test name="TEST_RegistrationWithAllOperators_KG_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationWithAllOperators"/>
         </classes>
     </test>
 
 
     <test name="TEST_RegisterAUser_KG_RU">
         <classes>
-            <class name="Tests.APITests.TESTRegisterAUser"/>
-        </classes>
-    </test>
-
-    <test name="TESTSubCategoryValidationKG_RU">
-        <classes>
-            <class name="Tests.GUITests.TESTAddPost.TESTUndercategoryValidation"/>
-        </classes>
-    </test>
-
-    <test name="TESTThirdSubcategoryValidation_KG_RU">
-        <classes>
-            <class name="Tests.GUITests.TESTAddPost.TESTThirdSubcategoryValidation"/>
-        </classes>
-    </test>
-
-    <test name="TESTFourthCategoryValidation_KG_RU">
-        <classes>
-            <class name="Tests.GUITests.TESTAddPost.TESTFourthCategoryValidation"/>
+            <class name="Tests.APITests.TESTApiGetAdById"/>
         </classes>
     </test>
 </suite>

@@ -8,6 +8,8 @@
     <entry key="getSubcategoryName">SELECT name FROM category WHERE id=</entry>
     <entry key="getCategoryName">SELECT name FROM category WHERE id=</entry>
     <entry key="separator">_</entry>
+    <entry key="endPartOfQuery">;</entry>
+    <entry key="columnName">name</entry>
 
 
 </properties>

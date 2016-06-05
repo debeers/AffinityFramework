@@ -14,20 +14,20 @@ import java.util.List;
  */
 public class PostAdd {
 
-    public static void setUnderCategoryIfExsist(PostPage postPage, Post post) throws InterruptedException {
+    public static void setUnderCategoryIfExist(PostPage postPage, Post post) throws InterruptedException {
 
         if (!post.getUnderCategory().equals("null"))
             postPage.setUnderCategoryForCertainPages(post.getUnderCategory());
         else
-            System.out.println("Undercategory is not setted");
+            System.out.println("SUBCATEGORY is not set");
     }
 
     public static void setThirdCategoryIfExists(PostPage postPage, Post post) throws InterruptedException {
 
-        if (!post.getThirdCategory().equals("null"))
-            postPage.setThirdCategory(post.getThirdCategory());
-        else
-            System.out.println("Third Category is not set");
+        if (!post.getThirdCategory().equals("null")) {
+            postPage.setThirdCategory(post.getThirdCategory()); }
+        else {
+            System.out.println("Third Category is not set"); }
     }
 
     public static void setAdditionalParameterIfExists(PostPage postPage, Post post) throws InterruptedException {
@@ -105,7 +105,7 @@ public class PostAdd {
             throws InterruptedException, AWTException {
 
         postPage.setCategory(post.getCategory());
-        setUnderCategoryIfExsist(postPage, post);
+        setUnderCategoryIfExist(postPage, post);
         setThirdCategoryIfExists(postPage, post);
         setFourthCategoryIfExists(postPage, post);
         setFourthCategoryYearIfExists(postPage, post);

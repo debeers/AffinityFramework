@@ -23,7 +23,7 @@ public class DataProviderMobileOperators {
             System.out.println("Data Provider or:: AZ_RU suite is used ");
             return result.toArray(new Object[result.size()][]);
         } else if ("TESTRegistrationWithAllOperators_AZ_AZ".equals(testName)) {
-            result.addAll(Arrays.asList(MobileOperators_AZ_RU()));
+            result.addAll(Arrays.asList(MobileOperators_AZ_AZ()));
             System.out.println("Data Provider or:: AZ_AZ suite is used ");
             return result.toArray(new Object[result.size()][]);
         } else if ("TESTRegistrationWithAllOperators_KG_RU".equals(testName)) {
@@ -49,6 +49,18 @@ public class DataProviderMobileOperators {
              {"77"},
              {"40"},
              {"60"}
+        };
+    }
+
+    public static Object[][] MobileOperators_AZ_AZ() {
+        return new Object[][]{
+                {"50"},
+                {"51"},
+                {"55"},
+                {"70"},
+                {"77"},
+                {"40"},
+                {"60"}
         };
     }
 

@@ -19,7 +19,7 @@ public class TESTPropertyParametersCheck extends BaseTest {
 
     @Test(dataProvider = "propertyParametersCheck", dataProviderClass = DataProviderSelector.class)
     public void propertyParametersCheck(String categoryIndex, String subcategoryIndex, String sqlQuery) throws InterruptedException, IOException, SQLException {
-        driver.get(baseUrl + "ad/post/");
+        driver.get(baseUrl + "/ad/post/");
         PostPage postPage = new PostPage(driver);
         postPage.setCategory(categoryIndex);
         postPage.setUnderCategoryForCertainPages(subcategoryIndex);

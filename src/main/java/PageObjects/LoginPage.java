@@ -74,14 +74,14 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
     public UserAccountPage loginAs(WebDriver driver, String email, String password) throws InterruptedException {
         enterEmail(email);
         enterPassword(password);
-        Thread.sleep(2500);
+        Thread.sleep(3500);
         return clickOnLoginButton(driver);
     }
 
     public UserAccountPage loginViaPhone(WebDriver driver, String userPhone, String password) throws InterruptedException {
         enterUserPhone(userPhone);
         enterPassword(password);
-        Thread.sleep(2500);
+        Thread.sleep(3500);
         return clickOnLoginButton(driver);
     }
 

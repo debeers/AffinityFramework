@@ -3,13 +3,13 @@
 
     <!--Test Data -->
 
-    <entry key="CategoryIndex">45</entry>
-    <entry key="UnderCategoryIndex">2</entry>
+    <entry key="CategoryIndex">6</entry>
+    <entry key="UnderCategoryIndex">4</entry>
     <entry key="ThirdCategoryIndex">null</entry>
     <entry key="AdditionalParamMileage">null</entry>
     <entry key="AdditionalParamEngine">null</entry>
     <entry key="AdditionalParam">null</entry>
-    <entry key="FourthCategoryIndex">7</entry>
+    <entry key="FourthCategoryIndex">2</entry>
     <entry key="FourthCategoryYear">null</entry>
     <entry key="FifthCategoryIndex">null</entry>
     <entry key="SixthCategoryIndex">null</entry>

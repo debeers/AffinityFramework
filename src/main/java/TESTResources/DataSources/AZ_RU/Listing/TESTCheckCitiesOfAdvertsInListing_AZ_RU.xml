@@ -4,7 +4,7 @@
     <!--Test Data -->
 
     <entry key="sqlQueryToGetCitiesIds">SELECT city_id FROM ad WHERE id=</entry>
-    <entry key="sqlQueryToGetCitiesNames">SELECT name FROM location WHERE id=</entry>
+    <entry key="sqlQueryToGetCitiesNames">SELECT l_name FROM location_lang WHERE l_id=</entry>
 
     <entry key="separator">_</entry>
 

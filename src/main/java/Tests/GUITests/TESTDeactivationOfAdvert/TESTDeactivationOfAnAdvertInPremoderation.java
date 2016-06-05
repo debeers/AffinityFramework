@@ -33,6 +33,6 @@ public class TESTDeactivationOfAnAdvertInPremoderation extends BaseTest {
         UserAccountPage userAccountPage = loginViaPhone(driver, user);
         userAccountPage.deactivate(postId);
 
-        Assert.assertTrue(!userAccountPage.getConfirmationMessage().isEmpty());
+        Assert.assertTrue(userAccountPage.getConfirmationMessage().isEmpty());
     }
 }

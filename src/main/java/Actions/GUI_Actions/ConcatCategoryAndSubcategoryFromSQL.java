@@ -51,7 +51,7 @@ public class ConcatCategoryAndSubcategoryFromSQL {
         if (!subcategoriesIds.isEmpty()) {
             DBUtill dbUtill = new DBUtill();
             for (int i = 0; i < subcategoriesIds.size(); i++) {
-                getSubcategoryNamesUsingItsIdFromSQL.add(dbUtill.getColumn((props.getProperty("getSubcategoryName") + subcategoriesIds.get(i)), "name"));
+                getSubcategoryNamesUsingItsIdFromSQL.add(dbUtill.getColumn((props.getProperty("getSubcategoryName") + subcategoriesIds.get(i) + props.getProperty("endPartOfQuery")), props.getProperty("columnName")));
             }
         }
 
@@ -64,7 +64,7 @@ public class ConcatCategoryAndSubcategoryFromSQL {
         if (!categoriesIds.isEmpty()) {
             DBUtill dbUtill = new DBUtill();
             for (int i = 0; i < categoriesIds.size(); i++) {
-                getCategoryNameUsingItsIdFromSQL.add(dbUtill.getColumn((props.getProperty("getCategoryName") + categoriesIds.get(i)), "name"));
+                getCategoryNameUsingItsIdFromSQL.add(dbUtill.getColumn((props.getProperty("getCategoryName") + categoriesIds.get(i) + props.getProperty("endPartOfQuery")), props.getProperty("columnName")));
             }
         }
 

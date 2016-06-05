@@ -19,7 +19,7 @@ public class TESTLookingForJobCheck extends BaseTest {
 
     @Test(dataProvider = "lookingForJobCheck" , dataProviderClass = DataProviderSelector.class)
     public void lookingForJobCheck(String categoryIndex, String subcategoryIndex, String sqlQuery) throws InterruptedException, IOException, SQLException {
-        driver.get(baseUrl + "ad/post/");
+        driver.get(baseUrl + "/ad/post/");
         PostPage postPage = new PostPage(driver);
         postPage.setCategory(categoryIndex);
         postPage.setUnderCategoryForCertainPages(subcategoryIndex);

@@ -3,7 +3,7 @@
 
     <!--Test Data -->
 
-    <entry key="localCurrency">man</entry>
+    <entry key="localCurrency">AZN</entry>
     <entry key="usdCurrency">$</entry>
     <entry key="negotiablePrice">razılaşma yolu ilə</entry>
     <entry key="emptyPrice">null</entry>

@@ -26,7 +26,7 @@
     <entry key="TelephoneNumber">515787554</entry>
     <entry key="HideNumber">true</entry>
     <entry key="Email">debeers1989@gmail.com</entry>
-    <entry key="AssertErrorMessage">Ваше объявление было отправлено на проверку</entry>
+    <entry key="successPostingMessage">Ваше объявление было отправлено на проверку</entry>
 
     <entry key="File1">C:\UploadFiles\1.jpg</entry>
     <entry key="File2">C:\UploadFiles\2.jpg</entry>
