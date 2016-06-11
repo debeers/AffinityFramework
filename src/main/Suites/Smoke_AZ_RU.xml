@@ -21,11 +21,7 @@
     <!--Properties: -->
     <parameter name="URL" value="http://lalafo.az/ru"/>
 
-    <test name="TEST_Registration_Positive_AZ_RU">
-        <classes>
-            <class name="Tests.Smoke.TESTRegistrationPositive"/>
-        </classes>
-    </test>
+
     <test name="TEST_Registration_Positive_AZ_RU">
         <classes>
             <class name="Tests.Smoke.TESTRegistrationPositive"/>

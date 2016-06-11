@@ -17,11 +17,7 @@
     <!--Properties: -->
     <parameter name = "URL"  value="http://lalafo.kg/ky"/>
 
-    <test name="TEST_Registration_Positive_KG_KY">
-        <classes>
-            <class name="Tests.Smoke.TESTRegistrationPositive"/>
-        </classes>
-    </test>
+
     <test name="TEST_Registration_Positive_KG_KY">
         <classes>
             <class name="Tests.Smoke.TESTRegistrationPositive"/>
@@ -31,12 +27,6 @@
     <test name="TEST_LoginChangePasswordAndRelogin_KG_KY">
         <classes>
             <class name="Tests.GUITests.TESTLogin.TESTLoginChangePasswordAndRelogin"/>
-        </classes>
-    </test>
-
-    <test name="TEST_PositiveLogin_KG_KY">
-        <classes>
-            <class name="Tests.Smoke.TESTPositiveLogin"/>
         </classes>
     </test>
 

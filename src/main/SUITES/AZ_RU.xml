@@ -21,101 +21,113 @@
     <!--Properties: -->
     <parameter name="URL" value="http://lalafo.az/ru"/>
 
-    <test name="TESTCheckImagesOnThumbOfAdvert_AZ_AZ">
+
+
+    <test name="TESTLoginWithFullPhoneNumber_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTLogin.TESTLoginWithFullPhoneNumber"/>
+        </classes>
+    </test>
+    <test name="TESTLoginWithShortenedPhoneNumber_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTLogin.TESTLoginWithShortenedPhoneNumber"/>
+        </classes>
+    </test>
+    <test name="TESTCheckImagesOnThumbOfAdvert_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTCheckImagesOnThumbOfAdvert"/>
         </classes>
     </test>
-    <test name="TESTCheckAdvertsOnTheLastPaginationPage_AZ_AZ">
+    <test name="TESTCheckAdvertsOnTheLastPaginationPage_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTCheckAdvertsOnTheLastPaginationPage"/>
         </classes>
     </test>
-    <test name="TESTUpdateTimeCheck_AZ_AZ">
+    <test name="TESTUpdateTimeCheck_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTUpdateTimeCheck"/>
         </classes>
     </test>
-    <test name="TEST_CheckCategoryAndSubcategoryInListing_AZ_AZ">
+    <test name="TEST_CheckCategoryAndSubcategoryInListing_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTCheckCategoryAndSubcategoryInListing"/>
         </classes>
     </test>
-    <test name="TESTCheckCitiesOfAdverts_AZ_AZ">
+    <test name="TESTCheckCitiesOfAdverts_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTCheckCitiesOfAdvertsInListing"/>
         </classes>
     </test>
-    <test name="TESTPropertyParametersCheck_AZ_AZ">
+    <test name="TESTPropertyParametersCheck_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTPropertyParametersCheck"/>
         </classes>
     </test>
-    <test name="TESTLookingForJobCheck_AZ_AZ">
+    <test name="TESTLookingForJobCheck_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTLookingForJobCheck"/>
         </classes>
     </test>
-    <test name="TESTJobOffersCheck_AZ_AZ">
+    <test name="TESTJobOffersCheck_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTJobOffersCheck"/>
         </classes>
     </test>
-    <test name="TESTMotorcyclesYearsOfManufacture_AZ_AZ">
+    <test name="TESTMotorcyclesYearsOfManufacture_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTMotorcyclesYearsOfManufacture"/>
         </classes>
     </test>
-    <test name="TEST_PostToAnotherCat_AZ_AZ">
+    <test name="TEST_PostToAnotherCat_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTPostToOtherCat"/>
         </classes>
     </test>
 
-    <test name="TEST_PostWithNegotiablePrice_AZ_AZ">
+    <test name="TEST_PostWithNegotiablePrice_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTPostNegotiablePrice"/>
         </classes>
     </test>
 
 
-    <test name="TESTSubCategoryValidation_AZ_AZ">
+    <test name="TESTSubCategoryValidation_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTUndercategoryValidation"/>
         </classes>
     </test>
 
-    <test name="TESTThirdSubcategoryValidation_AZ_AZ">
+    <test name="TESTThirdSubcategoryValidation_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTThirdSubcategoryValidation"/>
         </classes>
     </test>
 
-    <test name="TESTFourthCategoryValidation_AZ_AZ">
+    <test name="TESTFourthCategoryValidation_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.TESTFourthCategoryValidation"/>
         </classes>
     </test>
 
-        <test name="TESTSuiteIncorrectDataFillin_AZ_AZ">
+        <test name="TESTSuiteIncorrectDataFillin_AZ_RU">
             <classes>
                 <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteIncorrectDataFillin"/>
             </classes>
         </test>
 
-        <test name="TEST_PositiveLogin_AZ_AZ">
+        <test name="TEST_PositiveLogin_AZ_RU">
             <classes>
                 <class name="Tests.Smoke.TESTPositiveLogin"/>
             </classes>
         </test>
 
-        <test name="TEST_SuiteXSSInjections_AZ_AZ">
+        <test name="TEST_SuiteXSSInjections_AZ_RU">
             <classes>
                 <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteXSSInjections"/>
             </classes>
         </test>
 
-        <test name="TEST_AddNewPost_AZ_AZ">
+        <test name="TEST_AddNewPost_AZ_RU">
             <classes>
                 <class name="Tests.Smoke.TESTAddNewPost"/>
             </classes>
@@ -139,50 +151,55 @@
             </classes>
         </test>
 
-        <test name="TEST_DeactivationUserAccount.DeactivationUserAccount_AZ_AZ">
+        <test name="TEST_DeactivationUserAccount.DeactivationUserAccount_AZ_RU">
             <classes>
                 <class name="Tests.GUITests.TESTDeactivationUserAccount.TESTDeactivationUserAccount"/>
             </classes>
         </test>
 
-        <test name="TESTAPIgetAdById_AZ_AZ">
+        <test name="TESTAPIgetAdById_AZ_RU">
             <classes>
                 <class name="Tests.APITests.TESTApiGetAdById"/>
             </classes>
         </test>
 
-        <test name="TEST_PostThirdLevelCat_AZ_AZ">
+        <test name="TEST_PostThirdLevelCat_AZ_RU">
             <classes>
                 <class name="Tests.GUITests.TESTAddPost.TESTPostThirdLevelCat"/>
             </classes>
         </test>
 
-        <test name="TEST_Search_AZ_AZ">
+        <test name="TEST_Search_AZ_RU">
             <classes>
                 <class name="Tests.GUITests.TESTSearch.TESTSearch"/>
             </classes>
         </test>
 
-        <test name="TEST_Registration_Positive_AZ_AZ">
+        <test name="TEST_Registration_Positive_AZ_RU">
             <classes>
                 <class name="Tests.Smoke.TESTRegistrationPositive"/>
             </classes>
         </test>
 
-        <test name="TEST_SuiteAddPostCategoryError_AZ_AZ">
+        <test name="TEST_SuiteAddPostCategoryError_AZ_RU">
             <classes>
                 <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteAddPostCategoryError"/>
             </classes>
         </test>
 
-        <test name="TEST_SQLConnect_AZ_AZ">
+        <test name="TEST_SQLConnect_AZ_RU">
             <classes>
                 <class name="Tests.SQLTests.TESTConnectSQL"/>
             </classes>
         </test>
+    <test name="TEST_RegistrationWithAllOperators_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationWithAllOperators"/>
+        </classes>
+    </test>
 
 
-        <test name="TEST_RegisterAUser_AZ_AZ">
+        <test name="TEST_RegisterAUser_AZ_RU">
             <classes>
                 <class name="Tests.APITests.TESTApiGetAdById"/>
             </classes>

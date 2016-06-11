@@ -22,11 +22,6 @@
             <class name="Tests.Smoke.TESTRegistrationPositive"/>
         </classes>
     </test>
-    <test name="TEST_Registration_Positive_KG_RU">
-        <classes>
-            <class name="Tests.Smoke.TESTRegistrationPositive"/>
-        </classes>
-    </test>
 
     <test name="TEST_LoginChangePasswordAndRelogin_KG_RU">
         <classes>

@@ -23,11 +23,6 @@
             <class name="Tests.Smoke.TESTPositiveLogin"/>
         </classes>
     </test>
-    <test name="TEST_Registration_Positive_KG_RU">
-        <classes>
-            <class name="Tests.Smoke.TESTRegistrationPositive"/>
-        </classes>
-    </test>
     <test name="TESTCheckImagesOnThumbOfAdvert_KG_RU">
         <classes>
             <class name="Tests.GUITests.TESTListing.TESTCheckImagesOnThumbOfAdvert"/>
@@ -107,12 +102,6 @@
     <test name="TESTSuiteIncorrectDataFillin_KG_RU">
         <classes>
             <class name="Tests.GUITests.TESTAddPost.NEGATIVE.TESTSuiteIncorrectDataFillin"/>
-        </classes>
-    </test>
-
-    <test name="TEST_PositiveLogin_KG_RU">
-        <classes>
-            <class name="Tests.Smoke.TESTPositiveLogin"/>
         </classes>
     </test>
 
