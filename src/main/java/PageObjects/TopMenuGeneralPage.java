@@ -59,6 +59,18 @@ public class TopMenuGeneralPage extends BasePageObject {
         return new UserSettingsPage(driver);
     }
 
+    public UserAccountPage clickOnUserAdvertsTab(){
+        mouseOver(driver, loggedInAccountLink);
+        $(myAddsTopMenuUserMenuLink).shouldBe(visible).click();
+        return new UserAccountPage(driver);
+    }
+
+    public UserAccountPage clickOnMyMessagesTab(){
+        mouseOver(driver, userAccountTopMenuLink);
+        $(myMessagesTopMenuUserMenuLink).shouldBe(visible).click();
+        return new UserAccountPage(driver);
+    }
+
     public MainPage clickOnExitFromAccountLink(){
         mouseOver(driver, loggedInAccountLink);
         $(exitTopMenuUserMenuLink).shouldBe(visible).click();
@@ -92,13 +104,35 @@ public class TopMenuGeneralPage extends BasePageObject {
         return new LoginPage(driver);
     }
 
+    public LoginPage clickOnUserAccountLinkEmail(String userEmail) {
+        WebElement accLinc = $(userAccountTopMenuLink).shouldBe(visible);
+
+        if (accLinc.getText().contains(userEmail)) {
+            accLinc.click();
+            return new LoginPage(driver);
+        } else accLinc.click();
+        return new LoginPage(driver);
+    }
+
+    public LoginPage clickOnUserAccountLinkPhone(String userPhone){
+
+        WebElement accLinc = $(userAccountTopMenuLink).shouldBe(visible);
+
+        if(accLinc.getText().contains(userPhone)){
+            accLinc.click();
+            return new LoginPage(driver);
+        }else accLinc.click();
+
+        return new LoginPage(driver);
+    }
+
     public void clickOnLocalizationTopMenuLink(){
         $(localizationTopMenuLink).shouldBe(visible).click();
     }
 
-    public MainPage clickOnAddPostTopMenuButton(){
+    public PostPage clickOnAddPostTopMenuButton(){
         $(postAddTopMenuButton).shouldBe(visible).click();
-        return new MainPage(driver);
+        return new PostPage(driver);
     }
 
     public MainPage clickOnExitTopMenuLink(){

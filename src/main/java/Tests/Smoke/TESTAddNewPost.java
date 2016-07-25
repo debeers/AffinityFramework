@@ -39,7 +39,7 @@ public class TESTAddNewPost extends BaseTest {
         //
         //Create new post
         //
-        PostPreviewPage postPreviewPage = makeNewPost(postPage, post, countForPhotoUploads)
+        PostPreviewPage postPreviewPage = makeNewPost(postPage, post)
                 .clickOnPreviewButtonAndLoadPage();
         log.info("We are on the preview post page, checking data for consistance:::");
 

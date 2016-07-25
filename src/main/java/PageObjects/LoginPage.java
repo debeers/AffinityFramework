@@ -26,14 +26,20 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//input[@id='login_btn']")
     public WebElement loginPageLoginButton;
 
-    @FindBy(xpath = ".//a[@id='password_recovery']")
-    public WebElement loginPageForgotpasswordLink;
+    @FindBy(xpath = ".//*[@id='Login form']//div[@class='login-help-links']/a")
+    public WebElement loginPageForgotPasswordLink;
 
     @FindBy(xpath = ".//*[@id='Login form']/div/div[1]/div/div/div/h4/a")
     public WebElement loginPageRegistrationLink;
 
     @FindBy(xpath = ".//*[@id='Login form']//div[contains(@class,'error-message')]/ul/li[1]")
     public List<WebElement> errorMessagesLoginForm;
+
+    @FindBy(xpath = ".//*[@id='fb-link']")
+    public WebElement facebookLoginButton;
+
+    @FindBy(xpath = ".//*[@id='google-link']")
+    public WebElement googlePlusLoginButton;
 
 
     public LoginPage enterEmail(String email) {
@@ -69,6 +75,29 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
     public RegistrationPage clickOnRegistrationLink(WebDriver driver) throws InterruptedException {
         $(loginPageRegistrationLink).shouldBe(visible).click();
         return new RegistrationPage(driver);
+    }
+
+    public PasswordRecoveryPage clickOnForgotPasswordLink(WebDriver driver) throws InterruptedException {
+        $(loginPageForgotPasswordLink).click();
+        return new PasswordRecoveryPage(driver);
+    }
+
+    public FacebookLoginPage clickOnFacebookLoginButton(WebDriver driver) {
+        $(facebookLoginButton).shouldBe(visible).click();
+        return new FacebookLoginPage(driver);
+    }
+
+    public GooglePlusLoginPage clickOnGooglePlusLoginButton(WebDriver driver) throws InterruptedException {
+        $(googlePlusLoginButton).shouldBe(visible).hover().click();
+        /*Thread.sleep(3000);
+        if ($(googlePlusLoginButton).is(visible)){
+            try {
+                $(googlePlusLoginButton).shouldBe(visible).hover().click();
+            } catch (Exception e) {
+                log.info("Already pressed the button and got to the login page");
+            }*/
+
+        return new GooglePlusLoginPage(driver);
     }
 
     public UserAccountPage loginAs(WebDriver driver, String email, String password) throws InterruptedException {

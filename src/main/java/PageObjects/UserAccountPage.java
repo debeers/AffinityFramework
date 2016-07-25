@@ -1,12 +1,14 @@
 package PageObjects;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -40,11 +42,18 @@ public class UserAccountPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[contains(@id,'_deactivate')]")
     public List<WebElement> myAdverts;
 
+    @FindBy(xpath = ".//tr[@class='account-ads-row']/td/a[@class='name']")
+    public List<WebElement> titlesOfMyAdverts;
+
     @FindBy(xpath = ".//div[@class='container']/div[@role='alert']")
     public WebElement successDeactivationMessage;
 
     public UserAccountPage(WebDriver driver) {
         super(driver);
+    }
+
+    public ElementsCollection getMyAdverts() {
+        return $$(myAdverts);
     }
 
     public void deactivate(String postId) {
@@ -62,6 +71,24 @@ public class UserAccountPage extends TopMenuGeneralPage {
         } catch (StaleElementReferenceException e) {
             System.out.println("The advertisement was deleted, so it can't be found in the cache");
         }
+    }
+
+    public List<String> findIfAdvertIsLinkedToTheAccount(String postId) {
+        List<String> result = new ArrayList<>();
+        try {
+            if (!$$(titlesOfMyAdverts).isEmpty()) {
+                titlesOfMyAdverts
+                        .stream()
+                        .forEach((advert) -> {
+                            if (advert.getAttribute("href").contains(postId)) {
+                                result.add(advert.getAttribute("href"));
+                            }
+                        });
+            }
+        } catch (Exception e) {
+            log.info("Error while processing data");
+        }
+        return result;
     }
 
     public String getConfirmationMessage() {

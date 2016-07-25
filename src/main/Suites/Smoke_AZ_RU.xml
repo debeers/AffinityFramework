@@ -22,6 +22,71 @@
     <parameter name="URL" value="http://lalafo.az/ru"/>
 
 
+    <test name="TESTRecoveryOnThePhone">
+        <classes>
+            <class name="Tests.GUITests.TESTPasswordRecovery.TESTRecoveryOnThePhone"/>
+        </classes>
+    </test>
+    <test name="TESTPasswordRecoveryErrorsCheck_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTPasswordRecovery.TESTPasswordRecoveryErrorsCheck"/>
+        </classes>
+    </test>
+    <test name="TESTPostThenREgisterWithGooglePlusProfile_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTSocialNetworks.TESTPostThenRegisterWithGooglePlusProfile"/>
+        </classes>
+    </test>
+    <test name="TESTPostThenRegisterWithFacebookProfile_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTSocialNetworks.TESTPostThenRegisterWithFacebookProfile"/>
+        </classes>
+    </test>
+    <test name="TESTLinkAdvertsToFacebookProfile_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTSocialNetworks.TESTLinkAdvertsToFacebookProfile"/>
+        </classes>
+    </test>
+    <test name="TESTLinkAdvertsToGooglePlusProfile_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTSocialNetworks.TESTLinkAdvertsToGooglePlusProfile"/>
+        </classes>
+    </test>
+    <test name="TESTRegistrationThroughFacebook_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationThroughFacebook"/>
+        </classes>
+    </test>
+    <test name="TESTRegistrationThroughGooglePlus_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationThroughGooglePlus"/>
+        </classes>
+    </test>
+    <test name="TESTPasswordRecoveryErrorsCheck_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTPasswordRecovery.TESTPasswordRecoveryErrorsCheck"/>
+        </classes>
+    </test>
+    <test name="TESTRegistrationErrorsOfPasswordConfirmFieldCheck_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationErrorsOfPasswordConfirmFieldCheck"/>
+        </classes>
+    </test>
+    <test name="TESTRegistrationErrorsOfPasswordFieldCheck_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationErrorsOfPasswordFieldCheck"/>
+        </classes>
+    </test>
+    <test name="TESTRegistrationErrorsOfEmailFieldCheck_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationErrorsOfEmailFieldCheck"/>
+        </classes>
+    </test>
+    <test name="TESTRegistrationErrorsCheck_AZ_RU">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationErrorsCheck"/>
+        </classes>
+    </test>
     <test name="TEST_Registration_Positive_AZ_RU">
         <classes>
             <class name="Tests.Smoke.TESTRegistrationPositive"/>

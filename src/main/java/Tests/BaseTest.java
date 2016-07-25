@@ -97,19 +97,6 @@ public class BaseTest {
         dc.setCapability(CapabilityType.PROXY, fProfile);
         dc.setJavascriptEnabled(true);
         dc.setCapability(FirefoxDriver.PROFILE, fProfile);
-        //server.blacklistRequests("^(https?:\\/\\/)?(lalafo\\.)", 200);
-        //server.blacklistRequests("^(https?:\\/\\/)?(lalafo\\.)", 101);
-        //server.blacklistRequests("^(https?:\\/\\/)?(lalafo\\.)", 301);
-        /*server.blacklistRequests("\\*.zopim\\.com/.\\*", 101);
-        server.blacklistRequests("https?://.*\\.google-analytics\\.com/.*", 200);
-        server.blacklistRequests("http://.*\\.fbcdn.net/.*", 200);
-        server.blacklistRequests("http://.*\\.facebook.com/.*", 200);
-        server.blacklistRequests("http://.*\\.plusone.google.com/.*", 200);
-        server.blacklistRequests("http://.*\\.zopim\\.com/.*", 200);
-        server.blacklistRequests("http://v2.zopim.com/.*", 200);
-        server.blacklistRequests("http://jp08.zopim.com/.*", 200);
-        server.blacklistRequests("http://jp04.zopim.com/.*", 200);
-        server.blacklistRequests("jp04.zopim.com", 101);*/
 
         driver = WebDriverFactory.getDriver(dc);
         driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
@@ -118,15 +105,7 @@ public class BaseTest {
         WebDriverRunner.setWebDriver(driver);
         server.newHar("lalafo.az");
 
-//        try {
         driver.get(URL);
-
-
-////            Assert.assertTrue(driver.getCurrentUrl().contains(URL), "We are not on main page!"
-////                    + driver.getCurrentUrl() + "  But expected:::: " + URL);
-//        } catch (Exception e) {
-//            System.out.println("<<<<< We are not on the MAIN PAGE >>>>>");
-//        }
     }
 
     @AfterMethod(alwaysRun = true)
@@ -134,7 +113,7 @@ public class BaseTest {
 
         if (ITestResult.FAILURE == result.getStatus()) {
             try {
-                // Create refernce of TakesScreenshot
+                // Create reference of TakesScreenshot
                 TakesScreenshot ts = (TakesScreenshot) driver;
                 Calendar calendar = Calendar.getInstance();
 
@@ -196,9 +175,9 @@ public class BaseTest {
             log.info("HOUSTON, WE HAVE A PROBLEM - DEBUG PLEASE TO CHECK IF A HAR FILE WAS CREATED");
         }
 
-        if (driver.getCurrentUrl() != baseUrl) {
+        /*if (driver.getCurrentUrl() != baseUrl) {
             driver.get(baseUrl + "user/logout");
-        }
+        }*/
 
         driver.manage().deleteAllCookies();
 

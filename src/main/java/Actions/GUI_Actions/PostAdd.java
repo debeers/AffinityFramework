@@ -101,7 +101,7 @@ public class PostAdd {
             System.out.println("THERE IS NO REGION ON THIS WEBSITE: ");
     }
 
-    public static PostPage makeNewPost(PostPage postPage, Post post, int countOfFilesToUpload)
+    public static PostPage makeNewPost(PostPage postPage, Post post)
             throws InterruptedException, AWTException {
 
         postPage.setCategory(post.getCategory());
@@ -115,7 +115,7 @@ public class PostAdd {
         setAdditionalParameterIfExists(postPage, post);
         setAddParamMileageIfExists(postPage, post);
         setAddParamEngineIfExists(postPage, post);
-        postPage.UploadImages(post, countOfFilesToUpload);
+        //postPage.UploadImages(post, countOfFilesToUpload);
         postPage.setPostTitle(post.getTitle());
         postPage.setDescription(post.getDescription());
         ifSetNegotiablePrice(postPage, post);

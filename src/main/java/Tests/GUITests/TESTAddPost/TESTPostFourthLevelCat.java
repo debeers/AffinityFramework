@@ -38,7 +38,7 @@ public class TESTPostFourthLevelCat extends BaseTest {
         log.info("We are on the composing page");
 
         //Create new post
-        YourPostPage yourPostPage = makeNewPost(postPage, post, countForPhotoUploads)
+        YourPostPage yourPostPage = makeNewPost(postPage, post)
                 .clickOnSubmitButton()
                 .clickOnPreviewYourPost();
         log.info("We are on the preview page of your post. Checking data for consistence:::");

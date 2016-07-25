@@ -21,6 +21,10 @@ public class PopulateAdverts {
         return $(element).shouldBe(visible).getText().contains(text);
     }
 
+    public static boolean checkIfElementContainsAdvertId(WebElement element, String advertId) {
+        return $(element).shouldBe(visible).getAttribute("href").contains(advertId);
+    }
+
     public static List<String> populateAdverts(List<WebElement> elements, By element, Properties props) {
         List<String> returnSimpleAdvertsPrices = new ArrayList<>();
         elements.stream().forEach((simple) -> {
@@ -52,6 +56,11 @@ public class PopulateAdverts {
             }
         });
         return returnSimpleAdvertsPrices;
+    }
+
+    public static boolean checkMyAdvertsToHavePostedAdvert(ElementsCollection adverts, String advertId) {
+        adverts.stream().forEach((advert) -> checkIfElementContainsAdvertId(advert, advertId));
+        return true;
     }
 
     public static List<String> pullListText(ElementsCollection elements) {

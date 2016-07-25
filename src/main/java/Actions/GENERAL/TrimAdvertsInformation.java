@@ -55,4 +55,8 @@ public class TrimAdvertsInformation {
         Collections.sort(sortedUpdateTime);
         return sortedUpdateTime;
     }
+
+    public static String trimAdvertIdFromUrl(String advertUrl) {
+        return StringUtils.substringAfterLast(advertUrl , "-");
+    }
 }

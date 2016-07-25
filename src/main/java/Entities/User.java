@@ -61,6 +61,12 @@ public class User extends BaseModel {
         this.userPhone    = userPhone;
         this.guiPassword  = password;
     }
+
+    public User(String userPhone, String userEmail, String password) {
+        this.userPhone    = userPhone;
+        this.email        = userEmail;
+        this.guiPassword  = password;
+    }
     //////////////////////////////////
     ///////API CONSTRUCTORS///////////
 

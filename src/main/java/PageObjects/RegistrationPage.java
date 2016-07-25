@@ -35,6 +35,17 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
     @FindBy(xpath = ".//*[@id='Register form']//div[contains(@class,'error-message')]/ul/li[1]")
     public List<WebElement> errorMessages;
 
+    @FindBy(xpath = ".//*[@id='phone_number']/following-sibling::div/ul/li")
+    public WebElement phoneNumberError;
+
+    @FindBy(xpath = ".//*[@id='user_email']/following-sibling::div/ul/li")
+    public WebElement emailFieldError;
+
+    @FindBy(xpath = ".//*[@id='password']/following-sibling::div/ul/li")
+    public WebElement passwordFieldError;
+
+    @FindBy(xpath = ".//*[@id='password_confirm']/following-sibling::div/ul/li")
+    public WebElement passwordConfirmFieldError;
 
     public RegistrationPage enterMobilePhoneNumber(String mobilePhoneNumber) {
         $(mobilePhoneNumberField).
@@ -89,6 +100,18 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
         }
     }
 
+    public String getPhoneNumberError() {
+        return $(phoneNumberError).getText();
+    }
+
+    public String getEmailFieldError() {
+        return $(emailFieldError).getText();
+    }
+
+    public String getPasswordFieldError() { return $(passwordFieldError).getText(); }
+
+    public String getPasswordConfirmFieldError() { return $(passwordConfirmFieldError).getText(); }
+
     public UserAccountPage enterRegistrationData(String mobilePhoneNumber, String email, String password) throws InterruptedException {
 
         enterMobilePhoneNumber(mobilePhoneNumber);
@@ -112,6 +135,11 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
         enterPassword(password);
         enterConfirmationPassword(password);
         Thread.sleep(2500);
+        return clickOnRegisterButton();
+    }
+
+    public UserAccountPage enterConfirmPassword(String confirmPassword) {
+        enterConfirmationPassword(confirmPassword);
         return clickOnRegisterButton();
     }
 
