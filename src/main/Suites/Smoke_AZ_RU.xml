@@ -62,11 +62,6 @@
             <class name="Tests.GUITests.TESTRegistration.TESTRegistrationThroughGooglePlus"/>
         </classes>
     </test>
-    <test name="TESTPasswordRecoveryErrorsCheck_AZ_RU">
-        <classes>
-            <class name="Tests.GUITests.TESTPasswordRecovery.TESTPasswordRecoveryErrorsCheck"/>
-        </classes>
-    </test>
     <test name="TESTRegistrationErrorsOfPasswordConfirmFieldCheck_AZ_RU">
         <classes>
             <class name="Tests.GUITests.TESTRegistration.TESTRegistrationErrorsOfPasswordConfirmFieldCheck"/>
