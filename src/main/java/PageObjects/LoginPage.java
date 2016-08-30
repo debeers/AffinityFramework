@@ -26,7 +26,7 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//input[@id='login_btn']")
     public WebElement loginPageLoginButton;
 
-    @FindBy(xpath = ".//*[@id='Login form']//div[@class='login-help-links']/a")
+    @FindBy(xpath = ".//*[@class='login-page']//div[@class='login-help-links']/a")
     public WebElement loginPageForgotPasswordLink;
 
     @FindBy(xpath = ".//*[@id='Login form']/div/div[1]/div/div/div/h4/a")

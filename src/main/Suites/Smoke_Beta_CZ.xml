@@ -1,0 +1,172 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Affinity SMOKE suite AZ in RU language">
+
+    <!--Credentials: -->
+
+    <parameter name="clientLoginParam" value="debeers1989@gmail.com"/>
+    <parameter name="clientPasswordParam" value="roottoor"/>
+    <!--Credentials: END -->
+
+    <!--DB CONNECTION -->
+    <parameter name="DB_DRIVER" value="oracle.jdbc.driver.OracleDriver"/>
+    <parameter name="DB_CONNECTION" value="jdbc:mysql://78.47.248.187/lalafo_az"/>
+    <parameter name="DB_USER" value="read_only"/>
+    <parameter name="DB_PASSWORD" value="K3sZwPBEvNv5c7YJ9GMh"/>
+
+    <!--PRE CONDITION -->
+    <parameter name="userLogin" value="Test_User_API@mail.com"/>
+    <parameter name="userPhone" value="+994-701231231"/>
+
+    <!--Properties: -->
+    <parameter name="URL" value="http://beta.lalafo.cz"/>
+
+
+    <test name="TESTRecoveryOnThePhone">
+        <classes>
+            <class name="Tests.GUITests.TESTPasswordRecovery.TESTRecoveryOnThePhone"/>
+        </classes>
+    </test>
+    <test name="TESTPasswordRecoveryErrorsCheck_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTPasswordRecovery.TESTPasswordRecoveryErrorsCheck"/>
+        </classes>
+    </test>
+    <test name="TESTPostThenREgisterWithGooglePlusProfile_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTSocialNetworks.TESTPostThenRegisterWithGooglePlusProfile"/>
+        </classes>
+    </test>
+    <test name="TESTPostThenRegisterWithFacebookProfile_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTSocialNetworks.TESTPostThenRegisterWithFacebookProfile"/>
+        </classes>
+    </test>
+    <test name="TESTLinkAdvertsToFacebookProfile_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTSocialNetworks.TESTLinkAdvertsToFacebookProfile"/>
+        </classes>
+    </test>
+    <test name="TESTLinkAdvertsToGooglePlusProfile_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTSocialNetworks.TESTLinkAdvertsToGooglePlusProfile"/>
+        </classes>
+    </test>
+    <test name="TESTRegistrationThroughFacebook_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationThroughFacebook"/>
+        </classes>
+    </test>
+    <test name="TESTRegistrationThroughGooglePlus_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationThroughGooglePlus"/>
+        </classes>
+    </test>
+    <test name="TESTRegistrationErrorsOfPasswordConfirmFieldCheck_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationErrorsOfPasswordConfirmFieldCheck"/>
+        </classes>
+    </test>
+    <test name="TESTRegistrationErrorsOfPasswordFieldCheck_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationErrorsOfPasswordFieldCheck"/>
+        </classes>
+    </test>
+    <test name="TESTRegistrationErrorsOfEmailFieldCheck_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationErrorsOfEmailFieldCheck"/>
+        </classes>
+    </test>
+    <test name="TESTRegistrationErrorsCheck_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTRegistration.TESTRegistrationErrorsCheck"/>
+        </classes>
+    </test>
+    <test name="TEST_Registration_Positive_Beta_CZ">
+        <classes>
+            <class name="Tests.Smoke.TESTRegistrationPositive"/>
+        </classes>
+    </test>
+
+    <test name="TEST_LoginChangePasswordAndRelogin_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTLogin.TESTLoginChangePasswordAndRelogin"/>
+        </classes>
+    </test>
+
+    <test name="TEST_PositiveLogin_Beta_CZ">
+        <classes>
+            <class name="Tests.Smoke.TESTPositiveLogin"/>
+        </classes>
+    </test>
+
+    <test name="TEST_RegisterAUser_Beta_CZ">
+        <classes>
+            <class name="Tests.APITests.TESTRegisterAUser"/>
+        </classes>
+    </test>
+
+    <test name="TEST_DeactivationUserAccount.DeactivationUserAccount_Beta_CZ">
+        <classes>
+            <class name="Tests.Smoke.TESTDeactivationUserAccount"/>
+        </classes>
+    </test>
+
+    <test name=" TEST_SQLConnect_Beta_CZ">
+        <classes>
+            <class name="Tests.SQLTests.TESTConnectSQL"/>
+        </classes>
+    </test>
+
+    <test name="TEST_AddNewPost_Beta_CZ">
+        <classes>
+            <class name="Tests.Smoke.TESTAddNewPost"/>
+        </classes>
+    </test>
+
+    <test name="TEST_PostPageIsAvailable_Beta_CZ">
+        <classes>
+            <class name="Tests.Smoke.TESTPostPageIsAvailable"/>
+        </classes>
+    </test>
+
+    <test name="TESTDeactivationOfAnActiveAdvert_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTDeactivationOfAdvert.TESTDeactivationOfAnActiveAdvert"/>
+        </classes>
+    </test>
+    <test name="TEST_DeactivationOfAnAdvertInPremoderation_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTDeactivationOfAdvert.TESTDeactivationOfAnAdvertInPremoderation"/>
+        </classes>
+    </test>
+    <test name="TEST_CheckVipAdvertsInListing_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckVipAdvertsInListing"/>
+        </classes>
+    </test>
+    <test name="TEST_CounterOnTheMainPage_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTCounter.TESTCounterOnTheMainPage"/>
+        </classes>
+    </test>
+    <test name="TEST_CheckPriceFormat_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCheckPriceFormat"/>
+        </classes>
+    </test>
+    <test name="TEST_CategoryFreebiesHasNoPrice_Beta_CZ">
+        <classes>
+            <class name="Tests.GUITests.TESTListing.TESTCategoryFreebiesHasNoPrice"/>
+        </classes>
+    </test>
+
+</suite>
+
+
+
+
+
+
+
+

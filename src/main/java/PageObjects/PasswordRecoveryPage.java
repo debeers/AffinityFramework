@@ -11,13 +11,13 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class PasswordRecoveryPage extends TopMenuGeneralPage {
 
-    @FindBy(xpath = ".//*[@id='user_login']")
+    @FindBy(xpath = ".//*[@id='forgotpassword-email']")
     public WebElement userLogin;
 
-    @FindBy(xpath = ".//*[@id='get_password_btn']")
+    @FindBy(xpath = ".//*[@class='btn blue full-input']")
     public WebElement resendPasswordButton;
 
-    @FindBy(xpath = ".//div[@class='error-message']/ul/li[1]")
+    @FindBy(xpath = ".//div[@class='error-message']/div")
     public WebElement userLoginError;
 
     public String getErrorTextOfUserLogin() {
