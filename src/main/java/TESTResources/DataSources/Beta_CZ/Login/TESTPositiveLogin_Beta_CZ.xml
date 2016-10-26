@@ -1,9 +1,0 @@
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-
-    <!--Test Data -->
-
-    <entry key="email">@gmail.com</entry>
-    <entry key="password">roottoor</entry>
-
-</properties>

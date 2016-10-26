@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class MainPage extends TopMenuGeneralPage {
 
-    @FindBy(xpath = ".//a[@id='post_ad_header']")
+    @FindBy(xpath = ".//a[@id='post_advert']")
     public WebElement addNewPostButtonTop;
 
     @FindBy(xpath = ".//input[@id='search_input']")

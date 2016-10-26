@@ -5,24 +5,19 @@ import Entities.LoginObject;
 import GeneralHelpers.Logger;
 import com.codeborne.selenide.WebDriverRunner;
 import net.lightbody.bmp.BrowserMobProxyServer;
-import net.lightbody.bmp.core.har.Har;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-import ru.stqa.selenium.factory.WebDriverFactory;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Calendar;
@@ -31,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    public static WebDriver driver;
+    public static FirefoxDriver driver;
     public static WebDriverWait wait;
     public static String baseUrl;
     public static StringBuffer verificationErrors = new StringBuffer();
@@ -50,12 +45,13 @@ public class BaseTest {
 
         jdbcConnection = new DBConnection().initDBConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
         Registry.Registry.set("dbConnection", jdbcConnection);
-        server = new BrowserMobProxyServer(8082);
+        /*server = new BrowserMobProxyServer();
         try {
             server.start();
+            int por = server.getPort();
         } catch (Exception e) {
             log.info("We are already using this server");
-        }
+        }*/
     }
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
@@ -83,8 +79,8 @@ public class BaseTest {
         FirefoxProfile fProfile = new FirefoxProfile();
         fProfile.setAcceptUntrustedCertificates(true);
         //fProfile.setPreference("webdriver.load.strategy", "unstable");
-        fProfile.setPreference("network.proxy.http", "http://127.0.0.1");
-        fProfile.setPreference("network.proxy.http_port", 8082);
+        //fProfile.setPreference("network.proxy.http", "http://127.0.0.1");
+        //fProfile.setPreference("network.proxy.http_port", 8082);
 
         fProfile.setPreference("browser.download.dir", downloadDir.getAbsolutePath());
         fProfile.setPreference("browser.download.folderList", 2);
@@ -94,16 +90,18 @@ public class BaseTest {
         fProfile.setPreference("network.http.connection-timeout", 5);
 
         DesiredCapabilities dc = DesiredCapabilities.firefox();
-        dc.setCapability(CapabilityType.PROXY, fProfile);
+        //dc.setCapability(CapabilityType.PROXY, fProfile);
         dc.setJavascriptEnabled(true);
         dc.setCapability(FirefoxDriver.PROFILE, fProfile);
+        dc.setCapability("marionette", true);
 
-        driver = WebDriverFactory.getDriver(dc);
+        //System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\geckodriver.exe");
+
+        driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 3);
         driver.manage().window().maximize();
         WebDriverRunner.setWebDriver(driver);
-        server.newHar("lalafo.az");
 
         driver.get(URL);
     }
@@ -147,7 +145,7 @@ public class BaseTest {
 
     @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
-        try {
+        /*try {
 
             Calendar calendar = Calendar.getInstance();
             Har har = server.getHar();
@@ -174,7 +172,7 @@ public class BaseTest {
         } catch (Exception e) {
             log.info("HOUSTON, WE HAVE A PROBLEM - DEBUG PLEASE TO CHECK IF A HAR FILE WAS CREATED");
         }
-
+*/
         /*if (driver.getCurrentUrl() != baseUrl) {
             driver.get(baseUrl + "user/logout");
         }*/
@@ -192,12 +190,12 @@ public class BaseTest {
     public void terminate() throws Exception {
 
 
-        if (!server.isStopped()) {
+        /*if (!server.isStopped()) {
             server.stop();
         } else {
             log.info("Server is already stopped");
 
-        }
+        }*/
         if (!jdbcConnection.isClosed()) {
             jdbcConnection.close();
         }

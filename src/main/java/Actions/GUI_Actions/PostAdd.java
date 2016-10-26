@@ -2,7 +2,10 @@ package Actions.GUI_Actions;
 
 import Entities.Post;
 import PageObjects.PostPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -128,6 +131,71 @@ public class PostAdd {
         postPage.setEmail(post.getEmail());
 
         return postPage;
+    }
+
+    public static PostPage makeNewPost2(PostPage postPage, Post post, FirefoxDriver driver)
+            throws InterruptedException, AWTException {
+
+        postPage.setCategory(post.getCategory());
+        setUnderCategoryIfExist(postPage, post);
+        setThirdCategoryIfExists(postPage, post);
+        setFourthCategoryIfExists(postPage, post);
+        setFourthCategoryYearIfExists(postPage, post);
+        setFifthCategoryIfExists(postPage, post);
+        setSixthCategoryIfExists(postPage, post);
+        setSeventhCategoryIfExists(postPage,post);
+        setAdditionalParameterIfExists(postPage, post);
+        setAddParamMileageIfExists(postPage, post);
+        setAddParamEngineIfExists(postPage, post);
+        //postPage.UploadImages(post, countOfFilesToUpload);
+        postPage.setPostTitle(post.getTitle());
+        postPage.setDescription(post.getDescription());
+        ifSetNegotiablePrice(postPage, post);
+        postPage.setRegion(post.getRegion());
+        setCityIfExists(postPage, post);
+        postPage.setPostAs(post.getPrivacyType());
+        postPage.setName(post.getName());
+        postPage.setTelephoneNumber(post.getPhone());
+        postPage.setHidePhoneNumber(post.isHideNumber());
+        postPage.setEmail(post.getEmail());
+
+        return new PostPage(driver);
+    }
+
+    public static PostPage makeNotBeautifulPost(FirefoxDriver driver) {
+        driver.findElement(By.linkText("Select a category")).click();
+        driver.findElement(By.xpath("//div[@id='categoryId_chosen']//li[.='Garden & Patio Furniture']")).click();
+        driver.findElement(By.id("title")).click();
+        driver.findElement(By.id("title")).clear();
+        driver.findElement(By.id("title")).sendKeys("sadasdasd");
+        driver.findElement(By.id("description")).click();
+        driver.findElement(By.id("description")).clear();
+        driver.findElement(By.id("description")).sendKeys("asdasdasd");
+        driver.findElement(By.id("price")).click();
+        driver.findElement(By.id("price")).clear();
+        driver.findElement(By.id("price")).sendKeys("78");
+        driver.findElement(By.linkText("US$, US Dollar")).click();
+        driver.findElement(By.xpath("//div[@id='currencies_chosen']//li[.='US$, US Dollar']")).click();
+        driver.findElement(By.id("select2-postadform-city_id-container")).click();
+        driver.findElement(By.cssSelector("input.select2-search__field")).click();
+        driver.findElement(By.cssSelector("input.select2-search__field")).clear();
+        driver.findElement(By.cssSelector("input.select2-search__field")).sendKeys("Kandahar");
+        driver.findElement(By.cssSelector("input.select2-search__field")).sendKeys(Keys.RETURN);
+        driver.findElement(By.cssSelector("span.select2-selection.select2-selection--single")).click();
+        driver.findElement(By.cssSelector("span.select2-selection.select2-selection--single")).sendKeys("\n");
+        if (!driver.findElement(By.id("advert_type_2")).isSelected()) {
+            driver.findElement(By.id("advert_type_2")).click();
+        }
+        driver.findElement(By.id("username")).click();
+        driver.findElement(By.id("username")).clear();
+        driver.findElement(By.id("username")).sendKeys("adam");
+        driver.findElement(By.id("phone_number")).click();
+        driver.findElement(By.id("phone_number")).clear();
+        driver.findElement(By.id("phone_number")).sendKeys("+2222222222222");
+        driver.findElement(By.id("email")).click();
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys("adam@gmail.com");
+        return new PostPage(driver);
     }
     //    public String makeDescription(String descriptionParam){
 //

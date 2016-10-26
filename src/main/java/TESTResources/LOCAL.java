@@ -12,7 +12,7 @@ public enum LOCAL {
     RS_EN("http://lalafo.rs/en"   ),     GR_GR("http://lalafo.gr/"       ),
     GR_EN("http://lalafo.gr/en"   ),     AF_Dari("http://lalafo.af"      ),
     AF_PS("http://lalafo.af/ps"   ),     NP_NE("http://lalafo.com.np/ne" ),
-    RS_RS("http://lalafo.rs/"     ),     Beta_CZ("http://beta.lalafo.cz" );
+    RS_RS("http://lalafo.rs/"     ),     CZ_CZ("http://lalafo.cz" );
 
 
     private String URL;

@@ -18,7 +18,7 @@
     <entry key="Description">auto</entry>
     <entry key="Price">78</entry>
     <entry key="CurrencyType">USD</entry>
-    <entry key="IsNegotiable">false</entry>
+    <entry key="isNegotiable">false</entry>
     <entry key="RegionIndex">7</entry>
     <entry key="CityIndex">null</entry>
     <entry key="PostAs">business</entry>

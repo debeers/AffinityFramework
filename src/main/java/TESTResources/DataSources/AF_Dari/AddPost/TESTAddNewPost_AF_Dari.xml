@@ -3,8 +3,8 @@
 
     <!--Test Data -->
 
-    <entry key="CategoryIndex">4</entry>
-    <entry key="UnderCategoryIndex">3</entry>
+    <entry key="CategoryIndex">13</entry>
+    <entry key="UnderCategoryIndex">null</entry>
     <entry key="ThirdCategoryIndex">null</entry>
     <entry key="AdditionalParam">null</entry>
     <entry key="AdditionalParamMileage">null</entry>
@@ -17,13 +17,13 @@
     <entry key="PostTitle">Test Post</entry>
     <entry key="Description">auto</entry>
     <entry key="Price">78</entry>
-    <entry key="CurrencyType">null</entry>
+    <entry key="CurrencyType">USD</entry>
     <entry key="IsNegotiable">false</entry>
-    <entry key="RegionIndex">7</entry>
+    <entry key="RegionIndex">Kandahar</entry>
     <entry key="CityIndex">null</entry>
     <entry key="PostAs">business</entry>
     <entry key="Name">GUI_TEST_USER</entry>
-    <entry key="TelephoneNumber">701787554</entry>
+    <entry key="TelephoneNumber">5555555701787554</entry>
     <entry key="HideNumber">true</entry>
     <entry key="Email">debeers1989@gmail.com</entry>
     <entry key="ExpectedMessage">آگهی شما برای بررسی ارسال شده است</entry>

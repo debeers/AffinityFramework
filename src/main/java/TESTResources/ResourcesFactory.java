@@ -78,8 +78,8 @@ public class ResourcesFactory {
             props = propertyXMLoader(searchResources(DATA_SOURCE_DIR + GR_EN, testName, GR_EN.name()));
             return props;
         }
-        else if(baseUrl.equals(Beta_CZ.getURL())) {
-            props = propertyXMLoader(searchResources(DATA_SOURCE_DIR + Beta_CZ, testName, Beta_CZ.name()));
+        else if(baseUrl.equals(CZ_CZ.getURL())) {
+            props = propertyXMLoader(searchResources(DATA_SOURCE_DIR + CZ_CZ, testName, CZ_CZ.name()));
             return props;
         }
         else System.out.println(">>>>>>>> NO LOCALIZATION FOUND! <<<<<<<<" );

@@ -2,10 +2,12 @@ package PageObjects;
 
 import com.codeborne.selenide.Condition;
 import org.apache.commons.lang.StringUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.awt.*;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -40,8 +42,10 @@ public class PostPreviewPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[@id='edit-ad']")
     public WebElement editButton;
 
-    @FindBy(xpath = ".//*[@id='update-ad']")
+    @FindBy(xpath = "//button[@type='submit']")
     public WebElement addPostButton;
+
+    public final By addPost = By.xpath("//button[@type='submit']");
 
     @FindBy(xpath = "*//div[@class='details']/a[@class='name']")
     public WebElement postedAdName;
@@ -92,10 +96,10 @@ public class PostPreviewPage extends TopMenuGeneralPage {
         return new PostPage(driver);
     }
 
-    public SuccessPostedPage clickOnAddPostButton(){
-        $(addPostButton).
-                shouldBe(Condition.visible).
-                click();
+    public SuccessPostedPage clickOnAddPostButton() throws InterruptedException, AWTException {
+        driver.findElement(By.id("update-ad")).click();
+        /*$(addPostButton).
+                shouldBe(Condition.visible).hover().click();*/
         return new SuccessPostedPage(driver);
     }
 

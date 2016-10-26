@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static GeneralHelpers.JSTools.jsDeleteClassesById;
+import static GeneralHelpers.JSTools.jsDisplayNegotiableCheckbox;
 import static GeneralHelpers.RobotUpload.uploadFile;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -29,7 +30,7 @@ import static com.codeborne.selenide.Selenide.$$;
 public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     @CacheLookup
-    @FindBy(css = "#categoryId_chosen>a")
+    @FindBy(xpath = ".//a[@class='chosen-single']")
     public WebElement categoriesChoose;
 
     @FindBy(xpath = "html/body/div[3]/div[1]")
@@ -155,7 +156,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(id = "loader")
     public WebElement loader;
 
-    @FindBy(xpath = ".//*[@id='decription']")
+    @FindBy(xpath = ".//*[@id='description']")
     public WebElement descriptionField;
 
     @FindBy(xpath = ".//*[@id='price']")
@@ -170,14 +171,17 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='currencies']")
     public WebElement choseCurrency;
 
-    @FindBy(xpath = ".//*[@id='isNegotiable']/..")
+    @FindBy(xpath = ".//label[@class='label-check']")
     public WebElement isNegotiableCheckBox;
 
-    @FindBy(xpath = ".//*[@id='regionId_chosen']/a")
+    @FindBy(xpath = ".//*[@class='select2 select2-container select2-container--bootstrap']")
     public WebElement regionListChoose;
 
     @FindBy(xpath = ".//*[@id='regionId_chosen']//ul/li[contains(@class,'active-result')]")
     public List<WebElement> regionList;
+
+    @FindBy(xpath = ".//*[@class='select2-search__field']")
+    public WebElement regionInput;
 
     @FindBy(xpath = ".//*[@id='for-cities']/div[1]/div/a")
     public WebElement citiesListChoose;
@@ -188,10 +192,10 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='advert_type_private']")
     public WebElement radioButtonPrivate;
 
-    @FindBy(xpath = ".//*[@id='advert_type_business']/..")
+    @FindBy(xpath = ".//*[@id='advert_type_2']/..")
     public WebElement radioButtonBusiness;
 
-    @FindBy(xpath = ".//*[@id='name']")
+    @FindBy(xpath = ".//*[@id='username']")
     public WebElement nameField;
 
     @FindBy(xpath = ".//*[@id='phone_number']")
@@ -427,13 +431,16 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public void checkIsNegotiableCheckBox(boolean isNegotiable) {
-        if (isNegotiable)
-            $(isNegotiableCheckBox).click();
+        jsDisplayNegotiableCheckbox(driver);
     }
 
     public void setRegion(String regionIndex) throws InterruptedException {
-        selectFromDropdawnMenuByIndex(regionListChoose, regionList, regionIndex);
-        waitTillLoaderHides();
+//        $(regionListChoose).shouldBe(visible).clear();
+        $(regionListChoose).shouldBe(visible).click();
+        $(regionInput).shouldBe(visible).sendKeys(regionIndex);
+        $(regionInput).pressEnter();
+//        selectFromDropdawnMenuByIndex(regionListChoose, regionList, regionIndex);
+//        waitTillLoaderHides();
     }
 
     public void setCity(String cityIndex) throws InterruptedException {
@@ -579,6 +586,18 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
                 System.out.println(post.getListOfFiles().get(i).getAbsolutePath());
             }
         }
+    }
+
+    public WebElement getRegionInput() {
+        return regionInput;
+    }
+
+    public void setRegionInput(WebElement regionInput) {
+        this.regionInput = regionInput;
+    }
+
+    public void setLocation(String location) {
+        $(regionInput).shouldBe(visible).sendKeys(location);
     }
 
     public PostPage(WebDriver driver) {

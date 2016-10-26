@@ -14,6 +14,12 @@ public class JSTools {
         js.executeScript(script);
     }
 
+    public static void jsDisplayNegotiableCheckbox(WebDriver driver) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String script = "document.getElementsByClassName('label-check')[0].className += ' checked';";
+        js.executeScript(script);
+    }
+
     public static void jsDeleteClassesByClass(WebDriver driver, String classname) throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         String script = "document.getElementsByClassName('"+classname+"').style.display = 'block';";

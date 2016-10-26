@@ -1,8 +1,0 @@
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-
-    <!--Test Data -->
-
-    <entry key="sqlQueryToGetUpdateTime">SELECT update_time FROM ad WHERE id=</entry>
-    <entry key="separator">_</entry>
-</properties>

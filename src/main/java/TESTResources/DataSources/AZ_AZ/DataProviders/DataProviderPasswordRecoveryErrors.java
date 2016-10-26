@@ -24,7 +24,7 @@ public class DataProviderPasswordRecoveryErrors {
             return results.toArray(new Object[results.size()][]);
         } else if ("TESTPasswordRecoveryErrorsCheck_Beta_CZ".equals(testName)) {
             results.addAll(Arrays.asList(PasswordConfirmFieldErrors_Beta_CZ()));
-            System.out.println("Data Provider for:: Beta_CZ suite is used");
+            System.out.println("Data Provider for:: CZ_CZ suite is used");
             return results.toArray(new Object[results.size()][]);
         }
         return new Object[][]{{"Common test data"}};

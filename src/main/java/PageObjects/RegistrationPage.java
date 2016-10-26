@@ -20,10 +20,10 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
     @FindBy(xpath = ".//*[@id='phone_number']")
     public WebElement mobilePhoneNumberField;
 
-    @FindBy(xpath = ".//*[@id='user_email']")
+    @FindBy(xpath = ".//input[@id='user_email']")
     public WebElement emailField;
 
-    @FindBy(xpath = ".//*[@id='password']")
+    @FindBy(xpath = ".//input[@id='password']")
     public WebElement passwordField;
 
     @FindBy(xpath = ".//*[@id='password_confirm']")
@@ -35,7 +35,7 @@ public class RegistrationPage extends TopMenuGeneralPage implements ErrorHandler
     @FindBy(xpath = ".//*[@id='Register form']//div[contains(@class,'error-message')]/ul/li[1]")
     public List<WebElement> errorMessages;
 
-    @FindBy(xpath = ".//*[@id='phone_number']/following-sibling::div/ul/li")
+    @FindBy(xpath = ".//input[@id='phone_number']/following-sibling::div/ul/li")
     public WebElement phoneNumberError;
 
     @FindBy(xpath = ".//*[@id='user_email']/following-sibling::div/ul/li")

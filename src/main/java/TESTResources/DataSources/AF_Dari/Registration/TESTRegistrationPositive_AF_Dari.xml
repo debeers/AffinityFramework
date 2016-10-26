@@ -2,6 +2,7 @@
 <properties>
 
     <!--Test Data -->
+    <entry key="email">auto</entry>
     <entry key="mobilePhoneNumber">323811</entry>
     <entry key="emailDomain">@gmail.com</entry>
     <entry key="password">roottoor</entry>

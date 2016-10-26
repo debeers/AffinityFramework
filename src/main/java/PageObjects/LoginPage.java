@@ -23,13 +23,16 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//input[@id='user_password']")
     public WebElement loginPagePasswordField;
 
-    @FindBy(xpath = ".//input[@id='login_btn']")
+    @FindBy(xpath = ".//*[@id='login_btn']")
     public WebElement loginPageLoginButton;
+
+    @FindBy(xpath = ".//*[@id='submit']")
+    public WebElement loginPageSubmitButton;
 
     @FindBy(xpath = ".//*[@class='login-page']//div[@class='login-help-links']/a")
     public WebElement loginPageForgotPasswordLink;
 
-    @FindBy(xpath = ".//*[@id='Login form']/div/div[1]/div/div/div/h4/a")
+    @FindBy(xpath = ".//*[@id='registration']")
     public WebElement loginPageRegistrationLink;
 
     @FindBy(xpath = ".//*[@id='Login form']//div[contains(@class,'error-message')]/ul/li[1]")
@@ -62,6 +65,18 @@ public class LoginPage extends TopMenuGeneralPage implements ErrorHandler {
 
     public UserAccountPage clickOnLoginButton(WebDriver driver) {
         $(loginPageLoginButton).shouldBe(visible).click();
+
+        if (getAllFieldsErrors().isEmpty()){
+            return new UserAccountPage(driver);
+        } else {
+            System.out.println(
+                    "Oops, some errors were detected in entering login data and you take a null pointer)");
+            return null;
+        }
+    }
+
+    public UserAccountPage clickOnSubmitButton(WebDriver driver) {
+        $(loginPageSubmitButton).shouldBe(visible).click();
 
         if (getAllFieldsErrors().isEmpty()){
             return new UserAccountPage(driver);
