@@ -12,8 +12,8 @@ public class RestorePassword {
         MainPage mainPage = new MainPage(driver);
         PasswordRecoveryPage passwordRecoveryPage = mainPage.clickOnUserAccountUnAutorizedLink().clickOnForgotPasswordLink(driver);
         passwordRecoveryPage
-                .enterUsernameToRecoverPassword(username)
-                .clickOnSubmitButtonToRestorePassword();
+                .enterUsernameToRecoverPassword(username);
+                //.clickOnSubmitButtonToRestorePassword();
     return new PasswordRecoveryPage(driver);
     }
 

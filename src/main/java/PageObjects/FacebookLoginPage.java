@@ -18,10 +18,10 @@ public class FacebookLoginPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[@id='pass']")
     public WebElement facebookPassword;
 
-    @FindBy(xpath = ".//*[@id='dialog_buttons']//label[@id='loginbutton']//input")
+    @FindBy(xpath = ".//*[@id='u_0_2']")
     public WebElement facebookLoginButton;
 
-    @FindBy(xpath = ".//*[@id='u_0_3']/div[2]/div[3]/button")
+    @FindBy(xpath = ".//*[@id='u_0_4']//*[@name='__CONFIRM__']")
     public WebElement continueButton;
 
 

@@ -53,6 +53,7 @@ public class Registration {
         LoginPage loginPage = mainPage.clickOnUserAccountUnAutorizedLink();
         loginPage
                 .clickOnFacebookLoginButton(driver);
+        System.out.println("CURRENT URL IS ====> " + driver.getCurrentUrl() + "\n WINDOW HANDLE " + driver.getWindowHandle());
         switchToFacebookPopupPageLoginAndSwitchBack(driver , user);
         return new UserAccountPage(driver);
     }

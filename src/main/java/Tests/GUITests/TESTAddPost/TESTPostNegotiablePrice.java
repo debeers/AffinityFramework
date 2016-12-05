@@ -42,7 +42,7 @@ public class TESTPostNegotiablePrice extends BaseTest {
         //
         //Create new post
         //
-        YourPostPage yourPostPage = makeNewPost(postPage, post)
+        YourPostPage yourPostPage = makeNewPost(postPage, post, driver)
                 .clickOnSubmitButton()
                 .clickOnPreviewYourPost();
         log.info("We are on the preview of your post page, checking data for consistance:::");

@@ -22,9 +22,14 @@
     <parameter name = "URL"          value="http://lalafo.tj/"  />
 
 
-    <test name="TESTAddPostLalafoTJ">
+    <test name="TEST_AddNewPost_TJ_TG">
         <classes>
-            <class name="Tests.GUITests.TESTAddPost.TESTAddPostLalafoTJ"/>
+            <class name="Tests.Smoke.TESTAddNewPost"/>
+        </classes>
+    </test>
+    <test name="TESTPasswordRecoveryErrorsCheck_TJ_TG">
+        <classes>
+            <class name="Tests.GUITests.TESTPasswordRecovery.TESTPasswordRecoveryErrorsCheck"/>
         </classes>
     </test>
     <!--<test name=" TEST_SQLConnect_AZ_AZ">

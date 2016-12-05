@@ -15,13 +15,13 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class MainPage extends TopMenuGeneralPage {
 
-    @FindBy(xpath = ".//a[@id='post_advert']")
+    @FindBy(xpath = ".//button[@id='post']")
     public WebElement addNewPostButtonTop;
 
     @FindBy(xpath = ".//input[@id='search_input']")
     public WebElement searchField;
 
-    @FindBy(xpath = ".//a[@id='search_button']")
+    @FindBy(xpath = ".//button[@id='search_button']")
     public WebElement searchButton;
 
     @FindBy(xpath = ".//*[@id='usernames_chosen']/a")
@@ -60,6 +60,11 @@ public class MainPage extends TopMenuGeneralPage {
         return new PostPage(driver);
     }
 
+    public PostPage clickOnAddNewPostButtonLatest() {
+        $(addNewPostButtonTop).shouldBe(visible).click();
+        return new PostPage(driver);
+    }
+
     public ListingPage clickOnFreebiesCategory(){
         if ($(categoryFreebies).isDisplayed()) {
             $(categoryFreebies).click();
@@ -69,7 +74,7 @@ public class MainPage extends TopMenuGeneralPage {
         return new ListingPage(driver);
     }
 
-    public MainPage(WebDriver driver) {
+    public  MainPage(WebDriver driver) {
         super(driver);
     }
 

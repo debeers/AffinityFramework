@@ -2,8 +2,10 @@ package PageObjects;
 
 import Entities.Post;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,10 +16,10 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-import static GeneralHelpers.JSTools.jsDeleteClassesById;
-import static GeneralHelpers.JSTools.jsDisplayNegotiableCheckbox;
+import static GeneralHelpers.JSTools.*;
 import static GeneralHelpers.RobotUpload.uploadFile;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -30,7 +32,7 @@ import static com.codeborne.selenide.Selenide.$$;
 public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     @CacheLookup
-    @FindBy(xpath = ".//a[@class='chosen-single']")
+    @FindBy(xpath = ".//div[@class='chosen-container chosen-container-single chosen-container-single-nosearch']")
     public WebElement categoriesChoose;
 
     @FindBy(xpath = "html/body/div[3]/div[1]")
@@ -46,16 +48,19 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='subcategory_chosen']//div//ul//li[@class='active-result result-selected']")
     public WebElement defaultUnderCategoryById;
 
-    @FindBy(xpath = ".//*[@id='1_subcategory_chosen']//div//ul//li[@class='active-result result-selected']")
+    @FindBy(xpath = ".//*[@id='subcategory_2_chosen']/a")
     public WebElement defaultFirstSubcategory;
 
-    @FindBy(xpath = ".//div//div[@id='1_subcategory_chosen']")
+    @FindBy(xpath = ".//*[@id='subcategory_2']")
     public WebElement firstSubcategoryDiv;
 
-    @FindBy(xpath = ".//*[@id='1_subcategory']/following-sibling::div/a")
+    @FindBy(xpath = ".//*[@id='subcategory_2']")
     public WebElement defaultFirstSubcategoryClick;
 
-    @FindBy(xpath = ".//*[@id='1_subcategory_chosen']//div//ul//li[@class='active-result'][position()>0]")
+    @FindBy(xpath = ".//*[@id='subcategory_2']//option[position()>1]")
+    public List<WebElement> selectSubcategories;
+
+    @FindBy(xpath = ".//*[@id='subcategory_2_chosen']/div/ul/li[position()>1]")
     public List<WebElement> defaultFirstSubcategoriesList;
 
     @CacheLookup
@@ -183,8 +188,11 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@class='select2-search__field']")
     public WebElement regionInput;
 
-    @FindBy(xpath = ".//*[@id='for-cities']/div[1]/div/a")
+    @FindBy(xpath = ".//html/body/span/span/span[1]/input")
     public WebElement citiesListChoose;
+
+    @FindBy(xpath = ".//*[@id='select2-postadform-city_id-container']")
+    public WebElement citiesContainer;
 
     @FindBy(xpath = ".//*[@id='for-cities']/div[1]/div/div/ul/li[@class='active-result'][position()>0]")
     public List<WebElement> citiesList;
@@ -281,6 +289,45 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         }
     }
 
+    public void selectSubCategoryFromList(WebElement element, List<WebElement> list, String index)
+            throws InterruptedException {
+        /*jsEnableSelectDropdown(driver, "subcategory_2");
+        if (!driver.findElement(By.xpath("//select[@id='subcategory_2']//option[4]")).isSelected()) {
+            driver.findElement(By.xpath("//select[@id='subcategory_2']//option[4]")).click();
+        }*/
+
+        /*Select select = new Select(driver.findElement(By.id("subcategory_2")));
+        select.selectByValue(index);*/
+
+        WebElement s2select = driver.findElement(By.id("subcategory_2"));
+        s2select.click();
+        List<WebElement> list2 = s2select.findElements(By.cssSelector("#subcategory_2>option"));
+        for(WebElement option : list2 ) {
+            if(index.equals(option.getAttribute("value"))) {
+                new Actions(driver).moveToElement(option).sendKeys(Keys.ENTER).click().build();
+                option.sendKeys(Keys.ENTER);
+                TimeUnit.SECONDS.sleep(2);
+                option.click();
+                break;
+            }
+        }
+
+        /*$(element).shouldBe(visible).click();
+        try {
+            list
+                    .stream()
+                    .filter(el -> el.getAttribute("value").equals(index))
+                    .forEach(el -> System.out.println("===================" + el.getAttribute("value")));
+            list
+                    .stream()
+                    .filter(el -> el.getAttribute("value").equals(index))
+                    .forEach(el -> el.submit());
+            //        .forEach(el -> $(el).click());
+        } catch (Exception e) {
+            System.out.println("We have caught STALE element exception. Trying to ignore it");
+        }*/
+    }
+
     public List<String> getListCategoriesFromGUI() {
         $(categoriesChoose).shouldBe(visible).click();
         return categoriesList.stream().map((webElement) -> webElement.getText().trim()).collect(Collectors.toList());
@@ -336,26 +383,35 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public PostPage setCategory(String categoryIndex) throws InterruptedException {
-//        jsDisableDropdownCompactView(driver);
+        //jsDisableDropdownCompactView(driver);
         selectFromDropdawnMenuByIndex(categoriesChoose, categoriesList, categoryIndex);
         waitTillLoaderHides();
         return this;
     }
 
     public PostPage setUnderCategory(String underCategoryIndex) throws InterruptedException {
-        if ($(defaultUnderCategoryById).exists()) {
-            selectFromDropdawnMenuByIndex(firstSubCategoryChoose, firstSubCategoriesList, underCategoryIndex);
+        jsEnableSelectDropdown(driver, "subcategory_2");
+        if ($(firstSubcategoryDiv).exists()) {
+            selectSubCategoryFromList(firstSubcategoryDiv, selectSubcategories,underCategoryIndex);
         }
         waitTillLoaderHides();
         return this;
     }
 
+    public PostPage getSubCategoriesList() {
+        if ($(firstSubcategoryDiv).isDisplayed()) {
+            $(firstSubcategoryDiv).click();
+        }
+        return new PostPage(driver);
+    }
+
     public PostPage setUnderCategoryForCertainPages(String underCategoryIndex) throws InterruptedException {
         //jsDisableDropdownCompactViewForSubcategories(driver);
         if ($(firstSubcategoryDiv).isDisplayed()) {
-            selectFromDropdawnMenuByIndex(defaultFirstSubcategoryClick, defaultFirstSubcategoriesList, underCategoryIndex);
+            getSubCategoriesList();
+            selectSubCategoryFromList(firstSubcategoryDiv, selectSubcategories, underCategoryIndex);
         }
-            waitTillLoaderHides();
+            //waitTillLoaderHides();
         return this;
     }
 
@@ -444,9 +500,13 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     }
 
     public void setCity(String cityIndex) throws InterruptedException {
+        $(citiesContainer).shouldBe(visible).click();
         if ($(citiesListChoose).exists()) {
-            selectFromDropdawnMenuByIndex(citiesListChoose, citiesList, cityIndex);
-            waitTillLoaderHides();
+            $(citiesListChoose).click();
+            $(citiesListChoose).sendKeys(cityIndex);
+            $(citiesListChoose).sendKeys(Keys.RETURN);
+            //selectFromDropdawnMenuByIndex(citiesListChoose, citiesList, cityIndex);
+            //waitTillLoaderHides();
         } else {
             log.info("There is no city field on this locale");
         }

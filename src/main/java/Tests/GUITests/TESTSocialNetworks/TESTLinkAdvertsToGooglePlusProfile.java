@@ -30,7 +30,7 @@ public class TESTLinkAdvertsToGooglePlusProfile extends BaseTest {
 
         UserAccountPage userAccountPage = registerUserThroughGooglePlus(driver , user , props.getProperty("cityName"));
         Thread.sleep(10000);
-        SuccessPostedPage successPostedPage = makeNewPost(userAccountPage.clickOnAddPostTopMenuButton(), post)
+        SuccessPostedPage successPostedPage = makeNewPost(userAccountPage.clickOnAddPostTopMenuButton(), post, driver)
                 .clickOnSubmitButton();
         String advertId = successPostedPage.getHrefValue();
         Assert.assertTrue(checkMyAdvertsToHavePostedAdvert(successPostedPage.clickOnUserAdvertsTab().getMyAdverts(), advertId));

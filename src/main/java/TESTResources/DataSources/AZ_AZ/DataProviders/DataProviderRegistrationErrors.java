@@ -62,6 +62,10 @@ public class DataProviderRegistrationErrors {
             results.addAll(Arrays.asList(PasswordConfirmFieldErrors_AZ_RU()));
             System.out.println("Data Provider for:: AZ_RU suite is used");
             return results.toArray(new Object[results.size()][]);
+        } else if ("TESTRegistrationErrorsOfPasswordConfirmFieldCheck_Beta_CZ".equals(testName)) {
+            results.addAll(Arrays.asList(PasswordConfirmFieldErrors_Beta_CZ()));
+            System.out.println("Data Provide for :: Beta_CZ suite is used");
+            return results.toArray(new Object[results.size()][]);
         }
         return new Object[][]{{"Common test data"}};
     }
@@ -109,6 +113,14 @@ public class DataProviderRegistrationErrors {
                 {"root" , "Подтвердить новый пароль"},
                 {"     " , "Необходимо заполнить поле Подтвердить пароль."}
 
+        };
+    }
+
+    public static Object[][] PasswordConfirmFieldErrors_Beta_CZ() {
+        return new Object[][] {
+                {"" , "Heslo nemůže být prázdný."},
+                {"root" , "Incorrect password. Try another or go to password recovery."},
+                {"     " , "Heslo nemůže být prázdný."}
         };
     }
 }

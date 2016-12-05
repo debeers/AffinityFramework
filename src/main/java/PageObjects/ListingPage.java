@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 import static Actions.GUI_Actions.PopulateAdverts.populateAdverts;
 import static Actions.GUI_Actions.PopulateAdverts.pullListText;
 import static GeneralHelpers.DropdownMenuWorker.selectFromDropdawnMenuByIndex;
-import static GeneralHelpers.WindowManagement.windowScale;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -26,7 +25,7 @@ import static com.codeborne.selenide.Selenide.$$;
  */
 public class ListingPage extends TopMenuGeneralPage {
 
-    @FindBy(xpath = ".//*[@id='search_input']")
+    @FindBy(xpath = ".//*[@id='search']")
     public WebElement searchField;
 
     @FindBy(xpath = ".//*[@id='search_button']")
@@ -38,7 +37,7 @@ public class ListingPage extends TopMenuGeneralPage {
     @FindBy(xpath = ".//*[@id='categories_select_chosen']/div/ul/li")
     public List<WebElement> categoriesListDropMenu;
 
-    @FindBy(xpath = ".//*[@id='category-filters']//a[contains(@class,'chosen-single')]")
+    @FindBy(xpath = ".//*[@id='categories_select_chosen']/a/span")
     public WebElement underCategorieMenu;
 
     @FindBy(xpath = ".//*[@id='category-filters']//ul[contains(@class,'chosen-results')]/li")
@@ -121,7 +120,7 @@ public class ListingPage extends TopMenuGeneralPage {
     public List<String> foundEqualsTitlesInSearchResults(String searchRequest) throws InterruptedException {
         List<String> searchResults = new ArrayList<>();
 
-        windowScale(driver, "-", 3);
+//        windowScale(driver, "-", 3);
 
         searchResultTitles.stream().forEach((s) -> {
 
@@ -194,7 +193,8 @@ public class ListingPage extends TopMenuGeneralPage {
 
     public void enterSearchRequest(String searchRequest) throws InterruptedException {
         // jsDeleteClassesByClass(driver, "form-input");
-        $(searchField).shouldBe(visible).sendKeys(searchRequest);
+        $(searchField).shouldBe(visible).click();
+        $(searchField).sendKeys(searchRequest);
     }
 
     public void clickOnSearchButton() {

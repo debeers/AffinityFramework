@@ -31,7 +31,7 @@ public class TopMenuGeneralPage extends BasePageObject {
     @FindBy(xpath = ".//*[@id='language']")
     public WebElement localizationTopMenuLink;
 
-    @FindBy(xpath = ".//*[@id='post_ad_header']")
+    @FindBy(xpath = ".//*[@id='post']")
     public WebElement postAddTopMenuButton;
 
     @FindBy(xpath = ".//*[@id='my_ads']")

@@ -1,5 +1,6 @@
 package GeneralHelpers;
 
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
@@ -26,6 +27,12 @@ public class JSTools {
         js.executeScript(script);
     }
 
+    public static void jsEnableSelectDropdown(WebDriver driver, String idOfTheElement) throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String script = "document.getElementById('"+idOfTheElement+"').style.display = 'block';";
+        js.executeScript(script);
+    }
+
     public static void jsDisableZopim(WebDriver driver) throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         String script = "$('.zopim').remove();";
@@ -44,6 +51,10 @@ public class JSTools {
         js.executeScript(script);
     }
 
+    public static void jsSelectUndercategory(WebDriver driver, String value, String text) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("var value = $(\"" + value + "+select\").find('option:contains(\"" + text + "\")').val();" +
+                "$(\"" + value + "\").select2(\"val\", value);");
 
-
+    }
 }

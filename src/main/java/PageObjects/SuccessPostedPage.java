@@ -18,7 +18,7 @@ import static com.codeborne.selenide.Selenide.$$;
 public class SuccessPostedPage extends TopMenuGeneralPage {
 
 
-    @FindBy(xpath = ".//*[@id='third-step']/div[contains(@class,'_ta-center posting-success')]/div[contains(@class,'title')]")
+    @FindBy(xpath = ".//div[@class='title']")
     public WebElement successMessage;
 
     @FindBy(xpath = ".//*[@id='make_vip']")

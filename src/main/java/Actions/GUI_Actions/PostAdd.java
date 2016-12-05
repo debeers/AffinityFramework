@@ -20,7 +20,7 @@ public class PostAdd {
     public static void setUnderCategoryIfExist(PostPage postPage, Post post) throws InterruptedException {
 
         if (!post.getUnderCategory().equals("null"))
-            postPage.setUnderCategoryForCertainPages(post.getUnderCategory());
+            postPage.setUnderCategory(post.getUnderCategory());
         else
             System.out.println("SUBCATEGORY is not set");
     }
@@ -104,7 +104,7 @@ public class PostAdd {
             System.out.println("THERE IS NO REGION ON THIS WEBSITE: ");
     }
 
-    public static PostPage makeNewPost(PostPage postPage, Post post)
+    public static PostPage makeNewPost(PostPage postPage, Post post, WebDriver driver)
             throws InterruptedException, AWTException {
 
         postPage.setCategory(post.getCategory());

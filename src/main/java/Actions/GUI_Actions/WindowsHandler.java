@@ -19,16 +19,26 @@ public class WindowsHandler {
         Set<String> handles = driver.getWindowHandles();
         for (String handle : handles) {
             popupPage = handle;
+            System.out.println("DRIVER CURRENT URL ===> " + driver.getCurrentUrl());
         }
         driver.switchTo().window(popupPage);
+        System.out.println("DRIVER CURRENT URL ===> " + driver.getCurrentUrl());
         Thread.sleep(2000);
-        facebookLoginPage
+         FacebookLoginPage loginPage = facebookLoginPage
                 .enterUsername(user.getUserPhone())
                 .enterUserPassword(user.getPassword())
-                .clickOnLoginButton()
-                .clickOnContinueButton()
-                .closeFacebookLoginPage();
+                .clickOnLoginButton();
         driver.switchTo().window(oldPage);
+        /*try {
+            loginPage
+                .clickOnContinueButton()
+                .closeFacebookLoginPage(); }
+        catch (Exception e) {
+            System.out.println("SOMETHING WENT WRONG");
+        } finally {
+            driver.switchTo().window(oldPage);
+        }*/
+
         return new FacebookLoginPage(driver);
     }
 
@@ -41,7 +51,7 @@ public class WindowsHandler {
             popupPage = handle;
         }
         driver.switchTo().window(popupPage);
-        System.out.println(driver.getCurrentUrl());
+        System.out.println("CURRENT URL ====> " + driver.getCurrentUrl());
         Thread.sleep(2000);
         googlePlusLoginPage
                 .enterGoogleEmail(user.getUserPhone())

@@ -26,7 +26,6 @@ public class TESTAddNewPost extends BaseTest {
         Properties props = new ResourcesFactory().getResources("AddNewPost");
 
         Post post = new Post(props);
-        int countForPhotoUploads = 0;
 
         //Go to main page
         //
@@ -62,8 +61,8 @@ public class TESTAddNewPost extends BaseTest {
         SuccessPostedPage successPostedPage = postPreviewPage.clickOnAddPostButton();
         log.info("We are on the success post page, checking data for consistence:::");
 
-        Assert.assertTrue(successPostedPage.makeVipPost.isDisplayed());
-        Assert.assertTrue(successPostedPage.markPost.isDisplayed());
+//        Assert.assertTrue(successPostedPage.makeVipPost.isDisplayed());
+//        Assert.assertTrue(successPostedPage.markPost.isDisplayed());
         String tmp = new String($(successPostedPage.successMessage).getText().getBytes(Charset.forName("utf-8")));
         String assertMessage = new String(props.getProperty("ExpectedMessage").getBytes(Charset.forName("utf-8")));
         Assert.assertEquals(tmp,

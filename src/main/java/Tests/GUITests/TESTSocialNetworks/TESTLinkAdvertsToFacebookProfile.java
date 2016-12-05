@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import java.awt.*;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import static Actions.GUI_Actions.PopulateAdverts.checkMyAdvertsToHavePostedAdvert;
 import static Actions.GUI_Actions.PostAdd.makeNewPost;
@@ -23,14 +24,14 @@ import static Actions.GUI_Actions.Registration.registerUserThroughFacebook;
 public class TESTLinkAdvertsToFacebookProfile extends BaseTest {
 
     @Test
-    public void linkAdvertsToGooglePlusProfile() throws AWTException, InterruptedException, IOException {
+    public void linkAdvertsToFaceBookProfile() throws AWTException, InterruptedException, IOException {
         Properties props = new ResourcesFactory().getResources("LinkAdvertsToFacebookProfile");
         Post post = new Post(props);
         User user = new User(props.getProperty("Email") , props.getProperty("password"));
 
         UserAccountPage userAccountPage = registerUserThroughFacebook(driver , user);
-        Thread.sleep(10000);
-        SuccessPostedPage successPostedPage = makeNewPost(userAccountPage.clickOnAddPostTopMenuButton(), post)
+        TimeUnit.SECONDS.sleep(5);
+        SuccessPostedPage successPostedPage = makeNewPost(userAccountPage.clickOnAddPostTopMenuButton(), post, driver)
                 .clickOnSubmitButton();
         String advertId = successPostedPage.getHrefValue();
         Assert.assertTrue(checkMyAdvertsToHavePostedAdvert(successPostedPage.clickOnUserAdvertsTab().getMyAdverts(), advertId));

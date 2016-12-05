@@ -3,7 +3,6 @@ package Tests.GUITests.TESTSocialNetworks;
 import Entities.Post;
 import Entities.User;
 import PageObjects.MainPage;
-import PageObjects.PostPage;
 import PageObjects.SuccessPostedPage;
 import PageObjects.UserAccountPage;
 import TESTResources.ResourcesFactory;
@@ -16,7 +15,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import static Actions.GUI_Actions.PopulateAdverts.checkMyAdvertsToHavePostedAdvert;
-import static Actions.GUI_Actions.PostAdd.makeNewPost;
+import static Actions.GUI_Actions.PostAdd.makeNewPost2;
 import static Actions.GUI_Actions.Registration.registerUserThroughGooglePlus;
 
 /**
@@ -31,8 +30,8 @@ public class TESTPostThenRegisterWithGooglePlusProfile extends BaseTest {
         User user = new User(props.getProperty("Email") , props.getProperty("password"));
 
         MainPage mainPage = new MainPage(driver);
-        PostPage postPage = mainPage.clickOnAddNewPostButton();
-        SuccessPostedPage successPostedPage = makeNewPost(postPage.clickOnAddPostTopMenuButton(), post)
+
+        SuccessPostedPage successPostedPage = makeNewPost2(mainPage.clickOnAddPostTopMenuButton(), post, driver)
                 .clickOnSubmitButton();
         String advertId = successPostedPage.getHrefValue();
         UserAccountPage userAccountPage = registerUserThroughGooglePlus(driver , user , props.getProperty("cityName"));

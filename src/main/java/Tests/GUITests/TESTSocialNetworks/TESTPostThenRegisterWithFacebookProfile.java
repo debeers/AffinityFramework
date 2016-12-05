@@ -32,7 +32,7 @@ public class TESTPostThenRegisterWithFacebookProfile extends BaseTest {
 
         MainPage mainPage = new MainPage(driver);
         PostPage postPage = mainPage.clickOnAddNewPostButton();
-        SuccessPostedPage successPostedPage = makeNewPost(postPage.clickOnAddPostTopMenuButton(), post)
+        SuccessPostedPage successPostedPage = makeNewPost(postPage.clickOnAddPostTopMenuButton(), post, driver)
                 .clickOnSubmitButton();
         String advertId = successPostedPage.getHrefValue();
         UserAccountPage userAccountPage = registerUserThroughFacebook(driver , user);

@@ -4,7 +4,7 @@
     <!--Test Data -->
 
     <entry key="CategoryIndex">4</entry>
-    <entry key="UnderCategoryIndex">3</entry>
+    <entry key="UnderCategoryIndex">1467</entry>
     <entry key="ThirdCategoryIndex">null</entry>
     <entry key="AdditionalParam">null</entry>
     <entry key="AdditionalParamMileage">null</entry>
@@ -19,11 +19,11 @@
     <entry key="Price">78</entry>
     <entry key="CurrencyType">USD</entry>
     <entry key="IsNegotiable">false</entry>
-    <entry key="RegionIndex">7</entry>
+    <entry key="RegionIndex">Айни</entry>
     <entry key="CityIndex">1</entry>
     <entry key="PostAs">business</entry>
     <entry key="Name">GUI_TEST_USER</entry>
-    <entry key="TelephoneNumber">901787554</entry>
+    <entry key="TelephoneNumber">901787554777777777</entry>
     <entry key="HideNumber">true</entry>
     <entry key="Email">debeers1989@gmail.com</entry>
     <entry key="ExpectedMessage">Эълон барои таҳрир ирсол шуд</entry>

@@ -32,7 +32,7 @@ public class DataProviderPasswordRecoveryErrors {
 
     public static Object[][] PasswordConfirmFieldErrors_AZ_RU() {
         return new Object[][] {
-                {"" , "Необходимо заполнить поле Телефон или Email."},
+                {",." , "Необходимо заполнить поле Телефон или Email."},
                 {"justAnUnknownUser" , "User doesn't exist"},
                 {"45454545454545" , "Неверное поле \"Телефон или Email\""},
                 {"#$%^&*@" , "Неверное поле \"Телефон или Email\""},
@@ -44,7 +44,7 @@ public class DataProviderPasswordRecoveryErrors {
 
     public static Object[][] PasswordConfirmFieldErrors_Beta_CZ() {
         return new Object[][] {
-                {"" , "Email or phone cannot be blank."},
+                {",." , "Email or phone cannot be blank."},
                 {"justAnUnknownUser" , "User doesn't exist"},
                 {"45454545454545" , "User doesn't exist"},
                 {"#$%^&*@" , "User doesn't exist"},

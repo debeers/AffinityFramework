@@ -26,7 +26,7 @@ public class TESTAddPostLalafoAF extends BaseTest {
     @Test
     public void lalafoAF() throws InterruptedException {
         //driver.get("http://lalafo.af/");
-        driver.findElement(By.id("post_advert")).click();
+        driver.findElement(By.id("post")).click();
         driver.findElement(By.linkText("Select a category")).click();
         driver.findElement(By.xpath("//div[@id='categoryId_chosen']//li[.='Garden & Patio Furniture']")).click();
         driver.findElement(By.id("title")).click();

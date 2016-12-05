@@ -21,13 +21,13 @@
     <!--Properties: -->
     <parameter name = "URL"          value="http://lalafo.af"  />
 
-    <!--<test name="TEST_Registration_Positive_AF_Dari">
+    <test name="TEST_Registration_Positive_AF_Dari">
         <classes>
             <class name="Tests.Smoke.TESTRegistrationPositive"/>
         </classes>
-    </test>-->
+    </test>
 
-    <!--<test name="TEST_PositiveLogin_AF_Dari">
+    <test name="TEST_PositiveLogin_AF_Dari">
         <classes>
             <class name="Tests.Smoke.TESTPositiveLogin"/>
         </classes>
@@ -39,17 +39,13 @@
         </classes>
     </test>
 
-    <test name=" TEST_SQLConnect_AF_Dari">
+    <test name="TEST_SQLConnect_AF_Dari">
         <classes>
             <class name="Tests.SQLTests.TESTConnectSQL"/>
         </classes>
-    </test>-->
-
-    <test name="TEST_AddPostLalafoAf">
-        <classes>
-            <class name="Tests.GUITests.TESTAddPost.TESTAddPostLalafoAF"/>
-        </classes>
     </test>
+
+
     <test name="TEST_AddNewPost_AF_Dari">
         <classes>
             <class name="Tests.Smoke.TESTAddNewPost"/>

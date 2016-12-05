@@ -1,5 +1,6 @@
 package PageObjects;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,7 +27,9 @@ public class PasswordRecoveryPage extends TopMenuGeneralPage {
 
     public PasswordRecoveryPage enterUsernameToRecoverPassword(String username) {
         if ($(userLogin).isDisplayed()) {
+            $(userLogin).click();
             $(userLogin).sendKeys(username);
+            $(userLogin).sendKeys(Keys.RETURN);
         } else {
             log.info("There were errors finding 'USER LOGIN INPUT'");
         }

@@ -19,10 +19,10 @@
     <parameter name="userPhone" value="+994-701231231"/>
 
     <!--Properties: -->
-    <parameter name="URL" value="http://lalafo.cz"/>
+    <parameter name="URL" value="http://beta.lalafo.cz"/>
 
 
-    <test name="TEST_AddNewPost_Beta_CZ">
+   <!-- <test name="TEST_AddNewPost_Beta_CZ">
         <classes>
             <class name="Tests.Smoke.TESTAddNewPost"/>
         </classes>
@@ -31,7 +31,7 @@
         <classes>
             <class name="Tests.GUITests.TESTPasswordRecovery.TESTPasswordRecoveryErrorsCheck"/>
         </classes>
-    </test>
+    </test>-->
     <test name="TESTPostThenREgisterWithGooglePlusProfile_Beta_CZ">
         <classes>
             <class name="Tests.GUITests.TESTSocialNetworks.TESTPostThenRegisterWithGooglePlusProfile"/>

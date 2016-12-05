@@ -60,11 +60,10 @@ public class BaseTest {
 
         clientLogin = new LoginObject(clientLoginParam, clientPasswordParam);
         baseUrl = URL;
-
     }
 
     @Parameters({"URL", "clientLoginParam", "clientPasswordParam"})
-    @BeforeClass(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUp(String URL, String clientLoginParam, String clientPasswordParam)
             throws ClassNotFoundException, IOException, SQLException, InterruptedException {
 
@@ -95,9 +94,10 @@ public class BaseTest {
         dc.setCapability(FirefoxDriver.PROFILE, fProfile);
         dc.setCapability("marionette", true);
 
-        //System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\geckodriver.exe");
 
-        driver = new FirefoxDriver();
+        driver = new FirefoxDriver(dc);
+        driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 3);
         driver.manage().window().maximize();
@@ -140,7 +140,15 @@ public class BaseTest {
 
                 System.out.println("Exception while taking screenshot " + e.getMessage());
             }
+        } else {
+        driver.manage().deleteAllCookies();
+
+        String verificationErrorString = verificationErrors.toString();
+        if (!"".equals(verificationErrorString)) {
+            Assert.fail(verificationErrorString);
         }
+        }
+        driver.quit();
     }
 
     @AfterClass(alwaysRun = true)
@@ -177,12 +185,6 @@ public class BaseTest {
             driver.get(baseUrl + "user/logout");
         }*/
 
-        driver.manage().deleteAllCookies();
-
-        String verificationErrorString = verificationErrors.toString();
-        if (!"".equals(verificationErrorString)) {
-            Assert.fail(verificationErrorString);
-        }
 
     }
 
@@ -199,6 +201,6 @@ public class BaseTest {
         if (!jdbcConnection.isClosed()) {
             jdbcConnection.close();
         }
-        driver.close();
+
     }
 }
