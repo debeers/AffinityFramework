@@ -5,11 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
@@ -176,6 +174,12 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
     @FindBy(xpath = ".//*[@id='currencies']")
     public WebElement choseCurrency;
 
+    @FindBy(xpath = ".//*[@id='currencies_chosen']/a")
+    public WebElement chosenCurrency;
+
+    @FindBy(xpath = ".//*[@id='currencies_chosen']//li")
+    public List<WebElement> listOfCurrencies;
+
     @FindBy(xpath = ".//label[@class='label-check']")
     public WebElement isNegotiableCheckBox;
 
@@ -299,18 +303,7 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         /*Select select = new Select(driver.findElement(By.id("subcategory_2")));
         select.selectByValue(index);*/
 
-        WebElement s2select = driver.findElement(By.id("subcategory_2"));
-        s2select.click();
-        List<WebElement> list2 = s2select.findElements(By.cssSelector("#subcategory_2>option"));
-        for(WebElement option : list2 ) {
-            if(index.equals(option.getAttribute("value"))) {
-                new Actions(driver).moveToElement(option).sendKeys(Keys.ENTER).click().build();
-                option.sendKeys(Keys.ENTER);
-                TimeUnit.SECONDS.sleep(2);
-                option.click();
-                break;
-            }
-        }
+        jsSelectUndercategory(driver, index);
 
         /*$(element).shouldBe(visible).click();
         try {
@@ -471,8 +464,10 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
         $(titleField).shouldBe(visible).sendKeys(title);
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description) throws InterruptedException {
         $(descriptionField).shouldBe(visible).sendKeys(description);
+        TimeUnit.SECONDS.sleep(3);
+        $(descriptionField).pressTab();
     }
 
     public void setPrice(String price) {
@@ -482,8 +477,9 @@ public class PostPage extends TopMenuGeneralPage implements ErrorHandler {
 
     public void setCurrency(String currency) throws InterruptedException {
         jsDeleteClassesById(driver, "currencies");
-        Select dropdown = new Select(choseCurrency);
-        dropdown.selectByValue(currency);
+        selectFromDropdawnMenuByIndex(chosenCurrency, listOfCurrencies, currency);
+        //Select dropdown = new Select(choseCurrency);
+        //dropdown.selectByValue(currency);
     }
 
     public void checkIsNegotiableCheckBox(boolean isNegotiable) {

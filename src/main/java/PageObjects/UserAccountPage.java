@@ -2,9 +2,11 @@ package PageObjects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
@@ -34,6 +36,12 @@ public class UserAccountPage extends TopMenuGeneralPage {
 
     @FindBy(xpath = ".//a[@id='my_settings_tab']")
     public WebElement mySettingsUserNav;
+
+    @FindBy(xpath = ".//a[@id='my_exit']")
+    public WebElement myExitUserNav;
+
+    @FindBy(xpath = ".//a[@id='my_exit']//parent::li/parent::ul/parent::div/parent::div//a[@class='account-link']")
+    public WebElement topAccountMenu;
 
     @FindBy(xpath = ".//div[contains(@class,'alert alert-success alert-dismissible')]")
     public WebElement successRegistrationAllert;
@@ -93,5 +101,20 @@ public class UserAccountPage extends TopMenuGeneralPage {
 
     public String getConfirmationMessage() {
         return $(successDeactivationMessage).shouldBe(Condition.visible).getText();
+    }
+
+    public MainPage logoutFromAccount() {
+        Actions hoverToTopMenuAndExit = new Actions(driver);
+        hoverToTopMenuAndExit
+                .moveToElement(driver.findElement(By.xpath(".//a[@id='my_exit']//parent::li/parent::ul/parent::div/parent::div")));
+        hoverToTopMenuAndExit
+                .moveToElement(driver.findElement(By.xpath(".//a[@id='my_exit']")));
+        hoverToTopMenuAndExit
+                .click();
+        hoverToTopMenuAndExit
+                .perform();
+        //$(topAccountMenu).shouldBe(Condition.visible).;
+        //$(myExitUserNav).shouldBe(Condition.visible).click();
+        return new MainPage(driver);
     }
 }

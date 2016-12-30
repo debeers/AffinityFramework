@@ -1,0 +1,11 @@
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <!--Test Data -->
+    <entry key="mobilePhoneNumber">3238117777777777</entry>
+    <entry key="email">auto</entry>
+    <entry key="emailDomain">@gmail.com</entry>
+    <entry key="password">roottoor</entry>
+    <entry key="phonePrefix">901</entry>
+
+</properties>

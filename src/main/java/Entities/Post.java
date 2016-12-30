@@ -102,7 +102,7 @@ public class Post {
         this.title                         = props.getProperty("PostTitle");
         this.description                   = props.getProperty("Description")
                                             .equalsIgnoreCase("auto")
-                                            ? RandomStringUtils.randomAlphabetic(50)
+                                            ? RandomStringUtils.randomAlphabetic(25)
                                             : props.getProperty("Description");
         this.price                         = props.getProperty("Price");
         this.currencyType                  = props.getProperty("CurrencyType");

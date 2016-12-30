@@ -51,10 +51,20 @@ public class JSTools {
         js.executeScript(script);
     }
 
-    public static void jsSelectUndercategory(WebDriver driver, String value, String text) {
+    public static void jsSelectUndercategory(WebDriver driver, String value) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("var value = $(\"" + value + "+select\").find('option:contains(\"" + text + "\")').val();" +
-                "$(\"" + value + "\").select2(\"val\", value);");
+        String script = "var selectobject=document.getElementById(\"subcategory_2\")\n" +
+                "\n" +
+                "for (var i=0; i<selectobject.length; i++){\n" +
+                "\n" +
+                "  if (selectobject.options[i].value == '"+value+"') {\n" +
+                "\n" +
+                "     selectobject.options[i].setAttribute('selected',\"\")\n" +
+                "\n" +
+                "  }\n" +
+                "\n" +
+                "}";
+        js.executeScript(script);
 
     }
 }

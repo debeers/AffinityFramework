@@ -7,7 +7,7 @@ public enum LOCAL {
 
     AZ_RU("http://lalafo.az/ru"   ),     AZ_AZ("http://beta.lalafo.az/"        ),
     KG_RU("http://lalafo.kg/"     ),     KG_KY("http://lalafo.kg/ky"     ),
-    TJ_RU("http://lalafo.tj/"     ),     TJ_TG("http://lalafo.tj/tg"     ),
+    TJ_RU("http://lalafo.tj/"     ),     TJ_TG("http://blalafo.com/"     ),
     AF_EN("http://lalafo.af/en"   ),     NP_EN("http://lalafo.com.np"    ),
     RS_EN("http://lalafo.rs/en"   ),     GR_GR("http://lalafo.gr/"       ),
     GR_EN("http://lalafo.gr/en"   ),     AF_Dari("http://lalafo.af"      ),

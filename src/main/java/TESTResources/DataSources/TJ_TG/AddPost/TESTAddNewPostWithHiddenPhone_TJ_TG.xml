@@ -4,7 +4,7 @@
     <!--Test Data -->
 
     <entry key="CategoryIndex">4</entry>
-    <entry key="UnderCategoryIndex">2726</entry>
+    <entry key="UnderCategoryIndex">1467</entry>
     <entry key="ThirdCategoryIndex">null</entry>
     <entry key="AdditionalParam">null</entry>
     <entry key="AdditionalParamMileage">null</entry>
@@ -15,17 +15,17 @@
     <entry key="SixthCategoryIndex">null</entry>
     <entry key="SeventhCategoryIndex">null</entry>
     <entry key="PostTitle">Test Post</entry>
-    <entry key="Description">Prodam deshego i serdito</entry>
+    <entry key="Description">auto</entry>
     <entry key="Price">78</entry>
-    <entry key="CurrencyType">0</entry>
+    <entry key="CurrencyType">USD</entry>
     <entry key="IsNegotiable">false</entry>
-    <entry key="RegionIndex">Arandjelovac</entry>
-    <entry key="CityIndex">Arandjelovac</entry>
+    <entry key="RegionIndex">Айни</entry>
+    <entry key="CityIndex">Айни</entry>
     <entry key="PostAs">business</entry>
     <entry key="Name">GUI_TEST_USER</entry>
     <entry key="TelephoneNumber">9017875547777777</entry>
-    <entry key="HideNumber">false</entry>
-    <entry key="Email">bigmax2003@gmail.com</entry>
+    <entry key="HideNumber">true</entry>
+    <entry key="Email">debeers1989@gmail.com</entry>
     <entry key="ExpectedMessage">Эълон барои таҳрир ирсол шуд</entry>
 
     <entry key="File1">C:\UploadFiles\1.jpg</entry>
